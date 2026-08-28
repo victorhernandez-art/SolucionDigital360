@@ -1,0 +1,28 @@
+# Archivos de Office descargados (pesados, no distribuir)
+Office/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Build / dist
+build/
+dist/
+*.spec.bak
+
+# Logs
+*.log
+
+# Entornos virtuales
+venv/
+env/
+.env
+
+# IDEs
+.vscode/
+.idea/
+*.suo
+*.user
