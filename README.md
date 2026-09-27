@@ -129,7 +129,13 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.2.2 — Septiembre 2026 (Actualización Reciente)
+### 📌 Versión 1.2.3 — Septiembre 2026 (Actualización Reciente)
+- **🏋️ GymWeb (Sistema de Gimnasios):**
+  - **Contador Dinámico de Descargas:** Implementado en la tarjeta de descarga ([components/DownloadCtaCard.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/DownloadCtaCard.tsx)) con base inicial de **`+364 Descargas del Instalador`** para generar confianza y prueba social.
+  - **Persistencia y API:** Endpoint `app/api/downloads/route.ts` y almacenamiento `data/downloads.json` actualizados para gestionar contadores independientes por sistema (`gimnasio_downloads` y `taller_demo_downloads`), incrementando de manera real cada vez que un usuario hace clic en *Descargar Instalador*.
+  - **Mensajería WhatsApp Contextual:** Mensaje predeterminado de solicitud de clave adaptado a `"mi gimnasio"` de forma automática.
+
+### 📌 Versión 1.2.2 — Septiembre 2026
 - **Sistema de Gestión de Citas y Agendamiento Online:**
   - **Precio oficial:** Configurado en **`$1,500.00 MXN`** bajo esquema de *Único pago*.
   - **Estado desactivado (`proximamente: true`):** Muestra badge `Próximamente`, precio visible y botón deshabilitado `Próximamente Disponible`. La ruta `/sistemas/sistema-gestion-citas` se mantiene inactiva (404 controlado) mientras concluye su desarrollo.

@@ -360,6 +360,7 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
 
         {/* TARJETA CTA CON INFORMACIÓN DE PRECIOS, DESCARGAS Y BOTONES */}
         <DownloadCtaCard
+          sistemaSlug={sistema.slug}
           sistemaNombre={sistema.nombre}
           whatsappUrl={whatsappUrl}
           isTallerSystem={isTallerSystem}

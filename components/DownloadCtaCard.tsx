@@ -16,6 +16,7 @@ interface DownloadCtaCardProps {
   megaLink?: string;
   isTallerSystem?: boolean;
   downloadUrl?: string;
+  sistemaSlug?: string;
 }
 
 export default function DownloadCtaCard({
@@ -23,15 +24,20 @@ export default function DownloadCtaCard({
   whatsappUrl,
   megaLink = "https://mega.nz",
   isTallerSystem = true,
-  downloadUrl
+  downloadUrl,
+  sistemaSlug
 }: DownloadCtaCardProps) {
-  // Estado para el contador de descargas (inicia en 526)
-  const [downloadCount, setDownloadCount] = useState<number>(526);
+  const isGym = sistemaSlug?.includes('gimnasio') || sistemaNombre.toLowerCase().includes('gimnasio') || sistemaNombre.toLowerCase().includes('gym');
+  const baseCount = isGym ? 364 : 526;
+
+  // Estado para el contador de descargas (inicia en 364 para gimnasio o 526 para taller)
+  const [downloadCount, setDownloadCount] = useState<number>(baseCount);
   const [hasDownloaded, setHasDownloaded] = useState<boolean>(false);
 
   // Cargar el conteo real persistido desde el servidor
   useEffect(() => {
-    fetch('/api/downloads')
+    const slugParam = sistemaSlug || (isGym ? 'sistema-gestion-gimnasios' : 'sistema-gestion-tecnicos');
+    fetch(`/api/downloads?sistema=${slugParam}`)
       .then((res) => res.json())
       .then((data) => {
         if (data && typeof data.count === 'number') {
@@ -41,7 +47,7 @@ export default function DownloadCtaCard({
       .catch((err) => {
         console.error('Error al sincronizar descargas:', err);
       });
-  }, []);
+  }, [sistemaSlug, isGym]);
 
   const handleDownload = async () => {
     if (!hasDownloaded) {
@@ -50,7 +56,12 @@ export default function DownloadCtaCard({
 
       // Registrar incremento persistente en el servidor
       try {
-        const res = await fetch('/api/downloads', { method: 'POST' });
+        const slugParam = sistemaSlug || (isGym ? 'sistema-gestion-gimnasios' : 'sistema-gestion-tecnicos');
+        const res = await fetch('/api/downloads', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ sistema: slugParam })
+        });
         const data = await res.json();
         if (data && typeof data.count === 'number') {
           setDownloadCount(data.count);
@@ -66,7 +77,7 @@ export default function DownloadCtaCard({
   const hasDirectDownload = !!downloadUrl;
 
   const whatsappPruebaMsg = encodeURIComponent(
-    `Hola, acabo de descargar el "${sistemaNombre}". Quisiera solicitar mi clave de prueba gratuita por 7 días para comenzar a evaluar el sistema en mi taller.`
+    `Hola, acabo de descargar el "${sistemaNombre}". Quisiera solicitar mi clave de prueba gratuita por 7 días para comenzar a evaluar el sistema en mi ${isGym ? 'gimnasio' : 'taller'}.`
   );
   const whatsappPruebaUrl = `https://wa.me/529611209361?text=${whatsappPruebaMsg}`;
 
@@ -88,7 +99,7 @@ export default function DownloadCtaCard({
           </div>
 
           {/* Marcador de Descargas Realizadas con Conteo Programado */}
-          {isTallerSystem && (
+          {(isTallerSystem || hasDirectDownload || isGym) && (
             <div className="inline-flex items-center gap-2 text-indigo-800 text-xs sm:text-sm font-bold bg-indigo-50 px-3.5 py-1.5 rounded-full border border-indigo-200 font-mono shadow-sm">
               <Users className="w-4 h-4 text-indigo-600" />
               <span>+{downloadCount.toLocaleString()} Descargas del Instalador</span>
