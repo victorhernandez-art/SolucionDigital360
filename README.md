@@ -32,10 +32,14 @@ Solucion Digital 360/
 │   └── sistemas/
 │       └── [slug]/
 │           └── page.tsx            # Página dinámica SSG de producto (generateStaticParams, notFound)
+├── .agents/
+│   └── rules/
+│       └── despliegue.md           # Regla operativa para despliegues a producción con confirmación
+├── AGENTS.md                       # Directivas y protocolo estandarizado para agentes de IA
 ├── components/
 │   ├── Navbar.tsx                  # Barra de navegación superior con menú responsivo
 │   ├── Footer.tsx                  # Pie de página unificado con enlaces institucionales y legales
-│   ├── DownloadCtaCard.tsx         # Tarjeta CTA final unificada con prueba de 3 días y contador en vivo
+│   ├── DownloadCtaCard.tsx         # Tarjeta CTA con botones de acción, marcador dinámico y prueba 7 días
 │   ├── ScreenshotShowcase.tsx      # Galería interactiva auto-play de capturas HD con modal Lightbox 1:1
 │   ├── SupportedCategories.tsx     # Módulo multirrubro (Celulares, Tablets, PC, Smart TV, etc.)
 │   ├── LanAndRolesSection.tsx      # Sección clara de Conexión LAN por QR, PWA y Roles RBAC
@@ -44,7 +48,7 @@ Solucion Digital 360/
 │   └── YoutubeEmbed.tsx            # Tarjeta de enlace al Canal Oficial @SoluciónDigital360
 ├── data/
 │   ├── sistemas.ts                 # Fuente de verdad estática: Interfaz TypeScript y array de sistemas
-│   └── downloads.json              # Persistencia del contador de descargas (base 526)
+│   └── downloads.json              # Persistencia del contador de descargas (Taller 526 / GymWeb 364)
 ├── public/
 │   ├── logo.png                    # Logotipo oficial de Solución Digital 360
 │   ├── diseno.png                  # Imagen ilustrativa limpia del Hero Section
