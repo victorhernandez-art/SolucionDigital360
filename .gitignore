@@ -33,3 +33,6 @@ Thumbs.db
 **/Office/
 **/venv/
 **/env/
+
+.vercel
+.env*

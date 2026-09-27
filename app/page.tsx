@@ -62,7 +62,7 @@ export default function HomePage() {
                       Premium
                     </span>
                   )}
-                  {!sistema.proximamente ? (
+                  {sistema.precio && sistema.precio !== 'Próximamente' ? (
                     <div className="text-right">
                       <div className="flex items-baseline justify-end gap-2">
                         {sistema.precioAnterior && (

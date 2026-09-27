@@ -150,7 +150,7 @@ export const sistemas: Sistema[] = [
   {
     slug: "sistema-gestion-citas",
     nombre: "Sistema de Gestión de Citas y Agendamiento Online",
-    precio: "$119 USD",
+    precio: "$1,500.00 MXN",
     descripcionCorta: "Plataforma para reservas de citas en línea, control de agenda técnica y recordatorios automáticos por WhatsApp.",
     videoYoutubeId: "dQw4w9WgXcQ",
     problemaQueResuelve: "Las ausencias sin aviso y el desorden al agendar por mensajes provocan huecos en la agenda y pérdida de tiempo. Este sistema permite a tus clientes reservar su turno en línea 24/7 de forma rápida y sencilla.",
@@ -170,7 +170,8 @@ export const sistemas: Sistema[] = [
         respuesta: "No, pueden reservar ingresando sus datos básicos en menos de 1 minuto."
       }
     ],
-    esGratis: false
+    esGratis: false,
+    proximamente: true
   }
 ];
 
