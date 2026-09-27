@@ -22,33 +22,37 @@ Solucion Digital 360/
 ├── app/
 │   ├── layout.tsx                  # Layout raíz (HTML5, Fuentes Inter, Metadatos SEO)
 │   ├── globals.css                 # CSS global con directivas de Tailwind CSS
-│   ├── page.tsx                    # Página principal / Catálogo de Sistemas y Hero Section
+│   ├── page.tsx                    # Página principal / Catálogo de Sistemas
+│   ├── quienes-somos/page.tsx      # Página institucional "Quiénes Somos"
+│   ├── contacto/page.tsx           # Página de canales de contacto directo y WhatsApp
+│   ├── privacidad/page.tsx         # Aviso de privacidad y seguridad de datos locales
+│   ├── terminos/page.tsx           # Términos y condiciones, licencias y periodos de prueba
+│   ├── api/
+│   │   └── downloads/route.ts      # API Route para registro y persistencia de descargas
 │   └── sistemas/
 │       └── [slug]/
 │           └── page.tsx            # Página dinámica SSG de producto (generateStaticParams, notFound)
 ├── components/
+│   ├── Navbar.tsx                  # Barra de navegación superior con menú responsivo
+│   ├── Footer.tsx                  # Pie de página unificado con enlaces institucionales y legales
+│   ├── DownloadCtaCard.tsx         # Tarjeta CTA final unificada con prueba de 3 días y contador en vivo
 │   ├── ScreenshotShowcase.tsx      # Galería interactiva auto-play de capturas HD con modal Lightbox 1:1
-│   ├── SupportedCategories.tsx     # Módulo multirrubro (Celulares, Tablets, PC, Smart TV, Consolas, Línea Blanca)
-│   ├── LanAndRolesSection.tsx      # Sección clara de Conexión LAN por QR, PWA y Roles RBAC (Admin vs Técnico)
-│   ├── DownloadCtaCard.tsx         # Tarjeta CTA final unificada con marcador de descargas realistas e incremento en vivo
-│   ├── DemoDownloadButton.tsx      # Módulo de descarga del instalador demo por MEGA y soporte directo
-│   ├── CurrencySelector.tsx        # Selector interactivo para 20 países y tipos de moneda (MXN, USD, EUR, etc.)
-│   ├── FaqAccordion.tsx            # Acordeón interactivo de preguntas frecuentes (React useState)
-│   └── YoutubeEmbed.tsx            # Reproductor responsivo de YouTube (iframe aspect-video)
+│   ├── SupportedCategories.tsx     # Módulo multirrubro (Celulares, Tablets, PC, Smart TV, etc.)
+│   ├── LanAndRolesSection.tsx      # Sección clara de Conexión LAN por QR, PWA y Roles RBAC
+│   ├── CurrencySelector.tsx        # Selector interactivo para 20 países y tipos de moneda
+│   ├── FaqAccordion.tsx            # Acordeón interactivo de preguntas frecuentes
+│   └── YoutubeEmbed.tsx            # Tarjeta de enlace al Canal Oficial @SoluciónDigital360
 ├── data/
-│   └── sistemas.ts                 # Fuente de verdad estática: Interfaz TypeScript y array de sistemas
+│   ├── sistemas.ts                 # Fuente de verdad estática: Interfaz TypeScript y array de sistemas
+│   └── downloads.json              # Persistencia del contador de descargas (base 526)
 ├── public/
 │   ├── logo.png                    # Logotipo oficial de Solución Digital 360
 │   ├── diseno.png                  # Imagen ilustrativa limpia del Hero Section
 │   └── taller/                     # Capturas de pantalla reales en alta resolución
-│       ├── login.png               # Pantalla de Inicio de Sesión & Seguridad RBAC
-│       ├── nueva_orden.png         # Módulo de Recepción & Nueva Orden en 2 min
-│       ├── ordenes_kanban.png      # Tablero Kanban & WhatsApp Web Embebido
-│       ├── contabilidad.png        # Libro Diario, Caja Chica & Arqueo de Efectivo
-│       └── punto_de_venta.png      # Punto de Venta (POS) & Control de Inventarios
 ├── package.json                    # Scripts y dependencias del proyecto
 ├── tailwind.config.js              # Configuración de temas y colores Tailwind
 ├── tsconfig.json                   # Configuración de TypeScript con alias @/*
+├── HISTORIAL.md                    # Registro cronológico detallado de versiones y cambios
 └── README.md                       # Guía de arquitectura y mantenimiento del sistema
 ```
 
@@ -106,9 +110,10 @@ Para mantener una experiencia visual profesional de nivel **SaaS**, se deben res
    - **WhatsApp Directo:** `https://wa.me/529611209361`
    - **Teléfono de Asesoría:** `+52 961 120 9361` (`tel:+529611209361`)
 
-5. **Precios y Versión Demo de Prueba:**
-   - **Sistema Taller v1.0:** `$2,000.00 MXN` (Pago Único / Licencia Vitalicia).
-   - **Marcador de Descargas:** La tarjeta CTA final unificada ([components/DownloadCtaCard.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/DownloadCtaCard.tsx)) incluye el contador dinámico de descargas (`+1,480 Descargas del Demo`) y redirige al instalador de Mega.
+5. **Precios y Periodo de Prueba:**
+   - **Sistema Taller v1.0:** `$2,000.00 MXN` (Oferta con precio anterior `$3,500.00 MXN` tachado / Licencia Vitalicia + 6 Meses de Soporte Técnico Gratis).
+   - **Periodo de Prueba:** Prueba completa de 3 días con todas las funciones activas e instalador descargable.
+   - **Marcador de Descargas:** La tarjeta CTA final ([components/DownloadCtaCard.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/DownloadCtaCard.tsx)) incluye el contador dinámico persistente (`+526 Descargas del Instalador` gestionado vía API `/api/downloads`).
 
 ---
 

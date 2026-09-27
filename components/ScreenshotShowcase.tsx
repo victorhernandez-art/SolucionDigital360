@@ -323,7 +323,7 @@ export default function ScreenshotShowcase() {
               src={selectedImage.url}
               alt={selectedImage.title}
               className="max-w-full max-h-[75vh] w-auto h-auto object-contain rounded-xl shadow-lg border border-slate-800"
-              style={{ imageRendering: 'high-quality' }}
+              style={{ imageRendering: 'auto' }}
             />
           </div>
         </div>

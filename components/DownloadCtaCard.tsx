@@ -1,13 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { 
   Download, 
   ShieldCheck, 
   MessageSquare, 
-  PhoneCall, 
   Users, 
-  ExternalLink 
+  Globe,
+  Clock
 } from 'lucide-react';
 
 interface DownloadCtaCardProps {
@@ -15,95 +15,179 @@ interface DownloadCtaCardProps {
   whatsappUrl: string;
   megaLink?: string;
   isTallerSystem?: boolean;
+  downloadUrl?: string;
 }
 
 export default function DownloadCtaCard({
   sistemaNombre,
   whatsappUrl,
   megaLink = "https://mega.nz",
-  isTallerSystem = true
+  isTallerSystem = true,
+  downloadUrl
 }: DownloadCtaCardProps) {
-  // Estado para el contador de descargas (inicia en 1,480)
-  const [downloadCount, setDownloadCount] = useState<number>(1480);
+  // Estado para el contador de descargas (inicia en 526)
+  const [downloadCount, setDownloadCount] = useState<number>(526);
   const [hasDownloaded, setHasDownloaded] = useState<boolean>(false);
 
-  const handleMegaDownload = () => {
+  // Cargar el conteo real persistido desde el servidor
+  useEffect(() => {
+    fetch('/api/downloads')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && typeof data.count === 'number') {
+          setDownloadCount(data.count);
+        }
+      })
+      .catch((err) => {
+        console.error('Error al sincronizar descargas:', err);
+      });
+  }, []);
+
+  const handleDownload = async () => {
     if (!hasDownloaded) {
       setDownloadCount((prev) => prev + 1);
       setHasDownloaded(true);
+
+      // Registrar incremento persistente en el servidor
+      try {
+        const res = await fetch('/api/downloads', { method: 'POST' });
+        const data = await res.json();
+        if (data && typeof data.count === 'number') {
+          setDownloadCount(data.count);
+        }
+      } catch (err) {
+        console.error('Error al guardar incremento de descarga:', err);
+      }
     }
-    window.open(megaLink, '_blank');
+    // Usa la downloadUrl directa si está disponible, si no el megaLink
+    window.open(downloadUrl || megaLink, '_blank');
   };
 
+  const hasDirectDownload = !!downloadUrl;
+
+  const whatsappPruebaMsg = encodeURIComponent(
+    `Hola, acabo de descargar el "${sistemaNombre}". Quisiera solicitar mi clave de prueba gratuita por 7 días para comenzar a evaluar el sistema en mi taller.`
+  );
+  const whatsappPruebaUrl = `https://wa.me/529611209361?text=${whatsappPruebaMsg}`;
+
   return (
-    <section id="adquirir" className="bg-slate-900 text-white rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden text-center space-y-8 border border-slate-800">
-      {/* Glow de fondo */}
-      <div className="absolute top-0 right-0 -mt-16 -mr-16 w-80 h-80 bg-indigo-600/30 rounded-full blur-3xl pointer-events-none" />
+    <section id="adquirir" className="bg-white text-slate-900 rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xl shadow-slate-200/60 relative overflow-hidden text-center space-y-7 border-2 border-slate-200/90">
+      {/* Barra superior de acento con gradiente elegante */}
+      <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-500" />
       
-      <div className="max-w-3xl mx-auto space-y-5 relative z-10">
+      {/* Sutiles reflejos de fondo suaves para estética premium */}
+      <div className="absolute top-0 right-0 -mt-16 -mr-16 w-80 h-80 bg-blue-50/70 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 -mb-16 -ml-16 w-72 h-72 bg-emerald-50/60 rounded-full blur-3xl pointer-events-none" />
+      
+      <div className="max-w-3xl mx-auto space-y-4 relative z-10">
+        {/* Badges superiores limpios y legibles */}
         <div className="flex flex-wrap items-center justify-center gap-3">
-          <div className="inline-flex items-center gap-2 text-emerald-400 text-xs sm:text-sm font-semibold tracking-wide uppercase bg-emerald-950/60 px-3.5 py-1 rounded-full border border-emerald-500/30">
-            <ShieldCheck className="w-4 h-4" />
-            <span>Licencia Vitalicia + 1 Año de Soporte Técnico</span>
+          <div className="inline-flex items-center gap-2 text-emerald-800 text-xs sm:text-sm font-bold tracking-wide uppercase bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-200 shadow-sm">
+            <ShieldCheck className="w-4 h-4 text-emerald-600" />
+            <span>Licencia Vitalicia + 6 Meses de Soporte Técnico Gratis</span>
           </div>
 
-          {/* Marcador de Descargas Realizado Visibles en la Tarjeta */}
+          {/* Marcador de Descargas Realizadas con Conteo Programado */}
           {isTallerSystem && (
-            <div className="inline-flex items-center gap-2 text-indigo-300 text-xs sm:text-sm font-bold bg-indigo-950/80 px-3.5 py-1 rounded-full border border-indigo-500/40 font-mono shadow-sm">
-              <Users className="w-4 h-4 text-indigo-400" />
-              <span>+{downloadCount.toLocaleString()} Descargas del Demo</span>
+            <div className="inline-flex items-center gap-2 text-indigo-800 text-xs sm:text-sm font-bold bg-indigo-50 px-3.5 py-1.5 rounded-full border border-indigo-200 font-mono shadow-sm">
+              <Users className="w-4 h-4 text-indigo-600" />
+              <span>+{downloadCount.toLocaleString()} Descargas del Instalador</span>
             </div>
           )}
         </div>
 
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
-          ¿Listo para ordenar tu taller técnico con {sistemaNombre}?
+        {/* Título equilibrado, sobrio y con alto contraste */}
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-snug">
+          {isTallerSystem
+            ? `¿Listo para ordenar tu taller técnico con ${sistemaNombre}?`
+            : `¿Listo para potenciar y transformar tu negocio con ${sistemaNombre}?`}
         </h2>
-        <p className="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-          Te entregamos la plataforma configurada con la identidad de tu negocio y te guiamos paso a paso en la instalación inicial.
-        </p>
+
+        {/* Bloque de Información de Precio y Compra Internacional */}
+        <div className="bg-slate-50/90 border border-slate-200 rounded-2xl p-5 sm:p-6 text-left space-y-3.5 shadow-sm mt-4">
+          <div className="border-b border-slate-200/80 pb-3">
+            <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 flex flex-wrap items-center gap-2">
+              <Globe className="w-5 h-5 text-indigo-600 shrink-0" />
+              <span>Precio internacional de referencia:</span>
+              <span className="text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-lg font-mono text-base sm:text-lg border border-emerald-200">
+                $2,000.00 MXN en México
+              </span>
+            </h3>
+            <p className="text-slate-600 text-xs sm:text-sm mt-1.5 font-medium">
+              Pago único. Sin mensualidades ni cobros recurrentes.
+            </p>
+          </div>
+
+          <div className="space-y-2 text-xs sm:text-sm text-slate-700 leading-relaxed">
+            <p>
+              <strong className="text-slate-900 font-bold">Precio final en México:</strong> se informa y confirma en moneda mexicana (MXN) por WhatsApp antes de la compra.
+            </p>
+            <p className="text-slate-500">
+              Para los demás países de Latinoamérica, EE.UU. y España, la cotización se valida directamente en su moneda local o transferencia/USDT al momento del contacto.
+            </p>
+          </div>
+        </div>
+
+        {/* Bloque: Prueba Gratis con Acceso Completo */}
+        <div className="bg-blue-50/80 border border-blue-200 rounded-2xl p-5 text-left space-y-2 shadow-sm mt-3">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <h4 className="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight">
+              Prueba Gratuita de 7 Días con Todas las Funciones Activas
+            </h4>
+            <span className="text-xs font-bold text-blue-700 bg-blue-100/90 px-2.5 py-0.5 rounded-full border border-blue-200 font-mono flex items-center gap-1">
+              <Clock className="w-3.5 h-3.5" /> Acceso Total 7 Días
+            </span>
+          </div>
+          <p className="text-slate-700 text-xs sm:text-sm leading-relaxed">
+            {isTallerSystem ? (
+              <>
+                Descarga el instalador en tu computadora y solicita tu clave de prueba por 7 días para utilizar el programa completo sin limitaciones. <strong className="text-slate-900 font-semibold">Puedes registrar órdenes reales, capturar clientes, probar el cobro en caja e imprimir tickets</strong> para comprobar con total tranquilidad que se adapta al 100% a tu taller antes de adquirir la licencia vitalicia.
+              </>
+            ) : (
+              <>
+                Prueba el sistema completo durante 7 días con todas las funciones activas. <strong className="text-slate-900 font-semibold">Registra socios, gestiona membresías, vende en la tienda POS y controla asistencias</strong> para comprobar con total tranquilidad que se adapta al 100% a tu gimnasio antes de adquirir la licencia vitalicia.
+              </>
+            )}
+          </p>
+        </div>
       </div>
 
-      {/* Tres Botones CTA Prominentes */}
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 relative z-10 max-w-2xl mx-auto">
-        {/* CTA 1: Descargar Demo por MEGA (Incrementa Contador) */}
-        {isTallerSystem && (
+      {/* Botones CTA Prominentes Homologados */}
+      <div className={`grid grid-cols-1 ${hasDirectDownload ? 'sm:grid-cols-2 max-w-2xl' : 'sm:grid-cols-1 max-w-sm'} gap-4 relative z-10 mx-auto pt-1 items-stretch`}>
+        {/* CTA 1: Descargar Instalador */}
+        {hasDirectDownload && (
           <button
-            onClick={handleMegaDownload}
-            className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl font-bold text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 shadow-xl shadow-indigo-600/30 transition-all text-base group"
+            onClick={handleDownload}
+            className="w-full min-h-[62px] inline-flex items-center justify-center gap-2.5 px-4 py-3.5 rounded-2xl font-bold text-white bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 shadow-lg shadow-indigo-600/25 transition-all text-sm sm:text-base group cursor-pointer text-center"
           >
-            <Download className="w-5 h-5 group-hover:translate-y-0.5 transition-transform" />
-            <span>Descargar Demo (MEGA)</span>
+            <Download className="w-5 h-5 shrink-0 group-hover:translate-y-0.5 transition-transform" />
+            <span className="leading-tight">Descargar Instalador</span>
           </button>
         )}
 
-        {/* CTA 2: WhatsApp */}
+        {/* CTA 2: WhatsApp para Clave de Prueba o Compra */}
         <a
-          href={whatsappUrl}
+          href={isTallerSystem ? whatsappPruebaUrl : whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl font-bold text-white bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 shadow-xl shadow-emerald-500/25 transition-all text-base"
+          className="w-full min-h-[62px] inline-flex items-center justify-center gap-2.5 px-4 py-3.5 rounded-2xl font-bold text-white bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 shadow-lg shadow-emerald-600/25 transition-all text-sm sm:text-base text-center"
         >
-          <MessageSquare className="w-5 h-5" />
-          <span>Solicitar por WhatsApp</span>
-        </a>
-
-        {/* CTA 3: Llamada de Asesoría */}
-        <a
-          href="tel:+529611209361"
-          className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl font-bold text-slate-100 bg-slate-800 hover:bg-slate-700 border border-slate-700 transition-all text-base"
-        >
-          <PhoneCall className="w-5 h-5 text-indigo-400" />
-          <span>Llamada de Asesoría</span>
+          <MessageSquare className="w-5 h-5 shrink-0" />
+          <span className="leading-tight">{isTallerSystem ? 'Solicitar Clave de Prueba' : 'Solicitar Prueba o Demo'}</span>
         </a>
       </div>
 
-      {/* Nota de Seguridad */}
-      {isTallerSystem && (
-        <p className="text-xs text-slate-400 relative z-10 font-medium">
-          🔒 Instalador libre de virus. Incluye 5 registros de prueba completos e impresión de tickets.
+      {/* Notas al pie de seguridad y compra personal */}
+      <div className="space-y-1.5 pt-1 relative z-10 text-xs text-slate-500">
+        <p className="font-medium text-slate-700">
+          La compra y entrega de accesos o claves se coordina de forma personal por WhatsApp. No se procesan pagos automáticos desde esta página.
         </p>
-      )}
+        {hasDirectDownload && (
+          <p className="text-[11px] text-slate-400">
+            🔒 Instalador libre de virus. Incluye 7 días de acceso completo a todas las funciones operativas{isTallerSystem ? ' e impresión de tickets' : ' y gestión de socios'}.
+          </p>
+        )}
+      </div>
     </section>
   );
 }

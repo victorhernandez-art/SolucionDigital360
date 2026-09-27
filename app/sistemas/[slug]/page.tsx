@@ -31,6 +31,8 @@ import SupportedCategories from '@/components/SupportedCategories';
 import LanAndRolesSection from '@/components/LanAndRolesSection';
 import DownloadCtaCard from '@/components/DownloadCtaCard';
 import DemoDownloadButton from '@/components/DemoDownloadButton';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 interface SistemaPageProps {
   params: {
@@ -39,14 +41,14 @@ interface SistemaPageProps {
 }
 
 export async function generateStaticParams() {
-  return sistemas.map((sistema) => ({
+  return sistemas.filter((s) => !s.proximamente).map((sistema) => ({
     slug: sistema.slug,
   }));
 }
 
 export async function generateMetadata({ params }: SistemaPageProps): Promise<Metadata> {
   const sistema = getSistemaBySlug(params.slug);
-  if (!sistema) {
+  if (!sistema || sistema.proximamente) {
     return {
       title: 'Sistema no encontrado | Solución Digital 360',
     };
@@ -62,7 +64,7 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
   const { slug } = params;
   const sistema = getSistemaBySlug(slug);
 
-  if (!sistema) {
+  if (!sistema || sistema.proximamente) {
     notFound();
   }
 
@@ -74,35 +76,20 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
   const isTallerSystem = sistema.slug === 'sistema-gestion-tecnicos';
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 antialiased selection:bg-indigo-500 selection:text-white">
-      {/* Header de Navegación con Logotipo Oficial */}
-      <header className="sticky top-0 z-40 bg-white/85 backdrop-blur-md border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <div className="min-h-screen bg-slate-50 text-slate-900 antialiased selection:bg-indigo-500 selection:text-white flex flex-col justify-between">
+      <Navbar />
+
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 space-y-12 md:space-y-16 w-full">
+        {/* Breadcrumb de regreso */}
+        <div>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-indigo-600 transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-slate-500 hover:text-blue-600 transition-colors bg-white px-4 py-2 rounded-xl border border-slate-200 shadow-sm"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Volver al Catálogo</span>
-          </Link>
-          <Link href="/" className="flex items-center gap-3">
-            <div className="relative h-10 w-10 sm:w-12">
-              <Image
-                src="/logo.png"
-                alt="Solución Digital 360"
-                fill
-                className="object-contain"
-                priority
-              />
-            </div>
-            <span className="font-extrabold text-lg sm:text-xl text-slate-900 tracking-tight">
-              Solución Digital <span className="text-blue-600">360</span>
-            </span>
+            <span>← Volver al Inicio / Catálogo</span>
           </Link>
         </div>
-      </header>
-
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 space-y-14 md:space-y-20">
         
         {/* Encabezado Principal y Hero */}
         <section className="space-y-6 text-center md:text-left max-w-4xl mx-auto md:mx-0">
@@ -138,26 +125,33 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
               {sistema.nombre}
             </h1>
             <div className="shrink-0 text-center md:text-right bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
-              <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Inversión Única</span>
-              <span className="text-3xl font-extrabold text-indigo-600 tracking-tight">
-                {sistema.precio}
-              </span>
+              <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Único Pago</span>
+              <div className="flex items-baseline justify-center md:justify-end gap-2 my-0.5">
+                {sistema.precioAnterior && (
+                  <span className="text-base text-slate-400 line-through font-semibold">
+                    {sistema.precioAnterior}
+                  </span>
+                )}
+                <span className={`text-3xl font-extrabold tracking-tight ${sistema.esGratis ? 'text-emerald-600' : 'text-slate-900'}`}>
+                  {sistema.precio}
+                </span>
+              </div>
               <span className="text-[11px] text-slate-500 block">Sin mensualidades ni rentas</span>
             </div>
           </div>
 
-          {/* Texto Informativo de Prueba Demo Gratis & Listo para Usar (Sin recuadro) */}
+          {/* Texto Informativo de Prueba Gratuita & Listo para Usar */}
           <div className="space-y-4 my-6 text-slate-700 text-base leading-relaxed">
             <p>
-              Primero puedes probar el sistema directamente desde tu computadora y conocer todas sus funciones antes de adquirir la licencia. <strong className="text-slate-900 font-semibold">Puedes realizar pruebas con registros reales, capturar información, realizar operaciones y hasta imprimir tickets</strong>, para que conozcas de primera mano cómo funciona y compruebes que se adapta a tus necesidades.
+              Primero puedes probar el sistema directamente desde tu computadora con una <strong className="text-slate-900 font-semibold">prueba gratuita de {isTallerSystem ? '3' : '7'} días con todas las funciones activas</strong> antes de adquirir la licencia. Puedes realizar operaciones con registros reales, capturar clientes{isTallerSystem ? ', registrar reparaciones' : ', gestionar membresías o servicios'}, usar el punto de venta y hasta imprimir tickets para que compruebes que se adapta al 100% a tus necesidades.
             </p>
 
             <p>
-              Si el sistema cumple con tus expectativas y te convence su funcionamiento, se activa tu licencia.
+              Si el sistema cumple con tus expectativas y te convence su funcionamiento, se activa tu licencia vitalicia definitiva conservando todos tus datos intactos.
             </p>
 
             <p>
-              La gran ventaja es que <strong className="text-slate-900 font-semibold">todo viene listo para usar</strong>: no necesitas configurar servidores, instalar bases de datos ni realizar procesos técnicos complicados. Simplemente instalas el sistema, lo ejecutas y comienzas a trabajar.
+              La gran ventaja es que <strong className="text-slate-900 font-semibold">todo viene listo para usar</strong>: no necesitas configurar servidores, instalar bases de datos ni realizar procesos técnicos complicados. Simplemente instalas el sistema, ingresas tu clave de prueba y comienzas a trabajar de inmediato.
             </p>
           </div>
 
@@ -167,10 +161,10 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-white bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 shadow-lg shadow-emerald-500/20 transition-all text-sm"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-white bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 shadow-lg shadow-emerald-600/20 transition-all text-sm"
             >
               <MessageSquare className="w-4 h-4" />
-              <span>Solicitar Demo por WhatsApp</span>
+              <span>Solicitar Prueba de 7 Días</span>
             </a>
             <a
               href="#adquirir"
@@ -192,18 +186,19 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
           </>
         )}
 
-        {/* DEMOSTRACIÓN EN VIDEO */}
+        {/* DEMOSTRACIÓN EN VIDEO Y CANAL OFICIAL */}
         <section className="space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
               <Zap className="w-5 h-5 text-indigo-600" />
-              Video de Funcionamiento Oficial
+              Demostraciones y Tutoriales en Video
             </h2>
-            <span className="text-xs text-slate-500">Demostración en tiempo real</span>
+            <span className="text-xs text-slate-500">Canal Oficial de YouTube</span>
           </div>
           <YoutubeEmbed
             videoId={sistema.videoYoutubeId}
-            title={`Demostración en video de ${sistema.nombre}`}
+            channelUrl={sistema.canalYoutubeUrl}
+            title={`Demostración y Canal de YouTube de ${sistema.nombre}`}
           />
         </section>
 
@@ -276,15 +271,19 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
         )}
 
         {/* SECCIÓN: EL PROBLEMA QUE RESUELVE */}
-        <section className="bg-gradient-to-br from-indigo-900 via-slate-900 to-slate-950 text-white rounded-3xl p-8 sm:p-10 lg:p-12 shadow-xl relative overflow-hidden space-y-4">
-          <div className="absolute top-0 right-0 -mt-10 -mr-10 w-80 h-80 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none" />
-          
-          <div className="relative z-10 space-y-3">
-            <div className="inline-flex items-center gap-2 text-amber-400 font-bold text-lg">
-              <AlertTriangle className="w-6 h-6 shrink-0" />
-              <span>El Problema Específico que Soluciona</span>
+        <section className="relative rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm">
+          {/* Barra lateral de acento */}
+          <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-amber-400 via-orange-500 to-red-500" />
+
+          <div className="pl-6 pr-6 py-6 sm:pl-8 sm:pr-8 sm:py-7 space-y-3">
+            {/* Etiqueta */}
+            <div className="inline-flex items-center gap-2 text-amber-600 font-bold text-sm bg-amber-50 border border-amber-200 px-3 py-1 rounded-full">
+              <AlertTriangle className="w-4 h-4 shrink-0" />
+              <span>El Problema que Resuelve</span>
             </div>
-            <p className="text-slate-200 text-base sm:text-lg leading-relaxed font-normal max-w-4xl">
+
+            {/* Texto del problema */}
+            <p className="text-slate-700 text-sm sm:text-base leading-relaxed max-w-4xl">
               {sistema.problemaQueResuelve}
             </p>
           </div>
@@ -359,21 +358,18 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
           <FaqAccordion items={sistema.faq} />
         </section>
 
-        {/* TARJETA CTA CON MARCADOR DE DESCARGAS REALIZADAS Y BOTONES */}
+        {/* TARJETA CTA CON INFORMACIÓN DE PRECIOS, DESCARGAS Y BOTONES */}
         <DownloadCtaCard
           sistemaNombre={sistema.nombre}
           whatsappUrl={whatsappUrl}
           isTallerSystem={isTallerSystem}
           megaLink="https://mega.nz"
+          downloadUrl={sistema.downloadUrl}
         />
 
       </main>
 
-      <footer className="border-t border-slate-200 bg-white mt-20 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-slate-500 space-y-2">
-          <p>© {new Date().getFullYear()} Solución Digital 360. Todos los derechos reservados.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
