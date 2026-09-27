@@ -127,6 +127,24 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ---
 
+## 📝 Control de Modificaciones del Sistema (Changelog)
+
+### 📌 Versión 1.2.2 — Septiembre 2026 (Actualización Reciente)
+- **Sistema de Gestión de Citas y Agendamiento Online:**
+  - **Precio oficial:** Configurado en **`$1,500.00 MXN`** bajo esquema de *Único pago*.
+  - **Estado desactivado (`proximamente: true`):** Muestra badge `Próximamente`, precio visible y botón deshabilitado `Próximamente Disponible`. La ruta `/sistemas/sistema-gestion-citas` se mantiene inactiva (404 controlado) mientras concluye su desarrollo.
+- **GymWeb (Sistema de Gimnasios v2.1):**
+  - **Enlace de descarga directa:** Instalador oficial Windows v2.1 alojado en GitHub Releases (`Instalador_GymWeb_Windows_v2.1.zip`).
+  - **Prueba Gratuita:** Actualizado periodo de prueba a **7 días** con todas las funciones activas.
+  - **Video Demostrativo:** Integración de reproductor de video de YouTube (ID: `Y6p5-qLb_24`) con portada limpia, escala amplia y sin transparencias oscuras.
+  - **Optimización de CTA:** Retiro del botón de llamada para maximizar conversiones enfocadas en descarga directa y contacto WhatsApp.
+- **Infraestructura de Despliegue Vercel:**
+  - Configuración correcta de Framework Preset a `Next.js` en Vercel.
+  - Prerrenderizado estático SSG de todas las páginas institucionales y productos activos.
+  - URL oficial en producción: **[https://solucion-digital360.vercel.app](https://solucion-digital360.vercel.app)**.
+
+---
+
 ## 💻 Comandos del Proyecto
 
 ### Iniciar Servidor de Desarrollo
@@ -149,3 +167,4 @@ npm start
 
 ## 📄 Licencia y Propiedad
 Desarrollado para **Solución Digital 360**. Todos los derechos reservados.
+

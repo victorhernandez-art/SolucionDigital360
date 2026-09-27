@@ -3,6 +3,21 @@
 
 ---
 
+## 📌 Versión 1.2.2 — Septiembre 2026
+- **📅 Sistema de Gestión de Citas y Agendamiento Online:**
+  - **Precio actualizado:** Asignado a **`$1,500.00 MXN`** (*Único pago*).
+  - **Desactivación temporal (`proximamente: true`):** El sistema permanece visible con su precio y badge *Próximamente*, pero con el botón *Próximamente Disponible* deshabilitado y su ruta `/sistemas/sistema-gestion-citas` protegida con 404 mientras se completa el desarrollo.
+- **🏋️ GymWeb — Sistema de Control de Gimnasios (v2.1):**
+  - **Enlace de descarga directo:** Configurado con la URL oficial de GitHub Releases (`Instalador_GymWeb_Windows_v2.1.zip`).
+  - **Periodo de Prueba:** Actualizado a **7 días de prueba completa** sin restricciones de módulos.
+  - **Video Demostrativo:** Integración con ID de YouTube `Y6p5-qLb_24`, tamaño optimizado amplio y preservación de portada original sin transparencias opacas.
+  - **CTA:** Eliminado el botón secundario de llamada para concentrar la acción en descarga y prueba.
+- **🚀 Infraestructura y Producción en Vercel:**
+  - Ajuste de Framework Preset en Vercel a `Next.js`.
+  - Despliegue en producción con éxito en **https://solucion-digital360.vercel.app**.
+
+---
+
 ## 📌 Versión 1.2.1 — Septiembre 2026
 
 ### 🏋️ 1. Habilitación del Sistema de Control y Gestión de Gimnasios
