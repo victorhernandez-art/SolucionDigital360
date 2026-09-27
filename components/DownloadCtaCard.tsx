@@ -97,14 +97,6 @@ export default function DownloadCtaCard({
             <ShieldCheck className="w-4 h-4 text-emerald-600" />
             <span>Licencia Vitalicia + 6 Meses de Soporte Técnico Gratis</span>
           </div>
-
-          {/* Marcador de Descargas Realizadas con Conteo Programado */}
-          {(isTallerSystem || hasDirectDownload || isGym) && (
-            <div className="inline-flex items-center gap-2 text-indigo-800 text-xs sm:text-sm font-bold bg-indigo-50 px-3.5 py-1.5 rounded-full border border-indigo-200 font-mono shadow-sm">
-              <Users className="w-4 h-4 text-indigo-600" />
-              <span>+{downloadCount.toLocaleString()} Descargas del Instalador</span>
-            </div>
-          )}
         </div>
 
         {/* Título equilibrado, sobrio y con alto contraste */}
@@ -115,8 +107,8 @@ export default function DownloadCtaCard({
         </h2>
 
         {/* Bloque de Información de Precio y Compra Internacional */}
-        <div className="bg-slate-50/90 border border-slate-200 rounded-2xl p-5 sm:p-6 text-left space-y-3.5 shadow-sm mt-4">
-          <div className="border-b border-slate-200/80 pb-3">
+        <div className="bg-slate-50/90 border border-slate-200 rounded-2xl p-5 sm:p-6 text-left shadow-sm mt-4">
+          <div>
             <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 flex flex-wrap items-center gap-2">
               <Globe className="w-5 h-5 text-indigo-600 shrink-0" />
               <span>Precio internacional de referencia:</span>
@@ -126,15 +118,6 @@ export default function DownloadCtaCard({
             </h3>
             <p className="text-slate-600 text-xs sm:text-sm mt-1.5 font-medium">
               Pago único. Sin mensualidades ni cobros recurrentes.
-            </p>
-          </div>
-
-          <div className="space-y-2 text-xs sm:text-sm text-slate-700 leading-relaxed">
-            <p>
-              <strong className="text-slate-900 font-bold">Precio final en México:</strong> se informa y confirma en moneda mexicana (MXN) por WhatsApp antes de la compra.
-            </p>
-            <p className="text-slate-500">
-              Para los demás países de Latinoamérica, EE.UU. y España, la cotización se valida directamente en su moneda local o transferencia/USDT al momento del contacto.
             </p>
           </div>
         </div>
@@ -163,29 +146,54 @@ export default function DownloadCtaCard({
         </div>
       </div>
 
-      {/* Botones CTA Prominentes Homologados */}
-      <div className={`grid grid-cols-1 ${hasDirectDownload ? 'sm:grid-cols-2 max-w-2xl' : 'sm:grid-cols-1 max-w-sm'} gap-4 relative z-10 mx-auto pt-1 items-stretch`}>
-        {/* CTA 1: Descargar Instalador */}
-        {hasDirectDownload && (
-          <button
-            onClick={handleDownload}
-            className="w-full min-h-[62px] inline-flex items-center justify-center gap-2.5 px-4 py-3.5 rounded-2xl font-bold text-white bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 shadow-lg shadow-indigo-600/25 transition-all text-sm sm:text-base group cursor-pointer text-center"
-          >
-            <Download className="w-5 h-5 shrink-0 group-hover:translate-y-0.5 transition-transform" />
-            <span className="leading-tight">Descargar Instalador</span>
-          </button>
-        )}
+      {/* Botones CTA Prominentes y Marcador de Descargas al lado */}
+      <div className="relative z-10 max-w-4xl mx-auto pt-2">
+        <div className="flex flex-wrap items-center justify-center gap-3.5 sm:gap-4">
+          {/* CTA 1: Descargar Instalador */}
+          {hasDirectDownload && (
+            <button
+              onClick={handleDownload}
+              className="flex-1 sm:flex-initial min-w-[220px] sm:min-w-[250px] min-h-[58px] inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl font-bold text-white bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 shadow-lg shadow-indigo-600/25 hover:shadow-indigo-600/35 transition-all text-sm sm:text-base group cursor-pointer text-center"
+            >
+              <Download className="w-5 h-5 shrink-0 group-hover:translate-y-0.5 transition-transform" />
+              <span className="leading-tight">Descargar Instalador</span>
+            </button>
+          )}
 
-        {/* CTA 2: WhatsApp para Clave de Prueba o Compra */}
-        <a
-          href={isTallerSystem ? whatsappPruebaUrl : whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full min-h-[62px] inline-flex items-center justify-center gap-2.5 px-4 py-3.5 rounded-2xl font-bold text-white bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 shadow-lg shadow-emerald-600/25 transition-all text-sm sm:text-base text-center"
-        >
-          <MessageSquare className="w-5 h-5 shrink-0" />
-          <span className="leading-tight">{isTallerSystem ? 'Solicitar Clave de Prueba' : 'Solicitar Prueba o Demo'}</span>
-        </a>
+          {/* Marcador Premium Rediseñado al lado del Botón de Descarga */}
+          {(isTallerSystem || hasDirectDownload || isGym) && (
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white border border-indigo-400/30 shadow-md shadow-slate-950/15 min-h-[58px] select-none">
+              <div className="w-9 h-9 rounded-xl bg-indigo-500/20 border border-indigo-400/30 flex items-center justify-center shrink-0 text-indigo-300">
+                <Users className="w-4 h-4" />
+              </div>
+              <div className="text-left pr-1">
+                <div className="flex items-center gap-1.5">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                  <span className="text-base sm:text-lg font-extrabold text-white tracking-tight font-mono">
+                    +{downloadCount.toLocaleString()}
+                  </span>
+                </div>
+                <span className="text-[11px] font-medium text-slate-300 block leading-tight">
+                  Descargas del Instalador
+                </span>
+              </div>
+            </div>
+          )}
+
+          {/* CTA 2: WhatsApp para Clave de Prueba o Compra */}
+          <a
+            href={isTallerSystem ? whatsappPruebaUrl : whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 sm:flex-initial min-w-[220px] sm:min-w-[250px] min-h-[58px] inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl font-bold text-white bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 shadow-lg shadow-emerald-600/25 hover:shadow-emerald-600/35 transition-all text-sm sm:text-base text-center"
+          >
+            <MessageSquare className="w-5 h-5 shrink-0" />
+            <span className="leading-tight">{isTallerSystem ? 'Solicitar Clave de Prueba' : 'Solicitar Prueba o Demo'}</span>
+          </a>
+        </div>
       </div>
 
       {/* Notas al pie de seguridad y compra personal */}

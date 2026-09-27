@@ -131,7 +131,8 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ### 📌 Versión 1.2.3 — Septiembre 2026 (Actualización Reciente)
 - **🏋️ GymWeb (Sistema de Gimnasios):**
-  - **Contador Dinámico de Descargas:** Implementado en la tarjeta de descarga ([components/DownloadCtaCard.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/DownloadCtaCard.tsx)) con base inicial de **`+364 Descargas del Instalador`** para generar confianza y prueba social.
+  - **Contador Dinámico de Descargas Rediseñado:** Posicionado estratégicamente al lado del botón *Descargar Instalador* con diseño premium oscuro, indicador luminoso verde de actividad en tiempo real y contador visible **`+364 Descargas del Instalador`** para maximizar la prueba social.
+  - **Simplificación del Bloque de Precio:** Se retiró el texto secundario de aclaración de moneda para ofrecer una presentación más limpia, directa y enfocada en la propuesta de valor.
   - **Persistencia y API:** Endpoint `app/api/downloads/route.ts` y almacenamiento `data/downloads.json` actualizados para gestionar contadores independientes por sistema (`gimnasio_downloads` y `taller_demo_downloads`), incrementando de manera real cada vez que un usuario hace clic en *Descargar Instalador*.
   - **Mensajería WhatsApp Contextual:** Mensaje predeterminado de solicitud de clave adaptado a `"mi gimnasio"` de forma automática.
 
