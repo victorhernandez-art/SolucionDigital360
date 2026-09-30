@@ -9,6 +9,7 @@
   - **3 tarjetas gratuitas:** Calculadora de Costos de Taller, Plantilla de Control de Asistencia y Generador de Cotizaciones Básico.
   - **Diseño diferenciado:** Borde superior degradado `emerald → teal → blue`, badges "Gratis" verde, botones outline `border-2 border-emerald-500` para no competir visualmente con los CTAs de pago.
   - **Micro-animaciones:** Punto pulsante `animate-ping` en el badge de sección, destello de fondo en hover de tarjeta e ícono con `scale-110` al pasar el cursor.
+  - **Navegación unificada (Navbar y Footer):** Enlace directo a 'Herramientas Gratis' (`/#herramientas-gratuitas`) añadido en la barra superior (escritorio y móvil) y en el pie de página.
   - **Accesibilidad:** `aria-labelledby`, `aria-label` en cada botón e IDs únicos por herramienta.
 
 ---

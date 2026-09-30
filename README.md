@@ -138,6 +138,7 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
   - Nuevo componente `components/HerramientasGratuitas.tsx` integrado en la página principal debajo del catálogo.
   - 3 tarjetas gratuitas: Calculadora de Costos de Taller, Plantilla de Control de Asistencia y Generador de Cotizaciones Básico.
   - Diseño diferenciado con borde degradado verde, badges outline y micro-animaciones.
+  - Enlace directo a 'Herramientas Gratis' incorporado en Navbar (desktop y móvil) y Footer.
 
 ### 📌 Versión 1.2.4 — Septiembre 2026
 - **⚡ Corrección y Persistencia del Contador de Descargas:**

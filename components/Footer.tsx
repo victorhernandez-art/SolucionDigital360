@@ -40,6 +40,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/#herramientas-gratuitas" className="hover:text-blue-600 transition-colors">
+                  Herramientas Gratis
+                </Link>
+              </li>
+              <li>
                 <Link href="/quienes-somos" className="hover:text-blue-600 transition-colors">
                   Quiénes Somos
                 </Link>

@@ -12,6 +12,7 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Inicio', href: '/' },
+    { name: 'Herramientas Gratis', href: '/#herramientas-gratuitas' },
     { name: 'Quiénes Somos', href: '/quienes-somos' },
     { name: 'Contacto', href: '/contacto' },
     { name: 'Privacidad', href: '/privacidad' },
