@@ -3,6 +3,14 @@
 
 ---
 
+## 📌 Versión 1.2.4 — Septiembre 2026
+- **⚡ Corrección y Persistencia del Contador de Descargas:**
+  - **Persistencia en Navegador (localStorage):** Implementación de almacenamiento local inmediato (`sd360_downloads_gym` / `sd360_downloads_taller`) para evitar que el contador se reinicie o descienda a 364 al recargar la página o volver a visitarla.
+  - **Eliminación de Bloqueo Permanente:** Se sustituyó el flag estático de descarga única por un debounce de 1.5s, permitiendo registrar descargas sucesivas de prueba.
+  - **Soporte Híbrido Supabase en API (`/api/downloads`):** Creación del módulo `@/lib/supabase` para persistencia en base de datos PostgreSQL en la nube, con tolerancia a entornos serverless de solo lectura (Vercel) y sincronización con el mayor valor registrado.
+
+---
+
 ## 📌 Versión 1.2.3 — Septiembre 2026
 - **🏋️ GymWeb (Sistema de Gimnasios):**
   - **Contador Dinámico de Descargas Rediseñado:** Posicionado directamente al lado del botón *Descargar Instalador* con estética oscura moderna, icono de comunidad, punto verde parpadeante de actividad en tiempo real y contador visible **`+364 Descargas del Instalador`**.

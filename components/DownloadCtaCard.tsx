@@ -29,49 +29,82 @@ export default function DownloadCtaCard({
 }: DownloadCtaCardProps) {
   const isGym = sistemaSlug?.includes('gimnasio') || sistemaNombre.toLowerCase().includes('gimnasio') || sistemaNombre.toLowerCase().includes('gym');
   const baseCount = isGym ? 364 : 526;
+  const storageKey = isGym ? 'sd360_downloads_gym' : 'sd360_downloads_taller';
 
-  // Estado para el contador de descargas (inicia en 364 para gimnasio o 526 para taller)
+  // Estado para el contador de descargas (inicia en baseCount o valor guardado)
   const [downloadCount, setDownloadCount] = useState<number>(baseCount);
-  const [hasDownloaded, setHasDownloaded] = useState<boolean>(false);
+  const [isDownloading, setIsDownloading] = useState<boolean>(false);
 
-  // Cargar el conteo real persistido desde el servidor
+  // Sincronizar contador: primero desde localStorage local y luego validando con servidor
   useEffect(() => {
+    let localSavedVal = baseCount;
+    try {
+      const stored = localStorage.getItem(storageKey);
+      if (stored) {
+        const parsed = parseInt(stored, 10);
+        if (!isNaN(parsed) && parsed >= baseCount) {
+          localSavedVal = parsed;
+          setDownloadCount(parsed);
+        }
+      }
+    } catch {
+      // Ignorar si localStorage no está disponible
+    }
+
     const slugParam = sistemaSlug || (isGym ? 'sistema-gestion-gimnasios' : 'sistema-gestion-tecnicos');
     fetch(`/api/downloads?sistema=${slugParam}`)
       .then((res) => res.json())
       .then((data) => {
         if (data && typeof data.count === 'number') {
-          setDownloadCount(data.count);
+          const highest = Math.max(data.count, localSavedVal);
+          setDownloadCount(highest);
+          try {
+            localStorage.setItem(storageKey, highest.toString());
+          } catch {}
         }
       })
       .catch((err) => {
         console.error('Error al sincronizar descargas:', err);
       });
-  }, [sistemaSlug, isGym]);
+  }, [sistemaSlug, isGym, storageKey, baseCount]);
 
   const handleDownload = async () => {
-    if (!hasDownloaded) {
-      setDownloadCount((prev) => prev + 1);
-      setHasDownloaded(true);
+    if (isDownloading) return;
+    setIsDownloading(true);
 
-      // Registrar incremento persistente en el servidor
-      try {
-        const slugParam = sistemaSlug || (isGym ? 'sistema-gestion-gimnasios' : 'sistema-gestion-tecnicos');
-        const res = await fetch('/api/downloads', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ sistema: slugParam })
-        });
-        const data = await res.json();
-        if (data && typeof data.count === 'number') {
-          setDownloadCount(data.count);
-        }
-      } catch (err) {
-        console.error('Error al guardar incremento de descarga:', err);
-      }
-    }
-    // Usa la downloadUrl directa si está disponible, si no el megaLink
+    // 1. Incremento visual inmediato
+    const nextCount = downloadCount + 1;
+    setDownloadCount(nextCount);
+    try {
+      localStorage.setItem(storageKey, nextCount.toString());
+    } catch {}
+
+    // 2. Abrir la descarga directa inmediatamente
     window.open(downloadUrl || megaLink, '_blank');
+
+    // 3. Registrar en backend
+    try {
+      const slugParam = sistemaSlug || (isGym ? 'sistema-gestion-gimnasios' : 'sistema-gestion-tecnicos');
+      const res = await fetch('/api/downloads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sistema: slugParam })
+      });
+      const data = await res.json();
+      if (data && typeof data.count === 'number') {
+        const finalCount = Math.max(data.count, nextCount);
+        setDownloadCount(finalCount);
+        try {
+          localStorage.setItem(storageKey, finalCount.toString());
+        } catch {}
+      }
+    } catch (err) {
+      console.error('Error al guardar incremento de descarga:', err);
+    } finally {
+      setTimeout(() => {
+        setIsDownloading(false);
+      }, 1500);
+    }
   };
 
   const hasDirectDownload = !!downloadUrl;
@@ -153,16 +186,17 @@ export default function DownloadCtaCard({
           {hasDirectDownload && (
             <button
               onClick={handleDownload}
-              className="flex-1 sm:flex-initial min-w-[220px] sm:min-w-[250px] min-h-[58px] inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl font-bold text-white bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 shadow-lg shadow-indigo-600/25 hover:shadow-indigo-600/35 transition-all text-sm sm:text-base group cursor-pointer text-center"
+              disabled={isDownloading}
+              className="flex-1 sm:flex-initial min-w-[220px] sm:min-w-[250px] min-h-[58px] inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl font-bold text-white bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 disabled:opacity-80 shadow-lg shadow-indigo-600/25 hover:shadow-indigo-600/35 transition-all text-sm sm:text-base group cursor-pointer text-center"
             >
-              <Download className="w-5 h-5 shrink-0 group-hover:translate-y-0.5 transition-transform" />
+              <Download className={`w-5 h-5 shrink-0 ${isDownloading ? 'animate-bounce' : 'group-hover:translate-y-0.5'} transition-transform`} />
               <span className="leading-tight">Descargar Instalador</span>
             </button>
           )}
 
           {/* Marcador Premium Rediseñado al lado del Botón de Descarga */}
           {(isTallerSystem || hasDirectDownload || isGym) && (
-            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white border border-indigo-400/30 shadow-md shadow-slate-950/15 min-h-[58px] select-none">
+            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 text-white border border-indigo-400/30 shadow-md shadow-slate-950/15 min-h-[58px] select-none transition-all">
               <div className="w-9 h-9 rounded-xl bg-indigo-500/20 border border-indigo-400/30 flex items-center justify-center shrink-0 text-indigo-300">
                 <Users className="w-4 h-4" />
               </div>

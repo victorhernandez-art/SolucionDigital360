@@ -133,7 +133,13 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.2.3 — Septiembre 2026 (Actualización Reciente)
+### 📌 Versión 1.2.4 — Septiembre 2026 (Actualización Reciente)
+- **⚡ Corrección y Persistencia del Contador de Descargas:**
+  - **Persistencia en Navegador (localStorage):** Implementación de guardado local inmediato (`sd360_downloads_gym` / `sd360_downloads_taller`) para que el contador visual nunca descienda o se reinicie a 364 al recargar la página.
+  - **Debounce de 1.5s:** Se permite registrar descargas consecutivas sin bloquear permanentemente el botón tras la primera acción.
+  - **Soporte Híbrido Supabase en API (`/api/downloads`):** Integración con `@/lib/supabase` para persistencia en base de datos PostgreSQL en la nube, con tolerancia a la naturaleza de solo lectura de Vercel Serverless.
+
+### 📌 Versión 1.2.3 — Septiembre 2026
 - **🏋️ GymWeb (Sistema de Gimnasios):**
   - **Contador Dinámico de Descargas Rediseñado:** Posicionado estratégicamente al lado del botón *Descargar Instalador* con diseño premium oscuro, indicador luminoso verde de actividad en tiempo real y contador visible **`+364 Descargas del Instalador`** para maximizar la prueba social.
   - **Simplificación del Bloque de Precio:** Se retiró el texto secundario de aclaración de moneda para ofrecer una presentación más limpia, directa y enfocada en la propuesta de valor.
