@@ -4,6 +4,7 @@ import { sistemas } from '@/data/sistemas';
 import { ArrowRight } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import HerramientasGratuitas from '@/components/HerramientasGratuitas';
 
 export default function HomePage() {
   return (
@@ -117,6 +118,9 @@ export default function HomePage() {
             </div>
           ))}
         </div>
+
+        {/* Sección: Herramientas de Apoyo Gratuitas */}
+        <HerramientasGratuitas />
       </main>
 
       <Footer />

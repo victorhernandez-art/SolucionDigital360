@@ -133,7 +133,13 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.2.4 — Septiembre 2026 (Actualización Reciente)
+### 📌 Versión 1.2.5 — Septiembre 2026 (Actualización Reciente)
+- **🆓 Nueva Sección: Herramientas de Apoyo Gratuitas:**
+  - Nuevo componente `components/HerramientasGratuitas.tsx` integrado en la página principal debajo del catálogo.
+  - 3 tarjetas gratuitas: Calculadora de Costos de Taller, Plantilla de Control de Asistencia y Generador de Cotizaciones Básico.
+  - Diseño diferenciado con borde degradado verde, badges outline y micro-animaciones.
+
+### 📌 Versión 1.2.4 — Septiembre 2026
 - **⚡ Corrección y Persistencia del Contador de Descargas:**
   - **Persistencia en Navegador (localStorage):** Implementación de guardado local inmediato (`sd360_downloads_gym` / `sd360_downloads_taller`) para que el contador visual nunca descienda o se reinicie a 364 al recargar la página.
   - **Debounce de 1.5s:** Se permite registrar descargas consecutivas sin bloquear permanentemente el botón tras la primera acción.

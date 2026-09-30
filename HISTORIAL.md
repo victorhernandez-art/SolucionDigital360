@@ -3,6 +3,16 @@
 
 ---
 
+## 📌 Versión 1.2.5 — Septiembre 2026
+- **🆓 Nueva Sección: Herramientas de Apoyo Gratuitas:**
+  - **Nuevo componente `components/HerramientasGratuitas.tsx`:** Sección visible en la página principal (`/`) debajo del catálogo de sistemas premium.
+  - **3 tarjetas gratuitas:** Calculadora de Costos de Taller, Plantilla de Control de Asistencia y Generador de Cotizaciones Básico.
+  - **Diseño diferenciado:** Borde superior degradado `emerald → teal → blue`, badges "Gratis" verde, botones outline `border-2 border-emerald-500` para no competir visualmente con los CTAs de pago.
+  - **Micro-animaciones:** Punto pulsante `animate-ping` en el badge de sección, destello de fondo en hover de tarjeta e ícono con `scale-110` al pasar el cursor.
+  - **Accesibilidad:** `aria-labelledby`, `aria-label` en cada botón e IDs únicos por herramienta.
+
+---
+
 ## 📌 Versión 1.2.4 — Septiembre 2026
 - **⚡ Corrección y Persistencia del Contador de Descargas:**
   - **Persistencia en Navegador (localStorage):** Implementación de almacenamiento local inmediato (`sd360_downloads_gym` / `sd360_downloads_taller`) para evitar que el contador se reinicie o descienda a 364 al recargar la página o volver a visitarla.
