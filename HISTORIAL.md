@@ -3,6 +3,12 @@
 
 ---
 
+## 📌 Versión 1.3.2 — Octubre 2026
+- **🧹 Limpieza Visual en Tarjeta de Office 2019:**
+  - Se eliminó el banner redundante de la tarjeta de descarga para evitar duplicidad, concentrando el llamado de suscripción y meta de Office 2021 de forma limpia y exclusiva dentro del modal interactivo de descarga.
+
+---
+
 ## 📌 Versión 1.3.1 — Octubre 2026
 - **📢 Optimización de Redacción en Llamado a la Acción (Office 2019):**
   - **Actualización de Mensaje en Modal y Tarjeta:** Ajustado al copy oficial persuasivo: *"Suscríbete y comparte para que estés enterado de los programas que estaré publicando. Si este canal sube a más suscriptores estaré subiendo Office 2021 totalmente gratis Licencia original."*

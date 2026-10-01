@@ -168,33 +168,6 @@ export default function OfficeDownloadBox({ downloadUrl }: OfficeDownloadBoxProp
           </div>
         </div>
 
-        {/* Banner Promocional de Comunidad: Meta Office 2021 */}
-        <div className="mt-5 p-4 rounded-2xl bg-gradient-to-r from-red-50 via-amber-50 to-orange-50 border border-red-200/90 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left shadow-sm">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-red-600 text-white flex items-center justify-center shrink-0 shadow-md">
-              <Youtube className="w-5 h-5" />
-            </div>
-            <div>
-              <p className="text-xs font-black uppercase tracking-wider text-red-600 flex items-center justify-center sm:justify-start gap-1">
-                <span>🎁</span> ¡Meta Especial de la Comunidad!
-              </p>
-              <p className="text-xs sm:text-sm font-semibold text-slate-800">
-                Suscríbete y comparte para que estés enterado de los programas que estaré publicando. Si este canal sube a más suscriptores estaré subiendo{' '}
-                <strong className="text-red-600 font-extrabold">Office 2021 totalmente gratis Licencia original</strong>.
-              </p>
-            </div>
-          </div>
-          <a
-            href="https://www.youtube.com/@Soluci%C3%B3nDigital360"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition-all shadow-sm shadow-red-600/20"
-          >
-            <Youtube className="w-3.5 h-3.5" />
-            <span>Suscribirme</span>
-          </a>
-        </div>
-
         {/* Garantías y Requisitos */}
         <div className="pt-6 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-500">
           <div className="flex items-center gap-2">

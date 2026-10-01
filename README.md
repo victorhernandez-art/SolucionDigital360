@@ -133,7 +133,11 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.3.1 — Octubre 2026 (Actualización Reciente)
+### 📌 Versión 1.3.2 — Octubre 2026 (Actualización Reciente)
+- **🧹 Limpieza Visual en Módulo Office 2019:**
+  - Retiro del banner inferior en la tarjeta principal para evitar duplicidad y mantener el mensaje de suscripción enfocado exclusivamente dentro del modal de descarga.
+
+### 📌 Versión 1.3.1 — Octubre 2026
 - **📢 Optimización de Redacción en Llamado a la Acción (Office 2019):**
   - Ajuste del mensaje persuasivo tanto en el modal como en la tarjeta de descarga para incentivar la suscripción y avisar de futuros programas y de la meta de Office 2021.
 
