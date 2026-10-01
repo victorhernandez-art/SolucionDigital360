@@ -9,12 +9,16 @@ const DATA_FILE = path.join(process.cwd(), 'data', 'downloads.json');
 
 const INITIAL_COUNTS: Record<string, number> = {
   taller_demo_downloads: 531,
-  gimnasio_downloads: 364
+  gimnasio_downloads: 364,
+  nitro_pdf_downloads: 142
 };
 
 function getSystemKey(slugOrKey?: string | null): string {
   if (!slugOrKey) return 'taller_demo_downloads';
   const clean = slugOrKey.toLowerCase();
+  if (clean.includes('nitro') || clean.includes('pdf')) {
+    return 'nitro_pdf_downloads';
+  }
   if (clean.includes('gimnasio') || clean.includes('gym')) {
     return 'gimnasio_downloads';
   }
@@ -27,7 +31,8 @@ function getLocalCounts(): Record<string, number> {
       const data = JSON.parse(fs.readFileSync(DATA_FILE, 'utf-8'));
       return {
         taller_demo_downloads: typeof data.taller_demo_downloads === 'number' ? data.taller_demo_downloads : INITIAL_COUNTS.taller_demo_downloads,
-        gimnasio_downloads: typeof data.gimnasio_downloads === 'number' ? data.gimnasio_downloads : INITIAL_COUNTS.gimnasio_downloads
+        gimnasio_downloads: typeof data.gimnasio_downloads === 'number' ? data.gimnasio_downloads : INITIAL_COUNTS.gimnasio_downloads,
+        nitro_pdf_downloads: typeof data.nitro_pdf_downloads === 'number' ? data.nitro_pdf_downloads : INITIAL_COUNTS.nitro_pdf_downloads
       };
     }
   } catch (error) {

@@ -2,17 +2,12 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import NitroDownloadBox from '@/components/NitroDownloadBox';
 import {
-  Download,
   CheckCircle2,
   FileCheck2,
   ShieldCheck,
   ArrowLeft,
-  MessageSquare,
-  Sparkles,
-  Info,
-  Laptop,
-  Check,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -22,12 +17,12 @@ export const metadata: Metadata = {
 };
 
 // ---------------------------------------------------------------------------
-// ENLACES PROVISIONALES (Se actualizarán cuando subas el Release a GitHub)
+// ENLACES OFICIALES (GitHub Releases CDN)
 // ---------------------------------------------------------------------------
 const VIDEO_RELEASE_URL =
-  'https://github.com/victorhernandez-art/SolucionDigital360/releases/download/v1.0-nitro/tutorial-nitro-pdf.mp4';
+  'https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/NitroPDF/Nitro.PDF.mp4';
 const DOWNLOAD_RELEASE_URL =
-  'https://github.com/victorhernandez-art/SolucionDigital360/releases/download/v1.0-nitro/Instalador_Nitro_PDF_Pro.zip';
+  'https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/NitroPDF/Nitro.PDF.Pro.14.41.0.15.x64.Enterprise.rar';
 
 export default function NitroPdfPage() {
   return (
@@ -76,11 +71,11 @@ export default function NitroPdfPage() {
                 <span className="w-3 h-3 rounded-full bg-amber-500 inline-block" />
                 <span className="w-3 h-3 rounded-full bg-emerald-500 inline-block" />
                 <span className="ml-2 text-xs font-mono text-slate-400 hidden sm:inline">
-                  tutorial-nitro-pdf-pro.mp4
+                  Nitro.PDF.mp4
                 </span>
               </div>
               <span className="text-xs font-semibold text-emerald-400 bg-emerald-950/80 border border-emerald-800/60 px-2.5 py-0.5 rounded-full">
-                1080p HD
+                1080p HD · Sin Anuncios
               </span>
             </div>
 
@@ -91,80 +86,28 @@ export default function NitroPdfPage() {
                 playsInline
                 preload="metadata"
                 className="w-full h-full object-contain rounded-xl sm:rounded-2xl focus:outline-none"
-                src={VIDEO_RELEASE_URL}
               >
+                <source src={VIDEO_RELEASE_URL} type="video/mp4" />
                 Tu navegador no soporta el reproductor nativo de video HTML5.
               </video>
             </div>
           </div>
 
-          {/* Aviso informativo de enlace provisional */}
-          <div className="p-4 rounded-xl bg-blue-50 border border-blue-200 flex items-start gap-3 text-sm text-blue-900">
-            <Info className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
+          {/* Aviso informativo de streaming optimizado */}
+          <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 flex items-start gap-3 text-sm text-emerald-950">
+            <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
             <div className="space-y-1">
-              <p className="font-semibold">Enlace Provisional de GitHub Releases Activo</p>
-              <p className="text-blue-700 text-xs sm:text-sm leading-relaxed">
-                Este reproductor está configurado para leer directamente el archivo MP4 subido en
-                los Releases de GitHub (<code>{VIDEO_RELEASE_URL}</code>). Tan pronto como subas el
-                video a tu release, se reproducirá en alta definición automáticamente.
+              <p className="font-semibold text-emerald-900">Video oficial en alta resolución activo</p>
+              <p className="text-emerald-800 text-xs sm:text-sm leading-relaxed">
+                Este video tutorial está alojado en la red CDN de GitHub Releases para garantizar una carga
+                rápida, sin interrupciones ni publicidad externa.
               </p>
             </div>
           </div>
         </section>
 
-        {/* Tarjeta de Descarga Directa y Soporte */}
-        <section className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm space-y-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div className="space-y-2 text-center md:text-left">
-              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-600">
-                <Sparkles className="w-4 h-4" />
-                <span>Descarga Directa Gratuita</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-                Obtén el Instalador de Nitro PDF Pro
-              </h2>
-              <p className="text-slate-600 text-sm max-w-xl">
-                Descarga el archivo empaquetado seguro (.zip) sin acortadores de publicidad ni
-                redirecciones engañosas.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-              <a
-                href={DOWNLOAD_RELEASE_URL}
-                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-orange-600 hover:bg-orange-700 active:bg-orange-800 text-white font-bold text-sm transition-all shadow-lg shadow-orange-600/25"
-              >
-                <Download className="w-4 h-4" />
-                <span>Descargar Instalador (.ZIP)</span>
-              </a>
-
-              <a
-                href="https://wa.me/529611209361?text=Hola,%20tengo%20una%20duda%20sobre%20la%20instalaci%C3%B3n%20de%20Nitro%20PDF%20Pro"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl border border-slate-300 hover:bg-slate-50 text-slate-700 font-semibold text-sm transition-colors"
-              >
-                <MessageSquare className="w-4 h-4 text-emerald-600" />
-                <span>Pedir Asistencia</span>
-              </a>
-            </div>
-          </div>
-
-          <div className="pt-6 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-500">
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-emerald-500 shrink-0" />
-              <span>Libre de virus y malware</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Laptop className="w-4 h-4 text-blue-500 shrink-0" />
-              <span>Compatible con Windows 10 y 11</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Check className="w-4 h-4 text-orange-500 shrink-0" />
-              <span>Instalación guiada paso a paso</span>
-            </div>
-          </div>
-        </section>
+        {/* Tarjeta de Descarga Directa con Marcador y Descargo de Responsabilidad */}
+        <NitroDownloadBox downloadUrl={DOWNLOAD_RELEASE_URL} />
 
         {/* Pasos de Instalación */}
         <section className="space-y-6">
@@ -184,7 +127,7 @@ export default function NitroPdfPage() {
               </span>
               <h3 className="font-bold text-slate-900 text-base">Descargar Archivo</h3>
               <p className="text-slate-500 text-xs leading-relaxed">
-                Haz clic en el botón naranja de descarga para obtener el paquete comprimido en formato .ZIP.
+                Haz clic en el botón naranja de descarga para obtener el paquete comprimido en formato .RAR (64 bits).
               </p>
             </div>
 
@@ -194,7 +137,7 @@ export default function NitroPdfPage() {
               </span>
               <h3 className="font-bold text-slate-900 text-base">Descomprimir</h3>
               <p className="text-slate-500 text-xs leading-relaxed">
-                Da clic derecho en el archivo .zip descargado y selecciona &ldquo;Extraer todo&rdquo; en una carpeta de tu preferencia.
+                Usa WinRAR, 7-Zip o el explorador de Windows para extraer el contenido en una carpeta de tu preferencia.
               </p>
             </div>
 

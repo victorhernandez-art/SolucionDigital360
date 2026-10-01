@@ -134,10 +134,11 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
 ### 📌 Versión 1.2.6 — Septiembre 2026 (Actualización Reciente)
-- **📄 Módulo Nitro PDF Pro — Video Tutorial & Descarga:**
-  - Nueva ruta `/herramientas/nitro-pdf` con reproductor nativo HTML5 optimizado para CDN de GitHub Releases.
-  - Tarjeta en catálogo actualizada a Nitro PDF Pro.
-  - Enlaces provisionales configurados para video MP4 e instalador ZIP.
+- **📄 Módulo Nitro PDF Pro — Video Tutorial, Descarga & Analítica:**
+  - Nueva ruta `/herramientas/nitro-pdf` con reproductor nativo HTML5 conectado a video oficial en GitHub Releases (`Nitro.PDF.mp4`).
+  - Marcador de descargas dinámico en tiempo real (`components/NitroDownloadBox.tsx`) con persistencia e incremento al hacer clic.
+  - Tarjeta de descargo de responsabilidad oficial para Solución Digital 360.
+  - Enlace de descarga oficial al instalador Enterprise x64 (`Nitro.PDF.Pro.14.41.0.15.x64.Enterprise.rar`).
 
 ### 📌 Versión 1.2.5 — Septiembre 2026
 - **🆓 Nueva Sección: Herramientas de Apoyo Gratuitas:**
