@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import {
   Download,
   MessageSquare,
@@ -8,7 +9,11 @@ import {
   Laptop,
   Check,
   AlertTriangle,
-  Users,
+  CheckCircle2,
+  Youtube,
+  ArrowRight,
+  X,
+  Sparkles,
 } from 'lucide-react';
 
 interface NitroDownloadBoxProps {
@@ -21,7 +26,20 @@ export default function NitroDownloadBox({ downloadUrl }: NitroDownloadBoxProps)
 
   const [downloadCount, setDownloadCount] = useState<number>(baseCount);
   const [isDownloading, setIsDownloading] = useState<boolean>(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
+  // Cerrar modal al presionar tecla ESC
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isModalOpen) {
+        setIsModalOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isModalOpen]);
+
+  // Sincronizar contador de descargas
   useEffect(() => {
     let localSavedVal = baseCount;
     try {
@@ -57,17 +75,18 @@ export default function NitroDownloadBox({ downloadUrl }: NitroDownloadBoxProps)
     if (isDownloading) return;
     setIsDownloading(true);
 
-    // 1. Incremento visual inmediato
+    // 1. Abrir la descarga en nueva pestaña y activar modal simultáneamente
+    window.open(downloadUrl, '_blank');
+    setIsModalOpen(true);
+
+    // 2. Incremento visual inmediato del contador
     const nextCount = downloadCount + 1;
     setDownloadCount(nextCount);
     try {
       localStorage.setItem(storageKey, nextCount.toString());
     } catch {}
 
-    // 2. Disparar descarga en nueva pestaña
-    window.open(downloadUrl, '_blank');
-
-    // 3. Registrar en backend
+    // 3. Registrar descarga en servidor (Supabase / local)
     try {
       const res = await fetch('/api/downloads', {
         method: 'POST',
@@ -129,7 +148,7 @@ export default function NitroDownloadBox({ downloadUrl }: NitroDownloadBoxProps)
               </div>
             </div>
 
-            {/* Botón de Descarga Interactiva */}
+            {/* Botón Principal de Descarga */}
             <button
               type="button"
               onClick={handleDownload}
@@ -137,10 +156,10 @@ export default function NitroDownloadBox({ downloadUrl }: NitroDownloadBoxProps)
               className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-orange-600 hover:bg-orange-700 active:bg-orange-800 text-white font-bold text-sm transition-all shadow-lg shadow-orange-600/25 w-full sm:w-auto cursor-pointer"
             >
               <Download className={`w-4 h-4 ${isDownloading ? 'animate-bounce' : ''}`} />
-              <span>{isDownloading ? 'Iniciando descarga...' : 'Descargar Instalador (.RAR / x64)'}</span>
+              <span>{isDownloading ? 'Iniciando descarga...' : 'Descargar Gratis (.RAR / x64)'}</span>
             </button>
 
-            {/* Botón de Soporte WhatsApp */}
+            {/* Botón de Asistencia WhatsApp */}
             <a
               href="https://wa.me/529611209361?text=Hola,%20tengo%20una%20duda%20sobre%20la%20instalaci%C3%B3n%20de%20Nitro%20PDF%20Pro"
               target="_blank"
@@ -170,7 +189,7 @@ export default function NitroDownloadBox({ downloadUrl }: NitroDownloadBoxProps)
         </div>
       </section>
 
-      {/* Tarjeta de Descargo de Responsabilidad (Fiel al diseño solicitado) */}
+      {/* Tarjeta de Descargo de Responsabilidad */}
       <section
         aria-label="Descargo de responsabilidad"
         className="relative bg-amber-50/50 border border-amber-300/80 rounded-2xl sm:rounded-3xl p-6 sm:p-7 shadow-sm overflow-hidden"
@@ -192,6 +211,107 @@ export default function NitroDownloadBox({ downloadUrl }: NitroDownloadBoxProps)
           </div>
         </div>
       </section>
+
+      {/* ========================================================================= */}
+      {/* MODAL DE AGRADECIMIENTO, SUSCRIPCIÓN Y VENTA CRUZADA (CROSS-SELLING)      */}
+      {/* ========================================================================= */}
+      {isModalOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="modal-titulo"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/75 backdrop-blur-sm animate-in fade-in duration-200"
+          onClick={() => setIsModalOpen(false)}
+        >
+          {/* Contenedor del Modal */}
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative w-full max-w-lg bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-200 overflow-hidden space-y-6 animate-in zoom-in-95 duration-200"
+          >
+            {/* Botón de Cierre en la esquina superior derecha */}
+            <button
+              type="button"
+              onClick={() => setIsModalOpen(false)}
+              className="absolute top-4 right-4 p-2 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
+              aria-label="Cerrar ventana"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            {/* Encabezado con Icono de Éxito */}
+            <div className="text-center space-y-3 pt-2">
+              <div className="w-14 h-14 mx-auto rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center shadow-inner">
+                <CheckCircle2 className="w-8 h-8" />
+              </div>
+              <h3
+                id="modal-titulo"
+                className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight"
+              >
+                ¡Tu descarga ha comenzado!
+              </h3>
+            </div>
+
+            {/* Mensaje Empático (Soft Ask) */}
+            <p className="text-center text-slate-600 text-sm sm:text-base leading-relaxed px-2">
+              Mantener estas herramientas gratuitas toma mucho esfuerzo. Si este aporte te fue útil,
+              me ayudarías enormemente suscribiéndote a mi canal de YouTube.
+            </p>
+
+            {/* Botón Grande de YouTube */}
+            <div>
+              <a
+                href="https://www.youtube.com/@Soluci%C3%B3nDigital360"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-[#FF0000] hover:bg-[#D90000] active:scale-[0.98] text-white font-extrabold text-base transition-all shadow-lg shadow-red-500/25 group cursor-pointer"
+              >
+                <Youtube className="w-6 h-6 transition-transform group-hover:scale-110" />
+                <span>Suscribirme a Solución Digital 360</span>
+              </a>
+            </div>
+
+            {/* Separador sutil */}
+            <div className="h-px w-full bg-slate-200/80 my-1" />
+
+            {/* Banner de Venta Cruzada (Cross-Selling) */}
+            <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-950 text-white rounded-2xl p-5 sm:p-6 border border-slate-700/60 shadow-md space-y-4">
+              <div className="space-y-1.5 text-center sm:text-left">
+                <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-blue-400">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>Soluciones Empresariales</span>
+                </div>
+                <h4 className="text-base sm:text-lg font-bold text-white leading-snug">
+                  ¿Necesitas optimizar tu negocio?
+                </h4>
+                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                  Conoce nuestros sistemas administrativos y desarrollo de software a medida.
+                </p>
+              </div>
+
+              {/* Botón Secundario de Servicios */}
+              <Link
+                href="/#sistemas"
+                onClick={() => setIsModalOpen(false)}
+                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-bold text-sm transition-all shadow-md shadow-blue-600/30 group cursor-pointer"
+              >
+                <span>Ver soluciones para mi negocio</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+
+            {/* Opción de Cierre en texto inferior */}
+            <div className="text-center pt-1">
+              <button
+                type="button"
+                onClick={() => setIsModalOpen(false)}
+                className="text-xs text-slate-400 hover:text-slate-700 font-medium underline underline-offset-4 transition-colors cursor-pointer"
+              >
+                Cerrar ventana
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -133,7 +133,13 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.2.6 — Septiembre 2026 (Actualización Reciente)
+### 📌 Versión 1.2.7 — Septiembre 2026 (Actualización Reciente)
+- **🎁 Modal Interactivo de Descarga & Venta Cruzada:**
+  - Lógica de doble acción en "Descargar Gratis": abre el instalador y despliega el modal en la pestaña actual.
+  - Botón de suscripción directa a YouTube y tarjeta de venta cruzada hacia los sistemas comerciales (`/#sistemas`).
+  - Módulo con 4 categorías completas de capacidades en Nitro PDF Pro.
+
+### 📌 Versión 1.2.6 — Septiembre 2026
 - **📄 Módulo Nitro PDF Pro — Video Tutorial, Descarga & Analítica:**
   - Nueva ruta `/herramientas/nitro-pdf` con reproductor nativo HTML5 conectado a video oficial en GitHub Releases (`Nitro.PDF.mp4`).
   - Marcador de descargas dinámico en tiempo real (`components/NitroDownloadBox.tsx`) con persistencia e incremento al hacer clic.

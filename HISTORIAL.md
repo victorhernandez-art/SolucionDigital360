@@ -3,6 +3,17 @@
 
 ---
 
+## 📌 Versión 1.2.7 — Septiembre 2026
+- **🎁 Modal Interactivo de Descarga & Cross-Selling:**
+  - **Doble acción en botón "Descargar Gratis":** Inicia la descarga directa en nueva pestaña y despliega de inmediato un modal centrado con fondo semitransparente.
+  - **Suscripción a YouTube:** Botón destacado de YouTube con enlace oficial al canal `@SoluciónDigital360`.
+  - **Banner de Venta Cruzada:** Tarjeta corporativa que enlaza a los sistemas administrativos y desarrollo a medida (`/#sistemas`).
+  - **Accesibilidad:** Cierre del modal mediante botón X, tecla Escape y clic en el backdrop.
+- **📄 Sección Completa de Funcionalidades de Nitro PDF Pro:**
+  - Grid de 4 categorías: Trabajar con PDFs, Firmar y llenar documentos, Convertir archivos (con badges interactivos de Office) y Proteger documentos con contraseña.
+
+---
+
 ## 📌 Versión 1.2.6 — Septiembre 2026
 - **📄 Módulo Nitro PDF Pro — Video Tutorial, Descarga & Analítica:**
   - **Nueva ruta dedicada `/herramientas/nitro-pdf`:** Página de aterrizaje optimizada con reproductor nativo HTML5 con video oficial alojado en GitHub Releases CDN (`Nitro.PDF.mp4`, sin publicidad ni iframes).

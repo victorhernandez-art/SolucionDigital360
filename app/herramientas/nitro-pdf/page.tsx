@@ -8,6 +8,12 @@ import {
   FileCheck2,
   ShieldCheck,
   ArrowLeft,
+  FileText,
+  FileSignature,
+  RefreshCw,
+  Lock,
+  Sparkles,
+  Check,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -102,6 +108,172 @@ export default function NitroPdfPage() {
                 Este video tutorial está alojado en la red CDN de GitHub Releases para garantizar una carga
                 rápida, sin interrupciones ni publicidad externa.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Funciones y Capacidades de Nitro PDF Pro */}
+        <section aria-labelledby="funciones-nitro-titulo" className="space-y-6">
+          <div className="text-center sm:text-left space-y-2">
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-orange-600">
+              <Sparkles className="w-4 h-4" />
+              <span>Herramientas & Funcionalidades</span>
+            </div>
+            <h2 id="funciones-nitro-titulo" className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              ¿Qué puedes hacer con Nitro PDF Pro?
+            </h2>
+            <p className="text-slate-600 text-sm max-w-2xl leading-relaxed">
+              Una suite completa y profesional con todas las herramientas necesarias para gestionar, editar y proteger tus documentos digitales en un solo lugar.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Tarjeta 1: Trabajar con PDFs */}
+            <div className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 rounded-xl bg-orange-50 text-orange-600">
+                  <FileText className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+                    <span>📄</span>
+                    <span>Trabajar con PDFs</span>
+                  </h3>
+                  <p className="text-xs text-slate-500">Edición completa y organización de páginas</p>
+                </div>
+              </div>
+              <ul className="space-y-2.5 text-sm text-slate-600">
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
+                  <span>Editar texto e imágenes dentro de un PDF.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
+                  <span>Agregar, eliminar o mover páginas.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
+                  <span>Combinar varios PDF en un solo archivo.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
+                  <span>Dividir un PDF en documentos separados.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
+                  <span>Girar, reordenar o extraer páginas.</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Tarjeta 2: Firmar y llenar documentos */}
+            <div className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 rounded-xl bg-violet-50 text-violet-600">
+                  <FileSignature className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+                    <span>✍️</span>
+                    <span>Firmar y llenar documentos</span>
+                  </h3>
+                  <p className="text-xs text-slate-500">Firmas electrónicas, formularios y anotaciones</p>
+                </div>
+              </div>
+              <ul className="space-y-2.5 text-sm text-slate-600">
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-violet-600 shrink-0 mt-0.5" />
+                  <span>Agregar firma electrónica.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-violet-600 shrink-0 mt-0.5" />
+                  <span>Crear campos para llenar formularios.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-violet-600 shrink-0 mt-0.5" />
+                  <span>Rellenar documentos PDF.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-violet-600 shrink-0 mt-0.5" />
+                  <span>Agregar comentarios, notas y resaltados.</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Tarjeta 3: Convertir archivos */}
+            <div className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 rounded-xl bg-blue-50 text-blue-600">
+                  <RefreshCw className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+                    <span>🔄</span>
+                    <span>Convertir archivos</span>
+                  </h3>
+                  <p className="text-xs text-slate-500">Conversión bidireccional de documentos</p>
+                </div>
+              </div>
+              <p className="text-xs text-slate-600 font-medium">
+                Puedes convertir entre PDF y formatos como:
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 pt-1">
+                <span className="px-2.5 py-1.5 rounded-lg bg-slate-50 text-slate-700 text-xs font-semibold border border-slate-200 text-center">
+                  Word → PDF
+                </span>
+                <span className="px-2.5 py-1.5 rounded-lg bg-slate-50 text-slate-700 text-xs font-semibold border border-slate-200 text-center">
+                  Excel → PDF
+                </span>
+                <span className="px-2.5 py-1.5 rounded-lg bg-slate-50 text-slate-700 text-xs font-semibold border border-slate-200 text-center">
+                  PowerPoint → PDF
+                </span>
+                <span className="px-2.5 py-1.5 rounded-lg bg-blue-50 text-blue-700 text-xs font-semibold border border-blue-200 text-center">
+                  PDF → Word
+                </span>
+                <span className="px-2.5 py-1.5 rounded-lg bg-blue-50 text-blue-700 text-xs font-semibold border border-blue-200 text-center">
+                  PDF → Excel
+                </span>
+                <span className="px-2.5 py-1.5 rounded-lg bg-blue-50 text-blue-700 text-xs font-semibold border border-blue-200 text-center">
+                  PDF → PowerPoint
+                </span>
+                <span className="col-span-2 sm:col-span-3 px-2.5 py-1.5 rounded-lg bg-emerald-50 text-emerald-700 text-xs font-semibold border border-emerald-200 text-center">
+                  Imágenes → PDF
+                </span>
+              </div>
+            </div>
+
+            {/* Tarjeta 4: Proteger documentos */}
+            <div className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 rounded-xl bg-emerald-50 text-emerald-600">
+                  <Lock className="w-5 h-5" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+                    <span>🛡️</span>
+                    <span>Proteger documentos</span>
+                  </h3>
+                  <p className="text-xs text-slate-500">Cifrado, permisos y privacidad</p>
+                </div>
+              </div>
+              <ul className="space-y-2.5 text-sm text-slate-600">
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span>Colocar contraseña.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span>Restringir edición, copia o impresión.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span>Redactar/eliminar información sensible.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span>Agregar certificados o firmas digitales, dependiendo de la edición.</span>
+                </li>
+              </ul>
             </div>
           </div>
         </section>
