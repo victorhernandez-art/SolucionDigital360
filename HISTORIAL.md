@@ -3,6 +3,13 @@
 
 ---
 
+## 📌 Versión 1.2.9 — Octubre 2026
+- **🚀 Incentivo de Crecimiento & Suscripción en Módulo Office 2019:**
+  - **Banner Promocional de Comunidad (Meta Office 2021):** Incorporado en la tarjeta de descarga con llamado a compartir y suscribirse al canal con la promesa de liberar *Office 2021 totalmente gratis con Licencia original*.
+  - **Llamado en Modal de Agradecimiento:** Destacado visual arriba del botón de suscripción a YouTube (`@SoluciónDigital360`) para maximizar la conversión de usuarios que descargan el instalador.
+
+---
+
 ## 📌 Versión 1.2.8 — Octubre 2026
 - **💻 Módulo Office 2019 Profesional — Video Tutorial YouTube, Descarga & Modal:**
   - **Nueva ruta dedicada `/herramientas/office-2019`:** Página de aterrizaje completa con reproductor embebido de YouTube para el tutorial oficial (`L1HGFcqHDsI`).

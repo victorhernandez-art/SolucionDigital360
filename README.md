@@ -133,7 +133,12 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.2.8 — Octubre 2026 (Actualización Reciente)
+### 📌 Versión 1.2.9 — Octubre 2026 (Actualización Reciente)
+- **🚀 Incentivo de Crecimiento & Suscripción en Módulo Office 2019:**
+  - Banner promocional de comunidad en la tarjeta de descarga: llamado a compartir y suscribirse al canal con la promesa de publicar *Office 2021 totalmente gratis con Licencia original*.
+  - Llamado destacado en el modal de agradecimiento directamente sobre el botón de suscripción a YouTube (`@SoluciónDigital360`) para potenciar la viralidad y captación de suscriptores.
+
+### 📌 Versión 1.2.8 — Octubre 2026
 - **💻 Módulo Office 2019 Profesional — Video Tutorial YouTube & Descarga:**
   - Nueva ruta `/herramientas/office-2019` con reproductor oficial de YouTube (ID `L1HGFcqHDsI`).
   - Tarjeta en catálogo actualizada a Office 2019 Profesional.
