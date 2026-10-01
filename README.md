@@ -133,7 +133,13 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.2.9 — Octubre 2026 (Actualización Reciente)
+### 📌 Versión 1.3.0 — Octubre 2026 (Actualización Reciente)
+- **✨ Iconos Animados e Interactivos en Tarjetas Gratuitas:**
+  - Lógica interactiva en JavaScript (`components/HerramientasGratuitas.tsx`) con efecto magnético en hover, cálculo dinámico de posición y rotación 3D.
+  - Levitación continua suave (`.animate-icon-float`) y aura de pulso luminoso en reposo.
+  - Iconografía corporativa y profesional (`FileCheck2`, `LayoutGrid`, `Calculator`), sin estrellas ficticias para preservar la seriedad y prestigio de la marca.
+
+### 📌 Versión 1.2.9 — Octubre 2026
 - **🚀 Incentivo de Crecimiento & Suscripción en Módulo Office 2019:**
   - Banner promocional de comunidad en la tarjeta de descarga: llamado a compartir y suscribirse al canal con la promesa de publicar *Office 2021 totalmente gratis con Licencia original*.
   - Llamado destacado en el modal de agradecimiento directamente sobre el botón de suscripción a YouTube (`@SoluciónDigital360`) para potenciar la viralidad y captación de suscriptores.

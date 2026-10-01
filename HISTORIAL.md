@@ -3,6 +3,14 @@
 
 ---
 
+## 📌 Versión 1.3.0 — Octubre 2026
+- **✨ Iconos Animados e Interactivos en Tarjetas Gratuitas (`components/HerramientasGratuitas.tsx`):**
+  - **Física e Interactividad con JavaScript:** Subcomponente interactivo que detecta el movimiento del cursor (`onMouseMove`) con respuesta magnética tridimensional (inclinación, traslación suave y escala fluida).
+  - **Animación Continua en Reposo:** Keyframe `.animate-icon-float` en `app/globals.css` con levitación orgánica y halo perimetral de pulso luminoso (`glow` temático por herramienta).
+  - **Iconografía Profesional y de Prestigio:** Cero estrellas ni destellos ficticios. Se implementan iconos técnicos y sobrios acordes al software: `FileCheck2` (Nitro PDF), `LayoutGrid` (Office 2019) y `Calculator` (Generador de Cotizaciones).
+
+---
+
 ## 📌 Versión 1.2.9 — Octubre 2026
 - **🚀 Incentivo de Crecimiento & Suscripción en Módulo Office 2019:**
   - **Banner Promocional de Comunidad (Meta Office 2021):** Incorporado en la tarjeta de descarga con llamado a compartir y suscribirse al canal con la promesa de liberar *Office 2021 totalmente gratis con Licencia original*.
