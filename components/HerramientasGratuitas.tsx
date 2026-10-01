@@ -1,6 +1,7 @@
 'use client';
 
-import { Calculator, ClipboardList, FileText, ArrowUpRight } from 'lucide-react';
+import Link from 'next/link';
+import { FileCheck2, ClipboardList, FileText, ArrowUpRight } from 'lucide-react';
 
 interface HerramientaGratuita {
   id: string;
@@ -15,15 +16,15 @@ interface HerramientaGratuita {
 
 const herramientas: HerramientaGratuita[] = [
   {
-    id: 'calculadora-costos-taller',
-    icono: Calculator,
-    colorIcono: 'text-emerald-600',
-    bgIcono: 'bg-emerald-50',
-    nombre: 'Calculadora de Costos de Taller',
+    id: 'nitro-pdf-pro',
+    icono: FileCheck2,
+    colorIcono: 'text-orange-600',
+    bgIcono: 'bg-orange-50',
+    nombre: 'Nitro PDF Pro — Guía & Descarga',
     descripcion:
-      'Calcula al instante el precio justo de tus reparaciones. Ingresa el costo de refacciones, tiempo de mano de obra y margen de ganancia para obtener un precio final sugerido.',
-    labelBoton: 'Usar ahora',
-    href: '#calculadora-costos',
+      'Aprende a instalar y configurar Nitro PDF Pro paso a paso con nuestro video tutorial exclusivo y obtén el instalador completo sin costo.',
+    labelBoton: 'Ver tutorial y descarga',
+    href: '/herramientas/nitro-pdf',
   },
   {
     id: 'plantilla-control-asistencia',
@@ -125,7 +126,7 @@ export default function HerramientasGratuitas() {
 
               {/* Botón outline */}
               <div className="relative pt-6 mt-6 border-t border-slate-100">
-                <a
+                <Link
                   href={h.href}
                   id={`btn-${h.id}`}
                   className="
@@ -141,7 +142,7 @@ export default function HerramientasGratuitas() {
                 >
                   <span>{h.labelBoton}</span>
                   <ArrowUpRight className="w-4 h-4" />
-                </a>
+                </Link>
               </div>
             </div>
           );

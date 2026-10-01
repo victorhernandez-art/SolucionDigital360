@@ -133,7 +133,13 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.2.5 — Septiembre 2026 (Actualización Reciente)
+### 📌 Versión 1.2.6 — Septiembre 2026 (Actualización Reciente)
+- **📄 Módulo Nitro PDF Pro — Video Tutorial & Descarga:**
+  - Nueva ruta `/herramientas/nitro-pdf` con reproductor nativo HTML5 optimizado para CDN de GitHub Releases.
+  - Tarjeta en catálogo actualizada a Nitro PDF Pro.
+  - Enlaces provisionales configurados para video MP4 e instalador ZIP.
+
+### 📌 Versión 1.2.5 — Septiembre 2026
 - **🆓 Nueva Sección: Herramientas de Apoyo Gratuitas:**
   - Nuevo componente `components/HerramientasGratuitas.tsx` integrado en la página principal debajo del catálogo.
   - 3 tarjetas gratuitas: Calculadora de Costos de Taller, Plantilla de Control de Asistencia y Generador de Cotizaciones Básico.

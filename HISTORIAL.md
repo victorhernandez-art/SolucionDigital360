@@ -3,6 +3,15 @@
 
 ---
 
+## 📌 Versión 1.2.6 — Septiembre 2026
+- **📄 Módulo Nitro PDF Pro — Video Tutorial & Descarga:**
+  - **Nueva ruta dedicada `/herramientas/nitro-pdf`:** Página de aterrizaje optimizada con reproductor nativo HTML5 para videos alojados en GitHub Releases CDN (sin publicidad ni iframes de YouTube).
+  - **Actualización de Tarjeta en Catálogo:** Reemplazo de la tarjeta de calculadora por *Nitro PDF Pro — Guía & Descarga* con botón directo a la página.
+  - **Soporte de Enlaces Provisionales:** Enlace preparado para video MP4 y archivo de instalador .ZIP en GitHub Releases.
+  - **Guía de Instalación:** Paso a paso visual en 4 etapas, requisitos recomendados y botón de soporte vía WhatsApp.
+
+---
+
 ## 📌 Versión 1.2.5 — Septiembre 2026
 - **🆓 Nueva Sección: Herramientas de Apoyo Gratuitas:**
   - **Nuevo componente `components/HerramientasGratuitas.tsx`:** Sección visible en la página principal (`/`) debajo del catálogo de sistemas premium.
