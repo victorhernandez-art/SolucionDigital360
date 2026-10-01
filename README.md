@@ -133,7 +133,11 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.3.0 — Octubre 2026 (Actualización Reciente)
+### 📌 Versión 1.3.1 — Octubre 2026 (Actualización Reciente)
+- **📢 Optimización de Redacción en Llamado a la Acción (Office 2019):**
+  - Ajuste del mensaje persuasivo tanto en el modal como en la tarjeta de descarga para incentivar la suscripción y avisar de futuros programas y de la meta de Office 2021.
+
+### 📌 Versión 1.3.0 — Octubre 2026
 - **✨ Iconos Animados e Interactivos en Tarjetas Gratuitas:**
   - Lógica interactiva en JavaScript (`components/HerramientasGratuitas.tsx`) con efecto magnético en hover, cálculo dinámico de posición y rotación 3D.
   - Levitación continua suave (`.animate-icon-float`) y aura de pulso luminoso en reposo.

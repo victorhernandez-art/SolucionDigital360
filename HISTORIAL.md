@@ -3,6 +3,12 @@
 
 ---
 
+## 📌 Versión 1.3.1 — Octubre 2026
+- **📢 Optimización de Redacción en Llamado a la Acción (Office 2019):**
+  - **Actualización de Mensaje en Modal y Tarjeta:** Ajustado al copy oficial persuasivo: *"Suscríbete y comparte para que estés enterado de los programas que estaré publicando. Si este canal sube a más suscriptores estaré subiendo Office 2021 totalmente gratis Licencia original."*
+
+---
+
 ## 📌 Versión 1.3.0 — Octubre 2026
 - **✨ Iconos Animados e Interactivos en Tarjetas Gratuitas (`components/HerramientasGratuitas.tsx`):**
   - **Física e Interactividad con JavaScript:** Subcomponente interactivo que detecta el movimiento del cursor (`onMouseMove`) con respuesta magnética tridimensional (inclinación, traslación suave y escala fluida).

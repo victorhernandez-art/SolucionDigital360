@@ -179,7 +179,7 @@ export default function OfficeDownloadBox({ downloadUrl }: OfficeDownloadBoxProp
                 <span>🎁</span> ¡Meta Especial de la Comunidad!
               </p>
               <p className="text-xs sm:text-sm font-semibold text-slate-800">
-                ¡Comparte! Y si este canal sube a más suscriptores estaré subiendo{' '}
+                Suscríbete y comparte para que estés enterado de los programas que estaré publicando. Si este canal sube a más suscriptores estaré subiendo{' '}
                 <strong className="text-red-600 font-extrabold">Office 2021 totalmente gratis Licencia original</strong>.
               </p>
             </div>
@@ -294,7 +294,7 @@ export default function OfficeDownloadBox({ downloadUrl }: OfficeDownloadBoxProp
                 <span>¡Ayúdanos a llegar a la meta!</span>
               </div>
               <p className="text-xs sm:text-sm font-medium text-slate-800 leading-snug">
-                ¡Comparte! Si este canal sube a más suscriptores estaré subiendo{' '}
+                Suscríbete y comparte para que estés enterado de los programas que estaré publicando. Si este canal sube a más suscriptores estaré subiendo{' '}
                 <strong className="text-red-600 font-extrabold">Office 2021 totalmente gratis Licencia original</strong>.
               </p>
             </div>
