@@ -3,6 +3,17 @@
 
 ---
 
+## 📌 Versión 1.2.8 — Octubre 2026
+- **💻 Módulo Office 2019 Profesional — Video Tutorial YouTube, Descarga & Modal:**
+  - **Nueva ruta dedicada `/herramientas/office-2019`:** Página de aterrizaje completa con reproductor embebido de YouTube para el tutorial oficial (`L1HGFcqHDsI`).
+  - **Módulo de Aplicaciones Incluidas:** Word, Excel, PowerPoint, Outlook y OneNote con iconos y estilos representativos.
+  - **Caja de Descarga Interactiva (`components/OfficeDownloadBox.tsx`):** Doble acción que abre la descarga directa del archivo ZIP en GitHub Releases e inicia el modal de suscripción a YouTube y venta cruzada a sistemas (`/#sistemas`).
+  - **Marcador Dinámico de Descargas:** Contador en tiempo real sincronizado con API `/api/downloads` y persistencia en `localStorage`.
+  - **Descargo de Responsabilidad Legal:** Tarjeta de advertencia orientada al uso de licencias legítimas sin métodos de evasión de licencias.
+  - **Tarjeta en Catálogo:** Actualización de la tarjeta 2 en la sección de herramientas gratuitas a *Office 2019 Profesional — Guía & Licencia*.
+
+---
+
 ## 📌 Versión 1.2.7 — Septiembre 2026
 - **🎁 Modal Interactivo de Descarga & Cross-Selling:**
   - **Doble acción en botón "Descargar Gratis":** Inicia la descarga directa en nueva pestaña y despliega de inmediato un modal centrado con fondo semitransparente.

@@ -133,7 +133,14 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.2.7 — Septiembre 2026 (Actualización Reciente)
+### 📌 Versión 1.2.8 — Octubre 2026 (Actualización Reciente)
+- **💻 Módulo Office 2019 Profesional — Video Tutorial YouTube & Descarga:**
+  - Nueva ruta `/herramientas/office-2019` con reproductor oficial de YouTube (ID `L1HGFcqHDsI`).
+  - Tarjeta en catálogo actualizada a Office 2019 Profesional.
+  - Componente de descarga interactiva `components/OfficeDownloadBox.tsx` con modal de agradecimiento, suscripción al canal y venta cruzada (`/#sistemas`).
+  - Descargo de responsabilidad oficial orientado a licencias legítimas.
+
+### 📌 Versión 1.2.7 — Septiembre 2026
 - **🎁 Modal Interactivo de Descarga & Venta Cruzada:**
   - Lógica de doble acción en "Descargar Gratis": abre el instalador y despliega el modal en la pestaña actual.
   - Botón de suscripción directa a YouTube y tarjeta de venta cruzada hacia los sistemas comerciales (`/#sistemas`).

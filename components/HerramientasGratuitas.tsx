@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { FileCheck2, ClipboardList, FileText, ArrowUpRight } from 'lucide-react';
+import { FileCheck2, AppWindow, FileText, ArrowUpRight } from 'lucide-react';
 
 interface HerramientaGratuita {
   id: string;
@@ -27,15 +27,15 @@ const herramientas: HerramientaGratuita[] = [
     href: '/herramientas/nitro-pdf',
   },
   {
-    id: 'plantilla-control-asistencia',
-    icono: ClipboardList,
+    id: 'office-2019-pro',
+    icono: AppWindow,
     colorIcono: 'text-blue-600',
     bgIcono: 'bg-blue-50',
-    nombre: 'Plantilla de Control de Asistencia',
+    nombre: 'Office 2019 Profesional — Guía & Licencia',
     descripcion:
-      'Lista de Excel/PDF lista para imprimir o compartir. Lleva el registro diario de tu equipo de trabajo sin necesidad de software adicional.',
-    labelBoton: 'Descargar PDF',
-    href: '#plantilla-asistencia',
+      'Aprende a instalar y activar Microsoft Office 2019 (Word, Excel, PowerPoint, Outlook, OneNote) con licencia original paso a paso.',
+    labelBoton: 'Ver tutorial y descarga',
+    href: '/herramientas/office-2019',
   },
   {
     id: 'generador-cotizaciones-basico',
