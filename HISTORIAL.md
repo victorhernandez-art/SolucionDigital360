@@ -1,4 +1,4 @@
-# 📜 Historial de Cambios y Registro de Versiones (Changelog)
+﻿# 📜 Historial de Cambios y Registro de Versiones (Changelog)
 ## Solución Digital 360 — Plataforma Web SaaS
 
 ---
@@ -98,7 +98,7 @@
 - **🏋️ GymWeb — Sistema de Control de Gimnasios (v2.1):**
   - **Enlace de descarga directo:** Configurado con la URL oficial de GitHub Releases (`Instalador_GymWeb_Windows_v2.1.zip`).
   - **Periodo de Prueba:** Actualizado a **7 días de prueba completa** sin restricciones de módulos.
-  - **Video Demostrativo:** Integración con ID de YouTube `Y6p5-qLb_24`, tamaño optimizado amplio y preservación de portada original sin transparencias opacas.
+  - **Video Demostrativo:** Integración con ID de YouTube `osQbvprAAXs`, tamaño optimizado amplio y preservación de portada original sin transparencias opacas.
   - **CTA:** Eliminado el botón secundario de llamada para concentrar la acción en descarga y prueba.
 - **🚀 Infraestructura y Producción en Vercel:**
   - Ajuste de Framework Preset en Vercel a `Next.js`.

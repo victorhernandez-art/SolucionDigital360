@@ -1,4 +1,4 @@
-# 🚀 Solución Digital 360 — Plataforma Web SaaS & Catálogo Estático (SSG)
+﻿# 🚀 Solución Digital 360 — Plataforma Web SaaS & Catálogo Estático (SSG)
 
 Bienvenido al repositorio oficial de **Solución Digital 360**, un sitio web dinámico, rápido y optimizado para SEO desarrollado con **Next.js 14+ (App Router)**, **TypeScript** y **Tailwind CSS**, diseñado para desplegarse de manera 100% estática (SSG) en **Vercel**.
 
@@ -199,7 +199,7 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 - **GymWeb (Sistema de Gimnasios v2.1):**
   - **Enlace de descarga directa:** Instalador oficial Windows v2.1 alojado en GitHub Releases (`Instalador_GymWeb_Windows_v2.1.zip`).
   - **Prueba Gratuita:** Actualizado periodo de prueba a **7 días** con todas las funciones activas.
-  - **Video Demostrativo:** Integración de reproductor de video de YouTube (ID: `Y6p5-qLb_24`) con portada limpia, escala amplia y sin transparencias oscuras.
+  - **Video Demostrativo:** Integración de reproductor de video de YouTube (ID: `osQbvprAAXs`) con portada limpia, escala amplia y sin transparencias oscuras.
   - **Optimización de CTA:** Retiro del botón de llamada para maximizar conversiones enfocadas en descarga directa y contacto WhatsApp.
 - **Infraestructura de Despliegue Vercel:**
   - Configuración correcta de Framework Preset a `Next.js` en Vercel.
