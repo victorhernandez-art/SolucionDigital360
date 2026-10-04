@@ -81,7 +81,7 @@ export const sistemas: Sistema[] = [
     precio: "$2,000.00 MXN",
     precioAnterior: "$3,500.00 MXN",
     descripcionCorta: "Software empresarial 100% Offline para gestión de membresías, control de asistencias, POS estilo e-commerce, notificaciones por WhatsApp en 1 clic y 6 temas visuales personalizables. Licencia vitalicia, sin mensualidades.",
-    videoYoutubeId: "osQbvprAAXs",
+    videoYoutubeId: "bkRAztASgNY",
     canalYoutubeUrl: "https://www.youtube.com/@Soluci%C3%B3nDigital360",
     downloadUrl: "https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/v2.1/Instalador_GymWeb_Windows_v2.1.zip",
     problemaQueResuelve: "Los gimnasios pierden ingresos por tres razones críticas: socios morosos que siguen entrando sin pagar, caos en recepción al registrar asistencias manualmente, y caja desordenada porque las ventas de suplementos se mezclan con los cobros de membresías. A diferencia de plataformas SaaS que cobran mensualidades y quedan inservibles sin internet, GymWeb opera 100% de forma local y autónoma: lleva el registro de asistencias al instante, controla qué membresías están vigentes y unifica en un solo sistema la recepción, la cobranza y la tienda POS para que nunca vuelvas a perder ni un peso.",
