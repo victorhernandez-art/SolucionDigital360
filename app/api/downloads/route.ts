@@ -1,4 +1,4 @@
-﻿import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 import { supabase } from '@/lib/supabase';
@@ -11,12 +11,16 @@ const INITIAL_COUNTS: Record<string, number> = {
   taller_demo_downloads: 540,
   gimnasio_downloads: 375,
   nitro_pdf_downloads: 160,
-  office_2019_downloads: 230
+  office_2019_downloads: 230,
+  filmora_downloads: 195,
 };
 
 function getSystemKey(slugOrKey?: string | null): string {
   if (!slugOrKey) return 'taller_demo_downloads';
   const clean = slugOrKey.toLowerCase();
+  if (clean.includes('filmora')) {
+    return 'filmora_downloads';
+  }
   if (clean.includes('office') || clean.includes('2019')) {
     return 'office_2019_downloads';
   }
@@ -37,7 +41,8 @@ function getLocalCounts(): Record<string, number> {
         taller_demo_downloads: typeof data.taller_demo_downloads === 'number' ? data.taller_demo_downloads : INITIAL_COUNTS.taller_demo_downloads,
         gimnasio_downloads: typeof data.gimnasio_downloads === 'number' ? data.gimnasio_downloads : INITIAL_COUNTS.gimnasio_downloads,
         nitro_pdf_downloads: typeof data.nitro_pdf_downloads === 'number' ? data.nitro_pdf_downloads : INITIAL_COUNTS.nitro_pdf_downloads,
-        office_2019_downloads: typeof data.office_2019_downloads === 'number' ? data.office_2019_downloads : INITIAL_COUNTS.office_2019_downloads
+        office_2019_downloads: typeof data.office_2019_downloads === 'number' ? data.office_2019_downloads : INITIAL_COUNTS.office_2019_downloads,
+        filmora_downloads: typeof data.filmora_downloads === 'number' ? data.filmora_downloads : INITIAL_COUNTS.filmora_downloads,
       };
     }
   } catch (error) {

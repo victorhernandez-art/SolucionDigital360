@@ -3,6 +3,15 @@
 
 ---
 
+## 📌 Versión 1.3.5 — Octubre 2026: Módulo Oficial de Wondershare Filmora & Catálogo Gratuito Completo
+- **🎬 Integración de Wondershare Filmora en Herramientas Gratuitas:**
+  - **Nueva Tarjeta en Catálogo (`components/HerramientasGratuitas.tsx`):** Sustitución de la tarjeta previa por *Wondershare Filmora — Edición Profesional*, con imagotipo oficial (`filmora-icon.png`), halo luminoso verde azulado/teal (`bg-teal-400`), levitación continua y respuesta magnética al cursor.
+  - **Nueva Página Dedicada (`app/herramientas/filmora/page.tsx`):** Cobertura completa de herramientas de edición tradicional (corte, división y ajuste magnético), animación avanzada (keyframes, curvas de velocidad y rastreo de movimiento), composición visual y sonora (chroma key, máscaras, pantalla dividida, mezcla y sincronización de audio) y corrección de color con LUTs 3D, titulación animada y grabador de pantalla.
+  - **Módulo de Descarga (`components/FilmoraDownloadBox.tsx`):** Conectado al release oficial `Filmora.rar` en GitHub Releases, con marcador dinámico de descargas en tiempo real y modal de suscripción/venta cruzada.
+  - **Persistencia en API (`app/api/downloads/route.ts` & `data/downloads.json`):** Registro de métricas con clave `filmora_downloads` y 195 descargas base.
+
+---
+
 ## 📌 Versión 1.3.4 — Octubre 2026: Identidad Visual Oficial de Nitro PDF Pro y Microsoft Office 2019
 - **🎨 Integración de Imagen y Logo Oficial de Nitro PDF:**
   - **Procesamiento y Calibración Gráfica:** Ajuste preciso de la imagen oficial de Nitro PDF, removiendo márgenes excedentes y generando versiones en alta definición con transparencia (`nitro-pdf-icon.png` y `nitro-pdf-logo.png`).

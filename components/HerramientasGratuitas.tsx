@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FileCheck2, LayoutGrid, Calculator, ArrowUpRight } from 'lucide-react';
+import { FileCheck2, LayoutGrid, Film, ArrowUpRight } from 'lucide-react';
 
 interface HerramientaGratuita {
   id: string;
@@ -49,17 +49,18 @@ const herramientas: HerramientaGratuita[] = [
     href: '/herramientas/office-2019',
   },
   {
-    id: 'generador-cotizaciones-basico',
-    icono: Calculator,
-    colorIcono: 'text-violet-600',
-    bgIcono: 'bg-violet-50/90',
-    glowIcono: 'bg-violet-400',
-    ringIcono: 'border-violet-200/80',
-    nombre: 'Generador de Cotizaciones Básico',
+    id: 'filmora',
+    icono: Film,
+    imagen: '/filmora-icon.png',
+    colorIcono: 'text-teal-600',
+    bgIcono: 'bg-teal-50/90',
+    glowIcono: 'bg-teal-400',
+    ringIcono: 'border-teal-200/80',
+    nombre: 'Wondershare Filmora — Edición Profesional',
     descripcion:
-      'Crea presupuestos profesionales en segundos directamente en el navegador. Agrega tus servicios, ajusta precios y descarga tu cotización lista para enviar por WhatsApp.',
-    labelBoton: 'Probar herramienta',
-    href: '#generador-cotizaciones',
+      'Aprende a instalar Wondershare Filmora con herramientas de corte magnético, keyframes, curvas de velocidad, chroma key, tracking y corrección de color con LUTs 3D.',
+    labelBoton: 'Ver tutorial y descarga',
+    href: '/herramientas/filmora',
   },
 ];
 

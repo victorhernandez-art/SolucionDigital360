@@ -134,7 +134,14 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.3.4 — Octubre 2026 (Actualización Reciente)
+### 📌 Versión 1.3.5 — Octubre 2026 (Actualización Reciente)
+- **🎬 Módulo Oficial de Wondershare Filmora:**
+  - Nueva tarjeta interactiva en Herramientas Gratuitas (`#herramientas-gratuitas`) con imagotipo oficial (`/filmora-icon.png`), aura teal y física magnética.
+  - Nueva página dedicada (`/herramientas/filmora`) con cobertura de herramientas de edición tradicional, animación con keyframes, chroma key, tracking, curvas de velocidad, LUTs 3D y grabador de pantalla integrado.
+  - Componente de descarga directa con release oficial `Filmora.rar` y modal de suscripción a YouTube.
+  - Soporte de métricas en backend (`/api/downloads`) con 195 descargas base.
+
+### 📌 Versión 1.3.4 — Octubre 2026
 - **🎨 Identidad Visual Oficial de Nitro PDF Pro & Microsoft Office 2019:**
   - Ajuste y optimización del logotipo de Nitro PDF (`/nitro-pdf-icon.png` y `/nitro-pdf-logo.png`).
   - Extracción y renderizado transparente del imagotipo oficial 3D de Microsoft Office (`/office-2019-icon.png`, `/office-2019-logo.png` y `/office-2019-suite.png`).
