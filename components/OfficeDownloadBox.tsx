@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -21,7 +21,7 @@ interface OfficeDownloadBoxProps {
 }
 
 export default function OfficeDownloadBox({ downloadUrl }: OfficeDownloadBoxProps) {
-  const baseCount = 215;
+  const baseCount = 230;
   const storageKey = 'sd360_downloads_office';
 
   const [downloadCount, setDownloadCount] = useState<number>(baseCount);

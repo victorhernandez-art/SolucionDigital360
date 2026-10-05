@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import { 
@@ -28,7 +28,7 @@ export default function DownloadCtaCard({
   sistemaSlug
 }: DownloadCtaCardProps) {
   const isGym = sistemaSlug?.includes('gimnasio') || sistemaNombre.toLowerCase().includes('gimnasio') || sistemaNombre.toLowerCase().includes('gym');
-  const baseCount = isGym ? 364 : 526;
+  const baseCount = isGym ? 375 : 540;
   const storageKey = isGym ? 'sd360_downloads_gym' : 'sd360_downloads_taller';
 
   // Estado para el contador de descargas (inicia en baseCount o valor guardado)

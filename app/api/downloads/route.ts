@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+﻿import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 import { supabase } from '@/lib/supabase';
@@ -8,10 +8,10 @@ export const dynamic = 'force-dynamic';
 const DATA_FILE = path.join(process.cwd(), 'data', 'downloads.json');
 
 const INITIAL_COUNTS: Record<string, number> = {
-  taller_demo_downloads: 531,
-  gimnasio_downloads: 364,
-  nitro_pdf_downloads: 142,
-  office_2019_downloads: 215
+  taller_demo_downloads: 540,
+  gimnasio_downloads: 375,
+  nitro_pdf_downloads: 160,
+  office_2019_downloads: 230
 };
 
 function getSystemKey(slugOrKey?: string | null): string {

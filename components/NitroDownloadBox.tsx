@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -21,7 +21,7 @@ interface NitroDownloadBoxProps {
 }
 
 export default function NitroDownloadBox({ downloadUrl }: NitroDownloadBoxProps) {
-  const baseCount = 142;
+  const baseCount = 160;
   const storageKey = 'sd360_downloads_nitro';
 
   const [downloadCount, setDownloadCount] = useState<number>(baseCount);
