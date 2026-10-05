@@ -23,13 +23,18 @@ Solucion Digital 360/
 ├── app/
 │   ├── layout.tsx                  # Layout raíz (HTML5, Fuentes Inter, Metadatos SEO)
 │   ├── globals.css                 # CSS global con directivas de Tailwind CSS
-│   ├── page.tsx                    # Página principal / Catálogo de Sistemas
+│   ├── page.tsx                    # Página principal / Catálogo de Sistemas y Herramientas Gratuitas
 │   ├── quienes-somos/page.tsx      # Página institucional "Quiénes Somos"
 │   ├── contacto/page.tsx           # Página de canales de contacto directo y WhatsApp
 │   ├── privacidad/page.tsx         # Aviso de privacidad y seguridad de datos locales
 │   ├── terminos/page.tsx           # Términos y condiciones, licencias y periodos de prueba
 │   ├── api/
-│   │   └── downloads/route.ts      # API Route para registro y persistencia de descargas
+│   │   ├── downloads/route.ts      # API Route para registro y persistencia de descargas (Supabase + Local)
+│   │   └── keepalive/route.ts      # Ping de liveness 24/7 para prevenir suspensión de Supabase
+│   ├── herramientas/
+│   │   ├── nitro-pdf/page.tsx      # Tutorial HD nativo y descarga de Nitro PDF Pro
+│   │   ├── office-2019/page.tsx    # Guía oficial y descarga de Microsoft Office 2019 Profesional
+│   │   └── filmora/page.tsx        # Suite completa de edición y descarga de Wondershare Filmora
 │   └── sistemas/
 │       └── [slug]/
 │           └── page.tsx            # Página dinámica SSG de producto (generateStaticParams, notFound)
@@ -40,7 +45,11 @@ Solucion Digital 360/
 ├── components/
 │   ├── Navbar.tsx                  # Barra de navegación superior con menú responsivo
 │   ├── Footer.tsx                  # Pie de página unificado con enlaces institucionales y legales
-│   ├── DownloadCtaCard.tsx         # Tarjeta CTA con botones de acción, marcador dinámico y prueba 7 días
+│   ├── HerramientasGratuitas.tsx   # Grid interactivo con física magnética (Nitro, Office, Filmora)
+│   ├── NitroDownloadBox.tsx        # Descarga, contador dinámico y modal de Nitro PDF Pro
+│   ├── OfficeDownloadBox.tsx       # Descarga, contador dinámico y modal de Office 2019
+│   ├── FilmoraDownloadBox.tsx      # Descarga, contador dinámico y modal de Wondershare Filmora
+│   ├── DownloadCtaCard.tsx         # Tarjeta CTA con botones de acción y marcador dinámico
 │   ├── ScreenshotShowcase.tsx      # Galería interactiva auto-play de capturas HD con modal Lightbox 1:1
 │   ├── SupportedCategories.tsx     # Módulo multirrubro (Celulares, Tablets, PC, Smart TV, etc.)
 │   ├── LanAndRolesSection.tsx      # Sección clara de Conexión LAN por QR, PWA y Roles RBAC
@@ -49,10 +58,17 @@ Solucion Digital 360/
 │   └── YoutubeEmbed.tsx            # Tarjeta de enlace al Canal Oficial @SoluciónDigital360
 ├── data/
 │   ├── sistemas.ts                 # Fuente de verdad estática: Interfaz TypeScript y array de sistemas
-│   └── downloads.json              # Persistencia del contador de descargas (Taller 526 / GymWeb 364)
+│   └── downloads.json              # Persistencia de contadores de descargas (Taller, Gym, Nitro, Office, Filmora)
 ├── public/
 │   ├── logo.png                    # Logotipo oficial de Solución Digital 360
 │   ├── diseno.png                  # Imagen ilustrativa limpia del Hero Section
+│   ├── nitro-pdf-icon.png          # Imagotipo oficial cuadrado de Nitro PDF Pro
+│   ├── nitro-pdf-logo.png          # Logotipo completo transparente de Nitro PDF
+│   ├── office-2019-icon.png        # Imagotipo 3D oficial transparente de Microsoft Office
+│   ├── office-2019-logo.png        # Logotipo completo oficial de Office 2019
+│   ├── office-2019-suite.png       # Suite oficial de aplicaciones Office (Word, Excel, Outlook, PPT)
+│   ├── filmora-icon.png            # Imagotipo oficial cuadrado de Wondershare Filmora
+│   ├── filmora-logo.png            # Logotipo completo oficial de Filmora
 │   └── taller/                     # Capturas de pantalla reales en alta resolución
 ├── package.json                    # Scripts y dependencias del proyecto
 ├── tailwind.config.js              # Configuración de temas y colores Tailwind
