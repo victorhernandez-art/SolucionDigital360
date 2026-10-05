@@ -3,6 +3,24 @@
 
 ---
 
+## 📌 Versión 1.3.3 — Octubre 2026: Sincronización Global de Descargas con Supabase y Sistema Anti-Pausa 24/7
+- **🗄️ Persistencia en la Nube con Supabase (PostgreSQL):**
+  - **Diagnóstico previo:** En Vercel Serverless las funciones son efímeras y el sistema de archivos es de solo lectura; por tanto, los contadores de descargas se mantenían temporalmente en memoria local (`localStorage`), regresando al número base cada vez que un usuario borraba su caché o ingresaba desde otro dispositivo.
+  - **Integración Nativa de Supabase (`lib/supabase.ts` y `app/api/downloads/route.ts`):** Conexión directa y tolerante a fallos configurada con URL y Anon Key pública blindada mediante Row Level Security (RLS) en la tabla `downloads`.
+  - **Calibración de Marcadores Base:** Actualizados y sincronizados en la base de datos de producción:
+    - **Nitro PDF:** 160 descargas base (superando el bloqueo anterior de 142).
+    - **Office 2019:** 230 descargas base.
+    - **GymWeb:** 375 descargas base.
+    - **Taller Técnico:** 540 descargas base.
+  - **Conteo Atómico en Tiempo Real:** Al hacer clic en descargar, la API ejecuta un `upsert` inmediato que guarda el incremento en Supabase y actualiza la interfaz de forma síncrona para todos los visitantes del mundo.
+- **🛡️ Mecanismo Anti-Pausa 24/7 para Supabase (GitHub Actions):**
+  - **Protección contra Inactividad de 7 Días:** Supabase Free Tier suspende proyectos que pasan 7 días continuos sin tráfico.
+  - **Endpoint Keep-Alive (`app/api/keepalive/route.ts`):** Endpoint ligero que consulta la tabla `downloads` y confirma estado operativo.
+  - **Cron Autónomo en GitHub Actions (`.github/workflows/keepalive.yml`):** Flujo de trabajo programado que envía un ping REST automático a Supabase cada 3 días, garantizando actividad permanente 24/7/365 sin depender de configuraciones complejas ni incurrir en costos.
+  - **Estabilidad de Despliegue en Vercel:** Se retiró `vercel.json` para eliminar fallos del constructor de Vercel, permitiendo despliegues automáticos limpios e instantáneos vía Git.
+
+---
+
 ## 📌 Versión 1.3.2 — Octubre 2026
 - **🧹 Limpieza Visual en Tarjeta de Office 2019:**
   - Se eliminó el banner redundante de la tarjeta de descarga para evitar duplicidad, concentrando el llamado de suscripción y meta de Office 2021 de forma limpia y exclusiva dentro del modal interactivo de descarga.

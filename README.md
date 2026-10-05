@@ -10,6 +10,7 @@ Bienvenido al repositorio oficial de **Solución Digital 360**, un sitio web din
 - **Lenguaje:** TypeScript (Tipado estricto)
 - **Estilos:** Tailwind CSS (Vanilla CSS & tokens optimizados)
 - **Iconografía:** `lucide-react`
+- **Base de Datos & Persistencia:** Supabase (PostgreSQL con Row Level Security) para contadores de descargas en vivo
 - **Generación de Contenido:** SSG (Static Site Generation mediante `generateStaticParams`)
 - **Imágenes & Assets:** Componentes de imagen nativos con preservación de escala nativa 1:1
 
@@ -205,6 +206,20 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
   - Configuración correcta de Framework Preset a `Next.js` en Vercel.
   - Prerrenderizado estático SSG de todas las páginas institucionales y productos activos.
   - URL oficial en producción: **[https://solucion-digital360.vercel.app](https://solucion-digital360.vercel.app)**.
+
+---
+
+## 🗄️ Persistencia de Descargas con Supabase & Sistema Anti-Pausa
+
+El sistema cuenta con un motor de conteo de descargas centralizado en la nube:
+
+1. **Base de Datos en Supabase (PostgreSQL):**
+   - Tabla `downloads` con registros para cada herramienta y sistema (`nitro_pdf_downloads`, `office_2019_downloads`, `gimnasio_downloads`, `taller_demo_downloads`).
+   - Políticas RLS (Row Level Security) que permiten lectura e incremento público legítimo vía Anon Key.
+   - Conexión configurada en `lib/supabase.ts` y gestionada a través de la ruta `/api/downloads`.
+2. **Protección Anti-Pausa 24/7 (Keep-Alive):**
+   - Flujo automático en `.github/workflows/keepalive.yml` que ejecuta un ping REST a Supabase cada 3 días.
+   - Previene la suspensión automática por inactividad de 7 días del plan gratuito de Supabase, manteniendo el servicio activo permanentemente sin costos.
 
 ---
 
