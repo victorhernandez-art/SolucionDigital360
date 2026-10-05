@@ -1,0 +1,14 @@
+﻿name: Supabase Keepalive
+
+on:
+  schedule:
+    - cron: '0 12 */3 * *'
+  workflow_dispatch:
+
+jobs:
+  ping-supabase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase REST API
+        run: |
+          curl -s -f -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlncndndmZxY2VyY2F2eWtlbHN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTExNTcwNTYsImV4cCI6MjEwNjczMzA1Nn0.glOSbD9PXPFjWpIMD-DpZGqCKJXgSIQa1f6KValfGFc" "https://ygrwgvfqcercavykelsx.supabase.co/rest/v1/downloads?select=id&limit=1" || true
