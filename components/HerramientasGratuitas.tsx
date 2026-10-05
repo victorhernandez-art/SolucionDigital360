@@ -2,11 +2,13 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { FileCheck2, LayoutGrid, Calculator, ArrowUpRight } from 'lucide-react';
 
 interface HerramientaGratuita {
   id: string;
-  icono: React.ElementType;
+  icono?: React.ElementType;
+  imagen?: string;
   colorIcono: string;
   bgIcono: string;
   glowIcono: string;
@@ -21,6 +23,7 @@ const herramientas: HerramientaGratuita[] = [
   {
     id: 'nitro-pdf-pro',
     icono: FileCheck2,
+    imagen: '/nitro-pdf-icon.png',
     colorIcono: 'text-orange-600',
     bgIcono: 'bg-orange-50/90',
     glowIcono: 'bg-orange-400',
@@ -34,10 +37,11 @@ const herramientas: HerramientaGratuita[] = [
   {
     id: 'office-2019-pro',
     icono: LayoutGrid,
-    colorIcono: 'text-blue-600',
-    bgIcono: 'bg-blue-50/90',
-    glowIcono: 'bg-blue-400',
-    ringIcono: 'border-blue-200/80',
+    imagen: '/office-2019-icon.png',
+    colorIcono: 'text-red-600',
+    bgIcono: 'bg-red-50/90',
+    glowIcono: 'bg-red-400',
+    ringIcono: 'border-red-200/80',
     nombre: 'Office 2019 Profesional — Guía & Licencia',
     descripcion:
       'Aprende a instalar y activar Microsoft Office 2019 (Word, Excel, PowerPoint, Outlook, OneNote) con licencia original paso a paso.',
@@ -68,12 +72,16 @@ const herramientas: HerramientaGratuita[] = [
  */
 function InteractiveCardIcon({
   Icon,
+  imagen,
+  nombre,
   color,
   bgColor,
   glowColor,
   ringColor,
 }: {
-  Icon: React.ElementType;
+  Icon?: React.ElementType;
+  imagen?: string;
+  nombre?: string;
   color: string;
   bgColor: string;
   glowColor: string;
@@ -131,16 +139,29 @@ function InteractiveCardIcon({
           transition: isHovered ? 'transform 0.08s ease-out' : 'transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)',
         }}
         className={`
-          relative p-3 rounded-2xl ${bgColor} border border-white/80 shadow-sm flex items-center justify-center
+          relative p-2.5 rounded-2xl ${bgColor} border border-white/80 shadow-sm flex items-center justify-center
           ${!isHovered ? 'animate-icon-float' : ''}
         `}
       >
-        <Icon
-          className={`w-5 h-5 ${color} transition-all duration-300 ${
-            isHovered ? 'scale-110 drop-shadow-sm' : ''
-          }`}
-          strokeWidth={2.2}
-        />
+        {imagen ? (
+          <Image
+            src={imagen}
+            alt={nombre || 'Icono'}
+            width={32}
+            height={32}
+            className={`w-7 h-7 object-contain rounded-lg transition-all duration-300 ${
+              isHovered ? 'scale-110 drop-shadow-sm' : ''
+            }`}
+            unoptimized
+          />
+        ) : Icon ? (
+          <Icon
+            className={`w-5 h-5 ${color} transition-all duration-300 ${
+              isHovered ? 'scale-110 drop-shadow-sm' : ''
+            }`}
+            strokeWidth={2.2}
+          />
+        ) : null}
       </div>
     </div>
   );
@@ -210,6 +231,8 @@ export default function HerramientasGratuitas() {
                   {/* Componente Interactivo de Ícono */}
                   <InteractiveCardIcon
                     Icon={Icono}
+                    imagen={h.imagen}
+                    nombre={h.nombre}
                     color={h.colorIcono}
                     bgColor={h.bgIcono}
                     glowColor={h.glowIcono}

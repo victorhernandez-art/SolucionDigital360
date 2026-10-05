@@ -1,4 +1,4 @@
-﻿# 🚀 Solución Digital 360 — Plataforma Web SaaS & Catálogo Estático (SSG)
+# 🚀 Solución Digital 360 — Plataforma Web SaaS & Catálogo Estático (SSG)
 
 Bienvenido al repositorio oficial de **Solución Digital 360**, un sitio web dinámico, rápido y optimizado para SEO desarrollado con **Next.js 14+ (App Router)**, **TypeScript** y **Tailwind CSS**, diseñado para desplegarse de manera 100% estática (SSG) en **Vercel**.
 
@@ -134,7 +134,18 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.3.2 — Octubre 2026 (Actualización Reciente)
+### 📌 Versión 1.3.4 — Octubre 2026 (Actualización Reciente)
+- **🎨 Identidad Visual Oficial de Nitro PDF Pro & Microsoft Office 2019:**
+  - Ajuste y optimización del logotipo de Nitro PDF (`/nitro-pdf-icon.png` y `/nitro-pdf-logo.png`).
+  - Extracción y renderizado transparente del imagotipo oficial 3D de Microsoft Office (`/office-2019-icon.png`, `/office-2019-logo.png` y `/office-2019-suite.png`).
+  - Integración en las tarjetas de Herramientas Gratuitas (`#herramientas-gratuitas`) con física magnética, animación continua de levitación y auras luminosas acordes a cada identidad de marca.
+  - Actualización de las páginas tutoriales oficiales correspondientes.
+
+### 📌 Versión 1.3.3 — Octubre 2026
+- **🗄️ Persistencia de Descargas con Supabase & Sistema Anti-Pausa 24/7:**
+  - Base de datos en la nube (PostgreSQL + RLS) y cron de GitHub Actions cada 3 días para mantener la instancia activa.
+
+### 📌 Versión 1.3.2 — Octubre 2026
 - **🧹 Limpieza Visual en Módulo Office 2019:**
   - Retiro del banner inferior en la tarjeta principal para evitar duplicidad y mantener el mensaje de suscripción enfocado exclusivamente dentro del modal de descarga.
 

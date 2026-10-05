@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import NitroDownloadBox from '@/components/NitroDownloadBox';
@@ -52,13 +53,32 @@ export default function NitroPdfPage() {
         {/* Encabezado Principal */}
         <div className="text-center sm:text-left space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-orange-100 text-orange-800 border border-orange-200 shadow-sm">
-            <FileCheck2 className="w-3.5 h-3.5 text-orange-600" />
+            <Image
+              src="/nitro-pdf-icon.png"
+              alt="Nitro PDF"
+              width={16}
+              height={16}
+              className="w-3.5 h-3.5 object-contain rounded-[3px]"
+              unoptimized
+            />
             <span>Herramienta de Apoyo Gratuita · Video Tutorial HD</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Nitro PDF Pro — Guía de Instalación y Descarga
-          </h1>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+            <div className="hidden sm:flex p-2.5 bg-white border border-slate-200/90 rounded-2xl shadow-sm shrink-0 items-center justify-center">
+              <Image
+                src="/nitro-pdf-logo.png"
+                alt="Nitro PDF Pro"
+                width={56}
+                height={64}
+                className="w-12 h-auto object-contain"
+                unoptimized
+              />
+            </div>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+              Nitro PDF Pro — Guía de Instalación y Descarga
+            </h1>
+          </div>
 
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl leading-relaxed">
             Sigue este tutorial paso a paso para instalar y activar Nitro PDF Pro en tu equipo.

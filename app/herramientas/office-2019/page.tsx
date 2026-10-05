@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import OfficeDownloadBox from '@/components/OfficeDownloadBox';
@@ -46,14 +47,33 @@ export default function Office2019Page() {
 
         {/* Encabezado Principal */}
         <div className="text-center sm:text-left space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800 border border-blue-200 shadow-sm">
-            <AppWindow className="w-3.5 h-3.5 text-blue-600" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-red-100 text-red-800 border border-red-200 shadow-sm">
+            <Image
+              src="/office-2019-icon.png"
+              alt="Office 2019"
+              width={16}
+              height={16}
+              className="w-3.5 h-3.5 object-contain"
+              unoptimized
+            />
             <span>Guía Oficial · Video Tutorial en YouTube & Descarga</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Office 2019 GRATIS y LEGAL ✔️ | Cómo Activarlo con una Licencia Original
-          </h1>
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+            <div className="hidden sm:flex p-2.5 bg-white border border-slate-200/90 rounded-2xl shadow-sm shrink-0 items-center justify-center">
+              <Image
+                src="/office-2019-logo.png"
+                alt="Microsoft Office"
+                width={80}
+                height={32}
+                className="w-24 h-auto object-contain"
+                unoptimized
+              />
+            </div>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+              Office 2019 GRATIS y LEGAL ✔️ | Cómo Activarlo con una Licencia Original
+            </h1>
+          </div>
 
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl leading-relaxed">
             En este video te mostramos paso a paso cómo instalar Microsoft Office 2019 y realizar su activación

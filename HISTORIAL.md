@@ -1,5 +1,17 @@
-﻿# 📜 Historial de Cambios y Registro de Versiones (Changelog)
+# 📜 Historial de Cambios y Registro de Versiones (Changelog)
 ## Solución Digital 360 — Plataforma Web SaaS
+
+---
+
+## 📌 Versión 1.3.4 — Octubre 2026: Identidad Visual Oficial de Nitro PDF Pro y Microsoft Office 2019
+- **🎨 Integración de Imagen y Logo Oficial de Nitro PDF:**
+  - **Procesamiento y Calibración Gráfica:** Ajuste preciso de la imagen oficial de Nitro PDF, removiendo márgenes excedentes y generando versiones en alta definición con transparencia (`nitro-pdf-icon.png` y `nitro-pdf-logo.png`).
+  - **Tarjeta en Herramientas Gratuitas (`components/HerramientasGratuitas.tsx`):** Sustitución del icono genérico por el imagotipo oficial de Nitro PDF con halo luminoso anaranjado, levitación continua y física magnética interactiva con JavaScript.
+  - **Encabezado en Página Tutorial (`app/herramientas/nitro-pdf/page.tsx`):** Incorporación del logotipo corporativo y badge oficial junto al título principal para reforzar la presentación profesional de SaaS.
+- **💼 Integración de Imagen y Logo Oficial de Microsoft Office 2019:**
+  - **Extracción y Optimización de Activos:** Separación y renderizado en transparencia del imagotipo 3D oficial (`office-2019-icon.png`), el logotipo corporativo completo (`office-2019-logo.png`) y la suite de iconos Word, Excel, Outlook y PowerPoint (`office-2019-suite.png`).
+  - **Tarjeta en Herramientas Gratuitas (`components/HerramientasGratuitas.tsx`):** Reemplazo del icono genérico de cuadrícula azul por el imagotipo oficial de Office con aura luminosa bermellón/rojo anaranjado (`#EA4125`), levitación suave y animación tridimensional magnética.
+  - **Encabezado en Página Tutorial (`app/herramientas/office-2019/page.tsx`):** Badge oficial y logotipo integrado en el título principal.
 
 ---
 
