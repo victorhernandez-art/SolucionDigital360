@@ -158,7 +158,7 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 - **🎵 Nueva Herramienta Gratuita: YT Downloader v2.0:**
   - Nueva tarjeta interactiva en Herramientas Gratuitas (`#herramientas-gratuitas`) con imagotipo neón musical (`/yt-downloader-icon.svg`), aura rose/fucsia y física magnética.
   - Reorganización responsiva del catálogo de herramientas a 4 columnas simétricas (`grid-cols-1 md:grid-cols-2 lg:grid-cols-4`).
-  - Nueva página dedicada (`/herramientas/yt-downloader`) con showcase visual de la interfaz (`/yt-downloader-preview.png`), características de extracción MP3 en alta fidelidad y video MP4, soporte para 3 descargas simultáneas en paralelo, temas dinámicos estilo neón y selección de carpetas locales.
+  - Nueva página dedicada (`/herramientas/yt-downloader`) con showcase visual de la interfaz (`/yt-downloader-preview.png`), guía de instalación con resolución de pantalla azul de Windows SmartScreen, flujo de uso en 6 pasos y funciones especiales (selector de estilo musical, detección de duplicados y cola de 3 descargas simultáneas).
   - Componente de descarga directa (`YTDownloaderDownloadBox.tsx`) conectado al instalador oficial alojado en Google Drive, con contador dinámico en tiempo real y modal de suscripción a YouTube / venta cruzada a SaaS.
   - Persistencia de métricas en backend (`/api/downloads`) con 245 descargas base.
 

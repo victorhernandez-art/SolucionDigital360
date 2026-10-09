@@ -139,193 +139,246 @@ export default function YTDownloaderPage() {
         {/* Caja de Descarga Principal */}
         <YTDownloaderDownloadBox downloadUrl={DOWNLOAD_YT_URL} />
 
-        {/* Funciones y Capacidades Destacadas */}
-        <section aria-labelledby="capacidades-yt-titulo" className="space-y-6">
+        {/* ========================================================================= */}
+        {/* ⭐ CARACTERÍSTICAS ESPECIALES                                             */}
+        {/* ========================================================================= */}
+        <section aria-labelledby="caracteristicas-especiales-titulo" className="space-y-6">
           <div className="text-center sm:text-left space-y-2">
             <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-rose-600">
               <Sparkles className="w-4 h-4" />
-              <span>Características Principales</span>
+              <span>Funciones Exclusivas v2.0</span>
             </div>
-            <h2 id="capacidades-yt-titulo" className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              ¿Por qué usar YT Downloader de Solución Digital 360?
+            <h2 id="caracteristicas-especiales-titulo" className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              ⭐ Características Especiales de YT Downloader
             </h2>
             <p className="text-slate-600 text-sm max-w-2xl leading-relaxed">
-              Diseñado pensando en la comodidad del usuario, eliminando los peligros de sitios web llenos de virus, acortadores engañosos y redirecciones molestas.
+              Diseñado pensando en la comodidad del usuario, eliminando los peligros de sitios web con virus, acortadores y publicidad molesta.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Tarjeta 1: Sin Anuncios ni Malware */}
-            <div className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Función 1: Selector de Estilo Musical */}
+            <div className="bg-white border border-slate-200/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow space-y-4">
               <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-rose-50 text-rose-600">
-                  <ShieldCheck className="w-5 h-5" />
+                <div className="p-3 rounded-xl bg-purple-50 text-purple-600 shrink-0">
+                  <Sliders className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-                    <span>🛡️</span>
-                    <span>100% Libre de Anuncios y Virus</span>
+                  <h3 className="text-base font-bold text-slate-900">
+                    Selector de Estilo Musical
                   </h3>
-                  <p className="text-xs text-slate-500">Cero banners, pop-ups ni software espía</p>
+                  <p className="text-xs text-slate-500">Temática interactiva en barra superior</p>
                 </div>
               </div>
-              <ul className="space-y-2.5 text-sm text-slate-600">
-                <li className="flex items-start gap-2.5">
-                  <Check className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
-                  <span><strong>Descarga limpia y directa:</strong> Olvídate de los portales web que abren 5 pestañas de publicidad engañosa por cada canción.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <Check className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
-                  <span><strong>Desarrollo seguro y transparente:</strong> Creado por Solución Digital 360 bajo estándares seguros para Windows.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <Check className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
-                  <span><strong>Sin límites de tiempo:</strong> Úsalo las veces que quieras cuando lo necesites.</span>
-                </li>
-              </ul>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Cambia la temática visual de la aplicación entre <strong>Norteño, Rock, Pop o DJ / Urbano</strong> (o modo Auto) con iluminación y arte neón dinámico.
+              </p>
             </div>
 
-            {/* Tarjeta 2: Descargas Simultáneas por Lotes */}
-            <div className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow space-y-4">
+            {/* Función 2: Detección de duplicados */}
+            <div className="bg-white border border-slate-200/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow space-y-4">
               <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-blue-50 text-blue-600">
-                  <Zap className="w-5 h-5" />
+                <div className="p-3 rounded-xl bg-amber-50 text-amber-600 shrink-0">
+                  <ShieldCheck className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-                    <span>⚡</span>
-                    <span>Descarga Múltiple Simultánea</span>
+                  <h3 className="text-base font-bold text-slate-900">
+                    Detección de Duplicados
                   </h3>
-                  <p className="text-xs text-slate-500">Hasta 3 enlaces procesados en paralelo</p>
+                  <p className="text-xs text-slate-500">Ahorra espacio en tu disco duro</p>
                 </div>
               </div>
-              <ul className="space-y-2.5 text-sm text-slate-600">
-                <li className="flex items-start gap-2.5">
-                  <Check className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                  <span><strong>Ranuras organizadas:</strong> Descarga tu pista principal mientras encolar 2 opcionales en la misma pantalla.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <Check className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                  <span><strong>Búsqueda y extracción inteligente:</strong> Detecta el enlace automáticamente y prepara el flujo de descarga.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <Check className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                  <span><strong>Limpieza con un clic:</strong> Botón rápido para borrar enlaces y preparar la siguiente tanda.</span>
-                </li>
-              </ul>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                La aplicación te avisa automáticamente si una canción ya la habías descargado con anterioridad, evitando descargas repetidas y gastos de memoria innecesarios.
+              </p>
             </div>
 
-            {/* Tarjeta 3: Estilos Musicales & Arte Neón */}
-            <div className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow space-y-4">
+            {/* Función 3: Cola de descargas */}
+            <div className="bg-white border border-slate-200/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow space-y-4">
               <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-purple-50 text-purple-600">
-                  <Sliders className="w-5 h-5" />
+                <div className="p-3 rounded-xl bg-rose-50 text-rose-600 shrink-0">
+                  <Zap className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-                    <span>🎸</span>
-                    <span>Temas Neón por Estilo Musical</span>
+                  <h3 className="text-base font-bold text-slate-900">
+                    Cola de Descargas
                   </h3>
-                  <p className="text-xs text-slate-500">Una experiencia visual inmersiva</p>
+                  <p className="text-xs text-slate-500">Hasta 3 enlaces simultáneos</p>
                 </div>
               </div>
-              <ul className="space-y-2.5 text-sm text-slate-600">
-                <li className="flex items-start gap-2.5">
-                  <Check className="w-4 h-4 text-purple-600 shrink-0 mt-0.5" />
-                  <span><strong>Selector de Géneros:</strong> Cambia dinámicamente entre Norteño, Rock, Pop, DJ/Urbano o modo Auto.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <Check className="w-4 h-4 text-purple-600 shrink-0 mt-0.5" />
-                  <span><strong>Ilustraciones Neón Reactivas:</strong> Cada estilo musical activa una estética artística retro-futurista única.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <Check className="w-4 h-4 text-purple-600 shrink-0 mt-0.5" />
-                  <span><strong>Modo Oscuro Integrado:</strong> Agradable a la vista, ideal para sesiones nocturnas.</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Tarjeta 4: Gestión de Carpetas y Calidad */}
-            <div className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-md transition-shadow space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-emerald-50 text-emerald-600">
-                  <FolderDown className="w-5 h-5" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-                    <span>📁</span>
-                    <span>Control Total de Almacenamiento</span>
-                  </h3>
-                  <p className="text-xs text-slate-500">Organización exacta en tu disco duro</p>
-                </div>
-              </div>
-              <ul className="space-y-2.5 text-sm text-slate-600">
-                <li className="flex items-start gap-2.5">
-                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Ruta Personalizable:</strong> Escoge cualquier directorio o memoria USB para guardar tus archivos de audio y video.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Audio en Alta Fidelidad:</strong> Extrae el sonido en MP3 nítido preservando el espectro de graves y agudos.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Compatibilidad Total:</strong> Pistas listas para reproducir en tu automóvil, celular, smart TV o equipo estéreo.</span>
-                </li>
-              </ul>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Descarga hasta <strong>3 canciones o videos simultáneamente</strong> procesando tu lote de música en un solo clic y a máxima velocidad.
+              </p>
             </div>
           </div>
         </section>
 
-        {/* Guía Rápida de Instalación y Uso (4 Pasos) */}
+        {/* ========================================================================= */}
+        {/* 📥 PASOS PARA INSTALAR                                                    */}
+        {/* ========================================================================= */}
         <section aria-labelledby="pasos-instalacion-titulo" className="space-y-6">
           <div className="text-center sm:text-left space-y-2">
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-rose-600">
+              <FolderDown className="w-4 h-4" />
+              <span>Guía de Instalación Paso a Paso</span>
+            </div>
             <h2 id="pasos-instalacion-titulo" className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              ¿Cómo instalar y usar YT Downloader?
+              📥 Pasos para Instalar en Windows
             </h2>
             <p className="text-slate-600 text-sm max-w-xl leading-relaxed">
-              El proceso toma menos de 2 minutos. Sigue estos 4 pasos para comenzar a descargar tu música favorita.
+              Sigue estas sencillas instrucciones para instalar <strong>SD360 YT Downloader</strong> en tu computadora.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm space-y-3">
-              <span className="w-8 h-8 rounded-full bg-rose-100 text-rose-700 font-bold text-sm flex items-center justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Paso 1 */}
+            <div className="bg-white border border-slate-200/90 rounded-2xl p-6 shadow-sm space-y-3">
+              <div className="flex items-center gap-3">
+                <span className="w-8 h-8 rounded-full bg-rose-100 text-rose-700 font-bold text-sm flex items-center justify-center shrink-0">
+                  1
+                </span>
+                <h3 className="font-bold text-slate-900 text-base">Ejecutar el Instalador</h3>
+              </div>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Haz doble clic en el archivo descargado:{' '}
+                <code className="px-2 py-1 rounded-md bg-slate-100 text-rose-600 font-mono text-xs font-semibold">
+                  SD360 YT Downloader Setup 2.0.0.exe
+                </code>
+              </p>
+            </div>
+
+            {/* Paso 2: SmartScreen Callout */}
+            <div className="bg-sky-50/80 border border-sky-200 rounded-2xl p-6 shadow-sm space-y-3">
+              <div className="flex items-center gap-3">
+                <span className="w-8 h-8 rounded-full bg-sky-200 text-sky-800 font-bold text-sm flex items-center justify-center shrink-0">
+                  2
+                </span>
+                <h3 className="font-bold text-slate-900 text-base">
+                  Pantalla &quot;Windows protegió su PC&quot; (SmartScreen)
+                </h3>
+              </div>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Si Windows muestra la pantalla azul de advertencia de SmartScreen:
+              </p>
+              <ul className="space-y-1.5 text-xs text-slate-700 pl-4 list-disc">
+                <li>Haz clic en el enlace: <strong>&quot;Más información&quot;</strong></li>
+                <li>Luego haz clic en el botón: <strong>&quot;Ejecutar de todas formas&quot;</strong></li>
+              </ul>
+              <p className="text-[11px] text-sky-700 font-medium italic pt-1 border-t border-sky-200/60">
+                ℹ️ Esto es normal en programas nuevos desarrollados de forma independiente.
+              </p>
+            </div>
+
+            {/* Paso 3 */}
+            <div className="bg-white border border-slate-200/90 rounded-2xl p-6 shadow-sm space-y-3">
+              <div className="flex items-center gap-3">
+                <span className="w-8 h-8 rounded-full bg-purple-100 text-purple-700 font-bold text-sm flex items-center justify-center shrink-0">
+                  3
+                </span>
+                <h3 className="font-bold text-slate-900 text-base">Instrucciones del Asistente</h3>
+              </div>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Sigue las instrucciones del instalador en pantalla:
+              </p>
+              <ul className="space-y-1.5 text-xs text-slate-600 pl-4 list-disc">
+                <li>Elige la carpeta donde deseas instalarlo (por defecto se instala en tu usuario).</li>
+                <li>Haz clic en el botón <strong>&quot;Instalar&quot;</strong>.</li>
+              </ul>
+            </div>
+
+            {/* Paso 4 */}
+            <div className="bg-white border border-slate-200/90 rounded-2xl p-6 shadow-sm space-y-3">
+              <div className="flex items-center gap-3">
+                <span className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 font-bold text-sm flex items-center justify-center shrink-0">
+                  4
+                </span>
+                <h3 className="font-bold text-slate-900 text-base">¡Listo para Usar!</h3>
+              </div>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Se creará automáticamente un acceso directo en tu <strong>Escritorio</strong> y en tu <strong>Menú de Inicio</strong> con el nombre:
+              </p>
+              <p className="inline-block px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-800 font-semibold text-xs border border-emerald-200">
+                &quot;SD360 YT Downloader&quot;
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ========================================================================= */}
+        {/* 🎵 CÓMO USAR LA APLICACIÓN                                                */}
+        {/* ========================================================================= */}
+        <section aria-labelledby="como-usar-titulo" className="space-y-6">
+          <div className="text-center sm:text-left space-y-2">
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-rose-600">
+              <Music className="w-4 h-4" />
+              <span>Guía de Uso Rápido</span>
+            </div>
+            <h2 id="como-usar-titulo" className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              🎵 Cómo Usar la Aplicación
+            </h2>
+            <p className="text-slate-600 text-sm max-w-xl leading-relaxed">
+              Descarga canciones o videos completos en unos sencillos clics:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-sm space-y-2.5">
+              <span className="w-7 h-7 rounded-full bg-slate-900 text-white font-bold text-xs flex items-center justify-center">
                 1
               </span>
-              <h3 className="font-bold text-slate-900 text-base">Descargar</h3>
-              <p className="text-slate-500 text-xs leading-relaxed">
-                Haz clic en el botón oficial de descarga para obtener el instalador ejecutable desde Google Drive.
+              <h3 className="font-bold text-slate-900 text-sm">Abrir la Aplicación</h3>
+              <p className="text-slate-600 text-xs leading-relaxed">
+                Abre <strong>&quot;SD360 YT Downloader&quot;</strong> desde el icono en tu Escritorio.
               </p>
             </div>
 
-            <div className="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm space-y-3">
-              <span className="w-8 h-8 rounded-full bg-blue-100 text-blue-700 font-bold text-sm flex items-center justify-center">
+            <div className="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-sm space-y-2.5">
+              <span className="w-7 h-7 rounded-full bg-slate-900 text-white font-bold text-xs flex items-center justify-center">
                 2
               </span>
-              <h3 className="font-bold text-slate-900 text-base">Instalar</h3>
-              <p className="text-slate-500 text-xs leading-relaxed">
-                Ejecuta el archivo instalador en tu equipo con Windows y completa el asistente en pantalla.
+              <h3 className="font-bold text-slate-900 text-sm">Configurar Carpeta</h3>
+              <p className="text-slate-600 text-xs leading-relaxed">
+                Configura tu carpeta de descarga (por defecto guarda en tu carpeta <em>Música</em>) o pulsa <strong>&quot;Cambiar carpeta&quot;</strong>.
               </p>
             </div>
 
-            <div className="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm space-y-3">
-              <span className="w-8 h-8 rounded-full bg-purple-100 text-purple-700 font-bold text-sm flex items-center justify-center">
+            <div className="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-sm space-y-2.5">
+              <span className="w-7 h-7 rounded-full bg-slate-900 text-white font-bold text-xs flex items-center justify-center">
                 3
               </span>
-              <h3 className="font-bold text-slate-900 text-base">Pegar Enlace</h3>
-              <p className="text-slate-500 text-xs leading-relaxed">
-                Copia el enlace del video o canción de YouTube, pégalo en una de las ranuras y selecciona tu carpeta destino.
+              <h3 className="font-bold text-slate-900 text-sm">Pegar Enlace</h3>
+              <p className="text-slate-600 text-xs leading-relaxed">
+                Pega el enlace de la canción o video de YouTube en el campo <strong>&quot;Descarga 1&quot;</strong>.
               </p>
             </div>
 
-            <div className="bg-white border border-slate-200/80 rounded-2xl p-6 shadow-sm space-y-3">
-              <span className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 font-bold text-sm flex items-center justify-center">
+            <div className="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-sm space-y-2.5">
+              <span className="w-7 h-7 rounded-full bg-slate-900 text-white font-bold text-xs flex items-center justify-center">
                 4
               </span>
-              <h3 className="font-bold text-slate-900 text-base">¡Disfrutar!</h3>
-              <p className="text-slate-500 text-xs leading-relaxed">
-                Haz clic en Buscar / Descargar y tendrás tu música lista en tu equipo sin publicidad y en alta fidelidad.
+              <h3 className="font-bold text-slate-900 text-sm">Buscar Video</h3>
+              <p className="text-slate-600 text-xs leading-relaxed">
+                Haz clic en el botón <strong>&quot;Buscar&quot;</strong>. La app mostrará la miniatura y los datos del video.
+              </p>
+            </div>
+
+            <div className="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-sm space-y-2.5">
+              <span className="w-7 h-7 rounded-full bg-slate-900 text-white font-bold text-xs flex items-center justify-center">
+                5
+              </span>
+              <h3 className="font-bold text-slate-900 text-sm">Seleccionar Formato</h3>
+              <p className="text-slate-600 text-xs leading-relaxed">
+                Elige entre <strong>&quot;Audio MP3&quot;</strong> (solo música) o <strong>&quot;Video MP4&quot;</strong> (video completo).
+              </p>
+            </div>
+
+            <div className="bg-white border border-slate-200/80 rounded-2xl p-5 shadow-sm space-y-2.5">
+              <span className="w-7 h-7 rounded-full bg-emerald-600 text-white font-bold text-xs flex items-center justify-center">
+                6
+              </span>
+              <h3 className="font-bold text-slate-900 text-sm">¡Descargar!</h3>
+              <p className="text-slate-600 text-xs leading-relaxed">
+                Haz clic en <strong>&quot;Descargar&quot;</strong> y espera a que termine. ¡Eso es todo!
               </p>
             </div>
           </div>

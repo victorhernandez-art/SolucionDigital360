@@ -9,9 +9,10 @@
   - **Reorganización a 4 Columnas:** Ajuste del grid a `grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6` garantizando una presentación simétrica y balanceada de las 4 herramientas disponibles.
   - **Nueva Página Dedicada (`app/herramientas/yt-downloader/page.tsx`):**
     - Showcase visual con mockup en marco oscuro de la captura real de la aplicación (`yt-downloader-preview.png`).
-    - Explicación de características: 100% libre de anuncios y virus, descarga múltiple simultánea (hasta 3 enlaces en paralelo), estilos temáticos con arte neón (Rock, Pop, Norteño, DJ/Urbano, Auto), y guardado en carpetas locales de Windows.
-    - Guía de instalación y uso en 4 sencillos pasos.
-    - Tabla de requisitos del sistema para Windows 10 y 11 (64 bits).
+    - **⭐ Características Especiales:** Selector de estilo musical en barra superior (Norteño, Rock, Pop, DJ/Urbano o Auto), detección inteligente de duplicados para evitar uso innecesario de almacenamiento, y cola de descargas simultáneas de hasta 3 enlaces en paralelo.
+    - **📥 Pasos para Instalar:** Ejecución de `SD360 YT Downloader Setup 2.0.0.exe`, resolución guiada de la pantalla azul de Windows SmartScreen ("Más información" -> "Ejecutar de todas formas"), asistente de selección de carpeta e instalación, y creación automática de accesos directos en Escritorio y Menú Inicio.
+    - **🎵 Guía de Uso Rápido:** Flujo claro en 6 etapas: abrir app, configurar carpeta de descarga, pegar enlace de YouTube, buscar miniatura y datos, seleccionar formato (Audio MP3 o Video MP4) y descargar.
+    - Tabla de requisitos del sistema recomendados para Windows 10 y 11 (64 bits).
   - **Módulo de Descarga (`components/YTDownloaderDownloadBox.tsx`):**
     - Enlace al instalador oficial ejecutable en Google Drive (`https://drive.google.com/file/d/1dOgcOtdbSb-3u89ZGnc5S8Foom7c_jAA/view?usp=sharing`).
     - Marcador dinámico en tiempo real sincronizado con API y almacenamiento local.
