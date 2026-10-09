@@ -3,6 +3,24 @@
 
 ---
 
+## 📌 Versión 1.3.6 — Octubre 2026: Nueva Herramienta Gratuita YT Downloader (Música y Videos de YouTube Sin Anuncios)
+- **🎵 Integración Oficial de YT Downloader v2.0:**
+  - **Nueva Tarjeta en Catálogo (`components/HerramientasGratuitas.tsx`):** Incorporación de la tarjeta interactiva *YT Downloader — Música & Videos Sin Anuncios*, con imagotipo neón musical (`yt-downloader-icon.svg`), aura luminosa fucsia/rose (`bg-rose-500`), física magnética reactiva al cursor y levitación continua.
+  - **Reorganización a 4 Columnas:** Ajuste del grid a `grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6` garantizando una presentación simétrica y balanceada de las 4 herramientas disponibles.
+  - **Nueva Página Dedicada (`app/herramientas/yt-downloader/page.tsx`):**
+    - Showcase visual con mockup en marco oscuro de la captura real de la aplicación (`yt-downloader-preview.png`).
+    - Explicación de características: 100% libre de anuncios y virus, descarga múltiple simultánea (hasta 3 enlaces en paralelo), estilos temáticos con arte neón (Rock, Pop, Norteño, DJ/Urbano, Auto), y guardado en carpetas locales de Windows.
+    - Guía de instalación y uso en 4 sencillos pasos.
+    - Tabla de requisitos del sistema para Windows 10 y 11 (64 bits).
+  - **Módulo de Descarga (`components/YTDownloaderDownloadBox.tsx`):**
+    - Enlace al instalador oficial ejecutable en Google Drive (`https://drive.google.com/file/d/1dOgcOtdbSb-3u89ZGnc5S8Foom7c_jAA/view?usp=sharing`).
+    - Marcador dinámico en tiempo real sincronizado con API y almacenamiento local.
+    - Modal de agradecimiento tras descarga invitando a la suscripción en el canal oficial de YouTube `@SoluciónDigital360` y venta cruzada a los SaaS comerciales (Taller y Gimnasios).
+    - Botón de asistencia directa por WhatsApp preconfigurado.
+  - **Persistencia en Backend (`app/api/downloads/route.ts` & `data/downloads.json`):** Registro de métricas con clave `yt_downloader_downloads` y 245 descargas base.
+
+---
+
 ## 📌 Versión 1.3.5 — Octubre 2026: Módulo Oficial de Wondershare Filmora & Catálogo Gratuito Completo
 - **🎬 Integración de Wondershare Filmora en Herramientas Gratuitas:**
   - **Nueva Tarjeta en Catálogo (`components/HerramientasGratuitas.tsx`):** Sustitución de la tarjeta previa por *Wondershare Filmora — Edición Profesional*, con imagotipo oficial (`filmora-icon.png`), halo luminoso verde azulado/teal (`bg-teal-400`), levitación continua y respuesta magnética al cursor.

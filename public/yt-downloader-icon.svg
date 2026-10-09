@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#18182f" />
+      <stop offset="100%" stop-color="#090d16" />
+    </linearGradient>
+    <linearGradient id="neonBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#f43f5e" />
+    </linearGradient>
+    <linearGradient id="ytGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff0033" />
+      <stop offset="100%" stop-color="#c90226" />
+    </linearGradient>
+    <linearGradient id="musicGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Base container rounded rect -->
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#bgGrad)" stroke="url(#neonBorder)" stroke-width="2" />
+
+  <!-- Youtube pill badge -->
+  <rect x="10" y="16" width="30" height="22" rx="7" fill="url(#ytGrad)" />
+  <!-- Play triangle in YT badge -->
+  <path d="M22 22.5L29 27L22 31.5V22.5Z" fill="#ffffff" />
+
+  <!-- Neon Music Note with glow -->
+  <g filter="url(#glow)">
+    <!-- Note Stem & Flag -->
+    <path d="M47 16V36C45.8 35.4 44.4 35 43 35C39.7 35 37 37.2 37 40C37 42.8 39.7 45 43 45C46.3 45 49 42.8 49 40V22L54 20V16L47 16Z" fill="url(#musicGrad)" />
+    <!-- Mini accent note -->
+    <circle cx="21" cy="46" r="3" fill="#a855f7" />
+    <path d="M24 46V38H28V40H26V46" stroke="#a855f7" stroke-width="1.5" stroke-linecap="round" />
+  </g>
+
+  <!-- Soundwave equalizer dots at bottom -->
+  <circle cx="32" cy="48" r="1.5" fill="#38bdf8" opacity="0.9" />
+  <circle cx="36" cy="48" r="1.5" fill="#a855f7" opacity="0.9" />
+</svg>

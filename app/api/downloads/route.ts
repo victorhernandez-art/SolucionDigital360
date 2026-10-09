@@ -13,11 +13,15 @@ const INITIAL_COUNTS: Record<string, number> = {
   nitro_pdf_downloads: 160,
   office_2019_downloads: 230,
   filmora_downloads: 195,
+  yt_downloader_downloads: 245,
 };
 
 function getSystemKey(slugOrKey?: string | null): string {
   if (!slugOrKey) return 'taller_demo_downloads';
   const clean = slugOrKey.toLowerCase();
+  if (clean.includes('yt') || clean.includes('youtube') || clean.includes('musica') || clean.includes('cancion')) {
+    return 'yt_downloader_downloads';
+  }
   if (clean.includes('filmora')) {
     return 'filmora_downloads';
   }
@@ -43,6 +47,7 @@ function getLocalCounts(): Record<string, number> {
         nitro_pdf_downloads: typeof data.nitro_pdf_downloads === 'number' ? data.nitro_pdf_downloads : INITIAL_COUNTS.nitro_pdf_downloads,
         office_2019_downloads: typeof data.office_2019_downloads === 'number' ? data.office_2019_downloads : INITIAL_COUNTS.office_2019_downloads,
         filmora_downloads: typeof data.filmora_downloads === 'number' ? data.filmora_downloads : INITIAL_COUNTS.filmora_downloads,
+        yt_downloader_downloads: typeof data.yt_downloader_downloads === 'number' ? data.yt_downloader_downloads : INITIAL_COUNTS.yt_downloader_downloads,
       };
     }
   } catch (error) {

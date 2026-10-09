@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FileCheck2, LayoutGrid, Film, ArrowUpRight } from 'lucide-react';
+import { FileCheck2, LayoutGrid, Film, ArrowUpRight, Youtube } from 'lucide-react';
 
 interface HerramientaGratuita {
   id: string;
@@ -61,6 +61,20 @@ const herramientas: HerramientaGratuita[] = [
       'Aprende a instalar Wondershare Filmora con herramientas de corte magnético, keyframes, curvas de velocidad, chroma key, tracking y corrección de color con LUTs 3D.',
     labelBoton: 'Ver tutorial y descarga',
     href: '/herramientas/filmora',
+  },
+  {
+    id: 'yt-downloader',
+    icono: Youtube,
+    imagen: '/yt-downloader-icon.svg',
+    colorIcono: 'text-rose-600',
+    bgIcono: 'bg-rose-50/90',
+    glowIcono: 'bg-rose-500',
+    ringIcono: 'border-rose-200/80',
+    nombre: 'YT Downloader — Música & Videos Sin Anuncios',
+    descripcion:
+      'Descarga tus canciones y videos favoritos de YouTube en alta fidelidad y sin publicidad molesta. Soporte para descargas simultáneas y temas estilo neón.',
+    labelBoton: 'Ver herramienta y descarga',
+    href: '/herramientas/yt-downloader',
   },
 ];
 
@@ -201,7 +215,7 @@ export default function HerramientasGratuitas() {
       </div>
 
       {/* Grid de tarjetas */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {herramientas.map((h) => {
           const Icono = h.icono;
           return (

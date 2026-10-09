@@ -34,7 +34,8 @@ Solucion Digital 360/
 │   ├── herramientas/
 │   │   ├── nitro-pdf/page.tsx      # Tutorial HD nativo y descarga de Nitro PDF Pro
 │   │   ├── office-2019/page.tsx    # Guía oficial y descarga de Microsoft Office 2019 Profesional
-│   │   └── filmora/page.tsx        # Suite completa de edición y descarga de Wondershare Filmora
+│   │   ├── filmora/page.tsx        # Suite completa de edición y descarga de Wondershare Filmora
+│   │   └── yt-downloader/page.tsx  # Descarga y especificaciones de YT Downloader v2.0
 │   └── sistemas/
 │       └── [slug]/
 │           └── page.tsx            # Página dinámica SSG de producto (generateStaticParams, notFound)
@@ -45,10 +46,11 @@ Solucion Digital 360/
 ├── components/
 │   ├── Navbar.tsx                  # Barra de navegación superior con menú responsivo
 │   ├── Footer.tsx                  # Pie de página unificado con enlaces institucionales y legales
-│   ├── HerramientasGratuitas.tsx   # Grid interactivo con física magnética (Nitro, Office, Filmora)
+│   ├── HerramientasGratuitas.tsx   # Grid interactivo con física magnética (Nitro, Office, Filmora, YT Downloader)
 │   ├── NitroDownloadBox.tsx        # Descarga, contador dinámico y modal de Nitro PDF Pro
 │   ├── OfficeDownloadBox.tsx       # Descarga, contador dinámico y modal de Office 2019
 │   ├── FilmoraDownloadBox.tsx      # Descarga, contador dinámico y modal de Wondershare Filmora
+│   ├── YTDownloaderDownloadBox.tsx # Descarga, contador dinámico y modal de YT Downloader
 │   ├── DownloadCtaCard.tsx         # Tarjeta CTA con botones de acción y marcador dinámico
 │   ├── ScreenshotShowcase.tsx      # Galería interactiva auto-play de capturas HD con modal Lightbox 1:1
 │   ├── SupportedCategories.tsx     # Módulo multirrubro (Celulares, Tablets, PC, Smart TV, etc.)
@@ -58,7 +60,7 @@ Solucion Digital 360/
 │   └── YoutubeEmbed.tsx            # Tarjeta de enlace al Canal Oficial @SoluciónDigital360
 ├── data/
 │   ├── sistemas.ts                 # Fuente de verdad estática: Interfaz TypeScript y array de sistemas
-│   └── downloads.json              # Persistencia de contadores de descargas (Taller, Gym, Nitro, Office, Filmora)
+│   └── downloads.json              # Persistencia de contadores de descargas (Taller, Gym, Nitro, Office, Filmora, YT)
 ├── public/
 │   ├── logo.png                    # Logotipo oficial de Solución Digital 360
 │   ├── diseno.png                  # Imagen ilustrativa limpia del Hero Section
@@ -69,6 +71,8 @@ Solucion Digital 360/
 │   ├── office-2019-suite.png       # Suite oficial de aplicaciones Office (Word, Excel, Outlook, PPT)
 │   ├── filmora-icon.png            # Imagotipo oficial cuadrado de Wondershare Filmora
 │   ├── filmora-logo.png            # Logotipo completo oficial de Filmora
+│   ├── yt-downloader-icon.svg      # Imagotipo oficial neón de YT Downloader
+│   ├── yt-downloader-preview.png   # Captura oficial en alta resolución de la app YT Downloader
 │   └── taller/                     # Capturas de pantalla reales en alta resolución
 ├── package.json                    # Scripts y dependencias del proyecto
 ├── tailwind.config.js              # Configuración de temas y colores Tailwind
@@ -150,7 +154,15 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.3.5 — Octubre 2026 (Actualización Reciente)
+### 📌 Versión 1.3.6 — Octubre 2026 (Actualización Reciente)
+- **🎵 Nueva Herramienta Gratuita: YT Downloader v2.0:**
+  - Nueva tarjeta interactiva en Herramientas Gratuitas (`#herramientas-gratuitas`) con imagotipo neón musical (`/yt-downloader-icon.svg`), aura rose/fucsia y física magnética.
+  - Reorganización responsiva del catálogo de herramientas a 4 columnas simétricas (`grid-cols-1 md:grid-cols-2 lg:grid-cols-4`).
+  - Nueva página dedicada (`/herramientas/yt-downloader`) con showcase visual de la interfaz (`/yt-downloader-preview.png`), características de extracción MP3 en alta fidelidad y video MP4, soporte para 3 descargas simultáneas en paralelo, temas dinámicos estilo neón y selección de carpetas locales.
+  - Componente de descarga directa (`YTDownloaderDownloadBox.tsx`) conectado al instalador oficial alojado en Google Drive, con contador dinámico en tiempo real y modal de suscripción a YouTube / venta cruzada a SaaS.
+  - Persistencia de métricas en backend (`/api/downloads`) con 245 descargas base.
+
+### 📌 Versión 1.3.5 — Octubre 2026
 - **🎬 Módulo Oficial de Wondershare Filmora:**
   - Nueva tarjeta interactiva en Herramientas Gratuitas (`#herramientas-gratuitas`) con imagotipo oficial (`/filmora-icon.png`), aura teal y física magnética.
   - Nueva página dedicada (`/herramientas/filmora`) con cobertura de herramientas de edición tradicional, animación con keyframes, chroma key, tracking, curvas de velocidad, LUTs 3D y grabador de pantalla integrado.
