@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import YTDownloaderDownloadBox from '@/components/YTDownloaderDownloadBox';
+import FacebookReelEmbed from '@/components/FacebookReelEmbed';
 import {
   ArrowLeft,
   CheckCircle2,
@@ -135,6 +136,13 @@ export default function YTDownloaderPage() {
             </div>
           </div>
         </section>
+
+        {/* Video Demostración Oficial (Facebook Reel) */}
+        <FacebookReelEmbed
+          videoUrl="https://www.facebook.com/reel/2226372958286827"
+          title="Demostración Oficial de YT Downloader en Facebook"
+          coverImage="/yt-downloader-reel-cover.jpg"
+        />
 
         {/* Caja de Descarga Principal */}
         <YTDownloaderDownloadBox downloadUrl={DOWNLOAD_YT_URL} />

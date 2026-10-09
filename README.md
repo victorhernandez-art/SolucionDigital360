@@ -51,6 +51,7 @@ Solucion Digital 360/
 │   ├── OfficeDownloadBox.tsx       # Descarga, contador dinámico y modal de Office 2019
 │   ├── FilmoraDownloadBox.tsx      # Descarga, contador dinámico y modal de Wondershare Filmora
 │   ├── YTDownloaderDownloadBox.tsx # Descarga, contador dinámico y modal de YT Downloader
+│   ├── FacebookReelEmbed.tsx       # Reproductor y visor oficial de Facebook Reel para video demostración
 │   ├── DownloadCtaCard.tsx         # Tarjeta CTA con botones de acción y marcador dinámico
 │   ├── ScreenshotShowcase.tsx      # Galería interactiva auto-play de capturas HD con modal Lightbox 1:1
 │   ├── SupportedCategories.tsx     # Módulo multirrubro (Celulares, Tablets, PC, Smart TV, etc.)
@@ -73,6 +74,7 @@ Solucion Digital 360/
 │   ├── filmora-logo.png            # Logotipo completo oficial de Filmora
 │   ├── yt-downloader-icon.svg      # Imagotipo oficial neón de YT Downloader
 │   ├── yt-downloader-preview.png   # Captura oficial en alta resolución de la app YT Downloader
+│   ├── yt-downloader-reel-cover.jpg # Portada oficial en alta resolución del video Reel de Facebook
 │   └── taller/                     # Capturas de pantalla reales en alta resolución
 ├── package.json                    # Scripts y dependencias del proyecto
 ├── tailwind.config.js              # Configuración de temas y colores Tailwind
@@ -158,7 +160,7 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 - **🎵 Nueva Herramienta Gratuita: YT Downloader v2.0:**
   - Nueva tarjeta interactiva en Herramientas Gratuitas (`#herramientas-gratuitas`) con imagotipo neón musical (`/yt-downloader-icon.svg`), aura rose/fucsia y física magnética.
   - Reorganización responsiva del catálogo de herramientas a 4 columnas simétricas (`grid-cols-1 md:grid-cols-2 lg:grid-cols-4`).
-  - Nueva página dedicada (`/herramientas/yt-downloader`) con showcase visual de la interfaz (`/yt-downloader-preview.png`), guía de instalación con resolución de pantalla azul de Windows SmartScreen, flujo de uso en 6 pasos y funciones especiales (selector de estilo musical, detección de duplicados y cola de 3 descargas simultáneas).
+  - Nueva página dedicada (`/herramientas/yt-downloader`) con showcase visual de la interfaz (`/yt-downloader-preview.png`), video demostración oficial en formato Reel de Facebook (`FacebookReelEmbed.tsx`), guía de instalación con resolución de pantalla azul de Windows SmartScreen, flujo de uso en 6 pasos y funciones especiales (selector de estilo musical, detección de duplicados y cola de 3 descargas simultáneas).
   - Componente de descarga directa (`YTDownloaderDownloadBox.tsx`) conectado al instalador oficial alojado en Google Drive, con contador dinámico en tiempo real y modal de suscripción a YouTube / venta cruzada a SaaS.
   - Persistencia de métricas en backend (`/api/downloads`) con 245 descargas base.
 

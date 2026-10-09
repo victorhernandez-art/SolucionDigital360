@@ -9,6 +9,7 @@
   - **Reorganización a 4 Columnas:** Ajuste del grid a `grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6` garantizando una presentación simétrica y balanceada de las 4 herramientas disponibles.
   - **Nueva Página Dedicada (`app/herramientas/yt-downloader/page.tsx`):**
     - Showcase visual con mockup en marco oscuro de la captura real de la aplicación (`yt-downloader-preview.png`).
+    - **🎬 Video Demostración Oficial (Facebook Reel Embed):** Integración de [`FacebookReelEmbed.tsx`](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/FacebookReelEmbed.tsx) con el reel oficial (`https://www.facebook.com/reel/2226372958286827`), portada nativa en alta definición (`yt-downloader-reel-cover.jpg`), reproductor interactivo 9:16 y botón de acceso directo a Facebook.
     - **⭐ Características Especiales:** Selector de estilo musical en barra superior (Norteño, Rock, Pop, DJ/Urbano o Auto), detección inteligente de duplicados para evitar uso innecesario de almacenamiento, y cola de descargas simultáneas de hasta 3 enlaces en paralelo.
     - **📥 Pasos para Instalar:** Ejecución de `SD360 YT Downloader Setup 2.0.0.exe`, resolución guiada de la pantalla azul de Windows SmartScreen ("Más información" -> "Ejecutar de todas formas"), asistente de selección de carpeta e instalación, y creación automática de accesos directos en Escritorio y Menú Inicio.
     - **🎵 Guía de Uso Rápido:** Flujo claro en 6 etapas: abrir app, configurar carpeta de descarga, pegar enlace de YouTube, buscar miniatura y datos, seleccionar formato (Audio MP3 o Video MP4) y descargar.
