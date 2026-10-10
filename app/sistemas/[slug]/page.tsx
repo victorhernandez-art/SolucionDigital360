@@ -74,6 +74,7 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
   const whatsappUrl = `https://wa.me/529611209361?text=${whatsappMensaje}`;
 
   const isTallerSystem = sistema.slug === 'sistema-gestion-tecnicos';
+  const isGymSystem = sistema.slug === 'sistema-gestion-gimnasios';
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 antialiased selection:bg-indigo-500 selection:text-white flex flex-col justify-between">
@@ -182,8 +183,13 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
             <ScreenshotShowcase />
             <SupportedCategories />
             <LanAndRolesSection />
-            <CurrencySelector />
+            <CurrencySelector systemName={sistema.nombre} />
           </>
+        )}
+
+        {/* COBERTURA MULTIMONEDA Y PAÍSES INTERACTIVA (GIMNASIO) */}
+        {isGymSystem && (
+          <CurrencySelector systemName="GymWeb" isGym={true} />
         )}
 
         {/* DEMOSTRACIÓN EN VIDEO Y CANAL OFICIAL */}

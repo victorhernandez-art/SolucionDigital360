@@ -1,4 +1,4 @@
-﻿export interface FAQItem {
+export interface FAQItem {
   pregunta: string;
   respuesta: string;
 }
@@ -80,19 +80,20 @@ export const sistemas: Sistema[] = [
     nombre: "GymWeb — Sistema de Control y Gestión de Gimnasios",
     precio: "$2,000.00 MXN",
     precioAnterior: "$3,500.00 MXN",
-    descripcionCorta: "Software empresarial 100% Offline para gestión de membresías, control de asistencias, POS estilo e-commerce, notificaciones por WhatsApp en 1 clic y 6 temas visuales personalizables. Licencia vitalicia, sin mensualidades.",
+    descripcionCorta: "Software empresarial 100% Offline para gestión de membresías, control de asistencias, POS estilo e-commerce, envío de tickets por WhatsApp, ventas a crédito con reporte individual por socio y configuración multi-país automática (20 países con moneda local y LADA). Licencia vitalicia, sin mensualidades.",
     videoYoutubeId: "bkRAztASgNY",
     canalYoutubeUrl: "https://www.youtube.com/@Soluci%C3%B3nDigital360",
     downloadUrl: "https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/v2.5/Instalador_GymWeb_Windows_v2.5.zip",
-    problemaQueResuelve: "Los gimnasios pierden ingresos por tres razones críticas: socios morosos que siguen entrando sin pagar, caos en recepción al registrar asistencias manualmente, y caja desordenada porque las ventas de suplementos se mezclan con los cobros de membresías. A diferencia de plataformas SaaS que cobran mensualidades y quedan inservibles sin internet, GymWeb opera 100% de forma local y autónoma: lleva el registro de asistencias al instante, controla qué membresías están vigentes y unifica en un solo sistema la recepción, la cobranza y la tienda POS para que nunca vuelvas a perder ni un peso.",
+    problemaQueResuelve: "Los gimnasios pierden ingresos por socios morosos, caos en recepción y falta de control en las ventas a crédito o compras en tienda. A diferencia de plataformas SaaS que cobran mensualidades y quedan inservibles sin internet, GymWeb opera 100% offline: automatiza el registro de asistencias, envía tickets de comprobante de pago o venta directamente por WhatsApp, permite dar a crédito productos o membresías generando reportes de la cuenta individual por cada socio, y se adapta en automático a 20 países asignando el símbolo real de la moneda local y su LADA telefónica oficial.",
     funciones: [
       "Módulo 1 — Gestión de Socios y Expediente Digital: Alta de socios en menos de 1 minuto con foto tomada en vivo desde la webcam. Ficha 360° con historial completo de asistencias, pagos y compras en tienda. Buscador reactivo por nombre, folio o teléfono.",
       "Módulo 2 — Control de Asistencias y Visitas de Día: Registro rápido de entrada de socios por búsqueda o código de barras. Historial de visitas con fechas y horas. Botón express para cobrar e ingresar pases de día a clientes esporádicos sumando automáticamente el monto en la caja.",
       "Módulo 3 — Planes y Membresías Flexibles: Configura planes por día, semana, quincena, mes, trimestre, semestre o año. Planes para estudiantes, parejas, horario matutino o pases VIP. Renovación inteligente que suma vigencias sin robarle días al socio. Activa o desactiva paquetes con un solo interruptor.",
-      "Módulo 4 — Cobranza y Notificaciones: Cobra membresías en efectivo, tarjeta o transferencia SPEI. Impresión de tickets en miniprinter térmica 58mm/80mm con logo del gimnasio. Exportación de movimientos a CSV/Excel.",
-      "Módulo 5 — Tienda POS e-Commerce (v2.2): Catálogo visual con tarjetas estilizadas, badges automáticos (Más vendido, Stock bajo, Agotado) y buscador con atajo Ctrl+K. Categorías: Bebidas, Suplementos, Ropa Deportiva y Accesorios. Carrito reactivo con descuentos y checkout con calculadora de cambio por denominaciones.",
-      "Módulo 6 — Arqueo de Caja y Reportes Financieros: Dashboard en tiempo real (socios activos, ingresos del día, visitas). Corte diario (Arqueo X/Z) unificando membresías + tienda + visitas de día, desglosado por método de pago. Exportación completa a CSV/Excel.",
-      "Módulo 7 — Marca Propia, Seguridad y Modo Autónomo: 6 temas de color corporativos (Cian, Esmeralda, Naranja, Púrpura, Rojo y Oro). Sube tu logo, nombre comercial y leyendas para tickets. Perfiles de acceso (Recepcionista vs. Administrador) con contraseñas encriptadas BCrypt. Respaldo completo en 1 clic para USB, Google Drive u OneDrive."
+      "Módulo 4 — Cobranza, Tickets por WhatsApp y Ventas a Crédito: Cobra membresías en efectivo, tarjeta o transferencia SPEI. Envío de ticket digital de comprobante de pago de membresía o de venta de producto directamente por WhatsApp al socio con 1 clic. Opción de dar a crédito productos de la tienda o membresías, llevando el saldo pendiente y generando un reporte detallado de la cuenta individual por cada socio (estado de cuenta individual y lista de socios deudores). Impresión de tickets en miniprinter térmica 58mm/80mm con logo del gimnasio.",
+      "Módulo 5 — Tienda POS e-Commerce (v2.2): Catálogo visual con tarjetas estilizadas, badges automáticos (Más vendido, Stock bajo, Agotado) y buscador con atajo Ctrl+K. Categorías: Bebidas, Suplementos, Ropa Deportiva y Accesorios. Carrito reactivo con descuentos, soporte de ventas de contado o a crédito asignadas a la cuenta del socio, y checkout con calculadora de cambio por denominaciones.",
+      "Módulo 6 — Arqueo de Caja y Reportes Financieros: Dashboard en tiempo real (socios activos, ingresos del día, visitas, cuentas por cobrar). Corte diario (Arqueo X/Z) unificando membresías + tienda + visitas de día, desglosado por método de pago y créditos otorgados. Exportación completa a CSV/Excel.",
+      "Módulo 7 — Configuración Multi-País y Multimoneda Automática (20 Países): Compatible con 20 países (México, Argentina, Colombia, Chile, Perú, Ecuador, Guatemala, Costa Rica, Panamá, Honduras, El Salvador, Nicaragua, República Dominicana, Bolivia, Paraguay, Uruguay, Venezuela, Puerto Rico, España y Estados Unidos). Al seleccionar tu país en el apartado de Configuración, el sistema muestra de forma automática el símbolo real de tu moneda local ($ MXN, $ ARS, $ COP, $ CLP, S/ PEN, $ USD, Q GTQ, ₡ CRC, B/. PAB, L HNL, C$ NIO, RD$ DOP, Bs BOB, ₲ PYG, $U UYU, Bs. VES, € EUR) y la LADA telefónica internacional correspondiente para los envíos de tickets por WhatsApp.",
+      "Módulo 8 — Marca Propia, Seguridad y Modo Autónomo: 6 temas de color corporativos (Cian, Esmeralda, Naranja, Púrpura, Rojo y Oro). Sube tu logo, nombre comercial y leyendas para tickets. Perfiles de acceso (Recepcionista vs. Administrador) con contraseñas encriptadas BCrypt. Respaldo completo en 1 clic para USB, Google Drive u OneDrive."
     ],
     requisitos: [
       "Sistema Operativo: Windows 10 / Windows 11 (64 bits) — Procesador Intel Core i3 / AMD Ryzen 3 o superior.",
@@ -105,6 +106,14 @@ export const sistemas: Sistema[] = [
       {
         pregunta: "¿El pago de la licencia es único o tendré que pagar mensualidades?",
         respuesta: "Es un pago único definitivo (Licencia Vitalicia). No cobramos anualidades, mensualidades ni comisiones por transacción. El software funciona de manera permanente en tu equipo sin depender de servidores externos ni conexión a internet."
+      },
+      {
+        pregunta: "¿Cómo funciona la configuración de país, moneda y LADA para WhatsApp?",
+        respuesta: "En el apartado de Configuración de GymWeb, seleccionas tu país (soporta 20 países de Latinoamérica, EE.UU. y España) y en automático el sistema configura el símbolo real de tu moneda local en todos los módulos y la LADA telefónica correspondiente para enviar comprobantes de pago por WhatsApp en 1 solo clic."
+      },
+      {
+        pregunta: "¿Puedo dar membresías y productos a crédito?",
+        respuesta: "Sí. El sistema permite otorgar créditos tanto en mensualidades/membresías como en productos de la tienda asignándolos a la ficha del socio. Puedes registrar abonos parciales y generar en cualquier momento el reporte de la cuenta individual por socio con el desglose exacto de su saldo deudor."
       },
       {
         pregunta: "¿Puedo descargar y probar el sistema antes de pagar?",

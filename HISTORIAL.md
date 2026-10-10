@@ -3,6 +3,20 @@
 
 ---
 
+## 📌 Versión 1.3.7 — Octubre 2026: GymWeb — Cobertura Multi-País (20 Países), Moneda Local & LADA Automática, Tickets por WhatsApp y Ventas a Crédito
+- **🏋️ Módulo de Configuración Multi-País y Multimoneda Automática:**
+  - **Soporte Oficial para 20 Países:** Integración de la lista completa e interactiva con los 20 países admitidos: México (`MX`, `$ MXN`, Lada `+52`), Argentina (`AR`, `$ ARS`, Lada `+54`), Colombia (`CO`, `$ COP`, Lada `+57`), Chile (`CL`, `$ CLP`, Lada `+56`), Perú (`PE`, `S/ PEN`, Lada `+51`), Ecuador (`EC`, `$ USD`, Lada `+593`), Guatemala (`GT`, `Q GTQ`, Lada `+502`), Costa Rica (`CR`, `₡ CRC`, Lada `+506`), Panamá (`PA`, `B/. PAB`, Lada `+507`), Honduras (`HN`, `L HNL`, Lada `+504`), El Salvador (`SV`, `$ USD`, Lada `+503`), Nicaragua (`NI`, `C$ NIO`, Lada `+505`), República Dominicana (`DO`, `RD$ DOP`, Lada `+1`), Bolivia (`BO`, `Bs BOB`, Lada `+591`), Paraguay (`PY`, `₲ PYG`, Lada `+595`), Uruguay (`UY`, `$U UYU`, Lada `+598`), Venezuela (`VE`, `Bs. VES`, Lada `+58`), Puerto Rico (`PR`, `$ USD`, Lada `+1`), España (`ES`, `€ EUR`, Lada `+34`) y Estados Unidos (`US`, `$ USD`, Lada `+1`).
+  - **Autoselección de Moneda y LADA:** Especificación clara de que al seleccionar el país en el apartado de Configuración de GymWeb, el sistema autoconfigura en tiempo real el símbolo real de la moneda local en todos los precios y la LADA telefónica oficial asignada para envíos.
+  - **Componente Visual Dedicado (`components/GymCardCountriesPreview.tsx`):** Selector interactivo integrado directamente dentro de la tarjeta de gimnasio en el catálogo principal (`app/page.tsx`), replicando fielmente la interfaz del módulo de configuración del sistema GymWeb.
+- **📱 Tickets de Comprobante de Pago y Venta por WhatsApp:**
+  - Incorporación en el Módulo 4 de Cobranza del envío directo vía WhatsApp de tickets de comprobantes de pago de membresías o ventas de productos con 1 solo clic.
+- **💳 Ventas a Crédito y Reporte de Cuenta Individual por Socio:**
+  - Opción para otorgar membresías y productos de la tienda a crédito, con control de saldos pendientes, registro de abonos y generación del reporte de la cuenta individual por cada socio (socios deudores).
+- **🌐 Expansión en la Página de Detalle (`app/sistemas/sistema-gestion-gimnasios`):**
+  - Módulo interactivo de países (`components/CurrencySelector.tsx`) habilitado en la vista de detalle con selector en vivo, tabla de banderas y desglose de LADA y símbolo de moneda local.
+
+---
+
 ## 📌 Versión 1.3.6 — Octubre 2026: Nueva Herramienta Gratuita YT Downloader (Música y Videos de YouTube Sin Anuncios)
 - **🎵 Integración Oficial de YT Downloader v2.0:**
   - **Nueva Tarjeta en Catálogo (`components/HerramientasGratuitas.tsx`):** Incorporación de la tarjeta interactiva *YT Downloader — Música & Videos Sin Anuncios*, con imagotipo neón musical (`yt-downloader-icon.svg`), aura luminosa fucsia/rose (`bg-rose-500`), física magnética reactiva al cursor y levitación continua.

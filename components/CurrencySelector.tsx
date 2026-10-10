@@ -9,32 +9,38 @@ export interface CountryCurrency {
   currency: string;
   symbol: string;
   flag: string;
+  lada: string;
 }
 
 export const supportedCountries: CountryCurrency[] = [
-  { code: 'MX', country: 'México', currency: 'MXN', symbol: '$', flag: '🇲🇽' },
-  { code: 'CO', country: 'Colombia', currency: 'COP', symbol: '$', flag: '🇨🇴' },
-  { code: 'AR', country: 'Argentina', currency: 'ARS', symbol: '$', flag: '🇦🇷' },
-  { code: 'CL', country: 'Chile', currency: 'CLP', symbol: '$', flag: '🇨🇱' },
-  { code: 'PE', country: 'Perú', currency: 'PEN', symbol: 'S/', flag: '🇵🇪' },
-  { code: 'EC', country: 'Ecuador', currency: 'USD', symbol: '$', flag: '🇪🇨' },
-  { code: 'GT', country: 'Guatemala', currency: 'GTQ', symbol: 'Q', flag: '🇬🇹' },
-  { code: 'CR', country: 'Costa Rica', currency: 'CRC', symbol: '₡', flag: '🇨🇷' },
-  { code: 'PA', country: 'Panamá', currency: 'USD / PAB', symbol: '$', flag: '🇵🇦' },
-  { code: 'HN', country: 'Honduras', currency: 'HNL', symbol: 'L', flag: '🇭🇳' },
-  { code: 'SV', country: 'El Salvador', currency: 'USD', symbol: '$', flag: '🇸🇻' },
-  { code: 'NI', country: 'Nicaragua', currency: 'NIO', symbol: 'C$', flag: '🇳🇮' },
-  { code: 'DO', country: 'República Dominicana', currency: 'DOP', symbol: 'RD$', flag: '🇩🇴' },
-  { code: 'BO', country: 'Bolivia', currency: 'BOB', symbol: 'Bs.', flag: '🇧🇴' },
-  { code: 'PY', country: 'Paraguay', currency: 'PYG', symbol: '₲', flag: '🇵🇾' },
-  { code: 'UY', country: 'Uruguay', currency: 'UYU', symbol: '$U', flag: '🇺🇾' },
-  { code: 'VE', country: 'Venezuela', currency: 'USD / VES', symbol: '$', flag: '🇻🇪' },
-  { code: 'PR', country: 'Puerto Rico', currency: 'USD', symbol: '$', flag: '🇵🇷' },
-  { code: 'ES', country: 'España', currency: 'EUR', symbol: '€', flag: '🇪🇸' },
-  { code: 'US', country: 'Estados Unidos', currency: 'USD', symbol: '$', flag: '🇺🇸' },
+  { code: 'MX', country: 'México', currency: 'MXN', symbol: '$', flag: '🇲🇽', lada: '+52' },
+  { code: 'AR', country: 'Argentina', currency: 'ARS', symbol: '$', flag: '🇦🇷', lada: '+54' },
+  { code: 'CO', country: 'Colombia', currency: 'COP', symbol: '$', flag: '🇨🇴', lada: '+57' },
+  { code: 'CL', country: 'Chile', currency: 'CLP', symbol: '$', flag: '🇨🇱', lada: '+56' },
+  { code: 'PE', country: 'Perú', currency: 'PEN', symbol: 'S/', flag: '🇵🇪', lada: '+51' },
+  { code: 'EC', country: 'Ecuador', currency: 'USD', symbol: '$', flag: '🇪🇨', lada: '+593' },
+  { code: 'GT', country: 'Guatemala', currency: 'GTQ', symbol: 'Q', flag: '🇬🇹', lada: '+502' },
+  { code: 'CR', country: 'Costa Rica', currency: 'CRC', symbol: '₡', flag: '🇨🇷', lada: '+506' },
+  { code: 'PA', country: 'Panamá', currency: 'PAB', symbol: 'B/.', flag: '🇵🇦', lada: '+507' },
+  { code: 'HN', country: 'Honduras', currency: 'HNL', symbol: 'L', flag: '🇭🇳', lada: '+504' },
+  { code: 'SV', country: 'El Salvador', currency: 'USD', symbol: '$', flag: '🇸🇻', lada: '+503' },
+  { code: 'NI', country: 'Nicaragua', currency: 'NIO', symbol: 'C$', flag: '🇳🇮', lada: '+505' },
+  { code: 'DO', country: 'República Dominicana', currency: 'DOP', symbol: 'RD$', flag: '🇩🇴', lada: '+1' },
+  { code: 'BO', country: 'Bolivia', currency: 'BOB', symbol: 'Bs', flag: '🇧🇴', lada: '+591' },
+  { code: 'PY', country: 'Paraguay', currency: 'PYG', symbol: '₲', flag: '🇵🇾', lada: '+595' },
+  { code: 'UY', country: 'Uruguay', currency: 'UYU', symbol: '$U', flag: '🇺🇾', lada: '+598' },
+  { code: 'VE', country: 'Venezuela', currency: 'VES', symbol: 'Bs.', flag: '🇻🇪', lada: '+58' },
+  { code: 'PR', country: 'Puerto Rico', currency: 'USD', symbol: '$', flag: '🇵🇷', lada: '+1' },
+  { code: 'ES', country: 'España', currency: 'EUR', symbol: '€', flag: '🇪🇸', lada: '+34' },
+  { code: 'US', country: 'Estados Unidos', currency: 'USD', symbol: '$', flag: '🇺🇸', lada: '+1' },
 ];
 
-export default function CurrencySelector() {
+interface CurrencySelectorProps {
+  systemName?: string;
+  isGym?: boolean;
+}
+
+export default function CurrencySelector({ systemName = 'Sistema Taller v1.0', isGym = false }: CurrencySelectorProps) {
   const [selected, setSelected] = useState<CountryCurrency>(supportedCountries[0]); // México por defecto
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -44,13 +50,17 @@ export default function CurrencySelector() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-5">
         <div className="space-y-1">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-800 border border-blue-200">
-            <Globe className="w-3.5 h-3.5 text-blue-600" /> Cobertura Internacional & Multimoneda
+            <Globe className="w-3.5 h-3.5 text-blue-600" /> Cobertura Internacional & Multimoneda (20 Países)
           </div>
           <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
-            Disponible para 20+ Países en Latinoamérica, EE.UU. y España
+            {isGym 
+              ? 'Configuración Multi-País Automática para Gimnasios' 
+              : 'Disponible para 20+ Países en Latinoamérica, EE.UU. y España'}
           </h3>
           <p className="text-sm text-slate-600">
-            Elige tu país de origen para previsualizar el tipo de moneda oficial configurada en Sistema Taller v1.0.
+            {isGym 
+              ? 'En GymWeb, al seleccionar tu país en el apartado de Configuración, el sistema muestra en automático el símbolo real de tu moneda local y la LADA telefónica que le corresponde para tickets de WhatsApp.'
+              : `Elige tu país de origen para previsualizar el tipo de moneda oficial y LADA configurada en ${systemName}.`}
           </p>
         </div>
 
@@ -66,14 +76,14 @@ export default function CurrencySelector() {
             <div className="flex items-center gap-2.5">
               <span className="text-lg">{selected.flag}</span>
               <span>{selected.country}</span>
-              <span className="text-xs text-blue-600 font-mono">({selected.currency})</span>
+              <span className="text-xs text-blue-600 font-mono">({selected.symbol} {selected.currency})</span>
             </div>
             <ChevronDown className={`w-4 h-4 text-slate-500 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
           </button>
 
           {/* Menú Desplegable con todos los países */}
           {isOpen && (
-            <div className="absolute right-0 mt-2 w-72 bg-white border border-slate-200 rounded-2xl shadow-2xl z-30 max-h-80 overflow-y-auto p-1.5 space-y-1 divide-y divide-slate-100 animate-in fade-in duration-150">
+            <div className="absolute right-0 mt-2 w-80 bg-slate-900 text-white border border-slate-700 rounded-2xl shadow-2xl z-30 max-h-80 overflow-y-auto p-1.5 space-y-1 divide-y divide-slate-800 animate-in fade-in duration-150">
               {supportedCountries.map((c) => (
                 <button
                   key={c.code}
@@ -83,22 +93,47 @@ export default function CurrencySelector() {
                   }}
                   className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs sm:text-sm font-medium transition-colors ${
                     c.code === selected.code
-                      ? 'bg-blue-50 text-blue-700 font-bold'
-                      : 'hover:bg-slate-50 text-slate-700'
+                      ? 'bg-blue-600 text-white font-bold'
+                      : 'hover:bg-slate-800 text-slate-200'
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
+                    <span className="text-xs font-mono font-bold text-blue-400 uppercase">{c.code.toLowerCase()}</span>
                     <span>{c.flag}</span>
                     <span>{c.country}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-xs font-mono text-slate-500">({c.currency})</span>
-                    {c.code === selected.code && <Check className="w-4 h-4 text-blue-600" />}
+                    <span className="text-xs font-mono text-slate-300">({c.symbol} {c.currency})</span>
+                    <span className="text-[11px] font-mono text-emerald-400 font-bold">{c.lada}</span>
+                    {c.code === selected.code && <Check className="w-4 h-4 text-white" />}
                   </div>
                 </button>
               ))}
             </div>
           )}
+        </div>
+      </div>
+
+      {/* Alerta explicativa de autoselección en el sistema */}
+      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/80 rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-sm">
+        <div className="flex items-center gap-3">
+          <span className="text-2xl">{selected.flag}</span>
+          <div>
+            <div className="font-bold text-slate-900">
+              País Seleccionado: <span className="text-blue-700">{selected.country}</span> ({selected.code})
+            </div>
+            <div className="text-xs text-slate-600 mt-0.5">
+              En el apartado de <strong className="text-slate-800">Configuración</strong> del sistema, se activa en automático el símbolo <strong className="text-blue-700 font-mono text-sm">{selected.symbol} ({selected.currency})</strong> y la LADA <strong className="text-emerald-700 font-mono text-sm">{selected.lada}</strong> para WhatsApp.
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center gap-2 shrink-0">
+          <span className="px-3 py-1 bg-white rounded-lg border border-blue-200 text-xs font-mono font-bold text-slate-800 shadow-sm">
+            Símbolo: {selected.symbol}
+          </span>
+          <span className="px-3 py-1 bg-white rounded-lg border border-blue-200 text-xs font-mono font-bold text-emerald-700 shadow-sm">
+            LADA: {selected.lada}
+          </span>
         </div>
       </div>
 
@@ -127,8 +162,9 @@ export default function CurrencySelector() {
               <div className="font-bold text-xs truncate">
                 {c.country}
               </div>
-              <div className={`text-[11px] font-mono ${isSelected ? 'text-blue-100' : 'text-slate-500'}`}>
-                {c.currency} ({c.symbol})
+              <div className={`text-[11px] font-mono flex items-center justify-between ${isSelected ? 'text-blue-100' : 'text-slate-500'}`}>
+                <span>{c.symbol} {c.currency}</span>
+                <span className={isSelected ? 'text-emerald-200 font-bold' : 'text-emerald-600 font-semibold'}>{c.lada}</span>
               </div>
             </button>
           );

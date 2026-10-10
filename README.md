@@ -156,7 +156,16 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.3.6 — Octubre 2026 (Actualización Reciente)
+### 📌 Versión 1.3.7 — Octubre 2026 (Actualización Reciente)
+- **🏋️ GymWeb — Cobertura Multi-País (20 Países), Moneda Local & LADA Automática, Tickets por WhatsApp y Ventas a Crédito:**
+  - **Módulo de Países y Monedas:** Cobertura de 20 países (México, Argentina, Colombia, Chile, Perú, Ecuador, Guatemala, Costa Rica, Panamá, Honduras, El Salvador, Nicaragua, República Dominicana, Bolivia, Paraguay, Uruguay, Venezuela, Puerto Rico, España y Estados Unidos).
+  - **Autoselección de Moneda y LADA:** Al seleccionar el país en el apartado de Configuración de GymWeb, el sistema autoconfigura en automático el símbolo real de la moneda local en precios y comprobantes, junto con la LADA telefónica internacional oficial para WhatsApp.
+  - **Componente Visual Dedicado (`GymCardCountriesPreview.tsx`):** Selector desplegable interactivo integrado en la tarjeta del catálogo principal (`app/page.tsx`) con estética idéntica al sistema y badges informativos.
+  - **Tickets por WhatsApp:** Envío con 1 clic del comprobante digital de pago de membresía o de venta de producto directamente al socio.
+  - **Ventas a Crédito:** Capacidad para otorgar productos o membresías a crédito, con seguimiento de saldo deudor y generación de reportes de la cuenta individual por socio.
+  - **Página de Detalle (`/sistemas/sistema-gestion-gimnasios`):** Selector interactivo `CurrencySelector.tsx` habilitado para GymWeb con desglose de símbolos, banderas y prefijos internacionales.
+
+### 📌 Versión 1.3.6 — Octubre 2026
 - **🎵 Nueva Herramienta Gratuita: YT Downloader v2.0:**
   - Nueva tarjeta interactiva en Herramientas Gratuitas (`#herramientas-gratuitas`) con imagotipo neón musical (`/yt-downloader-icon.svg`), aura rose/fucsia y física magnética.
   - Reorganización responsiva del catálogo de herramientas a 4 columnas simétricas (`grid-cols-1 md:grid-cols-2 lg:grid-cols-4`).
