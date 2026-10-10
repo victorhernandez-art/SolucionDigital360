@@ -3,6 +3,18 @@
 
 ---
 
+## 📌 Versión 1.3.8 — Octubre 2026: Favicon Oficial e Icono de Pestaña Web (.ico, .png & apple-icon)
+- **🎨 Integración del Isotipo Oficial en la Pestaña del Navegador:**
+  - **Recorte y Calibración del Isotipo:** Procesamiento de alta definición a partir del logotipo corporativo oficial (`media_1791592071080.png`), aislando el emblema circular tecnológico (engranaje azul y circuito tecnológico verde con micro-conexiones) con fondo transparente y proporción cuadrada perfecta 1:1.
+  - **Generación de Formatos Multi-Resolución:**
+    - `public/favicon.ico`: Formato estándar ICO con capas optimizadas para navegadores web de escritorio y móviles.
+    - `public/icon.png`: Icono PNG de alta fidelidad 512x512 para pantallas Retina y PWA.
+    - `public/icon-192.png`: Icono 192x192 para compatibilidad con dispositivos Android.
+    - `public/apple-icon.png`: Icono táctil 180x180 para dispositivos Apple iOS y Safari.
+  - **Configuración de Metadatos (`app/layout.tsx`):** Registro de `icons` en `metadata` vinculando `icon`, `shortcut` y `apple` para reconocimiento universal en todos los motores de renderizado.
+
+---
+
 ## 📌 Versión 1.3.7 — Octubre 2026: GymWeb — Cobertura Multi-País (20 Países), Moneda Local & LADA Automática, Tickets por WhatsApp y Ventas a Crédito
 - **🏋️ Módulo de Configuración Multi-País y Multimoneda Automática:**
   - **Soporte Oficial para 20 Países:** Integración de la lista completa e interactiva con los 20 países admitidos: México (`MX`, `$ MXN`, Lada `+52`), Argentina (`AR`, `$ ARS`, Lada `+54`), Colombia (`CO`, `$ COP`, Lada `+57`), Chile (`CL`, `$ CLP`, Lada `+56`), Perú (`PE`, `S/ PEN`, Lada `+51`), Ecuador (`EC`, `$ USD`, Lada `+593`), Guatemala (`GT`, `Q GTQ`, Lada `+502`), Costa Rica (`CR`, `₡ CRC`, Lada `+506`), Panamá (`PA`, `B/. PAB`, Lada `+507`), Honduras (`HN`, `L HNL`, Lada `+504`), El Salvador (`SV`, `$ USD`, Lada `+503`), Nicaragua (`NI`, `C$ NIO`, Lada `+505`), República Dominicana (`DO`, `RD$ DOP`, Lada `+1`), Bolivia (`BO`, `Bs BOB`, Lada `+591`), Paraguay (`PY`, `₲ PYG`, Lada `+595`), Uruguay (`UY`, `$U UYU`, Lada `+598`), Venezuela (`VE`, `Bs. VES`, Lada `+58`), Puerto Rico (`PR`, `$ USD`, Lada `+1`), España (`ES`, `€ EUR`, Lada `+34`) y Estados Unidos (`US`, `$ USD`, Lada `+1`).

@@ -5,7 +5,6 @@ import { ArrowRight } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import HerramientasGratuitas from '@/components/HerramientasGratuitas';
-import GymCardCountriesPreview from '@/components/GymCardCountriesPreview';
 
 export default function HomePage() {
   return (
@@ -95,10 +94,6 @@ export default function HomePage() {
                 <p className="text-slate-600 text-sm line-clamp-3 leading-relaxed">
                   {sistema.descripcionCorta}
                 </p>
-
-                {sistema.slug === 'sistema-gestion-gimnasios' && (
-                  <GymCardCountriesPreview />
-                )}
               </div>
 
               <div className="pt-6 border-t border-slate-100 mt-6">

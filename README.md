@@ -156,7 +156,13 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.3.7 — Octubre 2026 (Actualización Reciente)
+### 📌 Versión 1.3.8 — Octubre 2026 (Actualización Reciente)
+- **🎨 Identidad Visual — Favicon Oficial e Icono de Pestaña (.ico & .png):**
+  - Isotipo tecnológico oficial de Solución Digital 360 (engranaje azul y circuito digital verde) procesado en alta resolución con transparencia.
+  - Generación de `public/favicon.ico`, `public/icon.png` (512x512), `public/icon-192.png` y `public/apple-icon.png` (180x180).
+  - Configuración explícita en metadatos de Next.js (`app/layout.tsx`) para visualización instantánea y nítida en la pestaña de todos los navegadores (Chrome, Safari, Firefox, Edge) y móviles.
+
+### 📌 Versión 1.3.7 — Octubre 2026
 - **🏋️ GymWeb — Cobertura Multi-País (20 Países), Moneda Local & LADA Automática, Tickets por WhatsApp y Ventas a Crédito:**
   - **Módulo de Países y Monedas:** Cobertura de 20 países (México, Argentina, Colombia, Chile, Perú, Ecuador, Guatemala, Costa Rica, Panamá, Honduras, El Salvador, Nicaragua, República Dominicana, Bolivia, Paraguay, Uruguay, Venezuela, Puerto Rico, España y Estados Unidos).
   - **Autoselección de Moneda y LADA:** Al seleccionar el país en el apartado de Configuración de GymWeb, el sistema autoconfigura en automático el símbolo real de la moneda local en precios y comprobantes, junto con la LADA telefónica internacional oficial para WhatsApp.
