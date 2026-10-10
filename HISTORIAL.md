@@ -3,6 +3,15 @@
 
 ---
 
+## 📌 Versión 1.3.9 — Octubre 2026: Corrección Visual a Fondo Gris Claro & Reproducción Directa de Video (YT Downloader)
+- **🎨 Homogeneización Visual a Fondo Gris Claro:**
+  - Sustitución de los fondos oscuros (`bg-slate-900`, `bg-slate-950`) en la sección de demostración de video ([components/FacebookReelEmbed.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/FacebookReelEmbed.tsx)), en el marco de vista previa de la app y en el marcador de descargas por un gris suave profesional (`bg-slate-100/90` con bordes `border-slate-200` y textos `text-slate-900` / `text-slate-700`).
+- **🎬 Solución Definitiva de Reproducción de Video Reel de Facebook:**
+  - Diagnóstico: Facebook bloquea la inserción embebida por iframe en videos que contienen canciones protegidas por derechos de autor (arrojando el error *"No disponible: Este video no se puede insertar porque podría incluir contenido que es propiedad de otra persona"*).
+  - Solución: Se eliminó el iframe problemático y se integró un reproductor interactivo con portada HD que abre el video de manera directa y oficial en Facebook al pulsar sobre la miniatura o el botón destacado, permitiendo reproducir el video sin ningún bloqueo ni restricciones de copyright.
+
+---
+
 ## 📌 Versión 1.3.8 — Octubre 2026: Favicon Oficial e Icono de Pestaña Web (.ico, .png & apple-icon)
 - **🎨 Integración del Isotipo Oficial en la Pestaña del Navegador:**
   - **Recorte y Calibración del Isotipo:** Procesamiento de alta definición a partir del logotipo corporativo oficial (`media_1791592071080.png`), aislando el emblema circular tecnológico (engranaje azul y circuito tecnológico verde con micro-conexiones) con fondo transparente y proporción cuadrada perfecta 1:1.

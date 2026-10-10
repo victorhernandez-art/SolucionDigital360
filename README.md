@@ -156,7 +156,12 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.3.8 — Octubre 2026 (Actualización Reciente)
+### 📌 Versión 1.3.9 — Octubre 2026 (Actualización Reciente)
+- **🎨 Homogeneización Visual a Fondo Gris Claro & Reproducción Directa en Facebook:**
+  - Sustitución de los fondos oscuros por un tono gris suave (`bg-slate-100/90`, `border-slate-200`) y tipografía oscura de alta legibilidad en la sección de demostración en video y vista previa de la app.
+  - Reproductor con enlace directo y oficial a Facebook que resuelve el bloqueo por derechos de autor de Reels musicales, permitiendo reproducir el video demostración sin pantallas negras ni avisos de error.
+
+### 📌 Versión 1.3.8 — Octubre 2026
 - **🎨 Identidad Visual — Favicon Oficial e Icono de Pestaña (.ico & .png):**
   - Isotipo tecnológico oficial de Solución Digital 360 (engranaje azul y circuito digital verde) procesado en alta resolución con transparencia.
   - Generación de `public/favicon.ico`, `public/icon.png` (512x512), `public/icon-192.png` y `public/apple-icon.png` (180x180).
