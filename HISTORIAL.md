@@ -3,6 +3,15 @@
 
 ---
 
+## 📌 Versión 1.4.0 — Octubre 2026: Corrección de Enlace de Descarga Office 2019 a Release Original (.RAR)
+- **📥 Actualización de Enlace y Paquete de Descarga Oficial:**
+  - Se corrigió la URL del botón de descarga en la página de Office 2019 ([app/herramientas/office-2019/page.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/app/herramientas/office-2019/page.tsx)), apuntando directamente al release oficial de GitHub: `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2019/OfficeLicenciaOriginal2019.rar`.
+- **🏷️ Coherencia de Interfaz y Guía de Instalación:**
+  - Actualización del botón en [components/OfficeDownloadBox.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/OfficeDownloadBox.tsx) de `Descargar Gratis (.ZIP)` a `Descargar Gratis (.RAR)`.
+  - Actualización de los pasos de instalación en la página tutorial para indicar la descompresión del archivo `.rar` con WinRAR o 7-Zip.
+
+---
+
 ## 📌 Versión 1.3.9 — Octubre 2026: Corrección Visual a Fondo Gris Claro & Reproducción Directa de Video (YT Downloader)
 - **🎨 Homogeneización Visual a Fondo Gris Claro:**
   - Sustitución de los fondos oscuros (`bg-slate-900`, `bg-slate-950`) en la sección de demostración de video ([components/FacebookReelEmbed.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/FacebookReelEmbed.tsx)), en el marco de vista previa de la app y en el marcador de descargas por un gris suave profesional (`bg-slate-100/90` con bordes `border-slate-200` y textos `text-slate-900` / `text-slate-700`).

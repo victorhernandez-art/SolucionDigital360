@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 };
 
 const DOWNLOAD_OFFICE_URL =
-  'https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2019/Office.Profesional.2019-20261001T161622Z-1-001.zip';
+  'https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2019/OfficeLicenciaOriginal2019.rar';
 
 export default function Office2019Page() {
   return (
@@ -270,7 +270,7 @@ export default function Office2019Page() {
               </span>
               <h3 className="font-bold text-slate-900 text-base">Descargar Archivo</h3>
               <p className="text-slate-500 text-xs leading-relaxed">
-                Haz clic en el botón azul de descarga para obtener el paquete comprimido en formato .ZIP.
+                Haz clic en el botón azul de descarga para obtener el paquete comprimido en formato .RAR.
               </p>
             </div>
 
@@ -280,7 +280,7 @@ export default function Office2019Page() {
               </span>
               <h3 className="font-bold text-slate-900 text-base">Descomprimir</h3>
               <p className="text-slate-500 text-xs leading-relaxed">
-                Da clic derecho en el archivo .zip y selecciona &ldquo;Extraer todo&rdquo; en tu computadora.
+                Da clic derecho en el archivo .rar y descomprímelo utilizando WinRAR o 7-Zip en tu computadora.
               </p>
             </div>
 

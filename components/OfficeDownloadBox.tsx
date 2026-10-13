@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -152,7 +152,7 @@ export default function OfficeDownloadBox({ downloadUrl }: OfficeDownloadBoxProp
               className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-bold text-sm transition-all shadow-lg shadow-blue-600/25 w-full sm:w-auto cursor-pointer"
             >
               <Download className={`w-4 h-4 ${isDownloading ? 'animate-bounce' : ''}`} />
-              <span>{isDownloading ? 'Iniciando descarga...' : 'Descargar Gratis (.ZIP)'}</span>
+              <span>{isDownloading ? 'Iniciando descarga...' : 'Descargar Gratis (.RAR)'}</span>
             </button>
 
             {/* Botón de Asistencia WhatsApp */}

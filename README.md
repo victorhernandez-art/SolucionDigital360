@@ -156,7 +156,12 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.3.9 — Octubre 2026 (Actualización Reciente)
+### 📌 Versión 1.4.0 — Octubre 2026 (Actualización Reciente)
+- **📥 Corrección de Enlace de Descarga Office 2019 a Release Original (.RAR):**
+  - Actualización del enlace oficial de descarga a `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2019/OfficeLicenciaOriginal2019.rar` en [app/herramientas/office-2019/page.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/app/herramientas/office-2019/page.tsx).
+  - Adaptación de la etiqueta del botón en [components/OfficeDownloadBox.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/OfficeDownloadBox.tsx) a `Descargar Gratis (.RAR)` y de las instrucciones de descompresión para reflejar el formato .RAR con WinRAR / 7-Zip.
+
+### 📌 Versión 1.3.9 — Octubre 2026
 - **🎨 Homogeneización Visual a Fondo Gris Claro & Reproducción Directa en Facebook:**
   - Sustitución de los fondos oscuros por un tono gris suave (`bg-slate-100/90`, `border-slate-200`) y tipografía oscura de alta legibilidad en la sección de demostración en video y vista previa de la app.
   - Reproductor con enlace directo y oficial a Facebook que resuelve el bloqueo por derechos de autor de Reels musicales, permitiendo reproducir el video demostración sin pantallas negras ni avisos de error.
