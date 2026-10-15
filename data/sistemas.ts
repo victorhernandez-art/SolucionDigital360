@@ -83,7 +83,7 @@ export const sistemas: Sistema[] = [
     descripcionCorta: "Software empresarial 100% Offline para gestión de membresías, control de asistencias, POS estilo e-commerce, envío de tickets por WhatsApp, ventas a crédito con reporte individual por socio y configuración multi-país automática (20 países con moneda local y LADA). Licencia vitalicia, sin mensualidades.",
     videoYoutubeId: "bkRAztASgNY",
     canalYoutubeUrl: "https://www.youtube.com/@Soluci%C3%B3nDigital360",
-    downloadUrl: "https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/v2.5/Instalador_GymWeb_Windows_v2.5.zip",
+    downloadUrl: "https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/v2.6.1/Instalador_GymWeb_Windows_v2.6.zip",
     problemaQueResuelve: "Los gimnasios pierden ingresos por socios morosos, caos en recepción y falta de control en las ventas a crédito o compras en tienda. A diferencia de plataformas SaaS que cobran mensualidades y quedan inservibles sin internet, GymWeb opera 100% offline: automatiza el registro de asistencias, envía tickets de comprobante de pago o venta directamente por WhatsApp, permite dar a crédito productos o membresías generando reportes de la cuenta individual por cada socio, y se adapta en automático a 20 países asignando el símbolo real de la moneda local y su LADA telefónica oficial.",
     funciones: [
       "Módulo 1 — Gestión de Socios y Expediente Digital: Alta de socios en menos de 1 minuto con foto tomada en vivo desde la webcam. Ficha 360° con historial completo de asistencias, pagos y compras en tienda. Buscador reactivo por nombre, folio o teléfono.",

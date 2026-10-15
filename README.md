@@ -156,7 +156,11 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.4.0 — Octubre 2026 (Actualización Reciente)
+### 📌 Versión 1.4.1 — Octubre 2026 (Actualización Reciente)
+- **🏋️ GymWeb — Actualización del Instalador a v2.6:**
+  - Enlace del botón *Descargar Instalador* actualizado en [data/sistemas.ts](file:///c:/xampp/htdocs/Solucion%20Digital%20360/data/sistemas.ts) a `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/v2.6.1/Instalador_GymWeb_Windows_v2.6.zip`.
+
+### 📌 Versión 1.4.0 — Octubre 2026
 - **📥 Corrección de Enlace de Descarga Office 2019 a Release Original (.RAR):**
   - Actualización del enlace oficial de descarga a `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2019/OfficeLicenciaOriginal2019.rar` en [app/herramientas/office-2019/page.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/app/herramientas/office-2019/page.tsx).
   - Adaptación de la etiqueta del botón en [components/OfficeDownloadBox.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/OfficeDownloadBox.tsx) a `Descargar Gratis (.RAR)` y de las instrucciones de descompresión para reflejar el formato .RAR con WinRAR / 7-Zip.

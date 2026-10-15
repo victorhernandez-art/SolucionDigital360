@@ -3,6 +3,12 @@
 
 ---
 
+## 📌 Versión 1.4.1 — Octubre 2026: GymWeb — Actualización del Instalador a v2.6
+- **🏋️ Nuevo Enlace de Descarga:**
+  - El botón *Descargar Instalador* de GymWeb ([data/sistemas.ts](file:///c:/xampp/htdocs/Solucion%20Digital%20360/data/sistemas.ts)) ahora apunta a `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/v2.6.1/Instalador_GymWeb_Windows_v2.6.zip` (antes v2.5).
+
+---
+
 ## 📌 Versión 1.4.0 — Octubre 2026: Corrección de Enlace de Descarga Office 2019 a Release Original (.RAR)
 - **📥 Actualización de Enlace y Paquete de Descarga Oficial:**
   - Se corrigió la URL del botón de descarga en la página de Office 2019 ([app/herramientas/office-2019/page.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/app/herramientas/office-2019/page.tsx)), apuntando directamente al release oficial de GitHub: `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2019/OfficeLicenciaOriginal2019.rar`.
