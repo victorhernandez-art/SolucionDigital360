@@ -156,7 +156,11 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.4.1 — Octubre 2026 (Actualización Reciente)
+### 📌 Versión 1.4.2 — Octubre 2026 (Actualización Reciente)
+- **📶 GymWeb — Nuevo Módulo 9: Red Local (LAN) y Sincronización en Tiempo Real:**
+  - Agregado en [data/sistemas.ts](file:///c:/xampp/htdocs/Solucion%20Digital%20360/data/sistemas.ts) a *Módulos y Funciones Incluidas*: conexión de otros dispositivos por red local (QR / dirección de acceso) para realizar cambios, con guardado en tiempo real en la página principal del sistema.
+
+### 📌 Versión 1.4.1 — Octubre 2026
 - **🏋️ GymWeb — Actualización del Instalador a v2.6:**
   - Enlace del botón *Descargar Instalador* actualizado en [data/sistemas.ts](file:///c:/xampp/htdocs/Solucion%20Digital%20360/data/sistemas.ts) a `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/v2.6.1/Instalador_GymWeb_Windows_v2.6.zip`.
 
