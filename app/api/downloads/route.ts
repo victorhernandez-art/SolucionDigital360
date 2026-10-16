@@ -9,7 +9,7 @@ const DATA_FILE = path.join(process.cwd(), 'data', 'downloads.json');
 
 const INITIAL_COUNTS: Record<string, number> = {
   taller_demo_downloads: 540,
-  cotizador_downloads: 412,
+  cotizador_downloads: 0,
   gimnasio_downloads: 375,
   nitro_pdf_downloads: 160,
   office_2019_downloads: 230,

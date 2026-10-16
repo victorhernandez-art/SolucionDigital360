@@ -32,7 +32,7 @@ export default function DownloadCtaCard({
 }: DownloadCtaCardProps) {
   const isGym = sistemaSlug?.includes('gimnasio') || sistemaNombre.toLowerCase().includes('gimnasio') || sistemaNombre.toLowerCase().includes('gym');
   const isCotizador = sistemaSlug?.includes('cotiza') || sistemaNombre.toLowerCase().includes('cotiza');
-  const baseCount = isGym ? 375 : (isCotizador ? 412 : 540);
+  const baseCount = isGym ? 375 : (isCotizador ? 0 : 540);
   const storageKey = isGym ? 'sd360_downloads_gym' : (isCotizador ? 'sd360_downloads_cotizador' : 'sd360_downloads_taller');
 
   // Estado para el contador de descargas (inicia en baseCount o valor guardado)
@@ -46,7 +46,11 @@ export default function DownloadCtaCard({
       const stored = localStorage.getItem(storageKey);
       if (stored) {
         const parsed = parseInt(stored, 10);
-        if (!isNaN(parsed) && parsed >= baseCount) {
+        if (isCotizador && parsed >= 400) {
+          localStorage.setItem(storageKey, '0');
+          localSavedVal = 0;
+          setDownloadCount(0);
+        } else if (!isNaN(parsed) && parsed >= baseCount) {
           localSavedVal = parsed;
           setDownloadCount(parsed);
         }
@@ -55,7 +59,7 @@ export default function DownloadCtaCard({
       // Ignorar si localStorage no está disponible
     }
 
-    const slugParam = sistemaSlug || (isGym ? 'sistema-gestion-gimnasios' : 'sistema-gestion-tecnicos');
+    const slugParam = sistemaSlug || (isGym ? 'sistema-gestion-gimnasios' : (isCotizador ? 'generador-cotizaciones-pdf' : 'sistema-gestion-tecnicos'));
     fetch(`/api/downloads?sistema=${slugParam}`)
       .then((res) => res.json())
       .then((data) => {
@@ -130,13 +134,15 @@ export default function DownloadCtaCard({
       <div className="absolute bottom-0 left-0 -mb-16 -ml-16 w-72 h-72 bg-emerald-50/60 rounded-full blur-3xl pointer-events-none" />
       
       <div className="max-w-3xl mx-auto space-y-4 relative z-10">
-        {/* Badges superiores limpios y legibles */}
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          <div className="inline-flex items-center gap-2 text-emerald-800 text-xs sm:text-sm font-bold tracking-wide uppercase bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-200 shadow-sm">
-            <ShieldCheck className="w-4 h-4 text-emerald-600" />
-            <span>Licencia Vitalicia + 6 Meses de Soporte Técnico Gratis</span>
+        {/* Badges superiores limpios y legibles (solo sistemas de pago) */}
+        {!esGratis && (
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <div className="inline-flex items-center gap-2 text-emerald-800 text-xs sm:text-sm font-bold tracking-wide uppercase bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-200 shadow-sm">
+              <ShieldCheck className="w-4 h-4 text-emerald-600" />
+              <span>Licencia Vitalicia + 6 Meses de Soporte Técnico Gratis</span>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Título equilibrado, sobrio y con alto contraste */}
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-snug">
@@ -248,7 +254,7 @@ export default function DownloadCtaCard({
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                   </span>
                   <span className="text-base sm:text-lg font-extrabold text-white tracking-tight font-mono">
-                    +{downloadCount.toLocaleString()}
+                    {downloadCount > 0 ? `+${downloadCount.toLocaleString()}` : '0'}
                   </span>
                 </div>
                 <span className="text-[11px] font-medium text-slate-300 block leading-tight">

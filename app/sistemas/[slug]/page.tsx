@@ -174,17 +174,8 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
             )}
           </div>
 
-          {/* Quick CTA Buttons Header */}
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
-            {sistema.downloadUrl ? (
-              <a
-                href={sistema.downloadUrl}
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-white bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 shadow-lg shadow-indigo-600/20 transition-all text-sm"
-              >
-                <Download className="w-4 h-4" />
-                <span>{sistema.esGratis ? 'Descargar Sistema Gratis' : 'Descargar Instalador'}</span>
-              </a>
-            ) : (
+          {!sistema.esGratis && (
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
               <a
                 href={whatsappUrl}
                 target="_blank"
@@ -194,36 +185,15 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
                 <MessageSquare className="w-4 h-4" />
                 <span>Solicitar Prueba de 7 Días</span>
               </a>
-            )}
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-slate-700 bg-white hover:bg-slate-100 border border-slate-300 transition-all text-sm shadow-sm"
-            >
-              <MessageSquare className="w-4 h-4 text-emerald-600" />
-              <span>{sistema.esGratis ? 'Canal de WhatsApp' : 'Ver Formas de Pago'}</span>
-            </a>
-          </div>
-          <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-white bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 shadow-lg shadow-emerald-600/20 transition-all text-sm"
-            >
-              <MessageSquare className="w-4 h-4" />
-              <span>Solicitar Prueba de 7 Días</span>
-            </a>
-            <a
-              href="#adquirir"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-slate-700 bg-white hover:bg-slate-100 border border-slate-300 transition-all text-sm shadow-sm"
-            >
-              <ShoppingBag className="w-4 h-4 text-indigo-600" />
-              <span>Ver Formas de Pago</span>
-            </a>
-          </div>
-        </section>
+              <a
+                href="#adquirir"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-slate-700 bg-white hover:bg-slate-100 border border-slate-300 transition-all text-sm shadow-sm"
+              >
+                <ShoppingBag className="w-4 h-4 text-indigo-600" />
+                <span>Ver Formas de Pago</span>
+              </a>
+            </div>
+          )}</section>
 
         {/* MUESTRA INTERACTIVA DE CAPTURAS DE PANTALLA REALES (SOLO TALLER) */}
         {isTallerSystem && (
