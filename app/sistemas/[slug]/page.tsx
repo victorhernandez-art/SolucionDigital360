@@ -125,6 +125,7 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
               {sistema.nombre}
             </h1>
+            {!sistema.esGratis && (
             <div className="shrink-0 text-center md:text-right bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
               <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Único Pago</span>
               <div className="flex items-baseline justify-center md:justify-end gap-2 my-0.5">
@@ -133,13 +134,14 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
                     {sistema.precioAnterior}
                   </span>
                 )}
-                <span className={`text-3xl font-extrabold tracking-tight ${sistema.esGratis ? 'text-emerald-600' : 'text-slate-900'}`}>
+                <span className="text-3xl font-extrabold tracking-tight text-slate-900">
                   {sistema.precio}
                 </span>
               </div>
               <span className="text-[11px] text-slate-500 block">Sin mensualidades ni rentas</span>
             </div>
-          </div>
+          )}
+        </div>
 
           {/* Texto Informativo de Prueba Gratuita & Listo para Usar */}
           <div className="space-y-4 my-6 text-slate-700 text-base leading-relaxed">

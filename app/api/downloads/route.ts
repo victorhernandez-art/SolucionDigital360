@@ -20,6 +20,9 @@ const INITIAL_COUNTS: Record<string, number> = {
 function getSystemKey(slugOrKey?: string | null): string {
   if (!slugOrKey) return 'taller_demo_downloads';
   const clean = slugOrKey.toLowerCase();
+  if (clean.includes('cotiza') || clean.includes('presupuesto')) {
+    return 'cotizador_downloads';
+  }
   if (clean.includes('yt') || clean.includes('youtube') || clean.includes('musica') || clean.includes('cancion')) {
     return 'yt_downloader_downloads';
   }
@@ -29,11 +32,8 @@ function getSystemKey(slugOrKey?: string | null): string {
   if (clean.includes('office') || clean.includes('2019')) {
     return 'office_2019_downloads';
   }
-  if (clean.includes('nitro') || clean.includes('pdf')) {
+  if (clean.includes('nitro')) {
     return 'nitro_pdf_downloads';
-  }
-  if (clean.includes('cotiza') || clean.includes('presupuesto')) {
-    return 'cotizador_downloads';
   }
   if (clean.includes('gimnasio') || clean.includes('gym')) {
     return 'gimnasio_downloads';

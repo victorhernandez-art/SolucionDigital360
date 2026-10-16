@@ -46,8 +46,8 @@ export default function DownloadCtaCard({
       const stored = localStorage.getItem(storageKey);
       if (stored) {
         const parsed = parseInt(stored, 10);
-        if (isCotizador && parsed >= 400) {
-          localStorage.setItem(storageKey, '0');
+        if (isCotizador && (parsed > 0 || isNaN(parsed))) {
+          localStorage.removeItem(storageKey);
           localSavedVal = 0;
           setDownloadCount(0);
         } else if (!isNaN(parsed) && parsed >= baseCount) {
@@ -59,7 +59,7 @@ export default function DownloadCtaCard({
       // Ignorar si localStorage no está disponible
     }
 
-    const slugParam = sistemaSlug || (isGym ? 'sistema-gestion-gimnasios' : (isCotizador ? 'generador-cotizaciones-pdf' : 'sistema-gestion-tecnicos'));
+    const slugParam = isCotizador ? 'cotizador' : (sistemaSlug || (isGym ? 'sistema-gestion-gimnasios' : 'sistema-gestion-tecnicos'));
     fetch(`/api/downloads?sistema=${slugParam}`)
       .then((res) => res.json())
       .then((data) => {
@@ -92,7 +92,7 @@ export default function DownloadCtaCard({
 
     // 3. Registrar en backend
     try {
-      const slugParam = sistemaSlug || (isGym ? 'sistema-gestion-gimnasios' : 'sistema-gestion-tecnicos');
+      const slugParam = isCotizador ? 'cotizador' : (sistemaSlug || (isGym ? 'sistema-gestion-gimnasios' : 'sistema-gestion-tecnicos'));
       const res = await fetch('/api/downloads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -254,7 +254,7 @@ export default function DownloadCtaCard({
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                   </span>
                   <span className="text-base sm:text-lg font-extrabold text-white tracking-tight font-mono">
-                    {downloadCount > 0 ? `+${downloadCount.toLocaleString()}` : '0'}
+                    {downloadCount.toLocaleString()}
                   </span>
                 </div>
                 <span className="text-[11px] font-medium text-slate-300 block leading-tight">
