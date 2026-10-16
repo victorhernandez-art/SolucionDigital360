@@ -133,29 +133,55 @@ export const sistemas: Sistema[] = [
   },
   {
     slug: "generador-cotizaciones-pdf",
-    nombre: "Generador de Cotizaciones e Impresión PDF",
-    precio: "Próximamente",
-    descripcionCorta: "Herramienta online para redactar y descargar presupuestos profesionales en formato PDF con el logo y datos de tu empresa.",
+    nombre: "Cotizador — Emisión de Cotizaciones, Clientes y Catálogo",
+    precio: "Gratis",
+    descripcionCorta: "Software profesional para Windows 100% Offline y sin costo. Emisión de cotizaciones en PDF con logotipo corporativo, buscador en vivo, duplicación ágil, exportación ejecutiva a Excel (.xlsx), cartera de clientes, catálogo mixto y soporte multi-dispositivo por Wi-Fi.",
     videoYoutubeId: "dQw4w9WgXcQ",
-    problemaQueResuelve: "Enviar cotizaciones por chat de texto o en notas manuscritas da un aspecto informal a tus servicios. Con esta herramienta podrás generar cotizaciones formales, limpias e impecables en PDF para impresionar a tus prospectos y cerrar más ventas.",
+    canalYoutubeUrl: "https://www.youtube.com/@SoluciónDigital360",
+    downloadUrl: "https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/v1.0/Cotizador.exe",
+    problemaQueResuelve: "Enviar cotizaciones por chat de texto, notas en papel o formatos informales de Word genera desconfianza y hace perder ventas ante la competencia. Además, las plataformas en la nube exigen rentas mensuales obligatorias y fallan cuando se cae el internet. Cotizador soluciona esto de raíz: es un software de escritorio autónomo y gratuito que genera presupuestos impecables con membrete, logotipo y datos fiscales en PDF listos para imprimir o enviar por WhatsApp, calcula impuestos automáticamente, incluye exportación ejecutiva a Excel con fórmulas dinámicas de suma, y permite cotizar desde cualquier teléfono celular en red local mediante código QR.",
     funciones: [
-      "Personalización instantánea con el logotipo y datos fiscales de tu empresa.",
-      "Cálculo automático de subtotales, desgloses de impuestos (IVA/IGV) y descuentos.",
-      "Campos para términos de pago, tiempo de entrega y validez de la oferta.",
-      "Descarga rápida en PDF listo para enviar por correo o WhatsApp.",
-      "Privacidad garantizada: no almacenamos los datos de tus clientes en servidores externos."
+      "Módulo 1 — Emisión Ágil de Cotizaciones y Buscador Inteligente: Generación de presupuestos con folio, fechas de emisión y vigencia, y buscador interactivo en vivo por nombre, código interno (SKU) o precio.",
+      "Módulo 2 — Cálculo Automático de Impuestos e IVA por País: Desglose inmediato de tasas habituales (16%, 8%, 0%) o porcentaje personalizado con cálculo en tiempo real de subtotal, IVA y total general.",
+      "Módulo 3 — Duplicación y Clonación en 1 Clic: Clona cualquier cotización previa con todas sus partidas y precios con un solo botón para generar variantes o nuevos presupuestos sin recapturar.",
+      "Módulo 4 — Documentos en PDF con Membrete Corporativo: Emisión de cotizaciones formales en PDF con logotipo de tu empresa, datos fiscales, teléfono, dirección física y firma oficial automática del vendedor (ATENTAMENTE).",
+      "Módulo 5 — Reportes Analíticos y Exportación a Excel (.xlsx): Filtro por rango de fechas, presentación ejecutiva con membrete, logotipo, estados de venta en colores y fórmulas dinámicas de suma automática (=SUM).",
+      "Módulo 6 — Cartera de Clientes y Condiciones de Crédito: Control de clientes con RFC/NIT, plazos de crédito (Normal, 15 días, 30 días), teléfono y dirección para cotizar en segundos.",
+      "Módulo 7 — Catálogo Mixto de Productos y Servicios: Registro detallado de productos físicos con SKU y servicios técnicos con mano de obra y horas, categorías rápidas e importación masiva desde Excel/CSV.",
+      "Módulo 8 — Conexión Multi-Dispositivo en Red Local (Wi-Fi): Código QR interactivo para conectar celulares Android o iPhone/iPad en la misma red Wi-Fi y cotizar en tiempo real sin cables ni internet.",
+      "Módulo 9 — Motor PHP 8 Portable y Base de Datos SQLite: 100% autónomo y portable. No requiere instalar XAMPP, MySQL ni configuraciones de servidor; incluye instalador nativo para Windows.",
+      "Módulo 10 — Actualizaciones Automáticas en 1 Clic: Conectado a GitHub Releases para recibir mejoras con un solo clic protegiendo siempre tu base de datos y archivos comerciales."
     ],
     requisitos: [
-      "Navegador web en Computadora o Dispositivo Móvil.",
-      "Conexión a Internet."
+      "Sistema Operativo: Windows 10 / Windows 11 (64 bits).",
+      "Memoria RAM: Mínimo 2 GB de RAM (Recomendado 4 GB).",
+      "Almacenamiento: 100 MB de espacio disponible en disco.",
+      "Operación: 100% Offline — No requiere internet para operar localmente. Soporta conexión móvil por Wi-Fi mediante Código QR."
     ],
     faq: [
       {
-        pregunta: "¿Cuándo estará disponible esta herramienta?",
-        respuesta: "El generador de cotizaciones PDF se encuentra actualmente en fase final de optimización y estará disponible muy pronto."
+        pregunta: "¿El sistema Cotizador es totalmente gratis o tendré que pagar mensualidades?",
+        respuesta: "Es 100% gratuito. Es un obsequio exclusivo de Solución Digital 360 para apoyar el crecimiento de tu negocio o taller. No cobramos mensualidades, anualidades ni comisiones."
+      },
+      {
+        pregunta: "¿Necesito instalar XAMPP, MySQL o configurar un servidor?",
+        respuesta: "No. El instalador oficial incluye su propio motor PHP 8 portable y base de datos SQLite integrada. Funciona de manera autónoma y 100% offline sin necesidad de configuraciones técnicas."
+      },
+      {
+        pregunta: "¿Cómo funciona la exportación a Excel y la generación de PDF?",
+        respuesta: "Al pulsar 'Descargar PDF' se crea al instante un presupuesto formal con el membrete y logotipo de tu empresa. Además, en el módulo de reportes puedes exportar tus cotizaciones a hojas de cálculo de Excel (.xlsx) con presentación ejecutiva y fórmulas de suma automática."
+      },
+      {
+        pregunta: "¿Puedo usarlo desde mi teléfono celular o tablet?",
+        respuesta: "Sí. Desde la computadora principal pulsa el botón 'Conectar Móvil / Wi-Fi', escanea el código QR desde tu teléfono o tablet conectado a la misma red Wi-Fi y podrás emitir cotizaciones directamente desde tu dispositivo móvil."
+      },
+      {
+        pregunta: "¿Cómo descargo e instalo el programa?",
+        respuesta: "Haz clic en el botón 'Descargar Instalador' para obtener Cotizador.exe, ejecútalo en tu equipo con Windows y en pocos segundos el asistente dejará el acceso directo listo en tu Escritorio para comenzar a trabajar."
       }
     ],
-    proximamente: true
+    esGratis: true,
+    proximamente: false
   },
   {
     slug: "sistema-gestion-citas",

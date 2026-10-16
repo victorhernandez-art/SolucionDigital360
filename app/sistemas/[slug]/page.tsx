@@ -143,20 +143,68 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
 
           {/* Texto Informativo de Prueba Gratuita & Listo para Usar */}
           <div className="space-y-4 my-6 text-slate-700 text-base leading-relaxed">
-            <p>
-              Primero puedes probar el sistema directamente desde tu computadora con una <strong className="text-slate-900 font-semibold">prueba gratuita de {isTallerSystem ? '3' : '7'} días con todas las funciones activas</strong> antes de adquirir la licencia. Puedes realizar operaciones con registros reales, capturar clientes{isTallerSystem ? ', registrar reparaciones' : ', gestionar membresías o servicios'}, usar el punto de venta y hasta imprimir tickets para que compruebes que se adapta al 100% a tus necesidades.
-            </p>
+            {sistema.esGratis ? (
+              <>
+                <p>
+                  <strong className="text-slate-900 font-semibold">{sistema.nombre}</strong> es un software profesional <strong className="text-slate-900 font-semibold">100% gratuito y sin costo</strong> desarrollado como un obsequio exclusivo por <strong className="text-slate-900 font-semibold">Solución Digital 360</strong> para ayudar a negocios, talleres y profesionales a formalizar sus presupuestos comerciales sin pagar costosas mensualidades.
+                </p>
 
-            <p>
-              Si el sistema cumple con tus expectativas y te convence su funcionamiento, se activa tu licencia vitalicia definitiva conservando todos tus datos intactos.
-            </p>
+                <p>
+                  Incluye todas las funciones completas: emite cotizaciones formales en PDF con el logotipo y datos fiscales de tu empresa, cálculo automático de impuestos / IVA por país, buscador en vivo de productos y servicios, clonación rápida de cotizaciones en 1 clic, exportación ejecutiva a Excel (.xlsx) con fórmulas dinámicas, y conexión multi-dispositivo por Wi-Fi mediante código QR.
+                </p>
 
-            <p>
-              La gran ventaja es que <strong className="text-slate-900 font-semibold">todo viene listo para usar</strong>: no necesitas configurar servidores, instalar bases de datos ni realizar procesos técnicos complicados. Simplemente instalas el sistema, ingresas tu clave de prueba y comienzas a trabajar de inmediato.
-            </p>
+                <p>
+                  La gran ventaja es que <strong className="text-slate-900 font-semibold">todo viene listo para usar</strong>: no necesitas configurar servidores, instalar XAMPP ni bases de datos complicadas. Simplemente descargas el instalador oficial, lo ejecutas en tu computadora con Windows y comienzas a cotizar de inmediato.
+                </p>
+              </>
+            ) : (
+              <>
+                <p>
+                  Primero puedes probar el sistema directamente desde tu computadora con una <strong className="text-slate-900 font-semibold">prueba gratuita de {isTallerSystem ? '3' : '7'} días con todas las funciones activas</strong> antes de adquirir la licencia. Puedes realizar operaciones con registros reales, capturar clientes{isTallerSystem ? ', registrar reparaciones' : ', gestionar membresías o servicios'}, usar el punto de venta y hasta imprimir tickets para que compruebes que se adapta al 100% a tus necesidades.
+                </p>
+
+                <p>
+                  Si el sistema cumple con tus expectativas y te convence su funcionamiento, se activa tu licencia vitalicia definitiva conservando todos tus datos intactos.
+                </p>
+
+                <p>
+                  La gran ventaja es que <strong className="text-slate-900 font-semibold">todo viene listo para usar</strong>: no necesitas configurar servidores, instalar bases de datos ni realizar procesos técnicos complicados. Simplemente instalas el sistema, ingresas tu clave de prueba y comienzas a trabajar de inmediato.
+                </p>
+              </>
+            )}
           </div>
 
           {/* Quick CTA Buttons Header */}
+          <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
+            {sistema.downloadUrl ? (
+              <a
+                href={sistema.downloadUrl}
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-white bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 shadow-lg shadow-indigo-600/20 transition-all text-sm"
+              >
+                <Download className="w-4 h-4" />
+                <span>{sistema.esGratis ? 'Descargar Sistema Gratis' : 'Descargar Instalador'}</span>
+              </a>
+            ) : (
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-bold text-white bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 shadow-lg shadow-emerald-600/20 transition-all text-sm"
+              >
+                <MessageSquare className="w-4 h-4" />
+                <span>Solicitar Prueba de 7 Días</span>
+              </a>
+            )}
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-slate-700 bg-white hover:bg-slate-100 border border-slate-300 transition-all text-sm shadow-sm"
+            >
+              <MessageSquare className="w-4 h-4 text-emerald-600" />
+              <span>{sistema.esGratis ? 'Canal de WhatsApp' : 'Ver Formas de Pago'}</span>
+            </a>
+          </div>
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
             <a
               href={whatsappUrl}
@@ -372,6 +420,7 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
           isTallerSystem={isTallerSystem}
           megaLink="https://mega.nz"
           downloadUrl={sistema.downloadUrl}
+          esGratis={sistema.esGratis}
         />
 
       </main>

@@ -7,6 +7,7 @@ import {
   MessageSquare, 
   Users, 
   Globe,
+  Gift,
   Clock
 } from 'lucide-react';
 
@@ -17,6 +18,7 @@ interface DownloadCtaCardProps {
   isTallerSystem?: boolean;
   downloadUrl?: string;
   sistemaSlug?: string;
+  esGratis?: boolean;
 }
 
 export default function DownloadCtaCard({
@@ -25,11 +27,13 @@ export default function DownloadCtaCard({
   megaLink = "https://mega.nz",
   isTallerSystem = true,
   downloadUrl,
-  sistemaSlug
+  sistemaSlug,
+  esGratis = false
 }: DownloadCtaCardProps) {
   const isGym = sistemaSlug?.includes('gimnasio') || sistemaNombre.toLowerCase().includes('gimnasio') || sistemaNombre.toLowerCase().includes('gym');
-  const baseCount = isGym ? 375 : 540;
-  const storageKey = isGym ? 'sd360_downloads_gym' : 'sd360_downloads_taller';
+  const isCotizador = sistemaSlug?.includes('cotiza') || sistemaNombre.toLowerCase().includes('cotiza');
+  const baseCount = isGym ? 375 : (isCotizador ? 412 : 540);
+  const storageKey = isGym ? 'sd360_downloads_gym' : (isCotizador ? 'sd360_downloads_cotizador' : 'sd360_downloads_taller');
 
   // Estado para el contador de descargas (inicia en baseCount o valor guardado)
   const [downloadCount, setDownloadCount] = useState<number>(baseCount);
@@ -110,7 +114,9 @@ export default function DownloadCtaCard({
   const hasDirectDownload = !!downloadUrl;
 
   const whatsappPruebaMsg = encodeURIComponent(
-    `Hola, acabo de descargar el "${sistemaNombre}". Quisiera solicitar mi clave de prueba gratuita por 7 días para comenzar a evaluar el sistema en mi ${isGym ? 'gimnasio' : 'taller'}.`
+    esGratis 
+      ? `Hola, acabo de descargar el "${sistemaNombre}". Quisiera consultarles una duda / soporte sobre el sistema.`
+      : `Hola, acabo de descargar el "${sistemaNombre}". Quisiera solicitar mi clave de prueba gratuita por 7 días para comenzar a evaluar el sistema en mi ${isGym ? 'gimnasio' : 'taller'}.`
   );
   const whatsappPruebaUrl = `https://wa.me/529611209361?text=${whatsappPruebaMsg}`;
 
@@ -134,49 +140,84 @@ export default function DownloadCtaCard({
 
         {/* Título equilibrado, sobrio y con alto contraste */}
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-snug">
-          {isTallerSystem
+          {isCotizador
+            ? `¿Listo para transformar la imagen de tu negocio con ${sistemaNombre}?`
+            : isTallerSystem
             ? `¿Listo para ordenar tu taller técnico con ${sistemaNombre}?`
             : `¿Listo para potenciar y transformar tu negocio con ${sistemaNombre}?`}
         </h2>
 
         {/* Bloque de Información de Precio y Compra Internacional */}
-        <div className="bg-slate-50/90 border border-slate-200 rounded-2xl p-5 sm:p-6 text-left shadow-sm mt-4">
-          <div>
-            <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 flex flex-wrap items-center gap-2">
-              <Globe className="w-5 h-5 text-indigo-600 shrink-0" />
-              <span>Precio internacional de referencia:</span>
-              <span className="text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-lg font-mono text-base sm:text-lg border border-emerald-200">
-                $2,000.00 MXN en México
-              </span>
-            </h3>
-            <p className="text-slate-600 text-xs sm:text-sm mt-1.5 font-medium">
-              Pago único. Sin mensualidades ni cobros recurrentes.
-            </p>
+        {esGratis ? (
+          <div className="bg-emerald-50/90 border border-emerald-200 rounded-2xl p-5 sm:p-6 text-left shadow-sm mt-4">
+            <div>
+              <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 flex flex-wrap items-center gap-2">
+                <Gift className="w-5 h-5 text-emerald-600 shrink-0" />
+                <span>Software 100% Gratuito y Libre de Licencias:</span>
+                <span className="text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-lg font-bold text-base sm:text-lg border border-emerald-200">
+                  Descarga Gratuita Oficial
+                </span>
+              </h3>
+              <p className="text-slate-600 text-xs sm:text-sm mt-1.5 font-medium">
+                Obsequio exclusivo cortesía de Solución Digital 360. Sin rentas mensuales, suscripciones ni costos ocultos.
+              </p>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="bg-slate-50/90 border border-slate-200 rounded-2xl p-5 sm:p-6 text-left shadow-sm mt-4">
+            <div>
+              <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 flex flex-wrap items-center gap-2">
+                <Globe className="w-5 h-5 text-indigo-600 shrink-0" />
+                <span>Precio internacional de referencia:</span>
+                <span className="text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-lg font-mono text-base sm:text-lg border border-emerald-200">
+                  $2,000.00 MXN en México
+                </span>
+              </h3>
+              <p className="text-slate-600 text-xs sm:text-sm mt-1.5 font-medium">
+                Pago único. Sin mensualidades ni cobros recurrentes.
+              </p>
+            </div>
+          </div>
+        )}
 
         {/* Bloque: Prueba Gratis con Acceso Completo */}
-        <div className="bg-blue-50/80 border border-blue-200 rounded-2xl p-5 text-left space-y-2 shadow-sm mt-3">
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <h4 className="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight">
-              Prueba Gratuita de 7 Días con Todas las Funciones Activas
-            </h4>
-            <span className="text-xs font-bold text-blue-700 bg-blue-100/90 px-2.5 py-0.5 rounded-full border border-blue-200 font-mono flex items-center gap-1">
-              <Clock className="w-3.5 h-3.5" /> Acceso Total 7 Días
-            </span>
+        {esGratis ? (
+          <div className="bg-blue-50/80 border border-blue-200 rounded-2xl p-5 text-left space-y-2 shadow-sm mt-3">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <h4 className="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight">
+                Instalador Autónomo para Windows (Listo para Cotizar)
+              </h4>
+              <span className="text-xs font-bold text-blue-700 bg-blue-100/90 px-2.5 py-0.5 rounded-full border border-blue-200 font-mono flex items-center gap-1">
+                <Clock className="w-3.5 h-3.5" /> Uso Permanente e Ilimitado
+              </span>
+            </div>
+            <p className="text-slate-700 text-xs sm:text-sm leading-relaxed">
+              Descarga el instalador directamente en tu equipo. Incluye motor PHP portable y base de datos SQLite integrada; no requiere XAMPP, MySQL ni configuraciones de servidor. <strong className="text-slate-900 font-semibold">Emite cotizaciones en PDF con tu logo, exporta a Excel (.xlsx) con fórmulas dinámicas, controla clientes y cotiza desde tu teléfono móvil mediante código QR.</strong>
+            </p>
           </div>
-          <p className="text-slate-700 text-xs sm:text-sm leading-relaxed">
-            {isTallerSystem ? (
-              <>
-                Descarga el instalador en tu computadora y solicita tu clave de prueba por 7 días para utilizar el programa completo sin limitaciones. <strong className="text-slate-900 font-semibold">Puedes registrar órdenes reales, capturar clientes, probar el cobro en caja e imprimir tickets</strong> para comprobar con total tranquilidad que se adapta al 100% a tu taller antes de adquirir la licencia vitalicia.
-              </>
-            ) : (
-              <>
-                Prueba el sistema completo durante 7 días con todas las funciones activas. <strong className="text-slate-900 font-semibold">Registra socios, gestiona membresías, vende en la tienda POS y controla asistencias</strong> para comprobar con total tranquilidad que se adapta al 100% a tu gimnasio antes de adquirir la licencia vitalicia.
-              </>
-            )}
-          </p>
-        </div>
+        ) : (
+          <div className="bg-blue-50/80 border border-blue-200 rounded-2xl p-5 text-left space-y-2 shadow-sm mt-3">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <h4 className="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight">
+                Prueba Gratuita de 7 Días con Todas las Funciones Activas
+              </h4>
+              <span className="text-xs font-bold text-blue-700 bg-blue-100/90 px-2.5 py-0.5 rounded-full border border-blue-200 font-mono flex items-center gap-1">
+                <Clock className="w-3.5 h-3.5" /> Acceso Total 7 Días
+              </span>
+            </div>
+            <p className="text-slate-700 text-xs sm:text-sm leading-relaxed">
+              {isTallerSystem ? (
+                <>
+                  Descarga el instalador en tu computadora y solicita tu clave de prueba por 7 días para utilizar el programa completo sin limitaciones. <strong className="text-slate-900 font-semibold">Puedes registrar órdenes reales, capturar clientes, probar el cobro en caja e imprimir tickets</strong> para comprobar con total tranquilidad que se adapta al 100% a tu taller antes de adquirir la licencia vitalicia.
+                </>
+              ) : (
+                <>
+                  Prueba el sistema completo durante 7 días con todas las funciones activas. <strong className="text-slate-900 font-semibold">Registra socios, gestiona membresías, vende en la tienda POS y controla asistencias</strong> para comprobar con total tranquilidad que se adapta al 100% a tu gimnasio antes de adquirir la licencia vitalicia.
+                </>
+              )}
+            </p>
+          </div>
+        )}
       </div>
 
       {/* Botones CTA Prominentes y Marcador de Descargas al lado */}
@@ -190,7 +231,7 @@ export default function DownloadCtaCard({
               className="flex-1 sm:flex-initial min-w-[220px] sm:min-w-[250px] min-h-[58px] inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl font-bold text-white bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 disabled:opacity-80 shadow-lg shadow-indigo-600/25 hover:shadow-indigo-600/35 transition-all text-sm sm:text-base group cursor-pointer text-center"
             >
               <Download className={`w-5 h-5 shrink-0 ${isDownloading ? 'animate-bounce' : 'group-hover:translate-y-0.5'} transition-transform`} />
-              <span className="leading-tight">Descargar Instalador</span>
+              <span className="leading-tight">{esGratis ? "Descargar Cotizador Gratis" : "Descargar Instalador"}</span>
             </button>
           )}
 
@@ -225,7 +266,7 @@ export default function DownloadCtaCard({
             className="flex-1 sm:flex-initial min-w-[220px] sm:min-w-[250px] min-h-[58px] inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-2xl font-bold text-white bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 shadow-lg shadow-emerald-600/25 hover:shadow-emerald-600/35 transition-all text-sm sm:text-base text-center"
           >
             <MessageSquare className="w-5 h-5 shrink-0" />
-            <span className="leading-tight">{isTallerSystem ? 'Solicitar Clave de Prueba' : 'Solicitar Prueba o Demo'}</span>
+            <span className="leading-tight">{esGratis ? "Soporte por WhatsApp" : (isTallerSystem ? "Solicitar Clave de Prueba" : "Solicitar Prueba o Demo")}</span>
           </a>
         </div>
       </div>
