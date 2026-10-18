@@ -3,6 +3,15 @@
 
 ---
 
+## 📌 Versión 1.4.5 — Octubre 2026: GymWeb — Restauración de Tarjeta Limpia en Catálogo y Centralización del Showcase 3D
+- **🧹 Limpieza y Homogeneidad en Catálogo Principal (`app/page.tsx`):**
+  - Se removió el bloque interactivo de la tarjeta de catálogo para mantener la cuadrícula simétrica, limpia y compacta.
+  - La tarjeta vuelve a mostrar únicamente el título, precio, descripción resumida y botón de acceso al detalle.
+- **🌟 Centralización en Página de Detalle (`/sistemas/sistema-gestion-gimnasios`):**
+  - El componente 3D con las 3 cartas interactivas (`Gym3DFeatureCards.tsx`) y modal lightbox se conserva activo en la página de producto de GymWeb con ancho óptimo de visualización.
+
+---
+
 ## 📌 Versión 1.4.4 — Octubre 2026: GymWeb — Showcase Interactivo 3D Estilo Cartas (Nuevas Funciones Implementadas)
 - **🃏 Nuevas Funciones Implementadas en Formato 3D (Efecto Baraja / Cartas):**
   - Creación del componente especializado [components/Gym3DFeatureCards.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/Gym3DFeatureCards.tsx) integrado directamente en la tarjeta de GymWeb en el catálogo principal ([app/page.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/app/page.tsx)) y en la página de detalle ([app/sistemas/[slug]/page.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/app/sistemas/%5Bslug%5D/page.tsx)).
