@@ -32,6 +32,7 @@ import LanAndRolesSection from '@/components/LanAndRolesSection';
 import DownloadCtaCard from '@/components/DownloadCtaCard';
 import DemoDownloadButton from '@/components/DemoDownloadButton';
 import Gym3DFeatureCards from '@/components/Gym3DFeatureCards';
+import FixPosVsSaasComparison from '@/components/FixPosVsSaasComparison';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
@@ -232,72 +233,9 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
           />
         </section>
 
-        {/* COMPARACIÓN: EL CAOS TRADICIONAL VS LA SOLUCIÓN TALLER V1.0 */}
+        {/* TABLA COMPARATIVA ESTRATÉGICA: FIXPOS PRO VS SAAS (SOLO TALLER) */}
         {isTallerSystem && (
-          <section className="space-y-6">
-            <div className="text-center max-w-2xl mx-auto space-y-2">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                ¿Por qué los Centros Técnicos Eligen FixPOS Pro?
-              </h2>
-              <p className="text-slate-600 text-sm sm:text-base">
-                Compara el método manual de notas de papel frente a la automatización digital completa.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Tarjeta 1: El Caos Tradicional */}
-              <div className="bg-rose-50/70 border border-rose-200 rounded-2xl p-6 sm:p-8 space-y-4">
-                <div className="flex items-center gap-2 text-rose-900 font-bold text-lg">
-                  <XCircle className="w-6 h-6 text-rose-600 shrink-0" />
-                  <span>El Caos Tradicional (Papel / Excel)</span>
-                </div>
-                <ul className="space-y-3 text-slate-700 text-sm">
-                  <li className="flex items-start gap-2.5">
-                    <span className="text-rose-500 font-bold">✕</span>
-                    <span>Tickets de papel extraviados y clientes molestos por desorganización.</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <span className="text-rose-500 font-bold">✕</span>
-                    <span>Reclamos por rayones o fallas no especificadas en la recepción inicial.</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <span className="text-rose-500 font-bold">✕</span>
-                    <span>Cobros mensuales recurrentes en programas en la nube que fallan sin internet.</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <span className="text-rose-500 font-bold">✕</span>
-                    <span>Descuadres en caja chica y falta de claridad en las ganancias reales.</span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Tarjeta 2: Con FixPOS Pro */}
-              <div className="bg-emerald-50/70 border border-emerald-200 rounded-2xl p-6 sm:p-8 space-y-4">
-                <div className="flex items-center gap-2 text-emerald-900 font-bold text-lg">
-                  <CheckCircle2 className="w-6 h-6 text-emerald-600 shrink-0" />
-                  <span>Con FixPOS Pro (Digital 360)</span>
-                </div>
-                <ul className="space-y-3 text-slate-700 text-sm">
-                  <li className="flex items-start gap-2.5">
-                    <span className="text-emerald-600 font-bold">✓</span>
-                    <span>Recepción en 2 min con firma digital táctil y patrón de desbloqueo.</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <span className="text-emerald-600 font-bold">✓</span>
-                    <span>Fotos de evidencia previa e impresión de etiquetas con Código de Barras (Code 128).</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <span className="text-emerald-600 font-bold">✓</span>
-                    <span>100% Offline y Licencia Vitalicia (0 mensualidades). Conexión LAN por Código QR.</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <span className="text-emerald-600 font-bold">✓</span>
-                    <span>WhatsApp Web embebido en 1 clic y arqueo exacto de monedas y billetes.</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </section>
+          <FixPosVsSaasComparison />
         )}
 
         {/* SECCIÓN: EL PROBLEMA QUE RESUELVE */}
@@ -331,24 +269,31 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {sistema.funciones.map((funcion, index) => (
-              <div
-                key={index}
-                className="bg-white border border-slate-200/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow flex items-start gap-4"
-              >
-                <div className="p-2.5 rounded-xl bg-indigo-50 text-indigo-600 shrink-0 mt-0.5">
-                  <CheckCircle className="w-5 h-5" />
+            {sistema.funciones.map((funcion, index) => {
+              const colonIndex = funcion.indexOf(': ');
+              const hasSplit = colonIndex !== -1;
+              const title = hasSplit ? funcion.substring(0, colonIndex) : `Módulo ${index + 1}`;
+              const description = hasSplit ? funcion.substring(colonIndex + 2) : funcion;
+
+              return (
+                <div
+                  key={index}
+                  className="bg-white border border-slate-200/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow flex items-start gap-4"
+                >
+                  <div className="p-2.5 rounded-xl bg-indigo-50 text-indigo-600 shrink-0 mt-0.5">
+                    <CheckCircle className="w-5 h-5" />
+                  </div>
+                  <div className="space-y-1.5">
+                    <h3 className="font-bold text-slate-900 text-base leading-snug">
+                      {title}
+                    </h3>
+                    <p className="text-slate-600 text-sm leading-relaxed">
+                      {description}
+                    </p>
+                  </div>
                 </div>
-                <div className="space-y-1">
-                  <span className="text-xs font-bold text-indigo-600 uppercase tracking-wide">
-                    Módulo {index + 1}
-                  </span>
-                  <h3 className="font-semibold text-slate-900 text-base leading-snug">
-                    {funcion}
-                  </h3>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </section>
 

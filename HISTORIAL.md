@@ -1,6 +1,25 @@
 # 📜 Historial de Cambios y Registro de Versiones (Changelog)
 ## Solución Digital 360 — Plataforma Web SaaS
 
+## 📌 Versión 1.5.0 — Octubre 2026: FixPOS Pro — Arquitectura Empresarial de 8 Módulos & Comparativa Estratégica vs SaaS
+- **🏛️ Integración de la Arquitectura Oficial de 8 Módulos Ejecutivos:**
+  - Actualización integral de la ficha técnica de FixPOS Pro (`data/sistemas.ts`) estructurando los 8 bloques empresariales:
+    1. *Módulo 1: Recepción Express & Blindaje Contractual* (Firma digital biométrica en pantalla, patrón gráfico 9 puntos, checklist preventivo certificado y autocompletado predictivo).
+    2. *Módulo 2: Inspección Pericial & Cámara Remota por QR* (Escaneo instantáneo con cualquier smartphone, compresión inteligente WebP y auditoría fotográfica histórica antes/durante/después).
+    3. *Módulo 3: Mesa de Control Operativo & Trazabilidad Técnica* (Tablero dinámico de estados, detección automática de historial por Serie/IMEI con alertas de garantía y bitácora inmutable).
+    4. *Módulo 4: Centro Multiformato de Impresión & Notificaciones Digitales* (Tickets térmicos 80mm/58mm con Code 128 y QR, hojas membretadas carta con talón desprendible, etiquetas adhesivas continuas 80mm y compactas 40x30/50x30mm, y WhatsApp Web en 1 clic).
+    5. *Módulo 5: Punto de Venta (POS) & Control de Refacciones e Insumos* (Lectores de código de barras USB, descuento de stock en órdenes de servicio computando el costo exacto de la pieza y semáforo anti-desabasto).
+    6. *Módulo 6: Inteligencia Financiera & Principio de Devengo Proporcional (COGS)* (Cálculo de margen neto real sobre mano de obra, devengo contable en anticipos, gestión de cuentas por pagar a proveedores a crédito 7/15/30 días y reportes exportables a Excel/CSV).
+    7. *Módulo 7: Control de Turnos, Arqueo Físico de Efectivo & Corte Z* (Apertura auditada con fondo de cambio, auditoría ciega comparando conteo físico contra flujo teórico y emisión de comprobante Corte Z con firmas).
+    8. *Módulo 8: Seguridad Basada en Roles (RBAC) & Bóveda Local de Datos* (Rol Administrador vs Rol Técnico y Bóveda Local en el Escritorio inmune a desinstalaciones o formateos).
+- **⚖️ Nueva Tabla Comparativa Estratégica: FixPOS Pro vs. Sistemas en la Nube (SaaS):**
+  - Creación del componente `FixPosVsSaasComparison.tsx` con análisis detallado de 6 criterios clave (Modelo de Pago, Dependencia de Internet, Privacidad de Datos en Bóveda Local, Evidencia por Cámara QR, Costo Real de Refacciones COGS y Auditoría Ciega con Corte Z).
+  - Diseño responsivo con tabla ejecutiva en escritorio y tarjetas estilizadas en móvil y tablet.
+- **📺 Reemplazo Temporal de Video por Canal Oficial de YouTube:**
+  - Configuración del canal oficial `https://www.youtube.com/@Soluci%C3%B3nDigital360` mediante banner interactivo con botón directo al canal en `YoutubeEmbed.tsx` en lo que se sube el video tutorial oficial.
+- **✨ Renderizado Mejorado de Módulos:**
+  - Enriquecimiento de la visualización en `app/sistemas/[slug]/page.tsx` para presentar títulos de módulos en negrita seguidos de la descripción técnica y ejecutiva.
+
 ---
 
 ## 📌 Versión 1.4.9 — Octubre 2026: Activación de FixPOS Pro (Gestión Técnica, POS & Red LAN)

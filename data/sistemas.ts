@@ -26,50 +26,52 @@ export const sistemas: Sistema[] = [
     nombre: "FixPOS Pro — Gestión Técnica, POS & Red LAN",
     precio: "$2,000.00 MXN",
     precioAnterior: "$3,500.00 MXN",
-    descripcionCorta: "Plataforma profesional 100% Offline y sin mensualidades para recepción de equipos en 2 min, firma digital, fotos de evidencia, WhatsApp Web embebido, etiquetas con código de barras y Punto de Venta (POS).",
-    videoYoutubeId: "dQw4w9WgXcQ",
+    descripcionCorta: "Plataforma empresarial 100% Offline y sin mensualidades con 8 módulos ejecutivos: Recepción Express con firma digital biométrica, cámara remota por QR, trazabilidad por IMEI/Serie, multiformato de impresión térmica y etiquetas, Punto de Venta (POS) con deducción de refacciones, inteligencia financiera con devengo proporcional (COGS), auditoría ciega de caja (Corte Z) y Bóveda Local de Datos.",
+    videoYoutubeId: "",
     canalYoutubeUrl: "https://www.youtube.com/@Soluci%C3%B3nDigital360",
-    problemaQueResuelve: "Los centros de servicio técnico sufren pérdidas financieras y desorden en mostrador por tickets de papel extraviados, reclamos por fallas/rayones previos no documentados, falta de control en refacciones y cobros mensuales excesivos de software en la nube. FixPOS Pro soluciona el caos automatizando la recepción en 4 pasos con patrón de desbloqueo, firma digital táctil, evidencias fotográficas, notificaciones por WhatsApp en 1 clic, impresión de etiquetas térmicas con Código de Barras (Code 128) y un arqueo exacto de caja chica en red local sin depender de internet.",
+    problemaQueResuelve: "Los centros de servicio técnico sufren pérdidas financieras por falta de blindaje legal, reclamos de clientes por fallas previas no documentadas, fotos desordenadas en teléfonos personales, dependencia de internet en programas SaaS con costosas mensualidades en dólares, y falta de precisión contable al no deducir el costo real de las refacciones (COGS) en los anticipos. FixPOS Pro elimina estos problemas con 8 módulos empresariales: recepción express con firma biométrica y patrón gráfico de 9 puntos, cámara pericial remota instantánea por QR sin cables, bitácora inmutable por Serie/IMEI, impresión multiformato (térmico 80/58mm, carta y etiquetas adhesivas con código de barras), punto de venta con control anti-desabasto, inteligencia financiera con principio de devengo proporcional, arqueo físico con Corte Z y Bóveda Local de Datos en el Escritorio inmune a desinstalaciones.",
     funciones: [
-      "Recepción ultrarrápida en 2 minutos: Búsqueda predictiva de cliente, tipo de equipo, marca, modelo y número de serie/IMEI.",
-      "Seguridad del dispositivo: Patrón de desbloqueo táctil interactivo (3x3) y registro cifrado de contraseña/PIN de pantalla.",
-      "Evidencia fotográfica y diagnósticos rápidos: Captura de fotos de rayones/estrelladuras previas con la cámara de la PC, tablet o celular.",
-      "Firma Digital Táctil & Cotización: Captura de firma del cliente en pantalla y registro de presupuesto con anticipo en efectivo o transferencia.",
-      "Impresión de 3 comprobantes: Ticket térmico (80mm), Hoja Carta con talón desprendible y Etiqueta Adhesiva (40x30mm) con Código de Barras Code 128.",
-      "Conexión Multi-Dispositivo en Red Local (LAN): Conecta celulares, tablets o laptops secundarias vía Código QR sin pagar licencias extra.",
-      "Tablero Kanban de Gestión de Reparaciones: Seguimiento por estados (Recibido, En Diagnóstico, Esperando Pieza, Listo para Entrega, Entregado).",
-      "Notificaciones por WhatsApp Web Embebido: Envíos en 1 clic de avisos '¡Tu equipo está listo!', cotizaciones y estados de avance.",
-      "Punto de Venta (POS) e Inventario: Venta de accesorios y refacciones con lector de barras USB y compresión de fotos WebP.",
-      "Caja Chica & Arqueo Físico de Efectivo: Libro diario contable, registro de gastos operativos y arqueo desglose de billetes y monedas."
+      "Módulo 1 — Recepción Express & Blindaje Contractual: Captura de firma digital biométrica en pantalla (mouse o táctil) vinculada de forma inmutable al contrato y póliza de recepción; patrón gráfico de 9 puntos y claves de seguridad; checklist preventivo certificado de condiciones físicas y funcionales; y autocompletado predictivo de clientes en milisegundos.",
+      "Módulo 2 — Inspección Pericial & Cámara Remota por QR: Escaneo de código QR desde cualquier smartphone para transmitir fotografías de evidencia (golpes, fisuras, número de serie) directamente a la orden en la PC en tiempo real sin cables ni aplicaciones extras; compresión inteligente integrada WebP; y auditoría fotográfica histórica antes, durante y después de la reparación.",
+      "Módulo 3 — Mesa de Control Operativo & Trazabilidad Técnica: Tablero dinámico de estados en tiempo real (Recibido, En Diagnóstico, Esperando Refacción, En Reparación, Terminado, Entregado); detección automática de historial por Serie/IMEI con alertas de servicios pasados y garantías; y bitácora inmutable de intervenciones técnicas y tiempos de ciclo.",
+      "Módulo 4 — Centro Multiformato de Impresión & Notificaciones Digitales: Tickets térmicos de alta definición de 80mm y 58mm con logotipo, firma digital y código de barras Code 128 (Subset B) + QR; hojas membretadas tamaño carta con talón desprendible de custodia interna; rotulación de etiquetas adhesivas para rollo continuo de 80mm y compactas (40x30 / 50x30mm); e integración con WhatsApp Web en 1 clic para despacho de notificaciones y comprobantes en PDF.",
+      "Módulo 5 — Punto de Venta (POS) & Control de Refacciones e Insumos: Operación con lectores de código de barras USB Plug & Play; descuento automático de stock de piezas en órdenes de servicio computando el costo exacto de la refacción; registro ágil de clientes sobre la marcha desde el carrito de venta; y semáforo visual anti-desabasto (Disponible, Stock Bajo, Agotado).",
+      "Módulo 6 — Inteligencia Financiera & Principio de Devengo Proporcional (COGS): Deducción automática del costo de adquisición de refacciones (COGS) sobre los ingresos de mano de obra; devengo contable proporcional en anticipos para evitar distorsiones en el flujo diario; gestión de cuentas por pagar a proveedores a crédito (7, 15, 30 días) descontando caja únicamente con abonos reales; y reportes exportables a Excel/CSV.",
+      "Módulo 7 — Control de Turnos, Arqueo Físico de Efectivo & Corte Z: Apertura formal auditada con fondo de cambio inicial; auditoría ciega de efectivo comparando el conteo físico de billetes/monedas contra el flujo teórico del sistema; y emisión de comprobante de Corte Z consolidado por método de pago (Efectivo, Tarjeta, Transferencia), gastos y firmas de responsabilidad.",
+      "Módulo 8 — Seguridad Basada en Roles (RBAC) & Bóveda Local de Datos: Rol Administrador (Dirección) con control total de márgenes, costos directos y cierres de caja; Rol Técnico (Operativo) restringido a diagnóstico, recepción y cobros sin acceso a finanzas globales; y Bóveda Local de Datos que reside en una carpeta visible en el Escritorio del usuario, inmune a desinstalaciones de software o formateos accidentales."
     ],
     requisitos: [
       "Sistema Operativo: Windows 10 / Windows 11 (x64) o macOS Catalina o superior (Intel y Apple Silicon M1/M2/M3/M4).",
       "Memoria RAM: Mínimo 4 GB RAM (Recomendado 8 GB).",
       "Espacio en Disco: 300 MB libres para la aplicación e historial de base de datos SQLite.",
-      "Impresoras compatibles: Miniprinter Térmica de 80mm (USB/Red), Impresora Carta (Inyección/Láser) e Impresora de Etiquetas Adhesivas (40x30 mm).",
-      "Periféricos recomendados: Lector / Pistola de Códigos de Barras USB (Plug & Play) y Cámara Web / Celular para evidencia fotográfica.",
-      "Operación: 100% Offline (No requiere conexión a Internet). Funciona en Red Local (Wi-Fi LAN) para vincular celulares y tablets."
+      "Impresoras compatibles: Miniprinter Térmica de 80mm y 58mm (USB/Red), Impresora Carta (Inyección/Láser) e Impresora de Etiquetas Adhesivas (40x30 / 50x30 mm o rollo continuo 80mm).",
+      "Periféricos recomendados: Lector / Pistola de Códigos de Barras USB (Plug & Play) y cualquier Smartphone con cámara para transmitir fotos por QR.",
+      "Operación: 100% Offline (No requiere conexión a Internet). Servidor web integrado para vincular celulares y tablets en Red Local (Wi-Fi LAN)."
     ],
     faq: [
       {
-        pregunta: "¿Puedo usar el sistema si se va la señal de Internet en mi colonia?",
-        respuesta: "Sí, 100%. FixPOS Pro es una aplicación completamente offline con base de datos nativa SQLite en tu computadora. El sistema seguirá funcionando a la perfección para recibir equipos, imprimir tickets y cobrar en el POS sin internet."
+        pregunta: "¿Cómo funciona la Cámara Remota por QR sin instalar apps en el celular?",
+        respuesta: "Desde la pantalla de recepción en tu PC, el sistema muestra un Código QR dinámico. El técnico o recepcionista lo escanea con la cámara de su teléfono móvil (Android o iPhone) conectado al Wi-Fi del taller y se abre instantáneamente la interfaz de captura. Al tomar las fotos de evidencias (golpes, número de serie, rayones), estas se comprimen en WebP y se transfieren a la orden en la PC en tiempo real sin cables, sin Bluetooth y sin instalar nada."
       },
       {
-        pregunta: "¿Qué pasa si quiero usar el sistema en varias computadoras o celulares dentro del mismo taller?",
-        respuesta: "No necesitas pagar licencias adicionales. La computadora principal (Servidor) genera un Código QR de conexión LAN para enlazar tus celulares (Android/iPhone), tablets o laptops secundarias a través de tu red Wi-Fi local sin costo extra."
+        pregunta: "¿Qué es el Principio de Devengo Proporcional (COGS) en las reparaciones?",
+        respuesta: "En otros sistemas, si cobras un anticipo por una reparación que requiere una pantalla costosa, el reporte financiero muestra una ganancia ficticia en el día. FixPOS Pro aplica el principio de devengo contable proporcional: reconoce el Costo de Bienes Vendidos (COGS) de forma balanceada con el anticipo y deduce la refacción del almacén, mostrando la rentabilidad neta real de mano de obra y evitando falsas expectativas en el flujo de caja."
+      },
+      {
+        pregunta: "¿Dónde se guardan mis datos y por qué es una Bóveda Local protegida?",
+        respuesta: "Tus datos nunca se suben a nubes de terceros que puedan suspenderte el acceso por impago. La base de datos reside en una Bóveda Local en una carpeta visible directamente en el Escritorio de tu PC. Es completamente inmune a desinstalaciones del sistema o actualizaciones, y puedes copiarla a una memoria USB en 1 clic para respaldo total."
+      },
+      {
+        pregunta: "¿Qué impresoras y formatos de comprobante soporta el sistema?",
+        respuesta: "FixPOS Pro incluye centro multiformato: tickets térmicos estándar de 80mm y 58mm con logotipo y código de barras Code 128 (Subset B) + QR, hojas membretadas tamaño carta con talón desprendible para custodia interna, y rotulación de etiquetas adhesivas (40x30mm, 50x30mm y rollo continuo de 80mm) legibles por cualquier pistola de códigos de barras."
       },
       {
         pregunta: "¿El costo de $2,000.00 MXN es un pago único o suscripción mensual?",
-        respuesta: "Es un pago único de Licencia Vitalicia. Eliminación total de límites de órdenes, clientes y productos sin cobros mensuales ni rentas recurrentes. Incluye 6 Meses de Soporte Técnico Gratis y Actualizaciones."
+        respuesta: "Es un pago único de Licencia Vitalicia. Cero mensualidades, sin costos ocultos y sin límites de órdenes, clientes ni inventario. Incluye 6 Meses de Soporte Técnico Especializado y Actualizaciones."
       },
       {
-        pregunta: "¿Cómo se imprimen los comprobantes y etiquetas de los equipos?",
-        respuesta: "El sistema permite emitir 3 formatos: Ticket Térmico de 80mm para el cliente, Hoja Carta membretada con talón desprendible y Etiqueta Térmica Adhesiva (40x30mm) con el folio y Código de Barras Code 128 para pegarlo en la tapa trasera del equipo."
-      },
-      {
-        pregunta: "¿Se pierde mi información al actualizar el sistema o respaldar?",
-        respuesta: "No, el sistema cuenta con respaldos de seguridad en 1 clic (taller.db) y las actualizaciones se aplican preservando el 100% de tus clientes, historial de reparaciones y contabilidad intacta."
+        pregunta: "¿Puedo vincular varias computadoras y celulares dentro del taller?",
+        respuesta: "Sí. FixPOS Pro incluye su propio servidor web LAN integrado. Con un solo clic se genera el código de enlace para conectar tablets, celulares y laptops secundarias conectadas al Wi-Fi de tu taller sin pagar licencias adicionales por cada dispositivo."
       }
     ],
     esGratis: false,

@@ -294,6 +294,11 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
   - Tarjeta de descargo de responsabilidad oficial para Solución Digital 360.
   - Enlace de descarga oficial al instalador Enterprise x64 (`Nitro.PDF.Pro.14.41.0.15.x64.Enterprise.rar`).
 
+### 📌 Versión 1.5.0 — Octubre 2026: FixPOS Pro — Arquitectura Empresarial de 8 Módulos & Comparativa vs SaaS
+- **🏛️ Arquitectura Oficial de 8 Módulos Empresariales:** Actualización técnica de FixPOS Pro (`data/sistemas.ts`) con los 8 módulos oficiales (Recepción Express & Blindaje Contractual, Inspección Pericial & Cámara Remota QR, Mesa de Control por Serie/IMEI, Centro Multiformato de Impresión & Notificaciones, POS con Deducción de Refacciones, Inteligencia Financiera con Devengo COGS, Control de Turnos & Corte Z con Auditoría Ciega, y Bóveda Local de Datos en Escritorio).
+- **⚖️ Tabla Comparativa FixPOS Pro vs. SaaS:** Componente `components/FixPosVsSaasComparison.tsx` con análisis de 6 criterios estratégicos en formato responsivo.
+- **📺 Enlace a Canal Oficial de YouTube:** Redirección elegante al canal `@SoluciónDigital360` en lo que se sube el video tutorial oficial.
+
 ### 📌 Versión 1.2.5 — Septiembre 2026
 - **🆓 Nueva Sección: Herramientas de Apoyo Gratuitas:**
   - Nuevo componente `components/HerramientasGratuitas.tsx` integrado en la página principal debajo del catálogo.
