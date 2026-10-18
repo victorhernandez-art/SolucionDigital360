@@ -156,7 +156,12 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.4.2 — Octubre 2026 (Actualización Reciente)
+### 📌 Versión 1.4.3 — Octubre 2026 (Actualización Reciente)
+- **📥 Cotizador — Actualización del Enlace del Instalador Autónomo (.exe):**
+  - Enlace del botón *Descargar Cotizador Gratis* actualizado en [data/sistemas.ts](file:///c:/xampp/htdocs/Solucion%20Digital%20360/data/sistemas.ts) al nuevo release en GitHub: `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/v1.0/Instalador_Cotizador.exe`.
+  - Actualización de la respuesta en la sección de Preguntas Frecuentes (FAQ) indicando el nombre oficial del archivo instalador.
+
+### 📌 Versión 1.4.2 — Octubre 2026
 - **📶 GymWeb — Nuevo Módulo 9: Red Local (LAN) y Sincronización en Tiempo Real:**
   - Agregado en [data/sistemas.ts](file:///c:/xampp/htdocs/Solucion%20Digital%20360/data/sistemas.ts) a *Módulos y Funciones Incluidas*: conexión de otros dispositivos por red local (QR / dirección de acceso) para realizar cambios, con guardado en tiempo real en la página principal del sistema.
 

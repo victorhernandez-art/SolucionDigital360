@@ -3,6 +3,13 @@
 
 ---
 
+## 📌 Versión 1.4.3 — Octubre 2026: Cotizador — Actualización del Enlace Oficial del Instalador
+- **📥 Nuevo Enlace del Instalador Autónomo (.exe):**
+  - El botón *Descargar Cotizador Gratis* en la página del sistema ([data/sistemas.ts](file:///c:/xampp/htdocs/Solucion%20Digital%20360/data/sistemas.ts)) ahora apunta al nuevo ejecutable publicado en GitHub Releases: `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/v1.0/Instalador_Cotizador.exe`.
+  - Se sincronizó la respuesta en la sección de Preguntas Frecuentes (FAQ) para referenciar el nuevo nombre del instalador `Instalador_Cotizador.exe`.
+
+---
+
 ## 📌 Versión 1.4.2 — Octubre 2026: GymWeb — Módulo 9 Red Local (LAN) y Sincronización en Tiempo Real
 - **📶 Nuevo Módulo en Funciones Incluidas:**
   - Se agregó el Módulo 9 en [data/sistemas.ts](file:///c:/xampp/htdocs/Solucion%20Digital%20360/data/sistemas.ts): otros dispositivos se conectan por red local (QR o dirección de acceso) para realizar cambios, y lo realizado se guarda en tiempo real en la página principal del sistema, sin internet.
