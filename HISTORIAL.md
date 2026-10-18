@@ -22,7 +22,7 @@
 - **⏱️ Unificación Oficial de la Prueba de 7 Días para FixPOS Pro:**
   - Actualización de los textos en la página de producto y tarjeta de descarga: *"Prueba FixPOS Pro Gratis por 7 Días con todas sus funciones habilitadas. Sin tarjeta de crédito, sin compromisos y con la posibilidad de conservar todos tus registros al activar tu licencia definitiva."*
 - **📥 Botón de Descarga Directa y Marcador Inicial en 30 para FixPOS Pro:**
-  - Habilitación del botón oficial *Descargar Instalador* en la tarjeta de conversión de FixPOS Pro (`DownloadCtaCard.tsx` y `data/sistemas.ts`).
+  - Habilitación del botón oficial *Descargar Instalador* en la tarjeta de conversión de FixPOS Pro (`DownloadCtaCard.tsx` y `data/sistemas.ts`), conectado directamente al ejecutable oficial: `https://github.com/victorhernandez-art/taller/releases/download/v1.4.0/FixPOS-Pro-Setup-1.4.0.exe`.
   - Configuración del marcador inicial persistente en **30 descargas** sincronizado en base de datos PostgreSQL de Supabase, `data/downloads.json` y `app/api/downloads/route.ts`.
   - Mecanismo consecutivo garantizado: cada descarga incrementa en vivo consecutivamente (31, 32, 33...) con actualización inmediata en frontend y base de datos.
 

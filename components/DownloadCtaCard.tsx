@@ -81,7 +81,7 @@ export default function DownloadCtaCard({
       });
   }, [sistemaSlug, isGym, storageKey, baseCount, isCotizador]);
 
-  const defaultTallerDownload = "https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/v1.3.9/FixPOS-Pro-Setup-1.3.9.exe";
+  const defaultTallerDownload = "https://github.com/victorhernandez-art/taller/releases/download/v1.4.0/FixPOS-Pro-Setup-1.4.0.exe";
   const finalDownloadLink = downloadUrl || (isTallerSystem ? defaultTallerDownload : megaLink);
 
   const handleDownload = async () => {
