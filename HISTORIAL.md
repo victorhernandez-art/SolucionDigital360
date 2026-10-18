@@ -3,6 +3,14 @@
 
 ---
 
+## 📌 Versión 1.4.8 — Octubre 2026: GymWeb — Eliminación Definitiva del Showcase de la Tarjeta de Catálogo
+- **🧹 Tarjeta Limpia y Homogénea en Catálogo:**
+  - Se eliminó de forma definitiva el componente 3D de la tarjeta de catálogo en [app/page.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/app/page.tsx), dejando la tarjeta con su formato simétrico, precio y descripción ejecutiva.
+- **🌟 Showcase 3D en Página de Detalle:**
+  - El escaparate de cartas 3D a gran escala permanece activo y visible exclusivamente en la página de producto ([app/sistemas/[slug]/page.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/app/sistemas/%5Bslug%5D/page.tsx)).
+
+---
+
 ## 📌 Versión 1.4.7 — Octubre 2026: GymWeb — Gran Formato y Escalado de Cartas 3D
 - **📐 Aumento Significativo de Dimensiones Visuales:**
   - Se incrementó la escala del componente [components/Gym3DFeatureCards.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/Gym3DFeatureCards.tsx) aumentando el contenedor hasta `max-w-5xl`, la altura del escenario 3D hasta `580px` en pantallas de escritorio, y la carta frontal hasta `820px` de ancho máximo.

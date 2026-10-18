@@ -156,7 +156,12 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.4.7 — Octubre 2026 (Actualización Reciente)
+### 📌 Versión 1.4.8 — Octubre 2026 (Actualización Reciente)
+- **🧹 GymWeb — Tarjeta de Catálogo Limpia (Showcase 3D Exclusivo en Detalle):**
+  - Remoción definitiva de las cartas 3D de la tarjeta del catálogo en [app/page.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/app/page.tsx) para preservar la uniformidad de altura y legibilidad.
+  - El escaparate de cartas 3D se mantiene activo en la página de producto (`/sistemas/sistema-gestion-gimnasios`).
+
+### 📌 Versión 1.4.7 — Octubre 2026
 - **📐 GymWeb — Escalado a Gran Formato de Cartas 3D:**
   - Ampliación sustancial de las dimensiones del escaparate 3D (`Gym3DFeatureCards.tsx`): hasta 820px de ancho y 580px de alto en pantallas de escritorio, con contenedor `max-w-5xl`.
   - Las capturas de pantalla se aprecian a gran tamaño y con nitidez inmediata, manteniendo el pase fluido por clic y el zoom opcional.
