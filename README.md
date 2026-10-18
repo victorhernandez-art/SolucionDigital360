@@ -140,7 +140,7 @@ Para mantener una experiencia visual profesional de nivel **SaaS**, se deben res
 5. **Precios y Periodo de Prueba:**
    - **FixPOS Pro:** `$2,000.00 MXN` (Oferta con precio anterior `$3,500.00 MXN` tachado / Licencia Vitalicia + 6 Meses de Soporte Técnico Gratis).
    - **Periodo de Prueba:** Prueba FixPOS Pro Gratis por 7 Días con todas sus funciones habilitadas (sin tarjeta de crédito, sin compromisos y con la posibilidad de conservar todos tus registros al activar tu licencia definitiva).
-   - **Marcador de Descargas:** La tarjeta CTA final ([components/DownloadCtaCard.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/DownloadCtaCard.tsx)) incluye el contador dinámico persistente (`+526 Descargas del Instalador` gestionado vía API `/api/downloads`).
+   - **Marcador de Descargas:** La tarjeta CTA final ([components/DownloadCtaCard.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/DownloadCtaCard.tsx)) incluye el contador dinámico persistente que inicia en **30 Descargas del Instalador** (gestionado vía Supabase y API `/api/downloads`), incrementando de manera real y consecutiva en cada descarga.
 
 ---
 

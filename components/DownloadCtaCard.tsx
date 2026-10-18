@@ -32,7 +32,7 @@ export default function DownloadCtaCard({
 }: DownloadCtaCardProps) {
   const isGym = sistemaSlug?.includes('gimnasio') || sistemaNombre.toLowerCase().includes('gimnasio') || sistemaNombre.toLowerCase().includes('gym');
   const isCotizador = sistemaSlug?.includes('cotiza') || sistemaNombre.toLowerCase().includes('cotiza');
-  const baseCount = isGym ? 375 : (isCotizador ? 0 : 540);
+  const baseCount = isGym ? 375 : (isCotizador ? 0 : 30);
   const storageKey = isGym ? 'sd360_downloads_gym' : (isCotizador ? 'sd360_downloads_cotizador' : 'sd360_downloads_taller');
 
   // Estado para el contador de descargas (inicia en baseCount o valor guardado)
@@ -50,6 +50,11 @@ export default function DownloadCtaCard({
           localStorage.removeItem(storageKey);
           localSavedVal = 0;
           setDownloadCount(0);
+        } else if (!isGym && !isCotizador && (parsed > 100 || isNaN(parsed) || parsed < 30)) {
+          // Limpiar caché vieja de 540 para FixPOS Pro e inicializar en la base oficial de 30
+          localStorage.setItem(storageKey, '30');
+          localSavedVal = 30;
+          setDownloadCount(30);
         } else if (!isNaN(parsed) && parsed >= baseCount) {
           localSavedVal = parsed;
           setDownloadCount(parsed);
@@ -74,7 +79,10 @@ export default function DownloadCtaCard({
       .catch((err) => {
         console.error('Error al sincronizar descargas:', err);
       });
-  }, [sistemaSlug, isGym, storageKey, baseCount]);
+  }, [sistemaSlug, isGym, storageKey, baseCount, isCotizador]);
+
+  const defaultTallerDownload = "https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/v1.3.9/FixPOS-Pro-Setup-1.3.9.exe";
+  const finalDownloadLink = downloadUrl || (isTallerSystem ? defaultTallerDownload : megaLink);
 
   const handleDownload = async () => {
     if (isDownloading) return;
@@ -88,7 +96,7 @@ export default function DownloadCtaCard({
     } catch {}
 
     // 2. Abrir la descarga directa inmediatamente
-    window.open(downloadUrl || megaLink, '_blank');
+    window.open(finalDownloadLink, '_blank');
 
     // 3. Registrar en backend
     try {
@@ -115,7 +123,7 @@ export default function DownloadCtaCard({
     }
   };
 
-  const hasDirectDownload = !!downloadUrl;
+  const hasDirectDownload = !!downloadUrl || isTallerSystem;
 
   const whatsappPruebaMsg = encodeURIComponent(
     esGratis 
