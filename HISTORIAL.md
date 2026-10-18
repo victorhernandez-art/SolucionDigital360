@@ -3,6 +3,20 @@
 
 ---
 
+## 📌 Versión 1.4.4 — Octubre 2026: GymWeb — Showcase Interactivo 3D Estilo Cartas (Nuevas Funciones Implementadas)
+- **🃏 Nuevas Funciones Implementadas en Formato 3D (Efecto Baraja / Cartas):**
+  - Creación del componente especializado [components/Gym3DFeatureCards.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/Gym3DFeatureCards.tsx) integrado directamente en la tarjeta de GymWeb en el catálogo principal ([app/page.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/app/page.tsx)) y en la página de detalle ([app/sistemas/[slug]/page.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/app/sistemas/%5Bslug%5D/page.tsx)).
+  - **Organización solicitada de las 3 imágenes oficiales:**
+    1. **Carta 1 (Tercera imagen subida, colocada como primera):** `Pantalla de Acceso Glassmorphism` (`/gym/gym-login.png`) — Autenticación corporativa moderna con interfaz dark mode, diseño translúcido y fondo inmersivo.
+    2. **Carta 2 (Primera imagen subida):** `Directorio y Control de Socios` (`/gym/gym-socios.png`) — Módulo de socios, filtros rápidos de saldo deudor, difusiones masivas por WhatsApp y exportación a Excel.
+    3. **Carta 3 (Segunda imagen subida):** `Servidor de Red Local (LAN) & QR` (`/gym/gym-red-lan.png`) — Conexión multi-dispositivo por red Wi-Fi sin internet mediante código QR y sincronización en tiempo real.
+  - **Física 3D y Efectos Visuales:**
+    - Perspectiva 3D con elevación Z, rotación angular en abanico (`rotate-0`, `rotate-6`, `-rotate-6`) y sombras volumétricas neón cian.
+    - Selector interactivo de cartas (tabs de 1 clic), flechas de navegación y badge animado con ping visual `Nuevas Funciones Implementadas`.
+    - Modal Lightbox en pantalla completa para inspeccionar cada captura en resolución nativa con zoom y descripciones ampliadas.
+
+---
+
 ## 📌 Versión 1.4.3 — Octubre 2026: Cotizador — Actualización del Enlace Oficial del Instalador
 - **📥 Nuevo Enlace del Instalador Autónomo (.exe):**
   - El botón *Descargar Cotizador Gratis* en la página del sistema ([data/sistemas.ts](file:///c:/xampp/htdocs/Solucion%20Digital%20360/data/sistemas.ts)) ahora apunta al nuevo ejecutable publicado en GitHub Releases: `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/v1.0/Instalador_Cotizador.exe`.

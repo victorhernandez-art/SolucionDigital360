@@ -156,7 +156,16 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.4.3 — Octubre 2026 (Actualización Reciente)
+### 📌 Versión 1.4.4 — Octubre 2026 (Actualización Reciente)
+- **🃏 GymWeb — Showcase Interactivo 3D Estilo Cartas (Nuevas Funciones Implementadas):**
+  - Integración en la tarjeta de GymWeb en [app/page.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/app/page.tsx) y en su página de detalle de un escaparate interactivo 3D tipo baraja de cartas ([components/Gym3DFeatureCards.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/Gym3DFeatureCards.tsx)).
+  - Contiene las 3 nuevas funciones con la tercera imagen como la primera:
+    1. **Login Glassmorphism:** Acceso moderno oscuro con fondo ambiental y diseño translúcido.
+    2. **Control de Socios & WhatsApp:** Directorio, difusiones y control de cuentas por cobrar.
+    3. **Servidor LAN & QR:** Acceso multi-dispositivo por Wi-Fi sin internet.
+  - Incluye perspectiva 3D, navegación por tabs y modal lightbox para ampliar cada captura en alta resolución.
+
+### 📌 Versión 1.4.3 — Octubre 2026
 - **📥 Cotizador — Actualización del Enlace del Instalador Autónomo (.exe):**
   - Enlace del botón *Descargar Cotizador Gratis* actualizado en [data/sistemas.ts](file:///c:/xampp/htdocs/Solucion%20Digital%20360/data/sistemas.ts) al nuevo release en GitHub: `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/v1.0/Instalador_Cotizador.exe`.
   - Actualización de la respuesta en la sección de Preguntas Frecuentes (FAQ) indicando el nombre oficial del archivo instalador.

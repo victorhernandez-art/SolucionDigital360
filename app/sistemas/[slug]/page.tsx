@@ -31,6 +31,7 @@ import SupportedCategories from '@/components/SupportedCategories';
 import LanAndRolesSection from '@/components/LanAndRolesSection';
 import DownloadCtaCard from '@/components/DownloadCtaCard';
 import DemoDownloadButton from '@/components/DemoDownloadButton';
+import Gym3DFeatureCards from '@/components/Gym3DFeatureCards';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
@@ -209,7 +210,10 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
 
         {/* COBERTURA MULTIMONEDA Y PAÍSES INTERACTIVA (GIMNASIO) */}
         {isGymSystem && (
-          <CurrencySelector systemName="GymWeb" isGym={true} />
+          <>
+            <Gym3DFeatureCards isDetailPage={true} />
+            <CurrencySelector systemName="GymWeb" isGym={true} />
+          </>
         )}
 
         {/* DEMOSTRACIÓN EN VIDEO Y CANAL OFICIAL */}
