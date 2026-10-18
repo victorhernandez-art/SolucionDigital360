@@ -237,7 +237,7 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
           <section className="space-y-6">
             <div className="text-center max-w-2xl mx-auto space-y-2">
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-                ¿Por qué los Talleres Eligen Sistema Taller v1.0?
+                ¿Por qué los Centros Técnicos Eligen FixPOS Pro?
               </h2>
               <p className="text-slate-600 text-sm sm:text-base">
                 Compara el método manual de notas de papel frente a la automatización digital completa.
@@ -271,11 +271,11 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
                 </ul>
               </div>
 
-              {/* Tarjeta 2: Con Sistema Taller v1.0 */}
+              {/* Tarjeta 2: Con FixPOS Pro */}
               <div className="bg-emerald-50/70 border border-emerald-200 rounded-2xl p-6 sm:p-8 space-y-4">
                 <div className="flex items-center gap-2 text-emerald-900 font-bold text-lg">
                   <CheckCircle2 className="w-6 h-6 text-emerald-600 shrink-0" />
-                  <span>Con Sistema Taller v1.0 (Digital 360)</span>
+                  <span>Con FixPOS Pro (Digital 360)</span>
                 </div>
                 <ul className="space-y-3 text-slate-700 text-sm">
                   <li className="flex items-start gap-2.5">

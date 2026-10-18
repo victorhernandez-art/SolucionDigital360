@@ -142,7 +142,7 @@ export default function ScreenshotShowcase() {
             Demostración Interactiva Automática
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            Explora la Interfaz de Sistema Taller v1.0
+            Explora la Interfaz de FixPOS Pro
           </h2>
         </div>
 
@@ -251,7 +251,7 @@ export default function ScreenshotShowcase() {
                 <div className="w-3 h-3 rounded-full bg-amber-500" />
                 <div className="w-3 h-3 rounded-full bg-emerald-500" />
                 <span className="ml-2 text-xs font-mono text-slate-300 truncate max-w-[200px] sm:max-w-none">
-                  Sistema Taller v1.0 — {currentSlide.title}
+                  FixPOS Pro — {currentSlide.title}
                 </span>
               </div>
               <span className="text-[11px] text-indigo-300 font-semibold bg-indigo-900/60 px-2.5 py-0.5 rounded-md flex items-center gap-1 border border-indigo-500/30">

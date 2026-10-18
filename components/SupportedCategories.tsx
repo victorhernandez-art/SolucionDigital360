@@ -90,7 +90,7 @@ export default function SupportedCategories() {
           Diseñado para Todo Tipo de Talleres de Reparación
         </h2>
         <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-          Ya sea que repares smartphones, computadoras, consolas o línea blanca, <strong className="text-slate-900 font-semibold">Sistema Taller v1.0</strong> incluye las categorías y plantillas de diagnóstico para tu negocio.
+          Ya sea que repares smartphones, computadoras, consolas o línea blanca, <strong className="text-slate-900 font-semibold">FixPOS Pro</strong> incluye las categorías y plantillas de diagnóstico para tu negocio.
         </p>
       </div>
 

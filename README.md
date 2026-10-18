@@ -156,7 +156,13 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.4.8 — Octubre 2026 (Actualización Reciente)
+### 📌 Versión 1.4.9 — Octubre 2026 (Actualización Reciente)
+- **🚀 Activación de FixPOS Pro (Gestión Técnica, POS & Red LAN):**
+  - Nombre oficial actualizado a `FixPOS Pro — Gestión Técnica, POS & Red LAN` en [data/sistemas.ts](file:///c:/xampp/htdocs/Solucion%20Digital%20360/data/sistemas.ts) y en todos sus componentes auxiliares.
+  - Tarjeta activada en el catálogo principal (`proximamente: false`) con badge `Premium`, precio de oferta `$2,000.00 MXN` y botón interactivo `Ver Detalle del Sistema`.
+  - Generación de la página oficial de producto `/sistemas/sistema-gestion-tecnicos`.
+
+### 📌 Versión 1.4.8 — Octubre 2026
 - **🧹 GymWeb — Tarjeta de Catálogo Limpia (Showcase 3D Exclusivo en Detalle):**
   - Remoción definitiva de las cartas 3D de la tarjeta del catálogo en [app/page.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/app/page.tsx) para preservar la uniformidad de altura y legibilidad.
   - El escaparate de cartas 3D se mantiene activo en la página de producto (`/sistemas/sistema-gestion-gimnasios`).

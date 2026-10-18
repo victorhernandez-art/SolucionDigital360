@@ -3,6 +3,16 @@
 
 ---
 
+## 📌 Versión 1.4.9 — Octubre 2026: Activación de FixPOS Pro (Gestión Técnica, POS & Red LAN)
+- **🚀 Activación en Catálogo Principal (`app/page.tsx`):**
+  - Cambio de estado a disponible (`proximamente: false`), habilitando el badge **`Premium`**, el precio de oferta vitalicia `$2,000.00 MXN` (con `$3,500.00 MXN` tachado) y el botón activo **`Ver Detalle del Sistema`**.
+  - Renombrado oficial del software de servicio técnico a **`FixPOS Pro — Gestión Técnica, POS & Red LAN`**.
+- **🌐 Generación y Despliegue de la Página de Detalle (`/sistemas/sistema-gestion-tecnicos`):**
+  - Habilitación de la ruta estática oficial SSG en producción.
+  - Sincronización del nombre FixPOS Pro en las secciones de comparativa, demostración interactiva (`ScreenshotShowcase`), categorías soportadas (`SupportedCategories`), conexión LAN (`LanAndRolesSection`) y selector de monedas (`CurrencySelector`).
+
+---
+
 ## 📌 Versión 1.4.8 — Octubre 2026: GymWeb — Eliminación Definitiva del Showcase de la Tarjeta de Catálogo
 - **🧹 Tarjeta Limpia y Homogénea en Catálogo:**
   - Se eliminó de forma definitiva el componente 3D de la tarjeta de catálogo en [app/page.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/app/page.tsx), dejando la tarjeta con su formato simétrico, precio y descripción ejecutiva.

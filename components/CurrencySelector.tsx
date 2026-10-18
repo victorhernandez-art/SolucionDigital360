@@ -40,7 +40,7 @@ interface CurrencySelectorProps {
   isGym?: boolean;
 }
 
-export default function CurrencySelector({ systemName = 'Sistema Taller v1.0', isGym = false }: CurrencySelectorProps) {
+export default function CurrencySelector({ systemName = 'FixPOS Pro', isGym = false }: CurrencySelectorProps) {
   const [selected, setSelected] = useState<CountryCurrency>(supportedCountries[0]); // México por defecto
   const [isOpen, setIsOpen] = useState<boolean>(false);
 

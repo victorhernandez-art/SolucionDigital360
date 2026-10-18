@@ -23,13 +23,13 @@ export interface Sistema {
 export const sistemas: Sistema[] = [
   {
     slug: "sistema-gestion-tecnicos",
-    nombre: "Sistema Taller v1.0 — Gestión Técnica, POS & Red LAN",
+    nombre: "FixPOS Pro — Gestión Técnica, POS & Red LAN",
     precio: "$2,000.00 MXN",
     precioAnterior: "$3,500.00 MXN",
     descripcionCorta: "Plataforma profesional 100% Offline y sin mensualidades para recepción de equipos en 2 min, firma digital, fotos de evidencia, WhatsApp Web embebido, etiquetas con código de barras y Punto de Venta (POS).",
     videoYoutubeId: "dQw4w9WgXcQ",
     canalYoutubeUrl: "https://www.youtube.com/@Soluci%C3%B3nDigital360",
-    problemaQueResuelve: "Los centros de servicio técnico sufren pérdidas financieras y desorden en mostrador por tickets de papel extraviados, reclamos por fallas/rayones previos no documentados, falta de control en refacciones y cobros mensuales excesivos de software en la nube. Sistema Taller v1.0 soluciona el caos automatizando la recepción en 4 pasos con patrón de desbloqueo, firma digital táctil, evidencias fotográficas, notificaciones por WhatsApp en 1 clic, impresión de etiquetas térmicas con Código de Barras (Code 128) y un arqueo exacto de caja chica en red local sin depender de internet.",
+    problemaQueResuelve: "Los centros de servicio técnico sufren pérdidas financieras y desorden en mostrador por tickets de papel extraviados, reclamos por fallas/rayones previos no documentados, falta de control en refacciones y cobros mensuales excesivos de software en la nube. FixPOS Pro soluciona el caos automatizando la recepción en 4 pasos con patrón de desbloqueo, firma digital táctil, evidencias fotográficas, notificaciones por WhatsApp en 1 clic, impresión de etiquetas térmicas con Código de Barras (Code 128) y un arqueo exacto de caja chica en red local sin depender de internet.",
     funciones: [
       "Recepción ultrarrápida en 2 minutos: Búsqueda predictiva de cliente, tipo de equipo, marca, modelo y número de serie/IMEI.",
       "Seguridad del dispositivo: Patrón de desbloqueo táctil interactivo (3x3) y registro cifrado de contraseña/PIN de pantalla.",
@@ -53,7 +53,7 @@ export const sistemas: Sistema[] = [
     faq: [
       {
         pregunta: "¿Puedo usar el sistema si se va la señal de Internet en mi colonia?",
-        respuesta: "Sí, 100%. Sistema Taller es una aplicación completamente offline con base de datos nativa SQLite en tu computadora. El sistema seguirá funcionando a la perfección para recibir equipos, imprimir tickets y cobrar en el POS sin internet."
+        respuesta: "Sí, 100%. FixPOS Pro es una aplicación completamente offline con base de datos nativa SQLite en tu computadora. El sistema seguirá funcionando a la perfección para recibir equipos, imprimir tickets y cobrar en el POS sin internet."
       },
       {
         pregunta: "¿Qué pasa si quiero usar el sistema en varias computadoras o celulares dentro del mismo taller?",
@@ -73,7 +73,7 @@ export const sistemas: Sistema[] = [
       }
     ],
     esGratis: false,
-    proximamente: true
+    proximamente: false
   },
   {
     slug: "sistema-gestion-gimnasios",

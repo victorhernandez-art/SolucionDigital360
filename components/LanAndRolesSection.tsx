@@ -43,7 +43,7 @@ export default function LanAndRolesSection() {
         </div>
 
         <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-          <strong className="text-slate-900 font-bold">Sistema Taller v1.0</strong> incluye un servidor web integrado que permite a técnicos y recepcionistas utilizar sus teléfonos inteligentes (Android / iPhone), tablets o computadoras secundarias (PC / Laptops) dentro del taller sin instalar programas adicionales.
+          <strong className="text-slate-900 font-bold">FixPOS Pro</strong> incluye un servidor web integrado que permite a técnicos y recepcionistas utilizar sus teléfonos inteligentes (Android / iPhone), tablets o computadoras secundarias (PC / Laptops) dentro del taller sin instalar programas adicionales.
         </p>
 
         {/* Pasos Numerados de Conexión LAN en Tarjetas Blancas Limpias */}

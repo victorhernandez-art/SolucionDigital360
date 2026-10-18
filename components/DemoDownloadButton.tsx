@@ -34,7 +34,7 @@ export default function DemoDownloadButton({
   };
 
   const whatsappDemoMsg = encodeURIComponent(
-    "Hola, quisiera solicitar el enlace directo del Instalador Demo del Sistema Taller v1.0 para realizar mis 5 pruebas de servicio e impresión de tickets."
+    "Hola, quisiera solicitar el enlace directo del Instalador Demo de FixPOS Pro para realizar mis 5 pruebas de servicio e impresión de tickets."
   );
   const whatsappDemoUrl = `https://wa.me/529611209361?text=${whatsappDemoMsg}`;
 
@@ -50,7 +50,7 @@ export default function DemoDownloadButton({
             <Zap className="w-3.5 h-3.5" /> Probar Gratis sin Compromiso
           </div>
           <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            Descarga el Instalador Demo Oficial de Sistema Taller v1.0
+            Descarga el Instalador Demo Oficial de FixPOS Pro
           </h3>
           <p className="text-slate-300 text-sm sm:text-base">
             Evalúa el software directamente en tu computadora antes de adquirir la licencia.
