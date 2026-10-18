@@ -156,7 +156,12 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.4.6 — Octubre 2026 (Actualización Reciente)
+### 📌 Versión 1.4.7 — Octubre 2026 (Actualización Reciente)
+- **📐 GymWeb — Escalado a Gran Formato de Cartas 3D:**
+  - Ampliación sustancial de las dimensiones del escaparate 3D (`Gym3DFeatureCards.tsx`): hasta 820px de ancho y 580px de alto en pantallas de escritorio, con contenedor `max-w-5xl`.
+  - Las capturas de pantalla se aprecian a gran tamaño y con nitidez inmediata, manteniendo el pase fluido por clic y el zoom opcional.
+
+### 📌 Versión 1.4.6 — Octubre 2026
 - **✨ GymWeb — Rediseño Limpio y Ampliado de Cartas 3D (Sin Marco de Fondo):**
   - Eliminación del marco/contenedor exterior oscuro en [components/Gym3DFeatureCards.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/Gym3DFeatureCards.tsx) para maximizar el tamaño de las capturas en pantalla.
   - Presentación 100% limpia de la baraja 3D dentro de la tarjeta de GymWeb ([app/page.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/app/page.tsx)), conservando el mecanismo de pase tridimensional al hacer clic, badge distintivo, indicador minimalista y zoom lightbox.

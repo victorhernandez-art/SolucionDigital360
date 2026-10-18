@@ -56,7 +56,7 @@ export default function Gym3DFeatureCards({ isDetailPage = false }: Gym3DFeature
 
   const handleCardClick = (clickedIndex: number) => {
     if (clickedIndex === activeIndex) {
-      // Si hace clic en la carta frontal, avanza a la siguiente carta
+      // Si hace clic en la carta frontal, pasa fluidamente a la siguiente
       setActiveIndex((prev) => (prev + 1) % gymFeatures.length);
     } else {
       // Si hace clic en una carta lateral, la trae al frente
@@ -65,41 +65,47 @@ export default function Gym3DFeatureCards({ isDetailPage = false }: Gym3DFeature
   };
 
   return (
-    <div className={`w-full my-3 select-none ${isDetailPage ? 'max-w-2xl mx-auto py-4' : ''}`}>
-      {/* Etiqueta sutil superior: Nuevas Funciones */}
-      <div className="flex items-center justify-between mb-2 px-1">
-        <span className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-800">
-          <Sparkles className="w-3.5 h-3.5 text-cyan-600" />
-          <span>Nuevas Funciones Implementadas</span>
-        </span>
-        <span className="text-[11px] font-semibold text-slate-400">
+    <div className={`w-full select-none ${isDetailPage ? 'max-w-5xl mx-auto py-6 md:py-8' : 'my-3'}`}>
+      {/* Encabezado elegante y espacioso */}
+      <div className="flex items-center justify-between mb-4 md:mb-6 px-1 sm:px-2">
+        <div className="inline-flex items-center gap-2">
+          <Sparkles className={`${isDetailPage ? 'w-5 h-5 text-cyan-600' : 'w-3.5 h-3.5 text-cyan-600'}`} />
+          <h3 className={`${isDetailPage ? 'text-lg sm:text-2xl font-extrabold text-slate-900 tracking-tight' : 'text-xs sm:text-sm font-bold text-slate-800'}`}>
+            Nuevas Funciones Implementadas
+          </h3>
+        </div>
+        <span className={`${isDetailPage ? 'text-xs sm:text-sm font-medium text-slate-500' : 'text-[11px] font-semibold text-slate-400'}`}>
           Clic para pasar ({activeIndex + 1}/{gymFeatures.length})
         </span>
       </div>
 
-      {/* Escenario 3D Limpio sin marco de fondo */}
-      <div className={`relative w-full ${isDetailPage ? 'h-72 sm:h-84' : 'h-56 sm:h-64'} flex items-center justify-center [perspective:1200px]`}>
+      {/* Escenario 3D Amplio y Proporcional sin marco de fondo */}
+      <div className={`relative w-full ${isDetailPage ? 'h-[360px] sm:h-[460px] md:h-[540px] lg:h-[580px]' : 'h-60 sm:h-72'} flex items-center justify-center [perspective:1400px]`}>
         {gymFeatures.map((feature, idx) => {
           const isCurrent = idx === activeIndex;
           const diff = (idx - activeIndex + gymFeatures.length) % gymFeatures.length;
 
-          // Posicionamiento 3D estilo baraja / cartas
+          // Posicionamiento 3D estilo baraja / cartas a gran escala
           let transformStyle = '';
           let zIndex = 10;
           let opacity = 'opacity-65 hover:opacity-90';
 
           if (diff === 0) {
-            // Carta activa en el centro (más grande y al frente)
-            transformStyle = 'translate-x-0 translate-y-0 scale-100 rotate-0 [transform:translateZ(40px)]';
+            // Carta activa al frente, centrada y en tamaño protagonista
+            transformStyle = 'translate-x-0 translate-y-0 scale-100 rotate-0 [transform:translateZ(50px)]';
             zIndex = 30;
             opacity = 'opacity-100';
           } else if (diff === 1) {
-            // Carta derecha detrás
-            transformStyle = 'translate-x-7 sm:translate-x-12 translate-y-2 scale-[0.88] rotate-6 sm:rotate-8 [transform:translateZ(10px)]';
+            // Carta derecha en perspectiva
+            transformStyle = isDetailPage
+              ? 'translate-x-12 sm:translate-x-24 md:translate-x-36 translate-y-3 md:translate-y-4 scale-[0.88] rotate-6 sm:rotate-7 [transform:translateZ(10px)]'
+              : 'translate-x-7 sm:translate-x-12 translate-y-2 scale-[0.88] rotate-6 [transform:translateZ(10px)]';
             zIndex = 20;
           } else {
-            // Carta izquierda detrás
-            transformStyle = '-translate-x-7 sm:-translate-x-12 translate-y-2 scale-[0.88] -rotate-6 sm:-rotate-8 [transform:translateZ(10px)]';
+            // Carta izquierda en perspectiva
+            transformStyle = isDetailPage
+              ? '-translate-x-12 sm:-translate-x-24 md:-translate-x-36 translate-y-3 md:translate-y-4 scale-[0.88] -rotate-6 sm:-rotate-7 [transform:translateZ(10px)]'
+              : '-translate-x-7 sm:-translate-x-12 translate-y-2 scale-[0.88] -rotate-6 [transform:translateZ(10px)]';
             zIndex = 15;
           }
 
@@ -107,10 +113,14 @@ export default function Gym3DFeatureCards({ isDetailPage = false }: Gym3DFeature
             <div
               key={feature.id}
               onClick={() => handleCardClick(idx)}
-              className={`absolute w-[88%] sm:w-[84%] max-w-[390px] aspect-[16/10] rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 ease-out border-2 ${
+              className={`absolute ${
+                isDetailPage 
+                  ? 'w-[92%] sm:w-[86%] md:w-[82%] max-w-[820px]' 
+                  : 'w-[88%] sm:w-[84%] max-w-[420px]'
+              } aspect-[16/10] rounded-2xl md:rounded-3xl overflow-hidden cursor-pointer transition-all duration-500 ease-out border-2 ${
                 isCurrent
-                  ? 'border-cyan-400 shadow-[0_12px_32px_rgba(6,182,212,0.4)] ring-2 ring-cyan-400/30'
-                  : 'border-slate-800 shadow-lg hover:border-cyan-500/60'
+                  ? 'border-cyan-400 shadow-[0_16px_45px_rgba(6,182,212,0.45)] ring-2 md:ring-4 ring-cyan-400/30'
+                  : 'border-slate-800 shadow-xl hover:border-cyan-500/60'
               } ${transformStyle} ${opacity}`}
               style={{ zIndex }}
             >
@@ -120,20 +130,20 @@ export default function Gym3DFeatureCards({ isDetailPage = false }: Gym3DFeature
                   alt={feature.alt}
                   fill
                   className="object-cover object-top transition-transform duration-500 group-hover/card:scale-105"
-                  sizes="(max-width: 768px) 100vw, 450px"
+                  sizes="(max-width: 768px) 100vw, 900px"
                   priority={idx === 0}
                 />
 
-                {/* Sombra gradiente inferior para que el texto resalte perfectamente */}
+                {/* Sombra gradiente inferior protectora para lectura perfecta */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/25 to-transparent" />
 
                 {/* Badge en esquina superior izquierda */}
-                <div className="absolute top-2.5 left-2.5 px-2.5 py-1 rounded-lg bg-slate-950/85 backdrop-blur-md border border-cyan-400/30 text-[10px] sm:text-[11px] font-bold text-white flex items-center gap-1.5 shadow-md">
+                <div className={`absolute ${isDetailPage ? 'top-4 left-4 px-3.5 py-1.5 text-xs sm:text-sm' : 'top-2.5 left-2.5 px-2.5 py-1 text-[10px] sm:text-[11px]'} rounded-xl bg-slate-950/85 backdrop-blur-md border border-cyan-400/40 font-bold text-white flex items-center gap-2 shadow-lg`}>
                   <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
                   <span>{feature.badge}</span>
                 </div>
 
-                {/* Botón para ampliar captura */}
+                {/* Botón para ampliar captura en alta resolución */}
                 {isCurrent && (
                   <button
                     type="button"
@@ -141,16 +151,20 @@ export default function Gym3DFeatureCards({ isDetailPage = false }: Gym3DFeature
                       e.stopPropagation();
                       setModalImage(feature);
                     }}
-                    className="absolute top-2.5 right-2.5 p-1.5 rounded-lg bg-slate-950/85 hover:bg-cyan-600 text-white border border-white/20 backdrop-blur-md transition-all shadow-md hover:scale-110"
+                    className={`absolute ${isDetailPage ? 'top-4 right-4 p-2.5' : 'top-2.5 right-2.5 p-1.5'} rounded-xl bg-slate-950/85 hover:bg-cyan-600 text-white border border-white/20 backdrop-blur-md transition-all shadow-lg hover:scale-110`}
                     title="Ampliar captura en pantalla completa"
                   >
-                    <Maximize2 className="w-3.5 h-3.5" />
+                    <Maximize2 className={`${isDetailPage ? 'w-5 h-5' : 'w-3.5 h-3.5'}`} />
                   </button>
                 )}
 
-                {/* Título en la base de la carta exactamente como en la imagen */}
-                <div className="absolute bottom-3 left-3.5 right-3.5 text-left">
-                  <p className="text-white font-extrabold text-xs sm:text-sm drop-shadow-lg truncate">
+                {/* Título en la base de la carta en gran formato */}
+                <div className={`absolute ${isDetailPage ? 'bottom-5 left-5 right-5' : 'bottom-3 left-3.5 right-3.5'} text-left`}>
+                  <p className={`text-white font-black drop-shadow-xl truncate ${
+                    isDetailPage 
+                      ? 'text-base sm:text-xl md:text-2xl' 
+                      : 'text-xs sm:text-sm'
+                  }`}>
                     {feature.title}
                   </p>
                 </div>
@@ -161,16 +175,16 @@ export default function Gym3DFeatureCards({ isDetailPage = false }: Gym3DFeature
       </div>
 
       {/* Indicadores de navegación interactivos (Pills/Dots) */}
-      <div className="flex items-center justify-center gap-2 mt-2">
+      <div className={`flex items-center justify-center gap-2.5 ${isDetailPage ? 'mt-4 md:mt-6' : 'mt-2.5'}`}>
         {gymFeatures.map((_, i) => (
           <button
             key={i}
             type="button"
             onClick={() => setActiveIndex(i)}
-            className={`h-1.5 rounded-full transition-all duration-300 ${
-              i === activeIndex 
-                ? 'w-7 bg-cyan-500' 
-                : 'w-2 bg-slate-300 hover:bg-slate-400'
+            className={`transition-all duration-300 rounded-full ${
+              isDetailPage 
+                ? (i === activeIndex ? 'w-10 sm:w-12 h-2.5 bg-cyan-500 shadow-sm shadow-cyan-500/50' : 'w-3 h-2.5 bg-slate-300 hover:bg-slate-400')
+                : (i === activeIndex ? 'w-7 h-1.5 bg-cyan-500' : 'w-2 h-1.5 bg-slate-300 hover:bg-slate-400')
             }`}
             aria-label={`Ver función ${i + 1}`}
           />
@@ -184,18 +198,18 @@ export default function Gym3DFeatureCards({ isDetailPage = false }: Gym3DFeature
           onClick={() => setModalImage(null)}
         >
           <div 
-            className="relative w-full max-w-4xl bg-slate-900 rounded-2xl border border-slate-700 shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200 text-left"
+            className="relative w-full max-w-5xl bg-slate-900 rounded-3xl border border-slate-700 shadow-2xl overflow-hidden animate-in zoom-in-95 duration-200 text-left"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header del Modal */}
-            <div className="flex items-center justify-between px-4 sm:px-6 py-3.5 border-b border-slate-800 bg-slate-950/70">
-              <div className="flex items-center gap-2">
+            <div className="flex items-center justify-between px-5 sm:px-7 py-4 border-b border-slate-800 bg-slate-950/80">
+              <div className="flex items-center gap-3">
                 <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse" />
                 <div>
-                  <h3 className="text-sm sm:text-base font-bold text-white leading-tight">
+                  <h3 className="text-base sm:text-lg font-bold text-white leading-tight">
                     {modalImage.title}
                   </h3>
-                  <p className="text-[11px] text-cyan-300 font-medium">
+                  <p className="text-xs text-cyan-300 font-medium">
                     {modalImage.tag} • {modalImage.badge}
                   </p>
                 </div>
@@ -203,7 +217,7 @@ export default function Gym3DFeatureCards({ isDetailPage = false }: Gym3DFeature
               <button
                 type="button"
                 onClick={() => setModalImage(null)}
-                className="p-1.5 rounded-xl bg-slate-800 hover:bg-rose-600 text-slate-300 hover:text-white transition-colors border border-slate-700"
+                className="p-2 rounded-xl bg-slate-800 hover:bg-rose-600 text-slate-300 hover:text-white transition-colors border border-slate-700"
                 aria-label="Cerrar vista completa"
               >
                 <X className="w-5 h-5" />
@@ -217,20 +231,20 @@ export default function Gym3DFeatureCards({ isDetailPage = false }: Gym3DFeature
                 alt={modalImage.alt}
                 fill
                 className="object-contain"
-                sizes="(max-width: 1200px) 100vw, 1200px"
+                sizes="(max-width: 1400px) 100vw, 1400px"
                 priority
               />
             </div>
 
             {/* Pie del Modal con Explicación Detallada */}
-            <div className="p-4 sm:p-5 bg-slate-950/90 border-t border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <div className="p-5 sm:p-6 bg-slate-950/95 border-t border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-2xl">
                 {modalImage.description}
               </p>
               <button
                 type="button"
                 onClick={() => setModalImage(null)}
-                className="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs transition-colors border border-slate-700 self-end sm:self-auto shrink-0"
+                className="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs sm:text-sm transition-colors border border-slate-700 self-end sm:self-auto shrink-0"
               >
                 Cerrar Vista
               </button>

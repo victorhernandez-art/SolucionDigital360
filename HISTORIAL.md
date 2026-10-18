@@ -3,6 +3,14 @@
 
 ---
 
+## 📌 Versión 1.4.7 — Octubre 2026: GymWeb — Gran Formato y Escalado de Cartas 3D
+- **📐 Aumento Significativo de Dimensiones Visuales:**
+  - Se incrementó la escala del componente [components/Gym3DFeatureCards.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/Gym3DFeatureCards.tsx) aumentando el contenedor hasta `max-w-5xl`, la altura del escenario 3D hasta `580px` en pantallas de escritorio, y la carta frontal hasta `820px` de ancho máximo.
+  - La separación angular y profundidad Z de las cartas laterales se amplió proporcionalmente (`translate-x-36`), permitiendo que el contenido de las capturas sea completamente legible sin necesidad de zoom.
+  - Ajuste de tipografía a gran formato (`text-2xl` para títulos, badges destacados y puntos de navegación expandidos).
+
+---
+
 ## 📌 Versión 1.4.6 — Octubre 2026: GymWeb — Rediseño Limpio y Ampliado de Cartas 3D (Sin Marco de Fondo)
 - **✨ Eliminación del Marco de Fondo y Aumento de Escala:**
   - Se eliminó por completo el contenedor oscuro exterior, bordes pesados y cajas de texto redundantes en [components/Gym3DFeatureCards.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/Gym3DFeatureCards.tsx).
