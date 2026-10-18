@@ -138,8 +138,8 @@ Para mantener una experiencia visual profesional de nivel **SaaS**, se deben res
    - **Teléfono de Asesoría:** `+52 961 120 9361` (`tel:+529611209361`)
 
 5. **Precios y Periodo de Prueba:**
-   - **Sistema Taller v1.0:** `$2,000.00 MXN` (Oferta con precio anterior `$3,500.00 MXN` tachado / Licencia Vitalicia + 6 Meses de Soporte Técnico Gratis).
-   - **Periodo de Prueba:** Prueba completa de 3 días con todas las funciones activas e instalador descargable.
+   - **FixPOS Pro:** `$2,000.00 MXN` (Oferta con precio anterior `$3,500.00 MXN` tachado / Licencia Vitalicia + 6 Meses de Soporte Técnico Gratis).
+   - **Periodo de Prueba:** Prueba FixPOS Pro Gratis por 7 Días con todas sus funciones habilitadas (sin tarjeta de crédito, sin compromisos y con la posibilidad de conservar todos tus registros al activar tu licencia definitiva).
    - **Marcador de Descargas:** La tarjeta CTA final ([components/DownloadCtaCard.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/DownloadCtaCard.tsx)) incluye el contador dinámico persistente (`+526 Descargas del Instalador` gestionado vía API `/api/downloads`).
 
 ---

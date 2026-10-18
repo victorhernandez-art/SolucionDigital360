@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import { useState, useEffect } from 'react';
 import { 
@@ -205,7 +205,9 @@ export default function DownloadCtaCard({
           <div className="bg-blue-50/80 border border-blue-200 rounded-2xl p-5 text-left space-y-2 shadow-sm mt-3">
             <div className="flex flex-wrap items-center justify-between gap-2">
               <h4 className="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight">
-                Prueba Gratuita de 7 Días con Todas las Funciones Activas
+                {isTallerSystem 
+                  ? "Prueba FixPOS Pro Gratis por 7 Días con todas sus funciones habilitadas."
+                  : "Prueba Gratuita de 7 Días con Todas las Funciones Activas"}
               </h4>
               <span className="text-xs font-bold text-blue-700 bg-blue-100/90 px-2.5 py-0.5 rounded-full border border-blue-200 font-mono flex items-center gap-1">
                 <Clock className="w-3.5 h-3.5" /> Acceso Total 7 Días
@@ -214,7 +216,7 @@ export default function DownloadCtaCard({
             <p className="text-slate-700 text-xs sm:text-sm leading-relaxed">
               {isTallerSystem ? (
                 <>
-                  Descarga el instalador en tu computadora y solicita tu clave de prueba por 7 días para utilizar el programa completo sin limitaciones. <strong className="text-slate-900 font-semibold">Puedes registrar órdenes reales, capturar clientes, probar el cobro en caja e imprimir tickets</strong> para comprobar con total tranquilidad que se adapta al 100% a tu taller antes de adquirir la licencia vitalicia.
+                  Sin tarjeta de crédito, sin compromisos y con la posibilidad de conservar todos tus registros al activar tu licencia definitiva. <strong className="text-slate-900 font-semibold">Puedes registrar órdenes reales, capturar clientes, probar el cobro en caja e imprimir tickets</strong> para comprobar con total tranquilidad que se adapta al 100% a tu taller antes de adquirir la licencia vitalicia.
                 </>
               ) : (
                 <>

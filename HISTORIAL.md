@@ -19,6 +19,8 @@
   - Configuración del canal oficial `https://www.youtube.com/@Soluci%C3%B3nDigital360` mediante banner interactivo con botón directo al canal en `YoutubeEmbed.tsx` en lo que se sube el video tutorial oficial.
 - **✨ Renderizado Mejorado de Módulos:**
   - Enriquecimiento de la visualización en `app/sistemas/[slug]/page.tsx` para presentar títulos de módulos en negrita seguidos de la descripción técnica y ejecutiva.
+- **⏱️ Unificación Oficial de la Prueba de 7 Días para FixPOS Pro:**
+  - Actualización de los textos en la página de producto y tarjeta de descarga: *"Prueba FixPOS Pro Gratis por 7 Días con todas sus funciones habilitadas. Sin tarjeta de crédito, sin compromisos y con la posibilidad de conservar todos tus registros al activar tu licencia definitiva."*
 
 ---
 

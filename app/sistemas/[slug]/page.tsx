@@ -161,10 +161,29 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
                   La gran ventaja es que <strong className="text-slate-900 font-semibold">todo viene listo para usar</strong>: no necesitas configurar servidores, instalar XAMPP ni bases de datos complicadas. Simplemente descargas el instalador oficial, lo ejecutas en tu computadora con Windows y comienzas a cotizar de inmediato.
                 </p>
               </>
+            ) : isTallerSystem ? (
+              <>
+                <div className="p-4 sm:p-5 rounded-2xl bg-indigo-50/70 border border-indigo-200/80 space-y-2">
+                  <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight">
+                    Prueba FixPOS Pro Gratis por 7 Días con todas sus funciones habilitadas.
+                  </h3>
+                  <p className="text-slate-700 text-sm sm:text-base font-medium">
+                    Sin tarjeta de crédito, sin compromisos y con la posibilidad de conservar todos tus registros al activar tu licencia definitiva.
+                  </p>
+                </div>
+
+                <p>
+                  Evalúa el sistema directamente desde tu computadora con una <strong className="text-slate-900 font-semibold">prueba gratuita de 7 días con todas las funciones activas</strong> antes de adquirir la licencia. Puedes realizar operaciones con registros reales, capturar clientes, registrar reparaciones, usar el punto de venta y hasta imprimir tickets para que compruebes que se adapta al 100% a tus necesidades.
+                </p>
+
+                <p>
+                  La gran ventaja es que <strong className="text-slate-900 font-semibold">todo viene listo para usar</strong>: no necesitas configurar servidores, instalar bases de datos ni realizar procesos técnicos complicados. Simplemente instalas el sistema, ingresas tu clave de prueba y comienzas a trabajar de inmediato.
+                </p>
+              </>
             ) : (
               <>
                 <p>
-                  Primero puedes probar el sistema directamente desde tu computadora con una <strong className="text-slate-900 font-semibold">prueba gratuita de {isTallerSystem ? '3' : '7'} días con todas las funciones activas</strong> antes de adquirir la licencia. Puedes realizar operaciones con registros reales, capturar clientes{isTallerSystem ? ', registrar reparaciones' : ', gestionar membresías o servicios'}, usar el punto de venta y hasta imprimir tickets para que compruebes que se adapta al 100% a tus necesidades.
+                  Primero puedes probar el sistema directamente desde tu computadora con una <strong className="text-slate-900 font-semibold">prueba gratuita de 7 días con todas las funciones activas</strong> antes de adquirir la licencia. Puedes realizar operaciones con registros reales, capturar clientes, gestionar membresías o servicios, usar el punto de venta y hasta imprimir tickets para que compruebes que se adapta al 100% a tus necesidades.
                 </p>
 
                 <p>
