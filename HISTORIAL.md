@@ -3,6 +3,16 @@
 
 ---
 
+## 📌 Versión 1.4.6 — Octubre 2026: GymWeb — Rediseño Limpio y Ampliado de Cartas 3D (Sin Marco de Fondo)
+- **✨ Eliminación del Marco de Fondo y Aumento de Escala:**
+  - Se eliminó por completo el contenedor oscuro exterior, bordes pesados y cajas de texto redundantes en [components/Gym3DFeatureCards.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/Gym3DFeatureCards.tsx).
+  - El escenario se centra 100% en la baraja de cartas 3D a mayor tamaño (`w-[88%]`, `aspect-[16/10]`), permitiendo apreciar las capturas nítidas y espaciosas directamente dentro de la tarjeta de GymWeb ([app/page.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/app/page.tsx)) y en su página de detalle.
+- **🃏 Mecanismo Interactivo de Pase con Clic:**
+  - Al hacer clic en la carta frontal, pasa fluidamente a la siguiente; al hacer clic en las cartas laterales, la seleccionada avanza al frente con su animación tridimensional y resplandor cian.
+  - Se conserva el botón de lupa/zoom para ampliar en lightbox de pantalla completa y los indicadores minimalistas tipo píldora.
+
+---
+
 ## 📌 Versión 1.4.5 — Octubre 2026: GymWeb — Restauración de Tarjeta Limpia en Catálogo y Centralización del Showcase 3D
 - **🧹 Limpieza y Homogeneidad en Catálogo Principal (`app/page.tsx`):**
   - Se removió el bloque interactivo de la tarjeta de catálogo para mantener la cuadrícula simétrica, limpia y compacta.

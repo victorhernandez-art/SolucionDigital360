@@ -156,7 +156,12 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.4.5 — Octubre 2026 (Actualización Reciente)
+### 📌 Versión 1.4.6 — Octubre 2026 (Actualización Reciente)
+- **✨ GymWeb — Rediseño Limpio y Ampliado de Cartas 3D (Sin Marco de Fondo):**
+  - Eliminación del marco/contenedor exterior oscuro en [components/Gym3DFeatureCards.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/Gym3DFeatureCards.tsx) para maximizar el tamaño de las capturas en pantalla.
+  - Presentación 100% limpia de la baraja 3D dentro de la tarjeta de GymWeb ([app/page.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/app/page.tsx)), conservando el mecanismo de pase tridimensional al hacer clic, badge distintivo, indicador minimalista y zoom lightbox.
+
+### 📌 Versión 1.4.5 — Octubre 2026
 - **🧹 GymWeb — Restauración de Tarjeta Limpia en Catálogo Principal:**
   - Remoción del showcase 3D dentro de la tarjeta de catálogo en [app/page.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/app/page.tsx) para preservar la simetría y diseño limpio de la cuadrícula.
   - El escaparate 3D interactivo (`Gym3DFeatureCards.tsx`) permanece centralizado en la página de detalle del sistema (`/sistemas/sistema-gestion-gimnasios`).
