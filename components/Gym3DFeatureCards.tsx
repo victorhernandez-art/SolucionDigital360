@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Maximize2, X, Sparkles } from 'lucide-react';
+import { Maximize2, X, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export interface GymFeatureCard {
   id: string;
@@ -54,6 +54,17 @@ export default function Gym3DFeatureCards({ isDetailPage = false }: Gym3DFeature
 
   const activeFeature = gymFeatures[activeIndex];
 
+  // Cerrar modal al presionar tecla ESC
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setModalImage(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   const handleCardClick = (clickedIndex: number) => {
     if (clickedIndex === activeIndex) {
       // Si hace clic en la carta frontal, pasa fluidamente a la siguiente
@@ -62,6 +73,14 @@ export default function Gym3DFeatureCards({ isDetailPage = false }: Gym3DFeature
       // Si hace clic en una carta lateral, la trae al frente
       setActiveIndex(clickedIndex);
     }
+  };
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % gymFeatures.length);
+  };
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev === 0 ? gymFeatures.length - 1 : prev - 1));
   };
 
   return (
@@ -74,12 +93,35 @@ export default function Gym3DFeatureCards({ isDetailPage = false }: Gym3DFeature
             Nuevas Funciones Implementadas
           </h3>
         </div>
-        <span className={`${isDetailPage ? 'text-xs sm:text-sm font-medium text-slate-500' : 'text-[11px] font-semibold text-slate-400'}`}>
-          Clic para pasar ({activeIndex + 1}/{gymFeatures.length})
-        </span>
+        
+        <div className="flex items-center gap-2">
+          <span className={`${isDetailPage ? 'text-xs sm:text-sm font-medium text-slate-500' : 'text-[11px] font-semibold text-slate-400'} mr-1 hidden sm:inline`}>
+            Clic para pasar ({activeIndex + 1}/{gymFeatures.length})
+          </span>
+          <div className="flex items-center gap-1">
+            <button
+              type="button"
+              onClick={handlePrev}
+              className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors"
+              aria-label="Anterior función"
+              title="Anterior"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <button
+              type="button"
+              onClick={handleNext}
+              className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-600 transition-colors"
+              aria-label="Siguiente función"
+              title="Siguiente"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
       </div>
 
-      {/* Escenario 3D Amplio y Proporcional sin marco de fondo */}
+      {/* Escenario 3D con capturas 100% nítidas (SIN capa oscura superpuesta ni desvanecidos) */}
       <div className={`relative w-full ${isDetailPage ? 'h-[360px] sm:h-[460px] md:h-[540px] lg:h-[580px]' : 'h-60 sm:h-72'} flex items-center justify-center [perspective:1400px]`}>
         {gymFeatures.map((feature, idx) => {
           const isCurrent = idx === activeIndex;
@@ -124,18 +166,16 @@ export default function Gym3DFeatureCards({ isDetailPage = false }: Gym3DFeature
               } ${transformStyle} ${opacity}`}
               style={{ zIndex }}
             >
-              <div className="relative w-full h-full bg-slate-950 group/card">
+              {/* Contenedor limpio: SIN CAPA OSCURA NI GRADIENTE SUPERPUESTO */}
+              <div className="relative w-full h-full bg-slate-900 group/card">
                 <Image
                   src={feature.image}
                   alt={feature.alt}
                   fill
-                  className="object-cover object-top transition-transform duration-500 group-hover/card:scale-105"
+                  className="object-contain sm:object-cover object-top transition-transform duration-500 group-hover/card:scale-102"
                   sizes="(max-width: 768px) 100vw, 900px"
                   priority={idx === 0}
                 />
-
-                {/* Sombra gradiente inferior protectora para lectura perfecta */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/25 to-transparent" />
 
                 {/* Badge en esquina superior izquierda */}
                 <div className={`absolute ${isDetailPage ? 'top-4 left-4 px-3.5 py-1.5 text-xs sm:text-sm' : 'top-2.5 left-2.5 px-2.5 py-1 text-[10px] sm:text-[11px]'} rounded-xl bg-slate-950/85 backdrop-blur-md border border-cyan-400/40 font-bold text-white flex items-center gap-2 shadow-lg`}>
@@ -157,25 +197,28 @@ export default function Gym3DFeatureCards({ isDetailPage = false }: Gym3DFeature
                     <Maximize2 className={`${isDetailPage ? 'w-5 h-5' : 'w-3.5 h-3.5'}`} />
                   </button>
                 )}
-
-                {/* Título en la base de la carta en gran formato */}
-                <div className={`absolute ${isDetailPage ? 'bottom-5 left-5 right-5' : 'bottom-3 left-3.5 right-3.5'} text-left`}>
-                  <p className={`text-white font-black drop-shadow-xl truncate ${
-                    isDetailPage 
-                      ? 'text-base sm:text-xl md:text-2xl' 
-                      : 'text-xs sm:text-sm'
-                  }`}>
-                    {feature.title}
-                  </p>
-                </div>
               </div>
             </div>
           );
         })}
       </div>
 
+      {/* Detalle de la Función Activa: claro, legible y sin tapar la captura */}
+      <div className="text-center mt-4 sm:mt-6 px-4 max-w-2xl mx-auto transition-all duration-300">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-cyan-100 text-cyan-800 border border-cyan-200 mb-2">
+          <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
+          <span>{activeFeature.tag} • {activeFeature.badge}</span>
+        </div>
+        <h4 className="text-lg sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+          {activeFeature.title}
+        </h4>
+        <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+          {activeFeature.description}
+        </p>
+      </div>
+
       {/* Indicadores de navegación interactivos (Pills/Dots) */}
-      <div className={`flex items-center justify-center gap-2.5 ${isDetailPage ? 'mt-4 md:mt-6' : 'mt-2.5'}`}>
+      <div className={`flex items-center justify-center gap-2.5 ${isDetailPage ? 'mt-4' : 'mt-2.5'}`}>
         {gymFeatures.map((_, i) => (
           <button
             key={i}
@@ -191,7 +234,7 @@ export default function Gym3DFeatureCards({ isDetailPage = false }: Gym3DFeature
         ))}
       </div>
 
-      {/* Modal / Lightbox de Pantalla Completa */}
+      {/* Modal / Lightbox de Pantalla Completa (100% Nítido y Limpio) */}
       {modalImage && (
         <div 
           className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/85 backdrop-blur-md animate-in fade-in duration-200"

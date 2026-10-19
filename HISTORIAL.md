@@ -39,6 +39,10 @@
   - **Paso 2:** Botón de descarga con cuenta regresiva de 10 segundos (*"Verificando suscripción... 10s"*) que cambia a estado activo verde al finalizar (*"✅ ¡Enlace desbloqueado! Descargar Office 2019"*).
   - **Persistencia en navegador:** Guardado del estado en `localStorage` (`office_download_unlocked: true`) para no obligar al usuario a repetir la espera en la misma sesión o recargas.
   - Preservación total del banner de metas Office 2021 y la tarjeta oscura de Soluciones Empresariales.
+- **🏋️ Eliminación de Capa Oscura en Galería 3D de GymWeb (`components/Gym3DFeatureCards.tsx`):**
+  - Se eliminó por completo el degradado oscurecedor superpuesto (`bg-gradient-to-t`) que tapaba la parte baja de las capturas de pantalla de gimnasio.
+  - Reubicación de los datos informativos (tag, badge, título y descripción) en un bloque limpio y legible debajo del escenario 3D, con botones de paso rápido (`<` y `>`) en cabecera.
+  - Capturas de pantalla 100% nítidas y despejadas para Login Glassmorphism, Socios con saldos deudores y Servidor LAN con código QR.
 
 ---
 

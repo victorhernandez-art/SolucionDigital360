@@ -300,6 +300,7 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 - **🏷️ Corrección de Clasificación & Textos:** Eliminación de la etiqueta errónea "Sistema SaaS Profesional" en favor de sus sellos oficiales ("100% Offline", "Red LAN & QR", "Licencia Vitalicia") y depuración del texto de plantillas de diagnóstico en el encabezado de categorías.
 - **🃏 Galería Dinámica 3D Interactiva & 5 Capturas Oficiales v1.4.0:** Integración de baraja de capturas 3D con halo cian, navegación por clic, controles y visor Lightbox en alta definición (100% nítida, sin capas ni desvanecidos oscuros superpuestos para total legibilidad de la interfaz).
 - **🔓 Flujo Sub2Unlock en Office 2019:** Rediseño del modal de descarga con desbloqueo en 2 pasos condicionado a suscripción en YouTube con cuenta regresiva de 10s y persistencia en `localStorage`.
+- **🏋️ Eliminación de Capa Oscura en Galería 3D de Gimnasio:** Remoción del degradado superpuesto en `Gym3DFeatureCards.tsx` para garantizar nitidez total de las capturas de GymWeb sin interferencias visuales.
 - **📥 Botón de Descarga & Marcador Dinámico:** Habilitación del instalador oficial Windows v1.4.0 (`FixPOS-Pro-Setup-1.4.0.exe`) con contador dinámico consecutivo iniciando en +30 descargas sincronizado en Supabase.
 - **📺 Enlace a Canal Oficial de YouTube:** Redirección elegante al canal `@SoluciónDigital360` en lo que se sube el video tutorial oficial.
 
