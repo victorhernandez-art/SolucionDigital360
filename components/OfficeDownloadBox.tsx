@@ -14,6 +14,8 @@ import {
   ArrowRight,
   X,
   Sparkles,
+  Lock,
+  Loader2,
 } from 'lucide-react';
 
 interface OfficeDownloadBoxProps {
@@ -23,10 +25,16 @@ interface OfficeDownloadBoxProps {
 export default function OfficeDownloadBox({ downloadUrl }: OfficeDownloadBoxProps) {
   const baseCount = 230;
   const storageKey = 'sd360_downloads_office';
+  const unlockedStorageKey = 'office_download_unlocked';
 
   const [downloadCount, setDownloadCount] = useState<number>(baseCount);
   const [isDownloading, setIsDownloading] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+  // Estados de Desbloqueo (Sub2Unlock)
+  const [isUnlocked, setIsUnlocked] = useState<boolean>(false);
+  const [isCounting, setIsCounting] = useState<boolean>(false);
+  const [countdown, setCountdown] = useState<number>(10);
 
   // Cerrar modal al presionar tecla ESC
   useEffect(() => {
@@ -38,6 +46,38 @@ export default function OfficeDownloadBox({ downloadUrl }: OfficeDownloadBoxProp
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isModalOpen]);
+
+  // Comprobar persistencia de desbloqueo en localStorage
+  useEffect(() => {
+    try {
+      const storedUnlock = localStorage.getItem(unlockedStorageKey);
+      if (storedUnlock === 'true') {
+        setIsUnlocked(true);
+      }
+    } catch {}
+  }, [unlockedStorageKey]);
+
+  // Contador regresivo de 10 segundos al hacer clic en Paso 1
+  useEffect(() => {
+    if (!isCounting) return;
+
+    const interval = setInterval(() => {
+      setCountdown((prev) => {
+        if (prev <= 1) {
+          clearInterval(interval);
+          setIsCounting(false);
+          setIsUnlocked(true);
+          try {
+            localStorage.setItem(unlockedStorageKey, 'true');
+          } catch {}
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [isCounting, unlockedStorageKey]);
 
   // Sincronizar contador de descargas
   useEffect(() => {
@@ -67,13 +107,34 @@ export default function OfficeDownloadBox({ downloadUrl }: OfficeDownloadBoxProp
       .catch((err) => console.error('Error al sincronizar descargas de Office 2019:', err));
   }, [baseCount, storageKey]);
 
-  const handleDownload = async () => {
+  // Abrir Modal sin iniciar la descarga de inmediato
+  const handleOpenModal = () => {
+    setIsModalOpen(true);
+  };
+
+  // Paso 1: Clic en Suscripción YouTube
+  const handleSubscribeClick = () => {
+    // Abrir canal de YouTube en nueva pestaña
+    window.open(
+      'https://www.youtube.com/@SolucionDigital360?sub_confirmation=1',
+      '_blank',
+      'noopener,noreferrer'
+    );
+
+    // Iniciar cuenta regresiva si aún no está desbloqueado ni contando
+    if (!isUnlocked && !isCounting) {
+      setCountdown(10);
+      setIsCounting(true);
+    }
+  };
+
+  // Paso 2: Ejecución Real de la Descarga
+  const handleExecuteDownload = async () => {
     if (isDownloading) return;
     setIsDownloading(true);
 
-    // 1. Abrir la descarga en nueva pestaña y activar modal simultáneamente
+    // 1. Abrir la descarga en nueva pestaña
     window.open(downloadUrl, '_blank');
-    setIsModalOpen(true);
 
     // 2. Incremento visual inmediato del contador
     const nextCount = downloadCount + 1;
@@ -144,15 +205,14 @@ export default function OfficeDownloadBox({ downloadUrl }: OfficeDownloadBoxProp
               </div>
             </div>
 
-            {/* Botón Principal de Descarga */}
+            {/* Botón Principal: Abre el modal sin iniciar descarga inmediata */}
             <button
               type="button"
-              onClick={handleDownload}
-              disabled={isDownloading}
+              onClick={handleOpenModal}
               className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-bold text-sm transition-all shadow-lg shadow-blue-600/25 w-full sm:w-auto cursor-pointer"
             >
-              <Download className={`w-4 h-4 ${isDownloading ? 'animate-bounce' : ''}`} />
-              <span>{isDownloading ? 'Iniciando descarga...' : 'Descargar Gratis (.RAR)'}</span>
+              <Download className="w-4 h-4" />
+              <span>Descargar Gratis (.RAR)</span>
             </button>
 
             {/* Botón de Asistencia WhatsApp */}
@@ -216,7 +276,7 @@ export default function OfficeDownloadBox({ downloadUrl }: OfficeDownloadBoxProp
       </section>
 
       {/* ========================================================================= */}
-      {/* MODAL DE AGRADECIMIENTO, SUSCRIPCIÓN Y VENTA CRUZADA (CROSS-SELLING)      */}
+      {/* MODAL DE DESBLOQUEO POR SUSCRIPCIÓN (SUB2UNLOCK) Y VENTA CRUZADA          */}
       {/* ========================================================================= */}
       {isModalOpen && (
         <div
@@ -241,23 +301,34 @@ export default function OfficeDownloadBox({ downloadUrl }: OfficeDownloadBoxProp
               <X className="w-5 h-5" />
             </button>
 
-            {/* Encabezado con Icono de Éxito */}
+            {/* Encabezado Dinámico según Estado de Desbloqueo */}
             <div className="text-center space-y-2 pt-2">
-              <div className="w-14 h-14 mx-auto rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center shadow-inner">
-                <CheckCircle2 className="w-8 h-8" />
+              <div
+                className={`w-14 h-14 mx-auto rounded-2xl flex items-center justify-center shadow-inner transition-colors ${
+                  isUnlocked
+                    ? 'bg-emerald-100 text-emerald-600'
+                    : 'bg-amber-100 text-amber-600'
+                }`}
+              >
+                {isUnlocked ? (
+                  <CheckCircle2 className="w-8 h-8" />
+                ) : (
+                  <Lock className="w-7 h-7" />
+                )}
               </div>
               <h3
                 id="modal-titulo"
                 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight"
               >
-                ¡Tu descarga ha comenzado!
+                {isUnlocked ? '¡Enlace desbloqueado!' : '¡Casi listo para descargar!'}
               </h3>
             </div>
 
-            {/* Mensaje Empático (Soft Ask) */}
+            {/* Subtexto Informativo */}
             <p className="text-center text-slate-600 text-xs sm:text-sm leading-relaxed px-2">
-              Mantener estas herramientas gratuitas toma mucho esfuerzo. Si este aporte te fue útil,
-              me ayudarías enormemente suscribiéndote a mi canal de YouTube.
+              {isUnlocked
+                ? 'Gracias por apoyar nuestro canal de YouTube. Ya puedes descargar el instalador oficial de Office 2019.'
+                : 'Para mantener estas herramientas gratuitas, suscríbete a nuestro canal de YouTube para desbloquear tu enlace de descarga.'}
             </p>
 
             {/* Llamado de Suscripción: Meta Office 2021 */}
@@ -272,23 +343,80 @@ export default function OfficeDownloadBox({ downloadUrl }: OfficeDownloadBoxProp
               </p>
             </div>
 
-            {/* Botón Grande de YouTube */}
-            <div>
-              <a
-                href="https://www.youtube.com/@Soluci%C3%B3nDigital360"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-3 px-6 py-4 rounded-2xl bg-[#FF0000] hover:bg-[#D90000] active:scale-[0.98] text-white font-extrabold text-base transition-all shadow-lg shadow-red-500/25 group cursor-pointer"
-              >
-                <Youtube className="w-6 h-6 transition-transform group-hover:scale-110" />
-                <span>Suscribirme a Solución Digital 360</span>
-              </a>
+            {/* =================================================================== */}
+            {/* FLUJO SUB2UNLOCK EN 2 PASOS                                         */}
+            {/* =================================================================== */}
+            <div className="space-y-3 pt-1">
+              {/* PASO 1: Botón de Suscripción en YouTube */}
+              {!isUnlocked ? (
+                <button
+                  type="button"
+                  onClick={handleSubscribeClick}
+                  className="w-full inline-flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-2xl bg-[#FF0000] hover:bg-[#D90000] active:scale-[0.98] text-white font-extrabold text-sm sm:text-base transition-all shadow-lg shadow-red-500/25 group cursor-pointer"
+                >
+                  <Youtube className="w-5 h-5 transition-transform group-hover:scale-110 shrink-0" />
+                  <span>1. Suscribirme en YouTube para desbloquear</span>
+                </button>
+              ) : (
+                <div className="w-full inline-flex items-center justify-between px-4 py-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm font-semibold">
+                  <span className="flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                    <span>Paso 1: Suscripción confirmada</span>
+                  </span>
+                  <a
+                    href="https://www.youtube.com/@SolucionDigital360?sub_confirmation=1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[11px] text-red-600 hover:underline font-bold inline-flex items-center gap-1"
+                  >
+                    <Youtube className="w-3.5 h-3.5" />
+                    <span>Canal oficial</span>
+                  </a>
+                </div>
+              )}
+
+              {/* PASO 2: Botón de Descarga Bloqueado / Verificando / Desbloqueado */}
+              {!isUnlocked ? (
+                isCounting ? (
+                  <button
+                    type="button"
+                    disabled
+                    className="w-full inline-flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-2xl bg-amber-50 border-2 border-amber-300 text-amber-800 font-bold text-sm sm:text-base cursor-wait transition-all shadow-sm animate-pulse"
+                  >
+                    <Loader2 className="w-4 h-4 animate-spin text-amber-600 shrink-0" />
+                    <span>Verificando suscripción... ({countdown}s)</span>
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    disabled
+                    className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-slate-100 border border-slate-200 text-slate-400 font-bold text-sm sm:text-base cursor-not-allowed transition-all"
+                  >
+                    <Lock className="w-4 h-4 text-slate-400 shrink-0" />
+                    <span>2. Descargar archivo (Bloqueado)</span>
+                  </button>
+                )
+              ) : (
+                <button
+                  type="button"
+                  onClick={handleExecuteDownload}
+                  disabled={isDownloading}
+                  className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] text-white font-extrabold text-sm sm:text-base transition-all shadow-xl shadow-emerald-600/30 ring-2 ring-emerald-500/30 cursor-pointer animate-in zoom-in-95 duration-200"
+                >
+                  <Download className={`w-5 h-5 ${isDownloading ? 'animate-bounce' : ''} shrink-0`} />
+                  <span>
+                    {isDownloading
+                      ? 'Iniciando descarga...'
+                      : '✅ ¡Enlace desbloqueado! Descargar Office 2019'}
+                  </span>
+                </button>
+              )}
             </div>
 
             {/* Separador sutil */}
             <div className="h-px w-full bg-slate-200/80 my-1" />
 
-            {/* Banner de Venta Cruzada (Cross-Selling) */}
+            {/* Banner de Venta Cruzada (Soluciones Empresariales - Intacto) */}
             <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-950 text-white rounded-2xl p-5 sm:p-6 border border-slate-700/60 shadow-md space-y-4">
               <div className="space-y-1.5 text-center sm:text-left">
                 <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-blue-400">

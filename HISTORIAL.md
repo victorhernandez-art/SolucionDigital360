@@ -33,6 +33,12 @@
   - Reemplazo de la demostración estática / automática de 2 columnas por una galería interactiva en formato baraja de cartas 3D con perspectiva CSS (`perspective: 1400px`), idéntica al diseño dinámico de GymWeb.
   - Actualización de las 5 capturas oficiales de FixPOS Pro v1.4.0 en alta definición: Recepción en 4 pasos, Punto de Venta con carrito, Contabilidad y Flujo de Caja COGS, Servidor LAN & QR y Login.
   - **100% Nitidez sin capas oscuras:** Eliminación de cualquier gradiente o capa superpuesta oscurecedora para garantizar máxima legibilidad y nitidez de todos los datos en pantalla. Detalle explicativo posicionado elegantemente debajo del escenario 3D.
+- **🔓 Flujo Sub2Unlock en Modal de Descarga de Office 2019 (`components/OfficeDownloadBox.tsx`):**
+  - Implementación de desbloqueo por suscripción en 2 pasos: se elimina la descarga automática inicial.
+  - **Paso 1:** Botón de suscripción a YouTube (`sub_confirmation=1`) que detona la verificación.
+  - **Paso 2:** Botón de descarga con cuenta regresiva de 10 segundos (*"Verificando suscripción... 10s"*) que cambia a estado activo verde al finalizar (*"✅ ¡Enlace desbloqueado! Descargar Office 2019"*).
+  - **Persistencia en navegador:** Guardado del estado en `localStorage` (`office_download_unlocked: true`) para no obligar al usuario a repetir la espera en la misma sesión o recargas.
+  - Preservación total del banner de metas Office 2021 y la tarjeta oscura de Soluciones Empresariales.
 
 ---
 
