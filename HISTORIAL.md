@@ -31,7 +31,8 @@
   - Se eliminó la mención a *"plantillas de diagnóstico"* en el encabezado de categorías multirrubro (`components/SupportedCategories.tsx`).
 - **🃏 Galería Dinámica 3D Interactiva para FixPOS Pro (`components/ScreenshotShowcase.tsx`):**
   - Reemplazo de la demostración estática / automática de 2 columnas por una galería interactiva en formato baraja de cartas 3D con perspectiva CSS (`perspective: 1400px`), idéntica al diseño dinámico de GymWeb.
-  - 5 cartas interactivas a gran escala con rotación tridimensional, borde cian luminoso para la carta activa, badges flotantes en tiempo real, cambio fluido por clic o dots, botones de navegación y modal Lightbox en alta definición (1080p).
+  - Actualización de las 5 capturas oficiales de FixPOS Pro v1.4.0 en alta definición: Recepción en 4 pasos, Punto de Venta con carrito, Contabilidad y Flujo de Caja COGS, Servidor LAN & QR y Login.
+  - **100% Nitidez sin capas oscuras:** Eliminación de cualquier gradiente o capa superpuesta oscurecedora para garantizar máxima legibilidad y nitidez de todos los datos en pantalla. Detalle explicativo posicionado elegantemente debajo del escenario 3D.
 
 ---
 

@@ -18,47 +18,47 @@ const tallerFeatures: TallerFeatureCard[] = [
   {
     id: 'nueva_orden',
     tag: 'Recepción & Blindaje',
-    title: 'Recepción de Equipos con Firma Digital',
-    badge: 'Firma Biométrica & Patrón',
-    description: 'Registro de órdenes en 2 minutos con patrón de 9 puntos, PIN numérico, checklist preventivo certificado, fotos de daños previos y captura de firma autógrafa digital del cliente.',
+    title: 'Recepción de Equipos en 4 Pasos',
+    badge: 'Recepción & Diagnóstico',
+    description: 'Registro guiado de órdenes en 2 minutos: Datos del cliente, Información del equipo, Diagnóstico previo con checklist y Resumen financiero en tiempo real.',
     image: '/taller/nueva_orden.png',
-    alt: 'Recepción de Equipos con Firma Digital en FixPOS Pro'
-  },
-  {
-    id: 'ordenes_kanban',
-    tag: 'Mesa de Control & Taller',
-    title: 'Tablero Visual Kanban & WhatsApp',
-    badge: 'Control en Tiempo Real',
-    description: 'Gestión ágil del flujo de reparaciones por columnas de estado operativo, métricas inmediatas de saldos por cobrar y notificaciones de avance con 1 clic hacia WhatsApp.',
-    image: '/taller/ordenes_kanban.png',
-    alt: 'Tablero Kanban y Control de Reparaciones en FixPOS Pro'
+    alt: 'Nueva Orden de Servicio en FixPOS Pro'
   },
   {
     id: 'punto_de_venta',
-    tag: 'Comercial & Refacciones',
-    title: 'Punto de Venta (POS) e Inventario',
-    badge: 'Lector de Código de Barras',
-    description: 'Venta veloz de micas, cargadores y repuestos con pistola lectora USB, imágenes de productos ultraligeras, calculadora de cambio en pantalla y deducción automática de refacciones.',
+    tag: 'Punto de Venta & Refacciones',
+    title: 'Punto de Venta (POS) y Control de Ventas',
+    badge: 'Punto de Venta con Carrito',
+    description: 'Catálogo visual de accesorios, refacciones y cables con stock en vivo, carrito interactivo de cobro ($8,400.00 MXN) y compatibilidad con lector de código de barras.',
     image: '/taller/punto_de_venta.png',
-    alt: 'Punto de Venta POS e Inventario en FixPOS Pro'
+    alt: 'Punto de Venta POS y Carrito en FixPOS Pro'
   },
   {
     id: 'contabilidad',
-    tag: 'Finanzas & Auditoría',
-    title: 'Caja Chica & Arqueo de Efectivo Físico',
-    badge: 'Corte Z & Cero Descuadres',
-    description: 'Conciliación en tiempo real de ingresos por anticipos, finiquitos y ventas POS contra gastos de operación. Incluye desglose contable de billetes y monedas físicas de $1 a $1000 MXN.',
+    tag: 'Finanzas & Arqueo',
+    title: 'Contabilidad, Flujo de Caja & Costos COGS',
+    badge: 'Auditoría & Corte Z',
+    description: 'Control de ingresos brutos, costos directos de repuestos (COGS), gastos operativos y utilidad neta real ($2,400.00 MXN) con arqueo físico de caja ($9,850.00 MXN).',
     image: '/taller/contabilidad.png',
-    alt: 'Caja Chica y Arqueo de Efectivo en FixPOS Pro'
+    alt: 'Contabilidad y Flujo de Caja en FixPOS Pro'
+  },
+  {
+    id: 'red_lan',
+    tag: 'Conectividad & Móvil',
+    title: 'Servidor de Red Local (LAN) & Código QR',
+    badge: 'Acceso Wi-Fi Móvil & PWA',
+    description: 'Conexión simultánea desde teléfonos y tablets escaneando el código QR interactivo (puerto 3000). Opera 100% en red local Wi-Fi sin depender de internet.',
+    image: '/taller/red_lan.png',
+    alt: 'Servidor Red Local LAN y Código QR en FixPOS Pro'
   },
   {
     id: 'login',
     tag: 'Seguridad & Acceso',
-    title: 'Seguridad Multi-Usuario & Licencia Vitalicia',
-    badge: 'Roles RBAC & 100% Offline',
-    description: 'Acceso seguro con privilegios independientes para Administrador (Dueño) y Técnicos (privacidad de finanzas), respaldos locales de la base de datos en 1 clic y licencia vitalicia sin rentas.',
+    title: 'Inicio de Sesión & Licenciamiento Vitalicio',
+    badge: 'Roles Dueño y Técnico',
+    description: 'Autenticación segura con credenciales diferenciadas para Administrador (Dueño) y Técnicos (privacidad financiera), con blindaje de base de datos local y licencia vitalicia.',
     image: '/taller/login.png',
-    alt: 'Seguridad Multi-Usuario y Roles RBAC en FixPOS Pro'
+    alt: 'Inicio de Sesión y Roles RBAC en FixPOS Pro'
   }
 ];
 
@@ -66,7 +66,9 @@ export default function ScreenshotShowcase() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [modalImage, setModalImage] = useState<TallerFeatureCard | null>(null);
 
-  // Navegación por teclado dentro del modal
+  const activeFeature = tallerFeatures[activeIndex];
+
+  // Cerrar modal con tecla Escape
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -97,12 +99,12 @@ export default function ScreenshotShowcase() {
 
   return (
     <div className="w-full select-none max-w-5xl mx-auto py-6 md:py-8">
-      {/* Encabezado elegante idéntico al estilo dinámico de gimnasio */}
+      {/* Encabezado elegante */}
       <div className="flex items-center justify-between mb-4 md:mb-6 px-1 sm:px-2">
         <div className="inline-flex items-center gap-2">
           <Sparkles className="w-5 h-5 text-cyan-600" />
           <h3 className="text-lg sm:text-2xl font-extrabold text-slate-900 tracking-tight">
-            Capturas de Pantalla de FixPOS Pro
+            Capturas Reales de FixPOS Pro
           </h3>
         </div>
         
@@ -133,7 +135,7 @@ export default function ScreenshotShowcase() {
         </div>
       </div>
 
-      {/* Escenario 3D Amplio y Proporcional sin marco de fondo */}
+      {/* Escenario 3D con capturas nítidas 100% visibles (SIN capas ni desvanecidos oscuros) */}
       <div className="relative w-full h-[360px] sm:h-[460px] md:h-[540px] lg:h-[580px] flex items-center justify-center [perspective:1400px]">
         {tallerFeatures.map((feature, idx) => {
           const isCurrent = idx === activeIndex;
@@ -186,21 +188,19 @@ export default function ScreenshotShowcase() {
               } ${transformStyle} ${opacity}`}
               style={{ zIndex }}
             >
-              <div className="relative w-full h-full bg-slate-950 group/card">
+              {/* Contenedor limpio: SIN CAPA OSCURA NI GRADIENTE SUPERPUESTO */}
+              <div className="relative w-full h-full bg-slate-900 group/card">
                 <Image
                   src={feature.image}
                   alt={feature.alt}
                   fill
-                  className="object-cover object-top transition-transform duration-500 group-hover/card:scale-105"
+                  className="object-contain sm:object-cover object-top transition-transform duration-500 group-hover/card:scale-102"
                   sizes="(max-width: 768px) 100vw, 900px"
                   priority={idx === 0}
                 />
 
-                {/* Sombra gradiente inferior protectora para lectura perfecta */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/25 to-transparent" />
-
-                {/* Badge en esquina superior izquierda */}
-                <div className="absolute top-4 left-4 px-3.5 py-1.5 text-xs sm:text-sm rounded-xl bg-slate-950/85 backdrop-blur-md border border-cyan-400/40 font-bold text-white flex items-center gap-2 shadow-lg">
+                {/* Badge flotante en esquina superior izquierda */}
+                <div className="absolute top-3 left-3 sm:top-4 sm:left-4 px-3 py-1 sm:px-3.5 sm:py-1.5 text-xs sm:text-sm rounded-xl bg-slate-950/85 backdrop-blur-md border border-cyan-400/40 font-bold text-white flex items-center gap-2 shadow-lg">
                   <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
                   <span>{feature.badge}</span>
                 </div>
@@ -213,27 +213,34 @@ export default function ScreenshotShowcase() {
                       e.stopPropagation();
                       setModalImage(feature);
                     }}
-                    className="absolute top-4 right-4 p-2.5 rounded-xl bg-slate-950/85 hover:bg-cyan-600 text-white border border-white/20 backdrop-blur-md transition-all shadow-lg hover:scale-110"
+                    className="absolute top-3 right-3 sm:top-4 sm:right-4 p-2 sm:p-2.5 rounded-xl bg-slate-950/85 hover:bg-cyan-600 text-white border border-white/20 backdrop-blur-md transition-all shadow-lg hover:scale-110"
                     title="Ampliar captura en pantalla completa"
                   >
-                    <Maximize2 className="w-5 h-5" />
+                    <Maximize2 className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
                 )}
-
-                {/* Título en la base de la carta en gran formato */}
-                <div className="absolute bottom-5 left-5 right-5 text-left">
-                  <p className="text-white font-black drop-shadow-xl truncate text-base sm:text-xl md:text-2xl">
-                    {feature.title}
-                  </p>
-                </div>
               </div>
             </div>
           );
         })}
       </div>
 
+      {/* Detalle del Módulo Activo: claro, legible y sin tapar la captura */}
+      <div className="text-center mt-4 sm:mt-6 px-4 max-w-2xl mx-auto transition-all duration-300">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-cyan-100 text-cyan-800 border border-cyan-200 mb-2">
+          <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
+          <span>{activeFeature.tag} • Módulo {activeIndex + 1} de {tallerFeatures.length}</span>
+        </div>
+        <h4 className="text-lg sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+          {activeFeature.title}
+        </h4>
+        <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+          {activeFeature.description}
+        </p>
+      </div>
+
       {/* Indicadores de navegación interactivos (Pills/Dots) */}
-      <div className="flex items-center justify-center gap-2.5 mt-4 md:mt-6">
+      <div className="flex items-center justify-center gap-2.5 mt-4">
         {tallerFeatures.map((_, i) => (
           <button
             key={i}
@@ -244,12 +251,12 @@ export default function ScreenshotShowcase() {
                 ? 'w-10 sm:w-12 h-2.5 bg-cyan-500 shadow-sm shadow-cyan-500/50' 
                 : 'w-3 h-2.5 bg-slate-300 hover:bg-slate-400'
             }`}
-            aria-label={`Ver función ${i + 1}`}
+            aria-label={`Ver captura ${i + 1}`}
           />
         ))}
       </div>
 
-      {/* Modal / Lightbox de Pantalla Completa */}
+      {/* Modal / Lightbox de Pantalla Completa (100% Nítido y Limpio) */}
       {modalImage && (
         <div 
           className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/85 backdrop-blur-md animate-in fade-in duration-200"
@@ -282,7 +289,7 @@ export default function ScreenshotShowcase() {
               </button>
             </div>
 
-            {/* Imagen en Alta Resolución */}
+            {/* Imagen en Alta Resolución sin filtros */}
             <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-slate-950 overflow-hidden">
               <Image
                 src={modalImage.image}
