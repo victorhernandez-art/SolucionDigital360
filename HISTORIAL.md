@@ -25,6 +25,10 @@
   - Habilitación del botón oficial *Descargar Instalador* en la tarjeta de conversión de FixPOS Pro (`DownloadCtaCard.tsx` y `data/sistemas.ts`), conectado directamente al ejecutable oficial: `https://github.com/victorhernandez-art/taller/releases/download/v1.4.0/FixPOS-Pro-Setup-1.4.0.exe`.
   - Configuración del marcador inicial persistente en **30 descargas** sincronizado en base de datos PostgreSQL de Supabase, `data/downloads.json` y `app/api/downloads/route.ts`.
   - Mecanismo consecutivo garantizado: cada descarga incrementa en vivo consecutivamente (31, 32, 33...) con actualización inmediata en frontend y base de datos.
+- **🏷️ Corrección de Clasificación (Eliminación de Etiqueta SaaS en FixPOS Pro):**
+  - Se eliminó el badge `Sistema SaaS Profesional` en la cabecera de FixPOS Pro (`app/sistemas/[slug]/page.tsx`), conservando exclusivamente las etiquetas oficiales que reflejan su naturaleza real: `100% Offline`, `Red LAN & QR` y `Licencia Vitalicia`.
+- **📝 Depuración de Textos Comerciales:**
+  - Se eliminó la mención a *"plantillas de diagnóstico"* en el encabezado de categorías multirrubro (`components/SupportedCategories.tsx`).
 
 ---
 

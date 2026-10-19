@@ -297,6 +297,8 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 ### 📌 Versión 1.5.0 — Octubre 2026: FixPOS Pro — Arquitectura Empresarial de 8 Módulos & Comparativa vs SaaS
 - **🏛️ Arquitectura Oficial de 8 Módulos Empresariales:** Actualización técnica de FixPOS Pro (`data/sistemas.ts`) con los 8 módulos oficiales (Recepción Express & Blindaje Contractual, Inspección Pericial & Cámara Remota QR, Mesa de Control por Serie/IMEI, Centro Multiformato de Impresión & Notificaciones, POS con Deducción de Refacciones, Inteligencia Financiera con Devengo COGS, Control de Turnos & Corte Z con Auditoría Ciega, y Bóveda Local de Datos en Escritorio).
 - **⚖️ Tabla Comparativa FixPOS Pro vs. SaaS:** Componente `components/FixPosVsSaasComparison.tsx` con análisis de 6 criterios estratégicos en formato responsivo.
+- **🏷️ Corrección de Clasificación & Textos:** Eliminación de la etiqueta errónea "Sistema SaaS Profesional" en favor de sus sellos oficiales ("100% Offline", "Red LAN & QR", "Licencia Vitalicia") y depuración del texto de plantillas de diagnóstico en el encabezado de categorías.
+- **📥 Botón de Descarga & Marcador Dinámico:** Habilitación del instalador oficial Windows v1.4.0 (`FixPOS-Pro-Setup-1.4.0.exe`) con contador dinámico consecutivo iniciando en +30 descargas sincronizado en Supabase.
 - **📺 Enlace a Canal Oficial de YouTube:** Redirección elegante al canal `@SoluciónDigital360` en lo que se sube el video tutorial oficial.
 
 ### 📌 Versión 1.2.5 — Septiembre 2026

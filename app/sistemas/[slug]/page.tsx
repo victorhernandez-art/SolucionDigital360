@@ -101,12 +101,12 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
               <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
                 Herramienta Gratuita
               </span>
-            ) : (
+            ) : !isTallerSystem ? (
               <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold bg-indigo-100 text-indigo-800 border border-indigo-200">
                 <Zap className="w-3.5 h-3.5 text-indigo-600" />
-                Sistema SaaS Profesional
+                Sistema Profesional
               </span>
-            )}
+            ) : null}
 
             {isTallerSystem && (
               <>
