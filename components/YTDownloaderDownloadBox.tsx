@@ -114,10 +114,10 @@ export default function YTDownloaderDownloadBox({ downloadUrl }: YTDownloaderDow
       <section className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm space-y-6">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center lg:text-left">
-            <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-rose-600">
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-600">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-rose-500" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
               <span>Instalador Gratuito Verificado · v2.0 Oficial 64 bits</span>
             </div>
@@ -134,11 +134,11 @@ export default function YTDownloaderDownloadBox({ downloadUrl }: YTDownloaderDow
             {/* Marcador Dinámico de Descargas */}
             <div className="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-slate-100 text-slate-800 shadow-sm border border-slate-200 shrink-0 w-full sm:w-auto justify-center">
               <div className="relative flex h-2.5 w-2.5 shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
               </div>
               <div className="text-left">
-                <span className="font-extrabold text-sm sm:text-base text-rose-600 font-mono tracking-tight block leading-none">
+                <span className="font-extrabold text-sm sm:text-base text-indigo-600 font-mono tracking-tight block leading-none">
                   +{downloadCount}
                 </span>
                 <span className="text-[10px] text-slate-500 font-medium tracking-wider uppercase block mt-0.5">
@@ -152,7 +152,7 @@ export default function YTDownloaderDownloadBox({ downloadUrl }: YTDownloaderDow
               type="button"
               onClick={handleDownload}
               disabled={isDownloading}
-              className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-rose-600 hover:bg-rose-700 active:bg-rose-800 text-white font-bold text-sm transition-all shadow-lg shadow-rose-600/25 w-full sm:w-auto cursor-pointer"
+              className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white font-bold text-sm transition-all shadow-lg shadow-indigo-600/25 w-full sm:w-auto cursor-pointer"
             >
               <Download className={`w-4 h-4 ${isDownloading ? 'animate-bounce' : ''}`} />
               <span>{isDownloading ? 'Iniciando descarga...' : 'Descargar YT Downloader (.EXE)'}</span>
@@ -174,7 +174,7 @@ export default function YTDownloaderDownloadBox({ downloadUrl }: YTDownloaderDow
         {/* Garantías y Requisitos */}
         <div className="pt-6 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-500">
           <div className="flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-rose-500 shrink-0" />
+            <ShieldCheck className="w-4 h-4 text-emerald-500 shrink-0" />
             <span>Paquete verificado y libre de publicidad invasiva</span>
           </div>
           <div className="flex items-center gap-2">
@@ -232,7 +232,7 @@ export default function YTDownloaderDownloadBox({ downloadUrl }: YTDownloaderDow
 
             {/* Encabezado con Icono de Éxito */}
             <div className="text-center space-y-3 pt-2">
-              <div className="w-14 h-14 mx-auto rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center shadow-inner">
+              <div className="w-14 h-14 mx-auto rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center shadow-inner">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
               <h3
@@ -272,7 +272,7 @@ export default function YTDownloaderDownloadBox({ downloadUrl }: YTDownloaderDow
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
                   ¿Tienes un negocio o emprendimiento?
                 </span>
-                <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-full border border-rose-200">
+                <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full border border-indigo-200">
                   <Sparkles className="w-3 h-3" />
                   SaaS Premium
                 </span>

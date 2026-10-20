@@ -43,6 +43,9 @@
   - Se eliminó por completo el degradado oscurecedor superpuesto (`bg-gradient-to-t`) que tapaba la parte baja de las capturas de pantalla de gimnasio.
   - Reubicación de los datos informativos (tag, badge, título y descripción) en un bloque limpio y legible debajo del escenario 3D, con botones de paso rápido (`<` y `>`) en cabecera.
   - Capturas de pantalla 100% nítidas y despejadas para Login Glassmorphism, Socios con saldos deudores y Servidor LAN con código QR.
+- **🎨 Optimización Cromática en YT Downloader (`app/herramientas/yt-downloader/page.tsx` & `components/YTDownloaderDownloadBox.tsx`):**
+  - Sustitución de todos los textos, badges, bordes y viñetas en color rojo/rosa (`rose-600`, `rose-100`, etc.) por una paleta agradable y profesional en tonos índigo (`indigo-600`, `indigo-50`), violeta y esmeralda (`emerald-600`), eliminando la sensación visual de estado de error o advertencia para el usuario.
+  - Se reservó el color rojo exclusivamente para la identidad oficial de YouTube: ícono de la marca (`#FF0000`) y botón de suscripción al canal oficial en el modal (`bg-red-600`).
 
 ---
 
