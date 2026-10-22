@@ -1,6 +1,16 @@
 # 📜 Historial de Cambios y Registro de Versiones (Changelog)
 ## Solución Digital 360 — Plataforma Web SaaS
 
+## 📌 Versión 1.5.1 — Octubre 2026: Video Tutorial Oficial de FixPOS Pro & Optimización de Métricas de YouTube
+- **🎬 Integración del Video Tutorial Oficial de FixPOS Pro:**
+  - Asignación del identificador de video oficial `iXte4oZQQyo` en la ficha técnica de FixPOS Pro (`data/sistemas.ts`).
+  - Habilitación del reproductor en la página oficial del sistema (`/sistemas/sistema-gestion-tecnicos`) bajo la sección *Demostraciones y Tutoriales en Video*.
+- **📊 Garantía Técnica de Contabilización de Reproducciones (YouTube Analytics):**
+  - Refactorización de `components/YoutubeEmbed.tsx` para emplear el reproductor nativo embebido oficial de YouTube (`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&enablejsapi=1`).
+  - Eliminación del autoplay forzado que el algoritmo antifraude de YouTube suele descartar o penalizar en las métricas de visualización.
+  - El usuario detona la reproducción de forma directa y deliberada sobre el reproductor de YouTube, asegurando que toda visualización de más de 30 segundos sea registrada y sumada al canal `@SoluciónDigital360` y a las estadísticas de YouTube Studio bajo tráfico de fuentes externas.
+  - Inclusión de botón de acción complementario para *"Ver directamente en YouTube"* y enlace oficial al canal.
+
 ## 📌 Versión 1.5.0 — Octubre 2026: FixPOS Pro — Arquitectura Empresarial de 8 Módulos & Comparativa Estratégica vs SaaS
 - **🏛️ Integración de la Arquitectura Oficial de 8 Módulos Ejecutivos:**
   - Actualización integral de la ficha técnica de FixPOS Pro (`data/sistemas.ts`) estructurando los 8 bloques empresariales:

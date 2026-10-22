@@ -1,7 +1,6 @@
 'use client';
 
-import { ExternalLink, Play, Tv, Sparkles } from 'lucide-react';
-import { useState } from 'react';
+import { ExternalLink, Tv } from 'lucide-react';
 
 interface YoutubeEmbedProps {
   videoId?: string;
@@ -14,7 +13,6 @@ export default function YoutubeEmbed({
   title,
   channelUrl = "https://www.youtube.com/@Soluci%C3%B3nDigital360"
 }: YoutubeEmbedProps) {
-  const [playing, setPlaying] = useState(false);
 
   // Si no hay videoId configurado, mostrar invitación oficial destacada al canal de YouTube
   if (!videoId) {
@@ -61,58 +59,46 @@ export default function YoutubeEmbed({
     );
   }
 
-  const thumbnail = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
-
   return (
-    <div className="space-y-3">
-      {/* Reproductor con portada */}
-      <div className="max-w-3xl mx-auto">
-        <div
-          className="relative w-full rounded-2xl overflow-hidden shadow-lg border border-slate-200 bg-black cursor-pointer group"
-          style={{ paddingBottom: '56.25%' /* 16:9 */ }}
-          onClick={() => !playing && setPlaying(true)}
-        >
-          {!playing ? (
-            <>
-              {/* Portada del video */}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={thumbnail}
-                alt={title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-
-              {/* Botón de play centrado */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-red-600 hover:bg-red-500 rounded-full flex items-center justify-center shadow-2xl shadow-red-600/50 transition-all duration-200 group-hover:scale-110">
-                  <Play className="w-7 h-7 sm:w-9 sm:h-9 fill-white text-white ml-1" />
-                </div>
-              </div>
-            </>
-          ) : (
-            <iframe
-              className="absolute inset-0 w-full h-full"
-              src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&color=white&autoplay=1`}
-              title={title}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            />
-          )}
+    <div className="space-y-4">
+      {/* Reproductor oficial de YouTube (100% compatible con analítica y conteo de visualizaciones) */}
+      <div className="max-w-4xl mx-auto">
+        <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-black">
+          <iframe
+            className="absolute inset-0 w-full h-full"
+            src={`https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1&enablejsapi=1`}
+            title={title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            loading="lazy"
+          />
         </div>
       </div>
 
-      {/* Enlace discreto al canal */}
-      <div className="text-center">
+      {/* Enlaces de respaldo y acceso directo a YouTube */}
+      <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs font-semibold text-slate-600">
+        <a
+          href={`https://www.youtube.com/watch?v=${videoId}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-red-50 hover:bg-red-100 text-red-700 border border-red-200/80 transition-all hover:scale-105 group"
+        >
+          <svg className="w-4 h-4 fill-current text-red-600" viewBox="0 0 24 24">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+          <span>Ver directamente en YouTube</span>
+          <ExternalLink className="w-3.5 h-3.5 opacity-70 group-hover:opacity-100" />
+        </a>
+
+        <span className="text-slate-300 hidden sm:inline">•</span>
+
         <a
           href={channelUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-slate-500 hover:text-red-600 text-xs font-medium transition-colors group"
+          className="inline-flex items-center gap-1.5 text-slate-500 hover:text-red-600 transition-colors group"
         >
-          <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-          </svg>
-          <span>Ver más videos en @SoluciónDigital360</span>
+          <span>Canal Oficial @SoluciónDigital360</span>
           <ExternalLink className="w-3 h-3 opacity-50 group-hover:opacity-100 transition-opacity" />
         </a>
       </div>

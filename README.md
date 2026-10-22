@@ -156,11 +156,13 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.4.9 — Octubre 2026 (Actualización Reciente)
-- **🚀 Activación de FixPOS Pro (Gestión Técnica, POS & Red LAN):**
-  - Nombre oficial actualizado a `FixPOS Pro — Gestión Técnica, POS & Red LAN` en [data/sistemas.ts](file:///c:/xampp/htdocs/Solucion%20Digital%20360/data/sistemas.ts) y en todos sus componentes auxiliares.
-  - Tarjeta activada en el catálogo principal (`proximamente: false`) con badge `Premium`, precio de oferta `$2,000.00 MXN` y botón interactivo `Ver Detalle del Sistema`.
-  - Generación de la página oficial de producto `/sistemas/sistema-gestion-tecnicos`.
+### 📌 Versión 1.5.1 — Octubre 2026 (Actualización Reciente)
+- **🎬 Video Tutorial Oficial de FixPOS Pro & Conteo de Métricas en YouTube:**
+  - Integración del video oficial de demostración y tutorial (`iXte4oZQQyo`) para FixPOS Pro en [data/sistemas.ts](file:///c:/xampp/htdocs/Solucion%20Digital%20360/data/sistemas.ts).
+  - Optimización técnica de [components/YoutubeEmbed.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/YoutubeEmbed.tsx) mediante el reproductor nativo embebido oficial de YouTube (sin autoplay artificial forzado, con `enablejsapi=1`, permisos completos de sandbox y relación 16:9), garantizando que las reproducciones iniciadas por los usuarios se contabilicen al 100% en las métricas de YouTube Analytics del canal `@SoluciónDigital360`.
+  - Inclusión de botones de acceso directo: *"Ver directamente en YouTube"* y enlace al canal oficial.
+
+### 📌 Versión 1.5.0 — Octubre 2026: FixPOS Pro — Arquitectura Empresarial de 8 Módulos & Comparativa vs SaaS
 
 ### 📌 Versión 1.4.8 — Octubre 2026
 - **🧹 GymWeb — Tarjeta de Catálogo Limpia (Showcase 3D Exclusivo en Detalle):**
