@@ -1,6 +1,12 @@
 # 📜 Historial de Cambios y Registro de Versiones (Changelog)
 ## Solución Digital 360 — Plataforma Web SaaS
 
+## 📌 Versión 1.5.2 — Octubre 2026: Actualización del Video Tutorial de Cotizador Autónomo
+- **🎬 Sustitución del Video Inactivo por Video Oficial Público en YouTube:**
+  - Actualización del ID a `OEZBpynrqO8` (*"🚀 GRATIS SISTEMA PARA GENERAR COTIZACIONES"*) en la ficha técnica de Cotizador (`data/sistemas.ts`).
+  - Habilitación del reproductor oficial de YouTube en `/sistemas/generador-cotizaciones-pdf`.
+  - Integrado con el reproductor nativo oficial y enlaces directos, garantizando la contabilización de visualizaciones para el canal `@SoluciónDigital360`.
+
 ## 📌 Versión 1.5.1 — Octubre 2026: Video Tutorial Oficial de FixPOS Pro & Optimización de Métricas de YouTube
 - **🎬 Integración del Video Tutorial Oficial de FixPOS Pro:**
   - Asignación del identificador de video oficial `iXte4oZQQyo` en la ficha técnica de FixPOS Pro (`data/sistemas.ts`).

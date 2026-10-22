@@ -156,7 +156,12 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.5.1 — Octubre 2026 (Actualización Reciente)
+### 📌 Versión 1.5.2 — Octubre 2026 (Actualización Reciente)
+- **🎬 Video Tutorial Oficial de Cotizador Autónomo & Conteo de Vistas:**
+  - Actualización del video oficial (`OEZBpynrqO8`) para el sistema Cotizador en [data/sistemas.ts](file:///c:/xampp/htdocs/Solucion%20Digital%20360/data/sistemas.ts).
+  - Conectado al reproductor oficial nativo de YouTube en `/sistemas/generador-cotizaciones-pdf`, garantizando conteo de reproducciones en el canal `@SoluciónDigital360`.
+
+### 📌 Versión 1.5.1 — Octubre 2026
 - **🎬 Video Tutorial Oficial de FixPOS Pro & Conteo de Métricas en YouTube:**
   - Integración del video oficial de demostración y tutorial (`iXte4oZQQyo`) para FixPOS Pro en [data/sistemas.ts](file:///c:/xampp/htdocs/Solucion%20Digital%20360/data/sistemas.ts).
   - Optimización técnica de [components/YoutubeEmbed.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/YoutubeEmbed.tsx) mediante el reproductor nativo embebido oficial de YouTube (sin autoplay artificial forzado, con `enablejsapi=1`, permisos completos de sandbox y relación 16:9), garantizando que las reproducciones iniciadas por los usuarios se contabilicen al 100% en las métricas de YouTube Analytics del canal `@SoluciónDigital360`.

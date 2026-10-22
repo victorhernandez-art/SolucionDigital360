@@ -139,8 +139,8 @@ export const sistemas: Sistema[] = [
     nombre: "Cotizador — Emisión de Cotizaciones, Clientes y Catálogo",
     precio: "Gratis",
     descripcionCorta: "Software profesional para Windows 100% Offline y sin costo. Emisión de cotizaciones en PDF con logotipo corporativo, buscador en vivo, duplicación ágil, exportación ejecutiva a Excel (.xlsx), cartera de clientes, catálogo mixto y soporte multi-dispositivo por Wi-Fi.",
-    videoYoutubeId: "sMU1aGfVEs8",
-    canalYoutubeUrl: "https://www.youtube.com/@SoluciónDigital360",
+    videoYoutubeId: "OEZBpynrqO8",
+    canalYoutubeUrl: "https://www.youtube.com/@Soluci%C3%B3nDigital360",
     downloadUrl: "https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/v1.0/Instalador_Cotizador.exe",
     problemaQueResuelve: "Enviar cotizaciones por chat de texto, notas en papel o formatos informales de Word genera desconfianza y hace perder ventas ante la competencia. Además, las plataformas en la nube exigen rentas mensuales obligatorias y fallan cuando se cae el internet. Cotizador soluciona esto de raíz: es un software de escritorio autónomo y gratuito que genera presupuestos impecables con membrete, logotipo y datos fiscales en PDF listos para imprimir o enviar por WhatsApp, calcula impuestos automáticamente, incluye exportación ejecutiva a Excel con fórmulas dinámicas de suma, y permite cotizar desde cualquier teléfono celular en red local mediante código QR.",
     funciones: [
