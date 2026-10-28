@@ -19,6 +19,7 @@ interface DownloadCtaCardProps {
   downloadUrl?: string;
   sistemaSlug?: string;
   esGratis?: boolean;
+  precio?: string;
 }
 
 export default function DownloadCtaCard({
@@ -28,7 +29,8 @@ export default function DownloadCtaCard({
   isTallerSystem = true,
   downloadUrl,
   sistemaSlug,
-  esGratis = false
+  esGratis = false,
+  precio
 }: DownloadCtaCardProps) {
   const isGym = sistemaSlug?.includes('gimnasio') || sistemaNombre.toLowerCase().includes('gimnasio') || sistemaNombre.toLowerCase().includes('gym');
   const isCotizador = sistemaSlug?.includes('cotiza') || sistemaNombre.toLowerCase().includes('cotiza');
@@ -184,7 +186,7 @@ export default function DownloadCtaCard({
                 <Globe className="w-5 h-5 text-indigo-600 shrink-0" />
                 <span>Precio internacional de referencia:</span>
                 <span className="text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-lg font-mono text-base sm:text-lg border border-emerald-200">
-                  $2,000.00 MXN en México
+                  {precio ? `${precio} en México` : '$1,500.00 MXN en México'}
                 </span>
               </h3>
               <p className="text-slate-600 text-xs sm:text-sm mt-1.5 font-medium">

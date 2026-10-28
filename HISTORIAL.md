@@ -1,6 +1,13 @@
 # 📜 Historial de Cambios y Registro de Versiones (Changelog)
 ## Solución Digital 360 — Plataforma Web SaaS
 
+## 📌 Versión 1.5.3 — Octubre 2026: Ajuste de Precio de Oferta de FixPOS Pro a $1,500.00 MXN
+- **🏷️ Actualización de Precio Promocional para FixPOS Pro:**
+  - Reducción del precio de oferta de Licencia Vitalicia de `$2,000.00 MXN` a `$1,500.00 MXN` (precio anterior tachado de `$3,500.00 MXN`).
+  - Sincronización en la base de datos de sistemas (`data/sistemas.ts`), reflejando `$1,500.00 MXN` en el catálogo principal (`/`), en el encabezado de detalle (`/sistemas/sistema-gestion-tecnicos`) y en la sección de preguntas frecuentes (FAQ).
+  - Actualización del bloque de comparativa *FixPOS Pro vs SaaS* (`components/FixPosVsSaasComparison.tsx`) a `$1,500 MXN`.
+  - Dinamización de la propiedad `precio` en `DownloadCtaCard.tsx` y su propagación en `app/sistemas/[slug]/page.tsx` para reflejar con precisión el valor oficial de cada software.
+
 ## 📌 Versión 1.5.2 — Octubre 2026: Actualización del Video Tutorial de Cotizador Autónomo
 - **🎬 Sustitución del Video Inactivo por Video Oficial Público en YouTube:**
   - Actualización del ID a `OEZBpynrqO8` (*"🚀 GRATIS SISTEMA PARA GENERAR COTIZACIONES"*) en la ficha técnica de Cotizador (`data/sistemas.ts`).

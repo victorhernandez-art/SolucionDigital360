@@ -33,7 +33,7 @@ export default function InternationalPricingCard({
                 Precio internacional de referencia: <span className="text-indigo-600">70 USDT</span>
               </h3>
               <span className="text-xs font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full border border-slate-200">
-                o $2,000.00 MXN en México
+                o $1,500.00 MXN en México
               </span>
             </div>
             <p className="text-slate-600 text-base font-medium">

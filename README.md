@@ -138,7 +138,7 @@ Para mantener una experiencia visual profesional de nivel **SaaS**, se deben res
    - **Teléfono de Asesoría:** `+52 961 120 9361` (`tel:+529611209361`)
 
 5. **Precios y Periodo de Prueba:**
-   - **FixPOS Pro:** `$2,000.00 MXN` (Oferta con precio anterior `$3,500.00 MXN` tachado / Licencia Vitalicia + 6 Meses de Soporte Técnico Gratis).
+   - **FixPOS Pro:** `$1,500.00 MXN` (Oferta con precio anterior `$3,500.00 MXN` tachado / Licencia Vitalicia + 6 Meses de Soporte Técnico Gratis).
    - **Periodo de Prueba:** Prueba FixPOS Pro Gratis por 7 Días con todas sus funciones habilitadas (sin tarjeta de crédito, sin compromisos y con la posibilidad de conservar todos tus registros al activar tu licencia definitiva).
    - **Marcador de Descargas:** La tarjeta CTA final ([components/DownloadCtaCard.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/DownloadCtaCard.tsx)) incluye el contador dinámico persistente que inicia en **30 Descargas del Instalador** (gestionado vía Supabase y API `/api/downloads`), incrementando de manera real y consecutiva en cada descarga.
 
@@ -156,7 +156,13 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.5.2 — Octubre 2026 (Actualización Reciente)
+### 📌 Versión 1.5.3 — Octubre 2026 (Actualización Reciente)
+- **🏷️ Actualización de Precio Promocional FixPOS Pro:**
+  - Ajuste del precio oficial de FixPOS Pro de `$2,000.00 MXN` a `$1,500.00 MXN` (manteniendo el precio original de `$3,500.00 MXN` tachado).
+  - Sincronización en la tarjeta del catálogo principal (`/`), encabezado de detalle (`/sistemas/sistema-gestion-tecnicos`), bloque de precio internacional y comparativa SaaS.
+  - Dinamización de la propiedad `precio` en `DownloadCtaCard.tsx` para reflejar el valor correspondiente a cada sistema.
+
+### 📌 Versión 1.5.2 — Octubre 2026
 - **🎬 Video Tutorial Oficial de Cotizador Autónomo & Conteo de Vistas:**
   - Actualización del video oficial (`OEZBpynrqO8`) para el sistema Cotizador en [data/sistemas.ts](file:///c:/xampp/htdocs/Solucion%20Digital%20360/data/sistemas.ts).
   - Conectado al reproductor oficial nativo de YouTube en `/sistemas/generador-cotizaciones-pdf`, garantizando conteo de reproducciones en el canal `@SoluciónDigital360`.

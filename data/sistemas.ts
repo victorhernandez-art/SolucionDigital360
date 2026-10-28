@@ -24,7 +24,7 @@ export const sistemas: Sistema[] = [
   {
     slug: "sistema-gestion-tecnicos",
     nombre: "FixPOS Pro — Gestión Técnica, POS & Red LAN",
-    precio: "$2,000.00 MXN",
+    precio: "$1,500.00 MXN",
     precioAnterior: "$3,500.00 MXN",
     descripcionCorta: "Plataforma empresarial 100% Offline y sin mensualidades con 8 módulos ejecutivos: Recepción Express con firma digital biométrica, cámara remota por QR, trazabilidad por IMEI/Serie, multiformato de impresión térmica y etiquetas, Punto de Venta (POS) con deducción de refacciones, inteligencia financiera con devengo proporcional (COGS), auditoría ciega de caja (Corte Z) y Bóveda Local de Datos.",
     videoYoutubeId: "iXte4oZQQyo",
@@ -67,7 +67,7 @@ export const sistemas: Sistema[] = [
         respuesta: "FixPOS Pro incluye centro multiformato: tickets térmicos estándar de 80mm y 58mm con logotipo y código de barras Code 128 (Subset B) + QR, hojas membretadas tamaño carta con talón desprendible para custodia interna, y rotulación de etiquetas adhesivas (40x30mm, 50x30mm y rollo continuo de 80mm) legibles por cualquier pistola de códigos de barras."
       },
       {
-        pregunta: "¿El costo de $2,000.00 MXN es un pago único o suscripción mensual?",
+        pregunta: "¿El costo de $1,500.00 MXN es un pago único o suscripción mensual?",
         respuesta: "Es un pago único de Licencia Vitalicia. Cero mensualidades, sin costos ocultos y sin límites de órdenes, clientes ni inventario. Incluye 6 Meses de Soporte Técnico Especializado y Actualizaciones."
       },
       {

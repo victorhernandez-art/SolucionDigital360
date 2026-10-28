@@ -361,6 +361,7 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
           megaLink="https://mega.nz"
           downloadUrl={sistema.downloadUrl}
           esGratis={sistema.esGratis}
+          precio={sistema.precio}
         />
 
       </main>

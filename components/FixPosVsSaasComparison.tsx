@@ -17,7 +17,7 @@ const COMPARISON_DATA: ComparisonRow[] = [
     icono: DollarSign,
     saas: "Renta mensual perpetua ($30 - $80 USD/mes).",
     saasDetalle: "Representa entre $360 y $960 USD al año de por vida. Si dejas de pagar, pierdes el acceso inmediato.",
-    fixpos: "Licencia Vitalicia de pago único ($2,000 MXN).",
+    fixpos: "Licencia Vitalicia de pago único ($1,500 MXN).",
     fixposDetalle: "Un solo pago definitivo. Sin rentas mensuales, sin cobros recurrentes y con uso ilimitado de por vida."
   },
   {
