@@ -157,9 +157,10 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
 ### 📌 Versión 1.5.4 — Noviembre 2026 (Actualización Reciente)
-- **🔓 Unificación del Candado `Sub2Unlock` (10 Segundos) en las 4 Herramientas Gratuitas:**
+- **🔓 Unificación del Candado `Sub2Unlock` (10 Segundos) y Optimización de Dimensiones en las 4 Herramientas Gratuitas:**
   - Eliminación de la persistencia de desbloqueo en `localStorage` en [components/OfficeDownloadBox.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/OfficeDownloadBox.tsx) para garantizar que el modal inicie siempre bloqueado en cada apertura.
   - Implementación del flujo obligatorio de 2 pasos (`1. Suscribirme en YouTube para desbloquear` + temporizador de verificación de 10 segundos) en [components/NitroDownloadBox.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/NitroDownloadBox.tsx), [components/FilmoraDownloadBox.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/FilmoraDownloadBox.tsx) y [components/YTDownloaderDownloadBox.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/YTDownloaderDownloadBox.tsx).
+  - Ajuste de tamaño y márgenes verticales del modal (`max-w-md`, `max-h-[88vh]`, espaciado compacto) para visualización completa sin recortes en pantallas de laptop y escritorio.
   - Migración del despliegue de producción en Vercel a cuenta dedicada independiente (`victor-8be5`) manteniendo el dominio oficial `https://solucion-digital360.vercel.app`.
 
 ### 📌 Versión 1.5.3 — Octubre 2026

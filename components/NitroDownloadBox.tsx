@@ -267,61 +267,61 @@ export default function NitroDownloadBox({ downloadUrl }: NitroDownloadBoxProps)
           role="dialog"
           aria-modal="true"
           aria-labelledby="modal-titulo"
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/75 backdrop-blur-sm animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/75 backdrop-blur-sm animate-in fade-in duration-200"
           onClick={() => setIsModalOpen(false)}
         >
-          {/* Contenedor del Modal */}
+          {/* Contenedor del Modal Compacto con Margen Superior e Inferior Garantizado */}
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-lg bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-200 overflow-hidden space-y-5 animate-in zoom-in-95 duration-200"
+            className="relative w-full max-w-md bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-2xl border border-slate-200 max-h-[88vh] overflow-y-auto space-y-3.5 animate-in zoom-in-95 duration-200 my-auto"
           >
             {/* Botón de Cierre en la esquina superior derecha */}
             <button
               type="button"
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-4 right-4 p-2 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
+              className="absolute top-3.5 right-3.5 p-1.5 rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors cursor-pointer"
               aria-label="Cerrar ventana"
             >
               <X className="w-5 h-5" />
             </button>
 
             {/* Encabezado Dinámico según Estado de Desbloqueo */}
-            <div className="text-center space-y-2 pt-2">
+            <div className="text-center space-y-1.5">
               <div
-                className={`w-14 h-14 mx-auto rounded-2xl flex items-center justify-center shadow-inner transition-colors ${
+                className={`w-11 h-11 mx-auto rounded-xl flex items-center justify-center shadow-inner transition-colors ${
                   isUnlocked
                     ? 'bg-emerald-100 text-emerald-600'
                     : 'bg-amber-100 text-amber-600'
                 }`}
               >
                 {isUnlocked ? (
-                  <CheckCircle2 className="w-8 h-8" />
+                  <CheckCircle2 className="w-6 h-6" />
                 ) : (
-                  <Lock className="w-7 h-7" />
+                  <Lock className="w-5 h-5" />
                 )}
               </div>
               <h3
                 id="modal-titulo"
-                className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight"
+                className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight"
               >
                 {isUnlocked ? '¡Enlace desbloqueado!' : '¡Casi listo para descargar!'}
               </h3>
             </div>
 
             {/* Subtexto Informativo */}
-            <p className="text-center text-slate-600 text-xs sm:text-sm leading-relaxed px-2">
+            <p className="text-center text-slate-600 text-xs sm:text-[13px] leading-snug px-1">
               {isUnlocked
                 ? 'Gracias por apoyar nuestro canal de YouTube. Ya puedes descargar el instalador oficial de Nitro PDF Pro.'
                 : 'Para mantener estas herramientas gratuitas, suscríbete a nuestro canal de YouTube para desbloquear tu enlace de descarga.'}
             </p>
 
             {/* Llamado de Suscripción: Meta Office 2021 */}
-            <div className="p-4 rounded-2xl bg-gradient-to-br from-red-50 via-amber-50 to-red-50 border-2 border-red-200/90 text-center space-y-1.5 shadow-sm">
-              <div className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-red-700">
-                <span className="text-base">🚀</span>
+            <div className="p-3 rounded-xl bg-gradient-to-br from-red-50 via-amber-50 to-red-50 border border-red-200/90 text-center space-y-1 shadow-sm">
+              <div className="inline-flex items-center gap-1 text-[11px] font-black uppercase tracking-wider text-red-700">
+                <span className="text-sm">🚀</span>
                 <span>¡Ayúdanos a llegar a la meta!</span>
               </div>
-              <p className="text-xs sm:text-sm font-medium text-slate-800 leading-snug">
+              <p className="text-xs font-medium text-slate-800 leading-snug">
                 Suscríbete y comparte para que estés enterado de los programas que estaré publicando. Si este canal sube a más suscriptores estaré subiendo{' '}
                 <strong className="text-red-600 font-extrabold">Office 2021 totalmente gratis Licencia original</strong>.
               </p>
@@ -330,20 +330,20 @@ export default function NitroDownloadBox({ downloadUrl }: NitroDownloadBoxProps)
             {/* =================================================================== */}
             {/* FLUJO SUB2UNLOCK EN 2 PASOS                                         */}
             {/* =================================================================== */}
-            <div className="space-y-3 pt-1">
+            <div className="space-y-2">
               {/* PASO 1: Botón de Suscripción en YouTube */}
               {!isUnlocked ? (
                 <button
                   type="button"
                   onClick={handleSubscribeClick}
-                  className="w-full inline-flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-2xl bg-[#FF0000] hover:bg-[#D90000] active:scale-[0.98] text-white font-extrabold text-sm sm:text-base transition-all shadow-lg shadow-red-500/25 group cursor-pointer"
+                  className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:py-3 rounded-xl bg-[#FF0000] hover:bg-[#D90000] active:scale-[0.98] text-white font-extrabold text-xs sm:text-sm transition-all shadow-md shadow-red-500/25 group cursor-pointer"
                 >
-                  <Youtube className="w-5 h-5 transition-transform group-hover:scale-110 shrink-0" />
+                  <Youtube className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:scale-110 shrink-0" />
                   <span>1. Suscribirme en YouTube para desbloquear</span>
                 </button>
               ) : (
-                <div className="w-full inline-flex items-center justify-between px-4 py-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs sm:text-sm font-semibold">
-                  <span className="flex items-center gap-2">
+                <div className="w-full inline-flex items-center justify-between px-3.5 py-2 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold">
+                  <span className="flex items-center gap-1.5">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                     <span>Paso 1: Suscripción confirmada</span>
                   </span>
@@ -365,7 +365,7 @@ export default function NitroDownloadBox({ downloadUrl }: NitroDownloadBoxProps)
                   <button
                     type="button"
                     disabled
-                    className="w-full inline-flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-2xl bg-amber-50 border-2 border-amber-300 text-amber-800 font-bold text-sm sm:text-base cursor-wait transition-all shadow-sm animate-pulse"
+                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:py-3 rounded-xl bg-amber-50 border-2 border-amber-300 text-amber-800 font-bold text-xs sm:text-sm cursor-wait transition-all shadow-sm animate-pulse"
                   >
                     <Loader2 className="w-4 h-4 animate-spin text-amber-600 shrink-0" />
                     <span>Verificando suscripción... ({countdown}s)</span>
@@ -374,7 +374,7 @@ export default function NitroDownloadBox({ downloadUrl }: NitroDownloadBoxProps)
                   <button
                     type="button"
                     disabled
-                    className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-slate-100 border border-slate-200 text-slate-400 font-bold text-sm sm:text-base cursor-not-allowed transition-all"
+                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:py-3 rounded-xl bg-slate-100 border border-slate-200 text-slate-400 font-bold text-xs sm:text-sm cursor-not-allowed transition-all"
                   >
                     <Lock className="w-4 h-4 text-slate-400 shrink-0" />
                     <span>2. Descargar archivo (Bloqueado)</span>
@@ -385,9 +385,9 @@ export default function NitroDownloadBox({ downloadUrl }: NitroDownloadBoxProps)
                   type="button"
                   onClick={handleExecuteDownload}
                   disabled={isDownloading}
-                  className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] text-white font-extrabold text-sm sm:text-base transition-all shadow-xl shadow-emerald-600/30 ring-2 ring-emerald-500/30 cursor-pointer animate-in zoom-in-95 duration-200"
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] text-white font-extrabold text-xs sm:text-sm transition-all shadow-lg shadow-emerald-600/30 ring-2 ring-emerald-500/30 cursor-pointer animate-in zoom-in-95 duration-200"
                 >
-                  <Download className={`w-5 h-5 ${isDownloading ? 'animate-bounce' : ''} shrink-0`} />
+                  <Download className={`w-4 h-4 sm:w-5 sm:h-5 ${isDownloading ? 'animate-bounce' : ''} shrink-0`} />
                   <span>
                     {isDownloading
                       ? 'Iniciando descarga...'
@@ -398,28 +398,27 @@ export default function NitroDownloadBox({ downloadUrl }: NitroDownloadBoxProps)
             </div>
 
             {/* Separador sutil */}
-            <div className="h-px w-full bg-slate-200/80 my-1" />
+            <div className="h-px w-full bg-slate-200/80" />
 
-            {/* Banner de Venta Cruzada (Cross-Selling) */}
-            <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-950 text-white rounded-2xl p-5 sm:p-6 border border-slate-700/60 shadow-md space-y-4">
-              <div className="space-y-1.5 text-center sm:text-left">
-                <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-blue-400">
-                  <Sparkles className="w-3.5 h-3.5" />
+            {/* Banner de Venta Cruzada Compacto */}
+            <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-blue-950 text-white rounded-xl p-4 border border-slate-700/60 shadow-md space-y-2.5">
+              <div className="space-y-1 text-center sm:text-left">
+                <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-blue-400">
+                  <Sparkles className="w-3 h-3" />
                   <span>Soluciones Empresariales</span>
                 </div>
-                <h4 className="text-base sm:text-lg font-bold text-white leading-snug">
+                <h4 className="text-sm sm:text-base font-bold text-white leading-snug">
                   ¿Necesitas optimizar tu negocio?
                 </h4>
-                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-300 text-xs leading-snug">
                   Conoce nuestros sistemas administrativos y desarrollo de software a medida.
                 </p>
               </div>
 
-              {/* Botón Secundario de Servicios */}
               <Link
                 href="/#sistemas"
                 onClick={() => setIsModalOpen(false)}
-                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-bold text-sm transition-all shadow-md shadow-blue-600/30 group cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-bold text-xs sm:text-sm transition-all shadow-md shadow-blue-600/30 group cursor-pointer"
               >
                 <span>Ver soluciones para mi negocio</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -427,7 +426,7 @@ export default function NitroDownloadBox({ downloadUrl }: NitroDownloadBoxProps)
             </div>
 
             {/* Opción de Cierre en texto inferior */}
-            <div className="text-center pt-1">
+            <div className="text-center">
               <button
                 type="button"
                 onClick={() => setIsModalOpen(false)}

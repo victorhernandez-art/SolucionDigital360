@@ -10,6 +10,8 @@
     2. Paso 2: Habilitación del botón verde de descarga directa tras completar la cuenta regresiva, registrando el incremento en vivo en Supabase (`/api/downloads`).
 - **☁️ Migración a Cuenta Dedicada en Vercel:**
   - Vinculación del proyecto `solucion-digital360` en una cuenta independiente de Vercel (`victor-8be5`) conservando el dominio oficial `https://solucion-digital360.vercel.app` para aislar su cuota de recursos.
+- **📐 Ajuste de Proporción y Márgenes del Modal de Descarga:**
+  - Redimensión de los 4 modales (`max-w-md`, `max-h-[88vh] overflow-y-auto`, `p-5 sm:p-6`, `space-y-3.5`) para garantizar márgenes superiores e inferiores visibles en pantallas de laptop sin cortes.
 
 ## 📌 Versión 1.5.3 — Octubre 2026: Ajuste de Precio de Oferta de FixPOS Pro a $1,500.00 MXN
 - **🏷️ Actualización de Precio Promocional para FixPOS Pro:**
