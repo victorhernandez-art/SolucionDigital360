@@ -1,6 +1,16 @@
 # 📜 Historial de Cambios y Registro de Versiones (Changelog)
 ## Solución Digital 360 — Plataforma Web SaaS
 
+## 📌 Versión 1.5.4 — Noviembre 2026: Candado Sub2Unlock de 10s en Todas las Herramientas Gratuitas & Cuenta Vercel Dedicada
+- **🔓 Verificación de Suscripción Siempre Activa en Office 2019 (`components/OfficeDownloadBox.tsx`):**
+  - Se eliminó la persistencia en `localStorage` (`office_download_unlocked`) y se agregó el reinicio automático del candado al abrir el modal (`handleOpenModal`), asegurando que todo visitante visualice siempre el bloqueo inicial y la cuenta regresiva de 10 segundos tras hacer clic en el botón de suscripción a YouTube.
+- **🚀 Extensión del Flujo Sub2Unlock (10s) a Nitro PDF Pro, Filmora y YT Downloader:**
+  - Actualización de `components/NitroDownloadBox.tsx`, `components/FilmoraDownloadBox.tsx` y `components/YTDownloaderDownloadBox.tsx` con el mismo sistema de desbloqueo en 2 pasos:
+    1. Paso 1: Botón de suscripción a `@SolucionDigital360?sub_confirmation=1` que inicia el contador de verificación de 10 segundos (`Verificando suscripción... (10s)`).
+    2. Paso 2: Habilitación del botón verde de descarga directa tras completar la cuenta regresiva, registrando el incremento en vivo en Supabase (`/api/downloads`).
+- **☁️ Migración a Cuenta Dedicada en Vercel:**
+  - Vinculación del proyecto `solucion-digital360` en una cuenta independiente de Vercel (`victor-8be5`) conservando el dominio oficial `https://solucion-digital360.vercel.app` para aislar su cuota de recursos.
+
 ## 📌 Versión 1.5.3 — Octubre 2026: Ajuste de Precio de Oferta de FixPOS Pro a $1,500.00 MXN
 - **🏷️ Actualización de Precio Promocional para FixPOS Pro:**
   - Reducción del precio de oferta de Licencia Vitalicia de `$2,000.00 MXN` a `$1,500.00 MXN` (precio anterior tachado de `$3,500.00 MXN`).

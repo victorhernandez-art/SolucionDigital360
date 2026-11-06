@@ -31,7 +31,7 @@ export default function OfficeDownloadBox({ downloadUrl }: OfficeDownloadBoxProp
   const [isDownloading, setIsDownloading] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  // Estados de Desbloqueo (Sub2Unlock)
+  // Estados de Desbloqueo (Sub2Unlock) - Siempre inicia bloqueado al abrir el modal
   const [isUnlocked, setIsUnlocked] = useState<boolean>(false);
   const [isCounting, setIsCounting] = useState<boolean>(false);
   const [countdown, setCountdown] = useState<number>(10);
@@ -47,13 +47,10 @@ export default function OfficeDownloadBox({ downloadUrl }: OfficeDownloadBoxProp
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isModalOpen]);
 
-  // Comprobar persistencia de desbloqueo en localStorage
+  // Limpiar cualquier desbloqueo previo guardado en localStorage para exigir siempre la verificación
   useEffect(() => {
     try {
-      const storedUnlock = localStorage.getItem(unlockedStorageKey);
-      if (storedUnlock === 'true') {
-        setIsUnlocked(true);
-      }
+      localStorage.removeItem(unlockedStorageKey);
     } catch {}
   }, [unlockedStorageKey]);
 
@@ -67,9 +64,6 @@ export default function OfficeDownloadBox({ downloadUrl }: OfficeDownloadBoxProp
           clearInterval(interval);
           setIsCounting(false);
           setIsUnlocked(true);
-          try {
-            localStorage.setItem(unlockedStorageKey, 'true');
-          } catch {}
           return 0;
         }
         return prev - 1;
@@ -77,7 +71,7 @@ export default function OfficeDownloadBox({ downloadUrl }: OfficeDownloadBoxProp
     }, 1000);
 
     return () => clearInterval(interval);
-  }, [isCounting, unlockedStorageKey]);
+  }, [isCounting]);
 
   // Sincronizar contador de descargas
   useEffect(() => {
@@ -107,8 +101,11 @@ export default function OfficeDownloadBox({ downloadUrl }: OfficeDownloadBoxProp
       .catch((err) => console.error('Error al sincronizar descargas de Office 2019:', err));
   }, [baseCount, storageKey]);
 
-  // Abrir Modal sin iniciar la descarga de inmediato
+  // Abrir Modal reiniciando siempre el candado de suscripción
   const handleOpenModal = () => {
+    setIsUnlocked(false);
+    setIsCounting(false);
+    setCountdown(10);
     setIsModalOpen(true);
   };
 

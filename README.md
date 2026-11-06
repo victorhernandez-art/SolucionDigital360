@@ -156,7 +156,13 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.5.3 — Octubre 2026 (Actualización Reciente)
+### 📌 Versión 1.5.4 — Noviembre 2026 (Actualización Reciente)
+- **🔓 Unificación del Candado `Sub2Unlock` (10 Segundos) en las 4 Herramientas Gratuitas:**
+  - Eliminación de la persistencia de desbloqueo en `localStorage` en [components/OfficeDownloadBox.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/OfficeDownloadBox.tsx) para garantizar que el modal inicie siempre bloqueado en cada apertura.
+  - Implementación del flujo obligatorio de 2 pasos (`1. Suscribirme en YouTube para desbloquear` + temporizador de verificación de 10 segundos) en [components/NitroDownloadBox.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/NitroDownloadBox.tsx), [components/FilmoraDownloadBox.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/FilmoraDownloadBox.tsx) y [components/YTDownloaderDownloadBox.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/YTDownloaderDownloadBox.tsx).
+  - Migración del despliegue de producción en Vercel a cuenta dedicada independiente (`victor-8be5`) manteniendo el dominio oficial `https://solucion-digital360.vercel.app`.
+
+### 📌 Versión 1.5.3 — Octubre 2026
 - **🏷️ Actualización de Precio Promocional FixPOS Pro:**
   - Ajuste del precio oficial de FixPOS Pro de `$2,000.00 MXN` a `$1,500.00 MXN` (manteniendo el precio original de `$3,500.00 MXN` tachado).
   - Sincronización en la tarjeta del catálogo principal (`/`), encabezado de detalle (`/sistemas/sistema-gestion-tecnicos`), bloque de precio internacional y comparativa SaaS.
