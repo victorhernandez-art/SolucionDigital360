@@ -156,7 +156,16 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.5.4 — Noviembre 2026 (Actualización Reciente)
+### 📌 Versión 1.5.5 — Noviembre 2026 (Actualización Reciente)
+- **🏷️ Actualización de Precio Promocional GymWeb & Etiqueta "Solo por este mes":**
+  - Ajuste del precio oficial de GymWeb a `$1,500.00 MXN` (precio anterior tachado de `$3,500.00 MXN`).
+  - Integración del atributo `etiquetaPrecio: "Solo por este mes"` visible en:
+    - Tarjeta del catálogo principal (`/`) junto a `Único pago`.
+    - Encabezado de la página de detalle (`/sistemas/sistema-gestion-gimnasios` y `/sistemas/sistema-gestion-tecnicos`).
+    - Tarjeta CTA de conversión y descarga (`DownloadCtaCard`) en la sección de precio internacional de referencia.
+    - Sincronización en preguntas frecuentes (FAQ) de ambos sistemas.
+
+### 📌 Versión 1.5.4 — Noviembre 2026
 - **🔓 Unificación del Candado `Sub2Unlock` (10 Segundos) y Optimización de Dimensiones en las 4 Herramientas Gratuitas:**
   - Eliminación de la persistencia de desbloqueo en `localStorage` en [components/OfficeDownloadBox.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/OfficeDownloadBox.tsx) para garantizar que el modal inicie siempre bloqueado en cada apertura.
   - Implementación del flujo obligatorio de 2 pasos (`1. Suscribirme en YouTube para desbloquear` + temporizador de verificación de 10 segundos) en [components/NitroDownloadBox.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/NitroDownloadBox.tsx), [components/FilmoraDownloadBox.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/FilmoraDownloadBox.tsx) y [components/YTDownloaderDownloadBox.tsx](file:///c:/xampp/htdocs/Solucion%20Digital%20360/components/YTDownloaderDownloadBox.tsx).

@@ -20,6 +20,7 @@ interface DownloadCtaCardProps {
   sistemaSlug?: string;
   esGratis?: boolean;
   precio?: string;
+  etiquetaPrecio?: string;
 }
 
 export default function DownloadCtaCard({
@@ -30,7 +31,8 @@ export default function DownloadCtaCard({
   downloadUrl,
   sistemaSlug,
   esGratis = false,
-  precio
+  precio,
+  etiquetaPrecio
 }: DownloadCtaCardProps) {
   const isGym = sistemaSlug?.includes('gimnasio') || sistemaNombre.toLowerCase().includes('gimnasio') || sistemaNombre.toLowerCase().includes('gym');
   const isCotizador = sistemaSlug?.includes('cotiza') || sistemaNombre.toLowerCase().includes('cotiza');
@@ -188,6 +190,11 @@ export default function DownloadCtaCard({
                 <span className="text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-lg font-mono text-base sm:text-lg border border-emerald-200">
                   {precio ? `${precio} en México` : '$1,500.00 MXN en México'}
                 </span>
+                {etiquetaPrecio && (
+                  <span className="text-xs font-bold text-emerald-800 bg-emerald-100/90 px-2.5 py-1 rounded-md border border-emerald-300">
+                    {etiquetaPrecio}
+                  </span>
+                )}
               </h3>
               <p className="text-slate-600 text-xs sm:text-sm mt-1.5 font-medium">
                 Pago único. Sin mensualidades ni cobros recurrentes.

@@ -76,8 +76,8 @@ export default function HomePage() {
                         </span>
                       </div>
                       {!sistema.esGratis && (
-                        <span className="text-[11px] font-medium text-slate-500 block">
-                          Único pago
+                        <span className="text-[11px] font-semibold text-emerald-600 block">
+                          {sistema.etiquetaPrecio ? `${sistema.etiquetaPrecio} · Único pago` : 'Único pago'}
                         </span>
                       )}
                     </div>

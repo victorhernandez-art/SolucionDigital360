@@ -129,7 +129,9 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
             </h1>
             {!sistema.esGratis && (
             <div className="shrink-0 text-center md:text-right bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
-              <span className="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Único Pago</span>
+              <span className="text-xs font-bold text-emerald-600 uppercase tracking-wider block">
+                {sistema.etiquetaPrecio ? `${sistema.etiquetaPrecio} · Único Pago` : 'Único Pago'}
+              </span>
               <div className="flex items-baseline justify-center md:justify-end gap-2 my-0.5">
                 {sistema.precioAnterior && (
                   <span className="text-base text-slate-400 line-through font-semibold">
@@ -362,6 +364,7 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
           downloadUrl={sistema.downloadUrl}
           esGratis={sistema.esGratis}
           precio={sistema.precio}
+          etiquetaPrecio={sistema.etiquetaPrecio}
         />
 
       </main>

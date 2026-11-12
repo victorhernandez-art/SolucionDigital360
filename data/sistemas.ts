@@ -8,6 +8,7 @@ export interface Sistema {
   nombre: string;
   precio: string;
   precioAnterior?: string;
+  etiquetaPrecio?: string;
   descripcionCorta: string;
   videoYoutubeId: string;
   canalYoutubeUrl?: string;
@@ -26,6 +27,7 @@ export const sistemas: Sistema[] = [
     nombre: "FixPOS Pro — Gestión Técnica, POS & Red LAN",
     precio: "$1,500.00 MXN",
     precioAnterior: "$3,500.00 MXN",
+    etiquetaPrecio: "Solo por este mes",
     descripcionCorta: "Plataforma empresarial 100% Offline y sin mensualidades con 8 módulos ejecutivos: Recepción Express con firma digital biométrica, cámara remota por QR, trazabilidad por IMEI/Serie, multiformato de impresión térmica y etiquetas, Punto de Venta (POS) con deducción de refacciones, inteligencia financiera con devengo proporcional (COGS), auditoría ciega de caja (Corte Z) y Bóveda Local de Datos.",
     videoYoutubeId: "iXte4oZQQyo",
     canalYoutubeUrl: "https://www.youtube.com/@Soluci%C3%B3nDigital360",
@@ -68,7 +70,7 @@ export const sistemas: Sistema[] = [
       },
       {
         pregunta: "¿El costo de $1,500.00 MXN es un pago único o suscripción mensual?",
-        respuesta: "Es un pago único de Licencia Vitalicia. Cero mensualidades, sin costos ocultos y sin límites de órdenes, clientes ni inventario. Incluye 6 Meses de Soporte Técnico Especializado y Actualizaciones."
+        respuesta: "Es un pago único de Licencia Vitalicia en precio especial solo por este mes. Cero mensualidades, sin costos ocultos y sin límites de órdenes, clientes ni inventario. Incluye 6 Meses de Soporte Técnico Especializado y Actualizaciones."
       },
       {
         pregunta: "¿Puedo vincular varias computadoras y celulares dentro del taller?",
@@ -81,8 +83,9 @@ export const sistemas: Sistema[] = [
   {
     slug: "sistema-gestion-gimnasios",
     nombre: "GymWeb — Sistema de Control y Gestión de Gimnasios",
-    precio: "$2,000.00 MXN",
+    precio: "$1,500.00 MXN",
     precioAnterior: "$3,500.00 MXN",
+    etiquetaPrecio: "Solo por este mes",
     descripcionCorta: "Software empresarial 100% Offline para gestión de membresías, control de asistencias, POS estilo e-commerce, envío de tickets por WhatsApp, ventas a crédito con reporte individual por socio y configuración multi-país automática (20 países con moneda local y LADA). Licencia vitalicia, sin mensualidades.",
     videoYoutubeId: "bkRAztASgNY",
     canalYoutubeUrl: "https://www.youtube.com/@Soluci%C3%B3nDigital360",
@@ -109,7 +112,7 @@ export const sistemas: Sistema[] = [
     faq: [
       {
         pregunta: "¿El pago de la licencia es único o tendré que pagar mensualidades?",
-        respuesta: "Es un pago único definitivo (Licencia Vitalicia). No cobramos anualidades, mensualidades ni comisiones por transacción. El software funciona de manera permanente en tu equipo sin depender de servidores externos ni conexión a internet."
+        respuesta: "Es un pago único definitivo (Licencia Vitalicia) en precio especial de $1,500.00 MXN solo por este mes. No cobramos anualidades, mensualidades ni comisiones por transacción. El software funciona de manera permanente en tu equipo sin depender de servidores externos ni conexión a internet."
       },
       {
         pregunta: "¿Cómo funciona la configuración de país, moneda y LADA para WhatsApp?",

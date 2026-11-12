@@ -1,6 +1,16 @@
 # 📜 Historial de Cambios y Registro de Versiones (Changelog)
 ## Solución Digital 360 — Plataforma Web SaaS
 
+## 📌 Versión 1.5.5 — Noviembre 2026: Precio Promocional GymWeb a $1,500.00 MXN & Etiqueta "Solo por este mes"
+- **🏷️ Actualización de Precio de GymWeb:**
+  - Reducción del precio de Licencia Vitalicia de GymWeb a `$1,500.00 MXN` manteniendo su precio original de `$3,500.00 MXN` tachado.
+- **⚡ Incorporación de Etiqueta Promocional "Solo por este mes":**
+  - Implementación del campo `etiquetaPrecio` en `data/sistemas.ts` para GymWeb y FixPOS Pro.
+  - Visualización en la tarjeta del catálogo principal (`app/page.tsx`) como `Solo por este mes · Único pago`.
+  - Visualización en el encabezado de detalle de cada producto (`app/sistemas/[slug]/page.tsx`).
+  - Integración en la tarjeta CTA de compra/descarga (`components/DownloadCtaCard.tsx`) junto al badge de precio de referencia.
+  - Actualización de las respuestas en preguntas frecuentes (FAQ).
+
 ## 📌 Versión 1.5.4 — Noviembre 2026: Candado Sub2Unlock de 10s en Todas las Herramientas Gratuitas & Cuenta Vercel Dedicada
 - **🔓 Verificación de Suscripción Siempre Activa en Office 2019 (`components/OfficeDownloadBox.tsx`):**
   - Se eliminó la persistencia en `localStorage` (`office_download_unlocked`) y se agregó el reinicio automático del candado al abrir el modal (`handleOpenModal`), asegurando que todo visitante visualice siempre el bloqueo inicial y la cuenta regresiva de 10 segundos tras hacer clic en el botón de suscripción a YouTube.
