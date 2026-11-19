@@ -18,25 +18,34 @@ import {
   Loader2,
 } from 'lucide-react';
 
-interface Office2013DownloadBoxProps {
-  downloadUrl: string;
+interface OfficeDualDownloadBoxProps {
+  downloadUrl2016: string;
+  downloadUrl2013: string;
 }
 
-export default function Office2013DownloadBox({ downloadUrl }: Office2013DownloadBoxProps) {
-  const baseCount = 150;
-  const storageKey = 'sd360_downloads_office_2013';
-  const unlockedStorageKey = 'office_2013_download_unlocked';
+type OfficeVersion = '2016' | '2013';
 
-  const [downloadCount, setDownloadCount] = useState<number>(baseCount);
+export default function OfficeDualDownloadBox({
+  downloadUrl2016,
+  downloadUrl2013,
+}: OfficeDualDownloadBoxProps) {
+  const baseCount2016 = 185;
+  const baseCount2013 = 150;
+  const storageKey2016 = 'sd360_downloads_office_2016';
+  const storageKey2013 = 'sd360_downloads_office_2013';
+
+  const [count2016, setCount2016] = useState<number>(baseCount2016);
+  const [count2013, setCount2013] = useState<number>(baseCount2013);
+  const [selectedVersion, setSelectedVersion] = useState<OfficeVersion>('2016');
   const [isDownloading, setIsDownloading] = useState<boolean>(false);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  // Estados de Desbloqueo (Sub2Unlock) - Siempre inicia bloqueado al abrir el modal
+  // Estados de Desbloqueo (Sub2Unlock)
   const [isUnlocked, setIsUnlocked] = useState<boolean>(false);
   const [isCounting, setIsCounting] = useState<boolean>(false);
   const [countdown, setCountdown] = useState<number>(10);
 
-  // Cerrar modal al presionar tecla ESC
+  // Cerrar modal con tecla ESC
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isModalOpen) {
@@ -47,14 +56,7 @@ export default function Office2013DownloadBox({ downloadUrl }: Office2013Downloa
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isModalOpen]);
 
-  // Limpiar cualquier desbloqueo previo guardado en localStorage para exigir siempre la verificación
-  useEffect(() => {
-    try {
-      localStorage.removeItem(unlockedStorageKey);
-    } catch {}
-  }, [unlockedStorageKey]);
-
-  // Contador regresivo de 10 segundos al hacer clic en Paso 1
+  // Contador regresivo de 10 segundos
   useEffect(() => {
     if (!isCounting) return;
 
@@ -73,43 +75,68 @@ export default function Office2013DownloadBox({ downloadUrl }: Office2013Downloa
     return () => clearInterval(interval);
   }, [isCounting]);
 
-  // Sincronizar contador de descargas
+  // Sincronizar contadores de ambas versiones
   useEffect(() => {
-    let localSavedVal = baseCount;
+    let localVal2016 = baseCount2016;
+    let localVal2013 = baseCount2013;
     try {
-      const stored = localStorage.getItem(storageKey);
-      if (stored) {
-        const parsed = parseInt(stored, 10);
-        if (!isNaN(parsed) && parsed >= baseCount) {
-          localSavedVal = parsed;
-          setDownloadCount(parsed);
+      const s16 = localStorage.getItem(storageKey2016);
+      if (s16) {
+        const p16 = parseInt(s16, 10);
+        if (!isNaN(p16) && p16 >= baseCount2016) {
+          localVal2016 = p16;
+          setCount2016(p16);
+        }
+      }
+      const s13 = localStorage.getItem(storageKey2013);
+      if (s13) {
+        const p13 = parseInt(s13, 10);
+        if (!isNaN(p13) && p13 >= baseCount2013) {
+          localVal2013 = p13;
+          setCount2013(p13);
         }
       }
     } catch {}
 
+    // Fetch Office 2016
+    fetch('/api/downloads?sistema=office-2016')
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && typeof data.count === 'number') {
+          const highest = Math.max(data.count, localVal2016);
+          setCount2016(highest);
+          try {
+            localStorage.setItem(storageKey2016, highest.toString());
+          } catch {}
+        }
+      })
+      .catch((err) => console.error('Error al sincronizar descargas de Office 2016:', err));
+
+    // Fetch Office 2013
     fetch('/api/downloads?sistema=office-2013')
       .then((res) => res.json())
       .then((data) => {
         if (data && typeof data.count === 'number') {
-          const highest = Math.max(data.count, localSavedVal);
-          setDownloadCount(highest);
+          const highest = Math.max(data.count, localVal2013);
+          setCount2013(highest);
           try {
-            localStorage.setItem(storageKey, highest.toString());
+            localStorage.setItem(storageKey2013, highest.toString());
           } catch {}
         }
       })
       .catch((err) => console.error('Error al sincronizar descargas de Office 2013:', err));
-  }, [baseCount, storageKey]);
+  }, [baseCount2016, baseCount2013, storageKey2016, storageKey2013]);
 
-  // Abrir Modal reiniciando siempre el candado de suscripción
-  const handleOpenModal = () => {
+  // Abrir Modal para la versión seleccionada
+  const handleOpenModal = (version: OfficeVersion) => {
+    setSelectedVersion(version);
     setIsUnlocked(false);
     setIsCounting(false);
     setCountdown(10);
     setIsModalOpen(true);
   };
 
-  // Paso 1: Clic en Suscripción YouTube
+  // Clic en Suscripción
   const handleSubscribeClick = () => {
     window.open(
       'https://www.youtube.com/@SolucionDigital360?sub_confirmation=1',
@@ -123,19 +150,29 @@ export default function Office2013DownloadBox({ downloadUrl }: Office2013Downloa
     }
   };
 
-  // Paso 2: Ejecución Real de la Descarga
+  // Ejecutar Descarga de la versión elegida
   const handleExecuteDownload = async () => {
     if (isDownloading) return;
     setIsDownloading(true);
 
-    // 1. Abrir la descarga en nueva pestaña
-    window.open(downloadUrl, '_blank');
+    const activeUrl = selectedVersion === '2016' ? downloadUrl2016 : downloadUrl2013;
+    const is16 = selectedVersion === '2016';
+    const currentCount = is16 ? count2016 : count2013;
+    const nextCount = currentCount + 1;
+    const activeStorageKey = is16 ? storageKey2016 : storageKey2013;
+    const slugParam = is16 ? 'office-2016' : 'office-2013';
 
-    // 2. Incremento visual inmediato del contador
-    const nextCount = downloadCount + 1;
-    setDownloadCount(nextCount);
+    // 1. Abrir descarga
+    window.open(activeUrl, '_blank');
+
+    // 2. Incrementar estado y localStorage
+    if (is16) {
+      setCount2016(nextCount);
+    } else {
+      setCount2013(nextCount);
+    }
     try {
-      localStorage.setItem(storageKey, nextCount.toString());
+      localStorage.setItem(activeStorageKey, nextCount.toString());
     } catch {}
 
     // 3. Registrar en backend
@@ -143,14 +180,18 @@ export default function Office2013DownloadBox({ downloadUrl }: Office2013Downloa
       const res = await fetch('/api/downloads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ sistema: 'office-2013' }),
+        body: JSON.stringify({ sistema: slugParam }),
       });
       const data = await res.json();
       if (data && typeof data.count === 'number') {
         const finalCount = Math.max(data.count, nextCount);
-        setDownloadCount(finalCount);
+        if (is16) {
+          setCount2016(finalCount);
+        } else {
+          setCount2013(finalCount);
+        }
         try {
-          localStorage.setItem(storageKey, finalCount.toString());
+          localStorage.setItem(activeStorageKey, finalCount.toString());
         } catch {}
       }
     } catch (err) {
@@ -164,74 +205,121 @@ export default function Office2013DownloadBox({ downloadUrl }: Office2013Downloa
 
   return (
     <div className="space-y-6">
-      {/* Tarjeta Principal de Descarga */}
-      <section className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm space-y-6">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
-          <div className="space-y-2 text-center lg:text-left">
-            <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-600">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-              </span>
-              <span>Descarga Directa Gratuita · Verificada</span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-              Obtén el Instalador de Office 2013 Profesional
-            </h2>
-            <p className="text-slate-600 text-sm max-w-xl">
-              Paquete completo y ultra ligero de Microsoft Office 2013 (Word, Excel, PowerPoint, Outlook, Access). Ideal para computadoras con recursos estándar o equipos antiguos.
-            </p>
+      {/* Tarjeta Principal de Descarga con 2 Botones */}
+      <section className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm space-y-8">
+        <div className="space-y-3 text-center sm:text-left">
+          <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-600">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+            </span>
+            <span>Descarga Directa Gratuita · Elige tu Versión</span>
           </div>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            Descarga Microsoft Office 2016 o 2013 Profesional
+          </h2>
+          <p className="text-slate-600 text-sm sm:text-base max-w-2xl leading-relaxed">
+            Ambas suites cuentan con el mismo procedimiento de instalación guiado. Selecciona la versión que mejor se adapte a tu computadora:
+          </p>
+        </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-3 w-full lg:w-auto">
-            {/* Marcador Dinámico de Descargas */}
-            <div className="flex items-center gap-2.5 px-4 py-3 rounded-xl bg-slate-900 text-white shadow-md border border-slate-800 shrink-0 w-full sm:w-auto justify-center">
-              <div className="relative flex h-2.5 w-2.5 shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-              </div>
-              <div className="text-left">
-                <span className="font-extrabold text-sm sm:text-base text-emerald-400 font-mono tracking-tight block leading-none">
-                  +{downloadCount}
+        {/* Cuadrícula de 2 Opciones de Descarga */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Opción 1: Office 2016 */}
+          <div className="p-6 rounded-2xl bg-gradient-to-br from-red-50/60 to-white border-2 border-red-200/90 shadow-sm flex flex-col justify-between space-y-5 hover:border-red-300 transition-all">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-800 border border-red-200">
+                  Recomendado para Win 10 / 11
                 </span>
-                <span className="text-[10px] text-slate-300 font-medium tracking-wider uppercase block mt-0.5">
-                  Descargas
-                </span>
+                {/* Contador de Descargas 2016 */}
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-mono font-bold">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                  </span>
+                  <span className="text-emerald-400">+{count2016}</span>
+                  <span className="text-[10px] text-slate-400 font-sans">descargas</span>
+                </div>
               </div>
+
+              <h3 className="text-xl font-extrabold text-slate-900">
+                Microsoft Office 2016 Profesional
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Suite completa y moderna con Word, Excel, PowerPoint, Outlook y Access. Máxima compatibilidad con formatos recientes y alto rendimiento.
+              </p>
             </div>
 
-            {/* Botón Principal: Abre el modal sin iniciar descarga inmediata */}
             <button
               type="button"
-              onClick={handleOpenModal}
-              className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-amber-600 hover:bg-amber-700 active:bg-amber-800 text-white font-bold text-sm transition-all shadow-lg shadow-amber-600/25 w-full sm:w-auto cursor-pointer"
+              onClick={() => handleOpenModal('2016')}
+              className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-red-600 hover:bg-red-700 active:bg-red-800 text-white font-bold text-sm transition-all shadow-lg shadow-red-600/25 cursor-pointer"
             >
               <Download className="w-4 h-4" />
-              <span>Descargar Gratis (.RAR)</span>
+              <span>Descargar Office 2016 (.RAR)</span>
             </button>
-
-            {/* Botón de Asistencia WhatsApp */}
-            <a
-              href="https://wa.me/529611209361?text=Hola,%20tengo%20una%20duda%20sobre%20la%20instalaci%C3%B3n%20de%20Office%202013"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl border border-slate-300 hover:bg-slate-50 text-slate-700 font-semibold text-sm transition-colors w-full sm:w-auto"
-            >
-              <MessageSquare className="w-4 h-4 text-emerald-600" />
-              <span>Pedir Asistencia</span>
-            </a>
           </div>
+
+          {/* Opción 2: Office 2013 */}
+          <div className="p-6 rounded-2xl bg-gradient-to-br from-amber-50/60 to-white border-2 border-amber-200/90 shadow-sm flex flex-col justify-between space-y-5 hover:border-amber-300 transition-all">
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-200">
+                  Ultra Ligero · PC Estándar
+                </span>
+                {/* Contador de Descargas 2013 */}
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-mono font-bold">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                  </span>
+                  <span className="text-emerald-400">+{count2013}</span>
+                  <span className="text-[10px] text-slate-400 font-sans">descargas</span>
+                </div>
+              </div>
+
+              <h3 className="text-xl font-extrabold text-slate-900">
+                Microsoft Office 2013 Profesional
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                Versión ligera y veloz con mínimo consumo de memoria RAM y procesador. Ideal para laptops básicas o equipos con recursos estándar.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => handleOpenModal('2013')}
+              className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-amber-600 hover:bg-amber-700 active:bg-amber-800 text-white font-bold text-sm transition-all shadow-lg shadow-amber-600/25 cursor-pointer"
+            >
+              <Download className="w-4 h-4" />
+              <span>Descargar Office 2013 (.RAR)</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Botón de Asistencia WhatsApp */}
+        <div className="text-center pt-2">
+          <a
+            href="https://wa.me/529611209361?text=Hola,%20tengo%20una%20duda%20sobre%20la%20instalaci%C3%B3n%20de%20Office%202016%20o%202013"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-slate-300 hover:bg-slate-50 text-slate-700 font-semibold text-sm transition-colors"
+          >
+            <MessageSquare className="w-4 h-4 text-emerald-600" />
+            <span>¿Dudas con la instalación? Pedir Asistencia por WhatsApp</span>
+          </a>
         </div>
 
         {/* Garantías y Requisitos */}
         <div className="pt-6 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-slate-500">
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-emerald-500 shrink-0" />
-            <span>Paquete verificado y ligero</span>
+            <span>Paquetes verificados y seguros</span>
           </div>
           <div className="flex items-center gap-2">
             <Laptop className="w-4 h-4 text-blue-500 shrink-0" />
-            <span>Compatible con Windows 7, 8, 10 y 11</span>
+            <span>Compatibles con Windows 7, 8, 10 y 11</span>
           </div>
           <div className="flex items-center gap-2">
             <Check className="w-4 h-4 text-emerald-500 shrink-0" />
@@ -281,7 +369,7 @@ export default function Office2013DownloadBox({ downloadUrl }: Office2013Downloa
           className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/75 backdrop-blur-sm animate-in fade-in duration-200"
           onClick={() => setIsModalOpen(false)}
         >
-          {/* Contenedor del Modal Compacto con Margen Superior e Inferior Garantizado */}
+          {/* Contenedor del Modal Compacto */}
           <div
             onClick={(e) => e.stopPropagation()}
             className="relative w-full max-w-md bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-2xl border border-slate-200 max-h-[88vh] overflow-y-auto space-y-3.5 animate-in zoom-in-95 duration-200 my-auto"
@@ -315,14 +403,16 @@ export default function Office2013DownloadBox({ downloadUrl }: Office2013Downloa
                 id="modal-titulo"
                 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight"
               >
-                {isUnlocked ? '¡Enlace desbloqueado!' : '¡Casi listo para descargar!'}
+                {isUnlocked
+                  ? `¡Enlace de Office ${selectedVersion} desbloqueado!`
+                  : `¡Descargando Office ${selectedVersion}!`}
               </h3>
             </div>
 
             {/* Subtexto Informativo */}
             <p className="text-center text-slate-600 text-xs sm:text-[13px] leading-snug px-1">
               {isUnlocked
-                ? 'Gracias por apoyar nuestro canal de YouTube. Ya puedes descargar el instalador oficial de Office 2013.'
+                ? `Gracias por apoyar nuestro canal de YouTube. Ya puedes descargar el instalador oficial de Office ${selectedVersion}.`
                 : 'Para mantener estas herramientas gratuitas, suscríbete a nuestro canal de YouTube para desbloquear tu enlace de descarga.'}
             </p>
 
@@ -388,7 +478,7 @@ export default function Office2013DownloadBox({ downloadUrl }: Office2013Downloa
                     className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:py-3 rounded-xl bg-slate-100 border border-slate-200 text-slate-400 font-bold text-xs sm:text-sm cursor-not-allowed transition-all"
                   >
                     <Lock className="w-4 h-4 text-slate-400 shrink-0" />
-                    <span>2. Descargar archivo (Bloqueado)</span>
+                    <span>2. Descargar Office {selectedVersion} (Bloqueado)</span>
                   </button>
                 )
               ) : (
@@ -396,13 +486,15 @@ export default function Office2013DownloadBox({ downloadUrl }: Office2013Downloa
                   type="button"
                   onClick={handleExecuteDownload}
                   disabled={isDownloading}
-                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] text-white font-extrabold text-xs sm:text-sm transition-all shadow-lg shadow-emerald-600/30 ring-2 ring-emerald-500/30 cursor-pointer animate-in zoom-in-95 duration-200"
+                  className={`w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl ${
+                    selectedVersion === '2016' ? 'bg-red-600 hover:bg-red-700' : 'bg-amber-600 hover:bg-amber-700'
+                  } active:scale-[0.98] text-white font-extrabold text-xs sm:text-sm transition-all shadow-lg ring-2 ring-emerald-500/30 cursor-pointer animate-in zoom-in-95 duration-200`}
                 >
                   <Download className={`w-4 h-4 sm:w-5 sm:h-5 ${isDownloading ? 'animate-bounce' : ''} shrink-0`} />
                   <span>
                     {isDownloading
                       ? 'Iniciando descarga...'
-                      : '✅ ¡Enlace desbloqueado! Descargar Office 2013'}
+                      : `✅ ¡Enlace desbloqueado! Descargar Office ${selectedVersion}`}
                   </span>
                 </button>
               )}

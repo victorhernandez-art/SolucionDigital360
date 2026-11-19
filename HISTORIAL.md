@@ -1,17 +1,16 @@
 # 📜 Historial de Cambios y Registro de Versiones (Changelog)
 ## Solución Digital 360 — Plataforma Web SaaS
 
-## 📌 Versión 1.5.6 — Noviembre 2026: Incorporación de Office 2016 y Office 2013 en Herramientas Gratuitas
-- **💻 Nuevos Módulos Oficiales para Office 2016 y Office 2013:**
-  - Creación de las páginas dedicadas `/herramientas/office-2016` y `/herramientas/office-2013`.
-  - Integración de componentes interactivos `components/Office2016DownloadBox.tsx` y `components/Office2013DownloadBox.tsx`.
-  - Flujo `Sub2Unlock` con cuenta regresiva obligatoria de 10s para suscribirse al canal `@SoluciónDigital360` antes de habilitar la descarga.
-  - Soporte de persistencia en Supabase y API `/api/downloads` para `office_2016_downloads` (base 185) y `office_2013_downloads` (base 150).
-  - Enlaces de descarga configurados en formato estándar para GitHub Releases:
-    - `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2016/OfficeLicenciaOriginal2016.rar`
-    - `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2013/OfficeLicenciaOriginal2013.rar`
-- **🎨 Cuadrícula Simétrica de Herramientas Gratuitas:**
-  - Actualización del grid en `components/HerramientasGratuitas.tsx` a 3 columnas (`lg:grid-cols-3`) para un balance perfecto de las 6 herramientas disponibles.
+## 📌 Versión 1.5.6 — Noviembre 2026: Tarjeta Unificada para Microsoft Office 2016 y 2013 con Descarga Dual
+- **💻 Tarjeta y Página Unificada de Office 2016 y Office 2013:**
+  - Integración en una sola tarjeta dentro del catálogo de herramientas gratuitas (`components/HerramientasGratuitas.tsx`).
+  - Creación del componente dual `components/OfficeDualDownloadBox.tsx` con dos bloques y botones de descarga dedicados para cada versión en `/herramientas/office-2016`.
+  - Mecanismo `Sub2Unlock` en 2 pasos con verificación de 10 segundos condicionada a la suscripción al canal oficial `@SoluciónDigital360`.
+  - Contadores dinámicos independientes vinculados con Supabase (`office_2016_downloads` y `office_2013_downloads`).
+  - Enlaces de descarga configurados para GitHub Releases:
+    - Office 2016: `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2016/OfficeLicenciaOriginal2016.rar`
+    - Office 2013: `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2013/OfficeLicenciaOriginal2013.rar`
+  - Guía única de instalación paso a paso común para ambas suites.
 
 ## 📌 Versión 1.5.5 — Noviembre 2026: Precio Promocional GymWeb a $1,500.00 MXN & Etiqueta "Solo por este mes"
 - **🏷️ Actualización de Precio de GymWeb:**

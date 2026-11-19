@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import Office2016DownloadBox from '@/components/Office2016DownloadBox';
+import OfficeDualDownloadBox from '@/components/OfficeDualDownloadBox';
 import {
   CheckCircle2,
   ArrowLeft,
@@ -15,18 +15,21 @@ import {
   Database,
   Youtube,
   PlayCircle,
+  Laptop,
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Office 2016 GRATIS y LEGAL ✔️ | Descarga e Instalación Oficial | Solución Digital 360',
+  title: 'Office 2016 y 2013 GRATIS ✔️ | Descarga e Instalación Oficial | Solución Digital 360',
   description:
-    'Aprende a instalar Microsoft Office 2016 Profesional (Word, Excel, PowerPoint, Outlook, Access) con instalador oficial y soporte para licencias originales.',
+    'Aprende a instalar Microsoft Office 2016 y Office 2013 Profesional (Word, Excel, PowerPoint, Outlook, Access). Guía unificada paso a paso con instaladores directos.',
 };
 
 const DOWNLOAD_OFFICE_2016_URL =
   'https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2016/OfficeLicenciaOriginal2016.rar';
+const DOWNLOAD_OFFICE_2013_URL =
+  'https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2013/OfficeLicenciaOriginal2013.rar';
 
-export default function Office2016Page() {
+export default function Office2016And2013Page() {
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 antialiased flex flex-col justify-between">
       <Navbar />
@@ -42,7 +45,7 @@ export default function Office2016Page() {
             <span>Volver a Herramientas Gratuitas</span>
           </Link>
           <span className="text-slate-300">/</span>
-          <span className="text-slate-800 font-semibold truncate">Office 2016 Profesional</span>
+          <span className="text-slate-800 font-semibold truncate">Office 2016 y 2013 Profesional</span>
         </div>
 
         {/* Encabezado Principal */}
@@ -52,15 +55,15 @@ export default function Office2016Page() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500" />
             </span>
-            <span>Herramienta Gratuita · Paquete Completo Office</span>
+            <span>Herramienta Gratuita · 2 Versiones en 1 Sola Guía</span>
           </div>
 
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Microsoft Office 2016 Profesional — Guía e Instalación
+            Microsoft Office 2016 y 2013 — Guía e Instaladores
           </h1>
 
           <p className="text-slate-600 text-base sm:text-lg max-w-3xl leading-relaxed">
-            Obtén el paquete completo de Microsoft Office 2016 para Windows. Incluye Word, Excel, PowerPoint, Outlook y Access. Paquete completo y estable con alto rendimiento.
+            El mismo proceso de instalación para ambas versiones. Elige <strong>Office 2016</strong> para equipos modernos con Windows 10/11, o <strong>Office 2013</strong> para un rendimiento ultra ligero en cualquier computadora de recursos estándar.
           </p>
         </div>
 
@@ -85,10 +88,10 @@ export default function Office2016Page() {
                 Próximamente en YouTube
               </span>
               <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                Video Tutorial de Instalación Paso a Paso
+                Video Tutorial de Instalación Paso a Paso (Office 2016 / 2013)
               </h3>
               <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-                Estamos preparando la guía visual detallada para instalar y activar Office 2016 de forma legal. Suscríbete a nuestro canal oficial para recibir la notificación tan pronto se estrene.
+                Estamos preparando el tutorial definitivo donde aprenderás a instalar y dejar operativo tu paquete Office de forma legal y segura. Suscríbete para ser el primero en verlo.
               </p>
             </div>
 
@@ -106,79 +109,74 @@ export default function Office2016Page() {
           </div>
         </section>
 
-        {/* Componente Interactivo de Descarga con Sub2Unlock */}
-        <Office2016DownloadBox downloadUrl={DOWNLOAD_OFFICE_2016_URL} />
+        {/* Componente Dual de Descarga con 2 Botones y Sub2Unlock */}
+        <OfficeDualDownloadBox
+          downloadUrl2016={DOWNLOAD_OFFICE_2016_URL}
+          downloadUrl2013={DOWNLOAD_OFFICE_2013_URL}
+        />
 
-        {/* Sección: Aplicaciones Incluidas */}
+        {/* Sección: Comparativa rápida y Aplicaciones */}
         <section className="space-y-6">
           <div className="text-center sm:text-left space-y-2">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              Aplicaciones Incluidas en la Suite 2016
+              ¿Cuál versión elegir para tu equipo?
             </h2>
             <p className="text-slate-600 text-sm sm:text-base">
-              Las herramientas esenciales de ofimática preparadas para trabajar en proyectos escolares, profesionales y empresariales.
+              Ambas suites incluyen las aplicaciones completas: Word, Excel, PowerPoint, Outlook, Access, OneNote y Publisher.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-2">
-              <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
-                <FileText className="w-5 h-5" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-white border-2 border-red-200/80 rounded-2xl p-6 shadow-sm space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-red-100 text-red-600 flex items-center justify-center font-bold">
+                  2016
+                </div>
+                <div>
+                  <h3 className="font-bold text-slate-900 text-lg">Office 2016 Profesional</h3>
+                  <span className="text-xs text-red-600 font-semibold">Para Windows 10 y 11</span>
+                </div>
               </div>
-              <h3 className="font-bold text-slate-900 text-base">Microsoft Word 2016</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Procesador de textos líder para cartas, documentos académicos, contratos y formatos profesionales.
-              </p>
+              <ul className="text-xs sm:text-sm text-slate-600 space-y-2 pt-2">
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span>Interfaz gráfica oscura y moderna adaptada a pantallas HD.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span>Mayor compatibilidad con archivos y fórmulas recientes de Excel.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span>Excelente estabilidad para trabajo de oficina y universidad.</span>
+                </li>
+              </ul>
             </div>
 
-            <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-2">
-              <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
-                <FileSpreadsheet className="w-5 h-5" />
+            <div className="bg-white border-2 border-amber-200/80 rounded-2xl p-6 shadow-sm space-y-3">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-bold">
+                  2013
+                </div>
+                <div>
+                  <h3 className="font-bold text-slate-900 text-lg">Office 2013 Profesional</h3>
+                  <span className="text-xs text-amber-600 font-semibold">Para PC con recursos estándar</span>
+                </div>
               </div>
-              <h3 className="font-bold text-slate-900 text-base">Microsoft Excel 2016</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Hojas de cálculo con fórmulas avanzadas, tablas dinámicas y gráficos analíticos.
-              </p>
-            </div>
-
-            <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-2">
-              <div className="w-10 h-10 rounded-xl bg-orange-50 text-orange-600 flex items-center justify-center">
-                <Presentation className="w-5 h-5" />
-              </div>
-              <h3 className="font-bold text-slate-900 text-base">PowerPoint 2016</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Diseño de presentaciones visuales dinámicas con transiciones elegantes y plantillas ejecutivas.
-              </p>
-            </div>
-
-            <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-2">
-              <div className="w-10 h-10 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center">
-                <Mail className="w-5 h-5" />
-              </div>
-              <h3 className="font-bold text-slate-900 text-base">Microsoft Outlook 2016</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Gestión centralizada de correo electrónico profesional, calendario de citas y contactos.
-              </p>
-            </div>
-
-            <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-2">
-              <div className="w-10 h-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center">
-                <Database className="w-5 h-5" />
-              </div>
-              <h3 className="font-bold text-slate-900 text-base">Microsoft Access 2016</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Gestor de bases de datos relacionales para administración de inventarios y formularios de datos.
-              </p>
-            </div>
-
-            <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm space-y-2">
-              <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center">
-                <Sparkles className="w-5 h-5" />
-              </div>
-              <h3 className="font-bold text-slate-900 text-base">OneNote & Publisher 2016</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">
-                Bloc de notas digital y maquetación de folletos, trípticos y material publicitario.
-              </p>
+              <ul className="text-xs sm:text-sm text-slate-600 space-y-2 pt-2">
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span>Consumo mínimo de memoria RAM (funciona fluido en 2 GB y 4 GB).</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span>Apertura instantánea de Word y Excel sin demoras de carga.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span>Ideal para computadoras de mostrador, talleres y laptops estándar.</span>
+                </li>
+              </ul>
             </div>
           </div>
         </section>
@@ -187,10 +185,10 @@ export default function Office2016Page() {
         <section className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm space-y-6">
           <div className="border-b border-slate-100 pb-4">
             <h2 className="text-xl sm:text-2xl font-bold text-slate-900">
-              ¿Cómo descargar e instalar Office 2016?
+              Instrucciones de Instalación (Válidas para 2016 y 2013)
             </h2>
             <p className="text-xs sm:text-sm text-slate-500 mt-1">
-              Sigue estas sencillas instrucciones para descomprimir e instalar sin errores:
+              El procedimiento es idéntico en ambas versiones:
             </p>
           </div>
 
@@ -199,9 +197,9 @@ export default function Office2016Page() {
               <div className="w-8 h-8 rounded-full bg-red-600 text-white font-bold flex items-center justify-center text-sm">
                 1
               </div>
-              <h3 className="font-bold text-slate-900 text-base">Desbloquea y Descarga</h3>
+              <h3 className="font-bold text-slate-900 text-base">Descarga tu Versión</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Pulsa el botón de descarga, suscríbete al canal para desbloquear el enlace y obtén el archivo comprimido <code className="bg-slate-100 px-1 py-0.5 rounded text-red-600 font-mono text-[11px]">.RAR</code>.
+                Selecciona 2016 o 2013, suscríbete para desbloquear el enlace y descarga el paquete comprimido <code className="bg-slate-100 px-1 py-0.5 rounded text-red-600 font-mono text-[11px]">.RAR</code>.
               </p>
             </div>
 
@@ -219,9 +217,9 @@ export default function Office2016Page() {
               <div className="w-8 h-8 rounded-full bg-red-600 text-white font-bold flex items-center justify-center text-sm">
                 3
               </div>
-              <h3 className="font-bold text-slate-900 text-base">Ejecuta el Instalador</h3>
+              <h3 className="font-bold text-slate-900 text-base">Ejecuta Setup</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Abre el archivo ejecutable <code className="bg-slate-100 px-1 py-0.5 rounded text-red-600 font-mono text-[11px]">setup.exe</code> como administrador y sigue los pasos del instalador.
+                Ejecuta el archivo <code className="bg-slate-100 px-1 py-0.5 rounded text-red-600 font-mono text-[11px]">setup.exe</code> como administrador y deja que el instalador complete la copia de archivos.
               </p>
             </div>
           </div>
@@ -232,4 +230,3 @@ export default function Office2016Page() {
     </div>
   );
 }
-
