@@ -25,9 +25,9 @@ export const metadata: Metadata = {
 };
 
 const DOWNLOAD_OFFICE_2016_URL =
-  'https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2016/OfficeLicenciaOriginal2016.rar';
+  'https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2016/OFFICE.2016.PERPETUO.rar';
 const DOWNLOAD_OFFICE_2013_URL =
-  'https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2013/OfficeLicenciaOriginal2013.rar';
+  'https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2013/OFFICE.2013.PERPETUO.rar';
 
 export default function Office2016And2013Page() {
   return (
@@ -50,10 +50,10 @@ export default function Office2016And2013Page() {
 
         {/* Encabezado Principal */}
         <div className="text-center sm:text-left space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-red-100 text-red-800 border border-red-200 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200 shadow-sm">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-600" />
             </span>
             <span>Herramienta Gratuita · 2 Versiones en 1 Sola Guía</span>
           </div>
@@ -78,7 +78,7 @@ export default function Office2016And2013Page() {
             </span>
           </div>
 
-          <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-red-950 text-white rounded-3xl p-8 sm:p-12 text-center space-y-6 shadow-xl border border-slate-700/60 relative overflow-hidden">
+          <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white rounded-3xl p-8 sm:p-12 text-center space-y-6 shadow-xl border border-slate-700/60 relative overflow-hidden">
             <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-3xl bg-red-600/20 border-2 border-red-500/40 flex items-center justify-center text-red-400">
               <PlayCircle className="w-10 h-10 sm:w-12 sm:h-12" />
             </div>
@@ -127,14 +127,14 @@ export default function Office2016And2013Page() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-white border-2 border-red-200/80 rounded-2xl p-6 shadow-sm space-y-3">
+            <div className="bg-white border-2 border-indigo-200/90 rounded-2xl p-6 shadow-sm space-y-3">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-red-100 text-red-600 flex items-center justify-center font-bold">
+                <div className="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold">
                   2016
                 </div>
                 <div>
                   <h3 className="font-bold text-slate-900 text-lg">Office 2016 Profesional</h3>
-                  <span className="text-xs text-red-600 font-semibold">Para Windows 10 y 11</span>
+                  <span className="text-xs text-indigo-600 font-semibold">Para Windows 10 y 11</span>
                 </div>
               </div>
               <ul className="text-xs sm:text-sm text-slate-600 space-y-2 pt-2">
@@ -194,17 +194,17 @@ export default function Office2016And2013Page() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="space-y-2">
-              <div className="w-8 h-8 rounded-full bg-red-600 text-white font-bold flex items-center justify-center text-sm">
+              <div className="w-8 h-8 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center text-sm shadow-sm">
                 1
               </div>
               <h3 className="font-bold text-slate-900 text-base">Descarga tu Versión</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Selecciona 2016 o 2013, suscríbete para desbloquear el enlace y descarga el paquete comprimido <code className="bg-slate-100 px-1 py-0.5 rounded text-red-600 font-mono text-[11px]">.RAR</code>.
+                Selecciona 2016 o 2013, suscríbete para desbloquear el enlace y descarga el paquete comprimido <code className="bg-slate-100 px-1 py-0.5 rounded text-indigo-700 font-mono text-[11px]">.RAR</code>.
               </p>
             </div>
 
             <div className="space-y-2">
-              <div className="w-8 h-8 rounded-full bg-red-600 text-white font-bold flex items-center justify-center text-sm">
+              <div className="w-8 h-8 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center text-sm shadow-sm">
                 2
               </div>
               <h3 className="font-bold text-slate-900 text-base">Descomprime con WinRAR</h3>
@@ -214,12 +214,12 @@ export default function Office2016And2013Page() {
             </div>
 
             <div className="space-y-2">
-              <div className="w-8 h-8 rounded-full bg-red-600 text-white font-bold flex items-center justify-center text-sm">
+              <div className="w-8 h-8 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center text-sm shadow-sm">
                 3
               </div>
               <h3 className="font-bold text-slate-900 text-base">Ejecuta Setup</h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Ejecuta el archivo <code className="bg-slate-100 px-1 py-0.5 rounded text-red-600 font-mono text-[11px]">setup.exe</code> como administrador y deja que el instalador complete la copia de archivos.
+                Ejecuta el archivo <code className="bg-slate-100 px-1 py-0.5 rounded text-indigo-700 font-mono text-[11px]">setup.exe</code> como administrador y deja que el instalador complete la copia de archivos.
               </p>
             </div>
           </div>

@@ -226,10 +226,10 @@ export default function OfficeDualDownloadBox({
         {/* Cuadrícula de 2 Opciones de Descarga */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Opción 1: Office 2016 */}
-          <div className="p-6 rounded-2xl bg-gradient-to-br from-red-50/60 to-white border-2 border-red-200/90 shadow-sm flex flex-col justify-between space-y-5 hover:border-red-300 transition-all">
+          <div className="p-6 rounded-2xl bg-gradient-to-br from-indigo-50/60 to-white border-2 border-indigo-200/90 shadow-sm flex flex-col justify-between space-y-5 hover:border-indigo-300 transition-all">
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-800 border border-red-200">
+                <span className="px-3 py-1 rounded-full text-xs font-bold bg-indigo-100 text-indigo-800 border border-indigo-200">
                   Recomendado para Win 10 / 11
                 </span>
                 {/* Contador de Descargas 2016 */}
@@ -254,7 +254,7 @@ export default function OfficeDualDownloadBox({
             <button
               type="button"
               onClick={() => handleOpenModal('2016')}
-              className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-red-600 hover:bg-red-700 active:bg-red-800 text-white font-bold text-sm transition-all shadow-lg shadow-red-600/25 cursor-pointer"
+              className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white font-bold text-sm transition-all shadow-lg shadow-indigo-600/25 cursor-pointer"
             >
               <Download className="w-4 h-4" />
               <span>Descargar Office 2016 (.RAR)</span>
@@ -417,14 +417,14 @@ export default function OfficeDualDownloadBox({
             </p>
 
             {/* Llamado de Suscripción: Meta Office 2021 */}
-            <div className="p-3 rounded-xl bg-gradient-to-br from-red-50 via-amber-50 to-red-50 border border-red-200/90 text-center space-y-1 shadow-sm">
-              <div className="inline-flex items-center gap-1 text-[11px] font-black uppercase tracking-wider text-red-700">
+            <div className="p-3 rounded-xl bg-gradient-to-br from-indigo-50/60 via-amber-50/40 to-indigo-50/60 border border-indigo-200/80 text-center space-y-1 shadow-sm">
+              <div className="inline-flex items-center gap-1 text-[11px] font-black uppercase tracking-wider text-indigo-700">
                 <span className="text-sm">🚀</span>
                 <span>¡Ayúdanos a llegar a la meta!</span>
               </div>
               <p className="text-xs font-medium text-slate-800 leading-snug">
                 Suscríbete y comparte para que estés enterado de los programas que estaré publicando. Si este canal sube a más suscriptores estaré subiendo{' '}
-                <strong className="text-red-600 font-extrabold">Office 2021 totalmente gratis Licencia original</strong>.
+                <strong className="text-indigo-600 font-extrabold">Office 2021 totalmente gratis Licencia original</strong>.
               </p>
             </div>
 
@@ -486,9 +486,7 @@ export default function OfficeDualDownloadBox({
                   type="button"
                   onClick={handleExecuteDownload}
                   disabled={isDownloading}
-                  className={`w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl ${
-                    selectedVersion === '2016' ? 'bg-red-600 hover:bg-red-700' : 'bg-amber-600 hover:bg-amber-700'
-                  } active:scale-[0.98] text-white font-extrabold text-xs sm:text-sm transition-all shadow-lg ring-2 ring-emerald-500/30 cursor-pointer animate-in zoom-in-95 duration-200`}
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 active:scale-[0.98] text-white font-extrabold text-xs sm:text-sm transition-all shadow-lg shadow-emerald-600/30 ring-2 ring-emerald-500/30 cursor-pointer animate-in zoom-in-95 duration-200"
                 >
                   <Download className={`w-4 h-4 sm:w-5 sm:h-5 ${isDownloading ? 'animate-bounce' : ''} shrink-0`} />
                   <span>

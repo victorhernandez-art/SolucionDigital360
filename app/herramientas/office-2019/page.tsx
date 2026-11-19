@@ -47,7 +47,7 @@ export default function Office2019Page() {
 
         {/* Encabezado Principal */}
         <div className="text-center sm:text-left space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-red-100 text-red-800 border border-red-200 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-indigo-50 text-indigo-700 border border-indigo-200 shadow-sm">
             <Image
               src="/office-2019-icon.png"
               alt="Office 2019"

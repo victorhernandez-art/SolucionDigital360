@@ -1,6 +1,22 @@
 # 📜 Historial de Cambios y Registro de Versiones (Changelog)
 ## Solución Digital 360 — Plataforma Web SaaS
 
+## 📌 Versión 1.5.7 — Noviembre 2026: Reemplazo de Tonos Rojos por Índigo y Esmeralda en Office & URLs de GitHub Releases Validadas
+- **📦 Actualización y Verificación de Enlaces Oficiales de Descarga en GitHub Releases:**
+  - **Office 2016:** `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2016/OFFICE.2016.PERPETUO.rar` (820.1 MB - HTTP 200 OK verificado).
+  - **Office 2013:** `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2013/OFFICE.2013.PERPETUO.rar` (709.1 MB - HTTP 200 OK verificado).
+- **🎨 Rediseño Cromático de Office 2016 y 2013 (Eliminación de Apariencia de Error):**
+  - **Catálogo de Herramientas Gratuitas (`components/HerramientasGratuitas.tsx`):**
+    - Se reemplazaron los tonos rojos de la tarjeta de Office 2016 / 2013 por índigo corporativo (`text-indigo-600`, `bg-indigo-50/90`, `glow-indigo-400`, `border-indigo-200/80`), mejorando la diferenciación visual y limpieza de la tarjeta.
+  - **Página de Office 2016 y 2013 (`app/herramientas/office-2016/page.tsx`):**
+    - La insignia superior se modificó de rojo a índigo (`bg-indigo-50 text-indigo-700 border-indigo-200`).
+    - La tarjeta comparativa técnica de Office 2016 ahora luce bordes y acentos índigo (`border-indigo-200/90`, `bg-indigo-100 text-indigo-700`).
+    - Los indicadores circulares de los 3 pasos de instalación y las etiquetas de código (`.RAR`, `setup.exe`) se ajustaron a índigo (`bg-indigo-600 text-white`).
+  - **Componente Dual de Descarga (`components/OfficeDualDownloadBox.tsx`):**
+    - La tarjeta y el botón de Office 2016 se actualizaron de rojo a índigo (`bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 shadow-indigo-600/25`), eliminando cualquier sensación de alerta o error visual.
+    - El botón desbloqueado del modal (Paso 2) ahora utiliza verde esmeralda (`bg-emerald-600 hover:bg-emerald-700`), comunicando éxito y seguridad al usuario.
+    - **Uso Estricto del Color Rojo:** El rojo queda reservado exclusivamente para los elementos de marca del canal oficial de YouTube (botón de suscripción oficial `#FF0000` y enlaces al canal).
+
 ## 📌 Versión 1.5.6 — Noviembre 2026: Tarjeta Unificada para Microsoft Office 2016 y 2013 con Descarga Dual
 - **💻 Tarjeta y Página Unificada de Office 2016 y Office 2013:**
   - Integración en una sola tarjeta dentro del catálogo de herramientas gratuitas (`components/HerramientasGratuitas.tsx`).
@@ -8,8 +24,8 @@
   - Mecanismo `Sub2Unlock` en 2 pasos con verificación de 10 segundos condicionada a la suscripción al canal oficial `@SoluciónDigital360`.
   - Contadores dinámicos independientes vinculados con Supabase (`office_2016_downloads` y `office_2013_downloads`).
   - Enlaces de descarga configurados para GitHub Releases:
-    - Office 2016: `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2016/OfficeLicenciaOriginal2016.rar`
-    - Office 2013: `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2013/OfficeLicenciaOriginal2013.rar`
+    - Office 2016: `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2016/OFFICE.2016.PERPETUO.rar`
+    - Office 2013: `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2013/OFFICE.2013.PERPETUO.rar`
   - Guía única de instalación paso a paso común para ambas suites.
 
 ## 📌 Versión 1.5.5 — Noviembre 2026: Precio Promocional GymWeb a $1,500.00 MXN & Etiqueta "Solo por este mes"

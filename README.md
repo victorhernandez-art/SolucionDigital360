@@ -156,15 +156,27 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.5.6 — Noviembre 2026 (Actualización Reciente)
+### 📌 Versión 1.5.7 — Noviembre 2026 (Actualización Reciente)
+- **📦 Actualización y Verificación de Enlaces Oficiales de Descarga en GitHub Releases:**
+  - **Office 2016:** `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2016/OFFICE.2016.PERPETUO.rar` (820.1 MB - Verificado HTTP 200 OK).
+  - **Office 2013:** `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2013/OFFICE.2013.PERPETUO.rar` (709.1 MB - Verificado HTTP 200 OK).
+- **🎨 Rediseño Cromático de Office 2016 y 2013 (Rojo Exclusivo para YouTube):**
+  - Sustitución de acentos rojos por índigo corporativo y profesional en:
+    - Tarjeta del catálogo principal (`components/HerramientasGratuitas.tsx`).
+    - Encabezado, insignias de estado, tarjeta comparativa y círculos de pasos 1, 2 y 3 (`app/herramientas/office-2016/page.tsx`).
+    - Caja de descarga y botón de acción de Office 2016 (`components/OfficeDualDownloadBox.tsx`).
+  - Botón desbloqueado en el modal unificado a verde esmeralda (`bg-emerald-600`), comunicando éxito y confianza.
+  - El color rojo oficial (`#FF0000`) se conserva estrictamente para la identidad y botones de suscripción a YouTube.
+
+### 📌 Versión 1.5.6 — Noviembre 2026
 - **📦 Nueva Tarjeta Unificada para Microsoft Office 2016 y Office 2013:**
   - Integración en una sola tarjeta dentro del catálogo de herramientas gratuitas (`/herramientas/office-2016`).
   - Nuevo componente dual interactivo `components/OfficeDualDownloadBox.tsx` con dos botones independientes de descarga:
     - **Botón 1:** Descargar Office 2016 (.RAR) con contador independiente (base 185) y candado Sub2Unlock (10s).
     - **Botón 2:** Descargar Office 2013 (.RAR) con contador independiente (base 150) y candado Sub2Unlock (10s).
   - Enlaces oficiales configurados hacia GitHub Releases:
-    - Office 2016: `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2016/OfficeLicenciaOriginal2016.rar`
-    - Office 2013: `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2013/OfficeLicenciaOriginal2013.rar`
+    - Office 2016: `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2016/OFFICE.2016.PERPETUO.rar`
+    - Office 2013: `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2013/OFFICE.2013.PERPETUO.rar`
   - Guía única de instalación y tabla comparativa de selección según el rendimiento del equipo.
 
 ### 📌 Versión 1.5.5 — Noviembre 2026
