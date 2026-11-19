@@ -49,6 +49,34 @@ const herramientas: HerramientaGratuita[] = [
     href: '/herramientas/office-2019',
   },
   {
+    id: 'office-2016-pro',
+    icono: LayoutGrid,
+    imagen: '/office-2019-icon.png',
+    colorIcono: 'text-red-600',
+    bgIcono: 'bg-red-50/90',
+    glowIcono: 'bg-red-400',
+    ringIcono: 'border-red-200/80',
+    nombre: 'Office 2016 Profesional — Guía & Descarga',
+    descripcion:
+      'Aprende a instalar Microsoft Office 2016 Profesional (Word, Excel, PowerPoint, Outlook, Access). Suite completa con alto rendimiento.',
+    labelBoton: 'Ver tutorial y descarga',
+    href: '/herramientas/office-2016',
+  },
+  {
+    id: 'office-2013-pro',
+    icono: LayoutGrid,
+    imagen: '/office-2019-icon.png',
+    colorIcono: 'text-amber-600',
+    bgIcono: 'bg-amber-50/90',
+    glowIcono: 'bg-amber-400',
+    ringIcono: 'border-amber-200/80',
+    nombre: 'Office 2013 Profesional — Guía & Descarga',
+    descripcion:
+      'La versión más ligera y rápida de Microsoft Office para cualquier PC con Windows. Excelente fluidez y bajo consumo de memoria RAM.',
+    labelBoton: 'Ver tutorial y descarga',
+    href: '/herramientas/office-2013',
+  },
+  {
     id: 'filmora',
     icono: Film,
     imagen: '/filmora-icon.png',
@@ -215,7 +243,7 @@ export default function HerramientasGratuitas() {
       </div>
 
       {/* Grid de tarjetas */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {herramientas.map((h) => {
           const Icono = h.icono;
           return (

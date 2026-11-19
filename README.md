@@ -156,7 +156,17 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.5.5 — Noviembre 2026 (Actualización Reciente)
+### 📌 Versión 1.5.6 — Noviembre 2026 (Actualización Reciente)
+- **📦 Nuevas Herramientas Gratuitas: Office 2016 Profesional y Office 2013 Profesional:**
+  - Nuevas páginas dedicadas en `/herramientas/office-2016` y `/herramientas/office-2013`.
+  - Componentes de descarga dedicados (`components/Office2016DownloadBox.tsx` y `components/Office2013DownloadBox.tsx`) con candado `Sub2Unlock` de 10s para suscribirse al canal oficial de YouTube y contador dinámico persistente con Supabase (`office_2016_downloads` y `office_2013_downloads`).
+  - Enlaces de descarga oficial directa preparados para GitHub Releases:
+    - Office 2016: `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2016/OfficeLicenciaOriginal2016.rar`
+    - Office 2013: `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2013/OfficeLicenciaOriginal2013.rar`
+  - Reorganización de la cuadrícula de Herramientas Gratuitas a 3 columnas simétricas (`lg:grid-cols-3`) con 6 herramientas en total.
+  - Sección de video con aviso de "Próximamente en YouTube" y botón de suscripción al canal oficial `@SoluciónDigital360`.
+
+### 📌 Versión 1.5.5 — Noviembre 2026
 - **🏷️ Actualización de Precio Promocional GymWeb & Etiqueta "Solo por este mes":**
   - Ajuste del precio oficial de GymWeb a `$1,500.00 MXN` (precio anterior tachado de `$3,500.00 MXN`).
   - Integración del atributo `etiquetaPrecio: "Solo por este mes"` visible en:

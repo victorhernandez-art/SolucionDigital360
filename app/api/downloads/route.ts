@@ -13,6 +13,8 @@ const INITIAL_COUNTS: Record<string, number> = {
   gimnasio_downloads: 375,
   nitro_pdf_downloads: 160,
   office_2019_downloads: 230,
+  office_2016_downloads: 185,
+  office_2013_downloads: 150,
   filmora_downloads: 195,
   yt_downloader_downloads: 245,
 };
@@ -28,6 +30,12 @@ function getSystemKey(slugOrKey?: string | null): string {
   }
   if (clean.includes('filmora')) {
     return 'filmora_downloads';
+  }
+  if (clean.includes('2013')) {
+    return 'office_2013_downloads';
+  }
+  if (clean.includes('2016')) {
+    return 'office_2016_downloads';
   }
   if (clean.includes('office') || clean.includes('2019')) {
     return 'office_2019_downloads';
@@ -50,6 +58,8 @@ function getLocalCounts(): Record<string, number> {
         gimnasio_downloads: typeof data.gimnasio_downloads === 'number' ? data.gimnasio_downloads : INITIAL_COUNTS.gimnasio_downloads,
         nitro_pdf_downloads: typeof data.nitro_pdf_downloads === 'number' ? data.nitro_pdf_downloads : INITIAL_COUNTS.nitro_pdf_downloads,
         office_2019_downloads: typeof data.office_2019_downloads === 'number' ? data.office_2019_downloads : INITIAL_COUNTS.office_2019_downloads,
+        office_2016_downloads: typeof data.office_2016_downloads === 'number' ? data.office_2016_downloads : INITIAL_COUNTS.office_2016_downloads,
+        office_2013_downloads: typeof data.office_2013_downloads === 'number' ? data.office_2013_downloads : INITIAL_COUNTS.office_2013_downloads,
         filmora_downloads: typeof data.filmora_downloads === 'number' ? data.filmora_downloads : INITIAL_COUNTS.filmora_downloads,
         yt_downloader_downloads: typeof data.yt_downloader_downloads === 'number' ? data.yt_downloader_downloads : INITIAL_COUNTS.yt_downloader_downloads,
       };
