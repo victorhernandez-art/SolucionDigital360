@@ -156,7 +156,15 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.5.7 — Noviembre 2026 (Actualización Reciente)
+### 📌 Versión 1.5.8 — Noviembre 2026 (Actualización Reciente)
+- **⚡ Botón de Descarga Superior Inmediato para Cotizador (`HeaderDownloadButton.tsx` y `page.tsx`):**
+  - Implementación de botón directo al lado del título principal en `/sistemas/generador-cotizaciones-pdf` para permitir descarga rápida al ingresar.
+  - Disponibilidad de descarga en dos puntos clave de la página: encabezado superior y tarjeta final `DownloadCtaCard`.
+- **🧹 Eliminación de Textos Incompatibles al Final de la Página (`DownloadCtaCard.tsx`):**
+  - Se eliminaron las notas sobre coordinación de compra por WhatsApp y claves de prueba de 7 días con gestión de socios en sistemas gratuitos (`esGratis`).
+  - El pie de seguridad y compra ahora se reserva exclusivamente para los sistemas comerciales de pago.
+
+### 📌 Versión 1.5.7 — Noviembre 2026
 - **📦 Actualización y Verificación de Enlaces Oficiales de Descarga en GitHub Releases:**
   - **Office 2016:** `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2016/OFFICE.2016.PERPETUO.rar` (820.1 MB - Verificado HTTP 200 OK).
   - **Office 2013:** `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2013/OFFICE.2013.PERPETUO.rar` (709.1 MB - Verificado HTTP 200 OK).

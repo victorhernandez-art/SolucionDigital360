@@ -31,6 +31,7 @@ import SupportedCategories from '@/components/SupportedCategories';
 import LanAndRolesSection from '@/components/LanAndRolesSection';
 import DownloadCtaCard from '@/components/DownloadCtaCard';
 import DemoDownloadButton from '@/components/DemoDownloadButton';
+import HeaderDownloadButton from '@/components/HeaderDownloadButton';
 import Gym3DFeatureCards from '@/components/Gym3DFeatureCards';
 import FixPosVsSaasComparison from '@/components/FixPosVsSaasComparison';
 import Navbar from '@/components/Navbar';
@@ -95,7 +96,7 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
         </div>
         
         {/* Encabezado Principal y Hero */}
-        <section className="space-y-6 text-center md:text-left max-w-4xl mx-auto md:mx-0">
+        <section className="space-y-6 text-center md:text-left w-full">
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5">
             {sistema.esGratis ? (
               <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">
@@ -123,32 +124,44 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
             )}
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-4">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-1">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight max-w-3xl">
               {sistema.nombre}
             </h1>
-            {!sistema.esGratis && (
-            <div className="shrink-0 text-center md:text-right bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
-              <span className="text-xs font-bold text-emerald-600 uppercase tracking-wider block">
-                {sistema.etiquetaPrecio ? `${sistema.etiquetaPrecio} · Único Pago` : 'Único Pago'}
-              </span>
-              <div className="flex items-baseline justify-center md:justify-end gap-2 my-0.5">
-                {sistema.precioAnterior && (
-                  <span className="text-base text-slate-400 line-through font-semibold">
-                    {sistema.precioAnterior}
-                  </span>
-                )}
-                <span className="text-3xl font-extrabold tracking-tight text-slate-900">
-                  {sistema.precio}
+
+            {/* Lado derecho: Precio para sistemas de pago O Botón de Descarga Rápida para sistemas gratuitos */}
+            {!sistema.esGratis ? (
+              <div className="shrink-0 text-center md:text-right bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+                <span className="text-xs font-bold text-emerald-600 uppercase tracking-wider block">
+                  {sistema.etiquetaPrecio ? `${sistema.etiquetaPrecio} · Único Pago` : 'Único Pago'}
                 </span>
+                <div className="flex items-baseline justify-center md:justify-end gap-2 my-0.5">
+                  {sistema.precioAnterior && (
+                    <span className="text-base text-slate-400 line-through font-semibold">
+                      {sistema.precioAnterior}
+                    </span>
+                  )}
+                  <span className="text-3xl font-extrabold tracking-tight text-slate-900">
+                    {sistema.precio}
+                  </span>
+                </div>
+                <span className="text-[11px] text-slate-500 block">Sin mensualidades ni rentas</span>
               </div>
-              <span className="text-[11px] text-slate-500 block">Sin mensualidades ni rentas</span>
-            </div>
-          )}
-        </div>
+            ) : sistema.downloadUrl ? (
+              <div className="shrink-0 flex justify-center md:justify-end">
+                <HeaderDownloadButton
+                  downloadUrl={sistema.downloadUrl}
+                  sistemaSlug={sistema.slug}
+                  sistemaNombre={sistema.nombre}
+                  label="Descargar Cotizador Gratis"
+                  sublabel="Instalador Windows (.exe) · 100% Sin Costo"
+                />
+              </div>
+            ) : null}
+          </div>
 
           {/* Texto Informativo de Prueba Gratuita & Listo para Usar */}
-          <div className="space-y-4 my-6 text-slate-700 text-base leading-relaxed">
+          <div className="space-y-4 my-6 text-slate-700 text-base leading-relaxed max-w-4xl">
             {sistema.esGratis ? (
               <>
                 <p>

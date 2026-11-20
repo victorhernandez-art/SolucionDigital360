@@ -1,6 +1,15 @@
 # 📜 Historial de Cambios y Registro de Versiones (Changelog)
 ## Solución Digital 360 — Plataforma Web SaaS
 
+## 📌 Versión 1.5.8 — Noviembre 2026: Botón de Descarga Superior en Cotizador & Depuración de Textos de Compra para Software Gratuito
+- **⚡ Botón de Descarga Inmediata al Inicio de la Página (`components/HeaderDownloadButton.tsx` y `app/sistemas/[slug]/page.tsx`):**
+  - Se creó el componente `HeaderDownloadButton` integrado junto al título principal en el encabezado de `/sistemas/generador-cotizaciones-pdf`.
+  - Permite al usuario iniciar la descarga del instalador (`Instalador_Cotizador.exe`) de inmediato al ingresar a la página, además de mantener el segundo acceso al final de la página (ofreciendo ambas posibilidades).
+  - Incluye registro dinámico de descargas en la API `/api/downloads` y actualización en `localStorage`.
+- **🧹 Eliminación de Textos Incompatibles al Final de la Página (`components/DownloadCtaCard.tsx`):**
+  - Se eliminó el texto que mencionaba compra, entrega de accesos por WhatsApp y prueba de 7 días con gestión de socios en sistemas gratuitos (`esGratis`).
+  - Las notas de compra y clave de prueba quedan condicionadas exclusivamente a los sistemas de pago comercial (`FixPOS Pro` y `GymWeb`).
+
 ## 📌 Versión 1.5.7 — Noviembre 2026: Reemplazo de Tonos Rojos por Índigo y Esmeralda en Office & URLs de GitHub Releases Validadas
 - **📦 Actualización y Verificación de Enlaces Oficiales de Descarga en GitHub Releases:**
   - **Office 2016:** `https://github.com/victorhernandez-art/sistema-gimnasio/releases/download/Office2016/OFFICE.2016.PERPETUO.rar` (820.1 MB - HTTP 200 OK verificado).
