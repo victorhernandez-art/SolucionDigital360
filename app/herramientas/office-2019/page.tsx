@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import OfficeDownloadBox from '@/components/OfficeDownloadBox';
+import HeaderDownloadButton from '@/components/HeaderDownloadButton';
 import {
   CheckCircle2,
   AppWindow,
@@ -59,20 +60,33 @@ export default function Office2019Page() {
             <span>Guía Oficial · Video Tutorial en YouTube & Descarga</span>
           </div>
 
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-            <div className="hidden sm:flex p-2.5 bg-white border border-slate-200/90 rounded-2xl shadow-sm shrink-0 items-center justify-center">
-              <Image
-                src="/office-2019-logo.png"
-                alt="Microsoft Office"
-                width={80}
-                height={32}
-                className="w-24 h-auto object-contain"
-                unoptimized
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-1">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 max-w-3xl">
+              <div className="hidden sm:flex p-2.5 bg-white border border-slate-200/90 rounded-2xl shadow-sm shrink-0 items-center justify-center">
+                <Image
+                  src="/office-2019-logo.png"
+                  alt="Microsoft Office"
+                  width={80}
+                  height={32}
+                  className="w-24 h-auto object-contain"
+                  unoptimized
+                />
+              </div>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                Office 2019 GRATIS y LEGAL ✔️ | Cómo Activarlo con una Licencia Original
+              </h1>
+            </div>
+
+            <div className="shrink-0 flex justify-center lg:justify-end">
+              <HeaderDownloadButton
+                targetModalEvent="sd360_open_modal_office2019"
+                sistemaSlug="office-2019"
+                sistemaNombre="Office 2019 Profesional"
+                label="Descargar Office 2019 Gratis"
+                sublabel="Instalador Windows (.RAR) · 100% Sin Costo"
+                color="blue"
               />
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-              Office 2019 GRATIS y LEGAL ✔️ | Cómo Activarlo con una Licencia Original
-            </h1>
           </div>
 
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl leading-relaxed">

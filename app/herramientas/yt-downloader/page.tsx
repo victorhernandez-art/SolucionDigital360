@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import YTDownloaderDownloadBox from '@/components/YTDownloaderDownloadBox';
+import HeaderDownloadButton from '@/components/HeaderDownloadButton';
 import FacebookReelEmbed from '@/components/FacebookReelEmbed';
 import {
   ArrowLeft,
@@ -56,24 +57,37 @@ export default function YTDownloaderPage() {
             <span>Herramienta de Apoyo Gratuita · 100% Sin Publicidad</span>
           </div>
 
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-            <div className="hidden sm:flex p-2 bg-slate-100 border border-slate-200 rounded-2xl shadow-sm shrink-0 items-center justify-center">
-              <Image
-                src="/yt-downloader-icon.svg"
-                alt="YT Downloader"
-                width={56}
-                height={56}
-                className="w-12 h-12 object-contain"
-                unoptimized
-              />
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-1">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 max-w-3xl">
+              <div className="hidden sm:flex p-2 bg-slate-100 border border-slate-200 rounded-2xl shadow-sm shrink-0 items-center justify-center">
+                <Image
+                  src="/yt-downloader-icon.svg"
+                  alt="YT Downloader"
+                  width={56}
+                  height={56}
+                  className="w-12 h-12 object-contain"
+                  unoptimized
+                />
+              </div>
+              <div>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                  YT Downloader — Música & Videos de YouTube Sin Anuncios
+                </h1>
+                <p className="text-xs font-bold text-indigo-600 mt-1 uppercase tracking-wider">
+                  Versión 2.0 Oficial · Desarrollado por Solución Digital 360
+                </p>
+              </div>
             </div>
-            <div>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-                YT Downloader — Música & Videos de YouTube Sin Anuncios
-              </h1>
-              <p className="text-xs font-bold text-indigo-600 mt-1 uppercase tracking-wider">
-                Versión 2.0 Oficial · Desarrollado por Solución Digital 360
-              </p>
+
+            <div className="shrink-0 flex justify-center lg:justify-end">
+              <HeaderDownloadButton
+                targetModalEvent="sd360_open_modal_ytdownloader"
+                sistemaSlug="yt-downloader"
+                sistemaNombre="YT Downloader"
+                label="Descargar YT Downloader Gratis"
+                sublabel="Instalador Windows (.EXE) · 100% Sin Costo"
+                color="rose"
+              />
             </div>
           </div>
 

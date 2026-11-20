@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FilmoraDownloadBox from '@/components/FilmoraDownloadBox';
+import HeaderDownloadButton from '@/components/HeaderDownloadButton';
 import {
   ArrowLeft,
   CheckCircle2,
@@ -62,20 +63,33 @@ export default function FilmoraPage() {
             <span>Herramienta de Apoyo Gratuita · Paquete Completo 64 bits</span>
           </div>
 
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-            <div className="hidden sm:flex p-2.5 bg-white border border-slate-200/90 rounded-2xl shadow-sm shrink-0 items-center justify-center">
-              <Image
-                src="/filmora-logo.png"
-                alt="Wondershare Filmora"
-                width={100}
-                height={32}
-                className="w-28 h-auto object-contain"
-                unoptimized
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-1">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 max-w-3xl">
+              <div className="hidden sm:flex p-2.5 bg-white border border-slate-200/90 rounded-2xl shadow-sm shrink-0 items-center justify-center">
+                <Image
+                  src="/filmora-logo.png"
+                  alt="Wondershare Filmora"
+                  width={100}
+                  height={32}
+                  className="w-28 h-auto object-contain"
+                  unoptimized
+                />
+              </div>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                Wondershare Filmora — Suite de Edición de Video Profesional
+              </h1>
+            </div>
+
+            <div className="shrink-0 flex justify-center lg:justify-end">
+              <HeaderDownloadButton
+                targetModalEvent="sd360_open_modal_filmora"
+                sistemaSlug="filmora"
+                sistemaNombre="Wondershare Filmora"
+                label="Descargar Filmora Pro Gratis"
+                sublabel="Instalador Windows (.RAR / 64-bit) · 100% Sin Costo"
+                color="teal"
               />
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-              Wondershare Filmora — Suite de Edición de Video Profesional
-            </h1>
           </div>
 
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl leading-relaxed">

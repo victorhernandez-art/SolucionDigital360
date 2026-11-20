@@ -1,6 +1,20 @@
 # 📜 Historial de Cambios y Registro de Versiones (Changelog)
 ## Solución Digital 360 — Plataforma Web SaaS
 
+## 📌 Versión 1.5.9 — Noviembre 2026: Botón de Descarga Superior en Todas las Herramientas Gratuitas & Sincronización en Tiempo Real del Marcador
+- **⚡ Extensión de Botón Superior de Descarga a Todas las Herramientas Gratuitas:**
+  - Integración del botón superior de acceso rápido al lado del título principal en:
+    - **Nitro PDF Pro** (`app/herramientas/nitro-pdf/page.tsx`): Botón temático naranja conectado con modal Sub2Unlock.
+    - **Office 2019** (`app/herramientas/office-2019/page.tsx`): Botón temático azul conectado con modal Sub2Unlock.
+    - **Office 2016 y 2013** (`app/herramientas/office-2016/page.tsx`): Botones dobles independientes (2016 índigo y 2013 ámbar).
+    - **Wondershare Filmora** (`app/herramientas/filmora/page.tsx`): Botón temático verde azulado (teal).
+    - **YT Downloader** (`app/herramientas/yt-downloader/page.tsx`): Botón temático rosa.
+- **🔄 Sincronización Inmediata del Marcador en Tiempo Real:**
+  - Se conectó el sistema de eventos globales (`sd360_download_incremented`) en todos los componentes de descarga (`DownloadCtaCard`, `NitroDownloadBox`, `OfficeDownloadBox`, `OfficeDualDownloadBox`, `FilmoraDownloadBox`, `YTDownloaderDownloadBox`, `HeaderDownloadButton`).
+  - Al presionar **cualquiera de los dos botones de descarga** (el de arriba al inicio o el de abajo al final), el marcador numérico en pantalla refleja el incremento (+1) de forma instantánea sin necesidad de recargar la página.
+- **🛠️ Corrección en API `/api/downloads`:**
+  - Se agregó `cotizador_downloads` a la lectura de respaldo local `getLocalCounts()`.
+
 ## 📌 Versión 1.5.8 — Noviembre 2026: Botón de Descarga Superior en Cotizador & Depuración de Textos de Compra para Software Gratuito
 - **⚡ Botón de Descarga Inmediata al Inicio de la Página (`components/HeaderDownloadButton.tsx` y `app/sistemas/[slug]/page.tsx`):**
   - Se creó el componente `HeaderDownloadButton` integrado junto al título principal en el encabezado de `/sistemas/generador-cotizaciones-pdf`.

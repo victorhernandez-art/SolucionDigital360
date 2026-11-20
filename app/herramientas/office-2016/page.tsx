@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import OfficeDualDownloadBox from '@/components/OfficeDualDownloadBox';
+import HeaderDownloadButton from '@/components/HeaderDownloadButton';
 import {
   CheckCircle2,
   ArrowLeft,
@@ -58,9 +59,31 @@ export default function Office2016And2013Page() {
             <span>Herramienta Gratuita · 2 Versiones en 1 Sola Guía</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Microsoft Office 2016 y 2013 — Guía e Instaladores
-          </h1>
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-1">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight max-w-3xl">
+              Microsoft Office 2016 y 2013 — Guía e Instaladores
+            </h1>
+
+            {/* Botones de Descarga Superior para 2016 y 2013 */}
+            <div className="shrink-0 flex flex-col sm:flex-row lg:flex-col gap-2.5 justify-center lg:justify-end">
+              <HeaderDownloadButton
+                targetModalEvent="sd360_open_modal_office2016"
+                sistemaSlug="office-2016"
+                sistemaNombre="Office 2016 Profesional"
+                label="Descargar Office 2016 (.RAR)"
+                sublabel="Recomendado para Win 10 / 11"
+                color="indigo"
+              />
+              <HeaderDownloadButton
+                targetModalEvent="sd360_open_modal_office2013"
+                sistemaSlug="office-2013"
+                sistemaNombre="Office 2013 Profesional"
+                label="Descargar Office 2013 (.RAR)"
+                sublabel="Ultra Ligero · PC Estándar"
+                color="amber"
+              />
+            </div>
+          </div>
 
           <p className="text-slate-600 text-base sm:text-lg max-w-3xl leading-relaxed">
             El mismo proceso de instalación para ambas versiones. Elige <strong>Office 2016</strong> para equipos modernos con Windows 10/11, o <strong>Office 2013</strong> para un rendimiento ultra ligero en cualquier computadora de recursos estándar.

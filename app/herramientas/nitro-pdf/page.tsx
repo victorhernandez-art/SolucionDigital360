@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import NitroDownloadBox from '@/components/NitroDownloadBox';
+import HeaderDownloadButton from '@/components/HeaderDownloadButton';
 import {
   CheckCircle2,
   FileCheck2,
@@ -64,20 +65,33 @@ export default function NitroPdfPage() {
             <span>Herramienta de Apoyo Gratuita · Video Tutorial HD</span>
           </div>
 
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-            <div className="hidden sm:flex p-2.5 bg-white border border-slate-200/90 rounded-2xl shadow-sm shrink-0 items-center justify-center">
-              <Image
-                src="/nitro-pdf-logo.png"
-                alt="Nitro PDF Pro"
-                width={56}
-                height={64}
-                className="w-12 h-auto object-contain"
-                unoptimized
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-1">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 max-w-3xl">
+              <div className="hidden sm:flex p-2.5 bg-white border border-slate-200/90 rounded-2xl shadow-sm shrink-0 items-center justify-center">
+                <Image
+                  src="/nitro-pdf-logo.png"
+                  alt="Nitro PDF Pro"
+                  width={56}
+                  height={64}
+                  className="w-12 h-auto object-contain"
+                  unoptimized
+                />
+              </div>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                Nitro PDF Pro — Guía de Instalación y Descarga
+              </h1>
+            </div>
+
+            <div className="shrink-0 flex justify-center lg:justify-end">
+              <HeaderDownloadButton
+                targetModalEvent="sd360_open_modal_nitro-pdf"
+                sistemaSlug="nitro-pdf"
+                sistemaNombre="Nitro PDF Pro"
+                label="Descargar Nitro PDF Pro Gratis"
+                sublabel="Instalador Windows (.RAR / x64) · 100% Sin Costo"
+                color="orange"
               />
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-              Nitro PDF Pro — Guía de Instalación y Descarga
-            </h1>
           </div>
 
           <p className="text-base sm:text-lg text-slate-600 max-w-3xl leading-relaxed">

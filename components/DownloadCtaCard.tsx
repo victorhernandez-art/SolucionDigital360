@@ -85,6 +85,26 @@ export default function DownloadCtaCard({
       });
   }, [sistemaSlug, isGym, storageKey, baseCount, isCotizador]);
 
+  // Escuchar eventos globales de incremento (ej. clic en el botón superior del encabezado)
+  useEffect(() => {
+    const handleExternalDownload = (e: Event) => {
+      const customEvent = e as CustomEvent<{ sistema?: string; count?: number }>;
+      const targetSlug = isCotizador ? 'cotizador' : (sistemaSlug || (isGym ? 'sistema-gestion-gimnasios' : 'sistema-gestion-tecnicos'));
+      if (!customEvent.detail?.sistema || customEvent.detail.sistema === targetSlug) {
+        setDownloadCount((prev) => {
+          const updated = customEvent.detail?.count ? Math.max(prev + 1, customEvent.detail.count) : prev + 1;
+          try {
+            localStorage.setItem(storageKey, updated.toString());
+          } catch {}
+          return updated;
+        });
+      }
+    };
+
+    window.addEventListener('sd360_download_incremented', handleExternalDownload);
+    return () => window.removeEventListener('sd360_download_incremented', handleExternalDownload);
+  }, [isCotizador, isGym, sistemaSlug, storageKey]);
+
   const defaultTallerDownload = "https://github.com/victorhernandez-art/taller/releases/download/v1.4.0/FixPOS-Pro-Setup-1.4.0.exe";
   const finalDownloadLink = downloadUrl || (isTallerSystem ? defaultTallerDownload : megaLink);
 
@@ -92,12 +112,20 @@ export default function DownloadCtaCard({
     if (isDownloading) return;
     setIsDownloading(true);
 
-    // 1. Incremento visual inmediato
+    const slugParam = isCotizador ? 'cotizador' : (sistemaSlug || (isGym ? 'sistema-gestion-gimnasios' : 'sistema-gestion-tecnicos'));
+
+    // 1. Incremento visual inmediato y notificación global
     const nextCount = downloadCount + 1;
     setDownloadCount(nextCount);
     try {
       localStorage.setItem(storageKey, nextCount.toString());
     } catch {}
+
+    window.dispatchEvent(
+      new CustomEvent('sd360_download_incremented', {
+        detail: { sistema: slugParam, count: nextCount },
+      })
+    );
 
     // 2. Abrir la descarga directa inmediatamente
     window.open(finalDownloadLink, '_blank');

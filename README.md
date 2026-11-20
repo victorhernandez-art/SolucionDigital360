@@ -156,7 +156,16 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.5.8 — Noviembre 2026 (Actualización Reciente)
+### 📌 Versión 1.5.9 — Noviembre 2026 (Actualización Reciente)
+- **⚡ Botón Superior de Descarga en Todas las Herramientas Gratuitas:**
+  - Incorporación del botón de descarga directa en el encabezado de todas las herramientas gratuitas: Nitro PDF Pro, Office 2019, Office 2016 / 2013, Filmora y YT Downloader.
+- **🔄 Sincronización en Tiempo Real del Marcador de Descargas:**
+  - Comunicación bidireccional entre el botón superior e inferior mediante eventos `sd360_download_incremented`.
+  - Al pulsar cualquiera de los dos botones de descarga en la página, el contador se incrementa instantáneamente en pantalla (+1) y persiste en Supabase.
+- **🛠️ Corrección en `/api/downloads`:**
+  - Inclusión de `cotizador_downloads` en la persistencia local de respaldo.
+
+### 📌 Versión 1.5.8 — Noviembre 2026
 - **⚡ Botón de Descarga Superior Inmediato para Cotizador (`HeaderDownloadButton.tsx` y `page.tsx`):**
   - Implementación de botón directo al lado del título principal en `/sistemas/generador-cotizaciones-pdf` para permitir descarga rápida al ingresar.
   - Diseño limpio y minimalista en el botón superior (sin leyendas secundarias debajo).

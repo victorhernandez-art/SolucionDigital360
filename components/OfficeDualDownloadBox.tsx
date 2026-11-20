@@ -75,6 +75,48 @@ export default function OfficeDualDownloadBox({
     return () => clearInterval(interval);
   }, [isCounting]);
 
+  // Escuchar eventos para abrir modal desde los botones del encabezado
+  useEffect(() => {
+    const handleOpen2016 = () => handleOpenModal('2016');
+    const handleOpen2013 = () => handleOpenModal('2013');
+
+    window.addEventListener('sd360_open_modal_office2016', handleOpen2016);
+    window.addEventListener('sd360_open_modal_office2013', handleOpen2013);
+
+    return () => {
+      window.removeEventListener('sd360_open_modal_office2016', handleOpen2016);
+      window.removeEventListener('sd360_open_modal_office2013', handleOpen2013);
+    };
+  }, []);
+
+  // Escuchar eventos globales de incremento para actualizar los marcadores en tiempo real
+  useEffect(() => {
+    const handleExternalIncrement = (e: Event) => {
+      const customEvent = e as CustomEvent<{ sistema?: string; count?: number }>;
+      const sistema = customEvent.detail?.sistema;
+      if (sistema === 'office-2016' || sistema === 'office_2016') {
+        setCount2016((prev) => {
+          const updated = customEvent.detail?.count ? Math.max(prev + 1, customEvent.detail.count) : prev + 1;
+          try {
+            localStorage.setItem(storageKey2016, updated.toString());
+          } catch {}
+          return updated;
+        });
+      } else if (sistema === 'office-2013' || sistema === 'office_2013') {
+        setCount2013((prev) => {
+          const updated = customEvent.detail?.count ? Math.max(prev + 1, customEvent.detail.count) : prev + 1;
+          try {
+            localStorage.setItem(storageKey2013, updated.toString());
+          } catch {}
+          return updated;
+        });
+      }
+    };
+
+    window.addEventListener('sd360_download_incremented', handleExternalIncrement);
+    return () => window.removeEventListener('sd360_download_incremented', handleExternalIncrement);
+  }, [storageKey2016, storageKey2013]);
+
   // Sincronizar contadores de ambas versiones
   useEffect(() => {
     let localVal2016 = baseCount2016;
@@ -174,6 +216,12 @@ export default function OfficeDualDownloadBox({
     try {
       localStorage.setItem(activeStorageKey, nextCount.toString());
     } catch {}
+
+    window.dispatchEvent(
+      new CustomEvent('sd360_download_incremented', {
+        detail: { sistema: slugParam, count: nextCount },
+      })
+    );
 
     // 3. Registrar en backend
     try {

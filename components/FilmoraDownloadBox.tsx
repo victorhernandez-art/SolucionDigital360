@@ -65,6 +65,36 @@ export default function FilmoraDownloadBox({ downloadUrl }: FilmoraDownloadBoxPr
     return () => clearInterval(interval);
   }, [isCounting]);
 
+  // Escuchar evento para abrir modal desde el botón del encabezado
+  useEffect(() => {
+    const handleTriggerModal = () => {
+      setIsUnlocked(false);
+      setIsCounting(false);
+      setCountdown(10);
+      setIsModalOpen(true);
+    };
+    window.addEventListener('sd360_open_modal_filmora', handleTriggerModal);
+    return () => window.removeEventListener('sd360_open_modal_filmora', handleTriggerModal);
+  }, []);
+
+  // Escuchar eventos globales de incremento para actualizar el marcador en tiempo real
+  useEffect(() => {
+    const handleExternalIncrement = (e: Event) => {
+      const customEvent = e as CustomEvent<{ sistema?: string; count?: number }>;
+      if (!customEvent.detail?.sistema || customEvent.detail.sistema === 'filmora') {
+        setDownloadCount((prev) => {
+          const updated = customEvent.detail?.count ? Math.max(prev + 1, customEvent.detail.count) : prev + 1;
+          try {
+            localStorage.setItem(storageKey, updated.toString());
+          } catch {}
+          return updated;
+        });
+      }
+    };
+    window.addEventListener('sd360_download_incremented', handleExternalIncrement);
+    return () => window.removeEventListener('sd360_download_incremented', handleExternalIncrement);
+  }, [storageKey]);
+
   // Sincronizar contador de descargas
   useEffect(() => {
     let localSavedVal = baseCount;
@@ -123,12 +153,18 @@ export default function FilmoraDownloadBox({ downloadUrl }: FilmoraDownloadBoxPr
     // 1. Abrir la descarga en nueva pestaña
     window.open(downloadUrl, '_blank');
 
-    // 2. Incremento visual inmediato del contador
+    // 2. Incremento visual inmediato del contador y notificación global
     const nextCount = downloadCount + 1;
     setDownloadCount(nextCount);
     try {
       localStorage.setItem(storageKey, nextCount.toString());
     } catch {}
+
+    window.dispatchEvent(
+      new CustomEvent('sd360_download_incremented', {
+        detail: { sistema: 'filmora', count: nextCount },
+      })
+    );
 
     // 3. Registrar en backend
     try {
