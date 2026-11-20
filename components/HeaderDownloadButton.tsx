@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Download, ShieldCheck } from 'lucide-react';
+import { Download } from 'lucide-react';
 
 interface HeaderDownloadButtonProps {
   downloadUrl: string;
@@ -74,11 +74,6 @@ export default function HeaderDownloadButton({
           </span>
         </div>
       </button>
-
-      <div className="flex items-center gap-1.5 text-xs text-slate-500 font-medium">
-        <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-        <span>Instalador oficial libre de virus y sin suscripciones</span>
-      </div>
     </div>
   );
 }

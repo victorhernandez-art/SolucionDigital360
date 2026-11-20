@@ -159,6 +159,7 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 ### 📌 Versión 1.5.8 — Noviembre 2026 (Actualización Reciente)
 - **⚡ Botón de Descarga Superior Inmediato para Cotizador (`HeaderDownloadButton.tsx` y `page.tsx`):**
   - Implementación de botón directo al lado del título principal en `/sistemas/generador-cotizaciones-pdf` para permitir descarga rápida al ingresar.
+  - Diseño limpio y minimalista en el botón superior (sin leyendas secundarias debajo).
   - Disponibilidad de descarga en dos puntos clave de la página: encabezado superior y tarjeta final `DownloadCtaCard`.
 - **🧹 Eliminación de Textos Incompatibles al Final de la Página (`DownloadCtaCard.tsx`):**
   - Se eliminaron las notas sobre coordinación de compra por WhatsApp y claves de prueba de 7 días con gestión de socios en sistemas gratuitos (`esGratis`).

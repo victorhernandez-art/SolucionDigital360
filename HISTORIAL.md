@@ -5,6 +5,7 @@
 - **⚡ Botón de Descarga Inmediata al Inicio de la Página (`components/HeaderDownloadButton.tsx` y `app/sistemas/[slug]/page.tsx`):**
   - Se creó el componente `HeaderDownloadButton` integrado junto al título principal en el encabezado de `/sistemas/generador-cotizaciones-pdf`.
   - Permite al usuario iniciar la descarga del instalador (`Instalador_Cotizador.exe`) de inmediato al ingresar a la página, además de mantener el segundo acceso al final de la página (ofreciendo ambas posibilidades).
+  - Diseño minimalista y limpio del botón de descarga superior, retirando la leyenda secundaria inferior.
   - Incluye registro dinámico de descargas en la API `/api/downloads` y actualización en `localStorage`.
 - **🧹 Eliminación de Textos Incompatibles al Final de la Página (`components/DownloadCtaCard.tsx`):**
   - Se eliminó el texto que mencionaba compra, entrega de accesos por WhatsApp y prueba de 7 días con gestión de socios en sistemas gratuitos (`esGratis`).
