@@ -1,6 +1,15 @@
 # 📜 Historial de Cambios y Registro de Versiones (Changelog)
 ## Solución Digital 360 — Plataforma Web SaaS
 
+## 📌 Versión 1.5.10 — Noviembre 2026: Botones de Descarga Superior en FixPOS Pro y GymWeb & Depuración de Leyendas de Pie
+- **⚡ Botones de Descarga Superior para Sistemas Comerciales (FixPOS Pro y GymWeb):**
+  - Se incorporó el botón superior de descarga rápida (`HeaderDownloadButton`) junto a la tarjeta de precio en el encabezado de:
+    - **FixPOS Pro** (`/sistemas/sistema-gestion-tecnicos`): `Descargar FixPOS Pro Demo` (`FixPOS-Pro-Setup-1.4.0.exe`).
+    - **GymWeb** (`/sistemas/sistema-gestion-gimnasios`): `Descargar GymWeb Demo` (`Instalador_GymWeb_Windows_v2.6.zip`).
+  - Al pulsar cualquiera de los dos botones (el botón superior del encabezado o el botón inferior en la tarjeta CTA), el contador y marcador de descargas en vivo se incrementa instantáneamente en pantalla (+1) sin recargar la página y sincroniza con Supabase y `localStorage`.
+- **🧹 Eliminación Definitiva de Leyendas y Notas al Pie Innecesarias (`components/DownloadCtaCard.tsx`):**
+  - Se eliminaron las leyendas de texto al pie de la tarjeta CTA sobre coordinación personal por WhatsApp y periodo de prueba/gestión de socios, logrando una interfaz 100% limpia, minimalista y profesional.
+
 ## 📌 Versión 1.5.9 — Noviembre 2026: Botón de Descarga Superior en Todas las Herramientas Gratuitas & Sincronización en Tiempo Real del Marcador
 - **⚡ Extensión de Botón Superior de Descarga a Todas las Herramientas Gratuitas:**
   - Integración del botón superior de acceso rápido al lado del título principal en:

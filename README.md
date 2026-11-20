@@ -156,7 +156,14 @@ Cualquier desarrollador o agente que retome el proyecto puede añadir un nuevo s
 
 ## 📝 Control de Modificaciones del Sistema (Changelog)
 
-### 📌 Versión 1.5.9 — Noviembre 2026 (Actualización Reciente)
+### 📌 Versión 1.5.10 — Noviembre 2026 (Actualización Reciente)
+- **⚡ Botón Superior de Descarga en FixPOS Pro y GymWeb:**
+  - Integración del botón de descarga superior junto al bloque de precio en `/sistemas/sistema-gestion-tecnicos` y `/sistemas/sistema-gestion-gimnasios`.
+  - Sincronización en tiempo real del contador de descargas: pulsar cualquiera de los dos botones (arriba o abajo) incrementa inmediatamente el marcador numérico en vivo (+1).
+- **🧹 Eliminación de Leyendas Secundarias al Pie:**
+  - Depuración completa de textos redundantes al pie de las tarjetas de descarga en `components/DownloadCtaCard.tsx`.
+
+### 📌 Versión 1.5.9 — Noviembre 2026
 - **⚡ Botón Superior de Descarga en Todas las Herramientas Gratuitas:**
   - Incorporación del botón de descarga directa en el encabezado de todas las herramientas gratuitas: Nitro PDF Pro, Office 2019, Office 2016 / 2013, Filmora y YT Downloader.
 - **🔄 Sincronización en Tiempo Real del Marcador de Descargas:**

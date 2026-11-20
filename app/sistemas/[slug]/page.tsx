@@ -129,23 +129,35 @@ export default function SistemaDetailPage({ params }: SistemaPageProps) {
               {sistema.nombre}
             </h1>
 
-            {/* Lado derecho: Precio para sistemas de pago O Botón de Descarga Rápida para sistemas gratuitos */}
+            {/* Lado derecho: Botón de Descarga Superior + Tarjeta de Precio (o solo botón si es gratuito) */}
             {!sistema.esGratis ? (
-              <div className="shrink-0 text-center md:text-right bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
-                <span className="text-xs font-bold text-emerald-600 uppercase tracking-wider block">
-                  {sistema.etiquetaPrecio ? `${sistema.etiquetaPrecio} · Único Pago` : 'Único Pago'}
-                </span>
-                <div className="flex items-baseline justify-center md:justify-end gap-2 my-0.5">
-                  {sistema.precioAnterior && (
-                    <span className="text-base text-slate-400 line-through font-semibold">
-                      {sistema.precioAnterior}
-                    </span>
-                  )}
-                  <span className="text-3xl font-extrabold tracking-tight text-slate-900">
-                    {sistema.precio}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 shrink-0">
+                {sistema.downloadUrl && (
+                  <HeaderDownloadButton
+                    downloadUrl={sistema.downloadUrl}
+                    sistemaSlug={sistema.slug}
+                    sistemaNombre={sistema.nombre}
+                    label={isTallerSystem ? "Descargar FixPOS Pro Demo" : "Descargar GymWeb Demo"}
+                    sublabel={isTallerSystem ? "Instalador Windows (.exe) · Prueba 7 Días" : "Instalador Windows (.zip) · Prueba 7 Días"}
+                    color="indigo"
+                  />
+                )}
+                <div className="shrink-0 text-center md:text-right bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+                  <span className="text-xs font-bold text-emerald-600 uppercase tracking-wider block">
+                    {sistema.etiquetaPrecio ? `${sistema.etiquetaPrecio} · Único Pago` : 'Único Pago'}
                   </span>
+                  <div className="flex items-baseline justify-center md:justify-end gap-2 my-0.5">
+                    {sistema.precioAnterior && (
+                      <span className="text-base text-slate-400 line-through font-semibold">
+                        {sistema.precioAnterior}
+                      </span>
+                    )}
+                    <span className="text-3xl font-extrabold tracking-tight text-slate-900">
+                      {sistema.precio}
+                    </span>
+                  </div>
+                  <span className="text-[11px] text-slate-500 block">Sin mensualidades ni rentas</span>
                 </div>
-                <span className="text-[11px] text-slate-500 block">Sin mensualidades ni rentas</span>
               </div>
             ) : sistema.downloadUrl ? (
               <div className="shrink-0 flex justify-center md:justify-end">

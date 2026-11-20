@@ -69,8 +69,24 @@ export default function HeaderDownloadButton({
 
     // 2. Incrementar contador en localStorage y emitir evento global en tiempo real
     const isCotizador = sistemaSlug.includes('cotiza');
-    const storageKey = isCotizador ? 'sd360_downloads_cotizador' : `sd360_downloads_${sistemaSlug}`;
-    const slugParam = isCotizador ? 'cotizador' : sistemaSlug;
+    const isGym = sistemaSlug.includes('gimnasio') || sistemaSlug.includes('gym');
+    const isTaller = sistemaSlug.includes('tecnico') || sistemaSlug.includes('taller');
+
+    const storageKey = isGym
+      ? 'sd360_downloads_gym'
+      : isCotizador
+      ? 'sd360_downloads_cotizador'
+      : isTaller
+      ? 'sd360_downloads_taller'
+      : `sd360_downloads_${sistemaSlug}`;
+
+    const slugParam = isCotizador
+      ? 'cotizador'
+      : isGym
+      ? 'sistema-gestion-gimnasios'
+      : isTaller
+      ? 'sistema-gestion-tecnicos'
+      : sistemaSlug;
 
     let nextCount = 1;
     try {

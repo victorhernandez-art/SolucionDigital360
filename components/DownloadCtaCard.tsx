@@ -323,20 +323,6 @@ export default function DownloadCtaCard({
           </a>
         </div>
       </div>
-
-      {/* Notas al pie de seguridad y compra personal (Solo para sistemas de pago) */}
-      {!esGratis && (
-        <div className="space-y-1.5 pt-1 relative z-10 text-xs text-slate-500">
-          <p className="font-medium text-slate-700">
-            La compra y entrega de accesos o claves se coordina de forma personal por WhatsApp. No se procesan pagos automáticos desde esta página.
-          </p>
-          {hasDirectDownload && (
-            <p className="text-[11px] text-slate-400">
-              🔒 Instalador libre de virus. Incluye 7 días de acceso completo a todas las funciones operativas{isTallerSystem ? ' e impresión de tickets' : ' y gestión de socios'}.
-            </p>
-          )}
-        </div>
-      )}
     </section>
   );
 }
